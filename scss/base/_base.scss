@@ -1,0 +1,15 @@
+//  ========================
+//  Contains all base styles
+//  ========================
+
+.page {
+  font-family: var(--font-primary);
+  background: var(--color-off-white);
+  color: var(--color-dark-not-black);
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+::selection, ::-moz-selection {
+  background: var(--color-cyan);
+}

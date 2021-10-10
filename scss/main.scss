@@ -1,0 +1,138 @@
+//  ==============================================
+//  The main SCSS file which combines all partials
+//  Is being compiled to the main CSS file
+//  ==============================================
+
+//  1. Vendor styles
+@use 'vendors';
+
+//  2. Base styles
+@use 'base';
+
+//  3. Element Component styles
+@use 'components';
+
+/* Just temporary placeholders */
+/* Loader styling */
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-dark-not-black);
+  z-index: 20;
+  align-items: center;
+  text-align: center;
+}
+
+.loader {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  background-image: url('../img/loader.svg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border: 3.6px solid;
+  border-radius: 50%;
+  animation: loading-spinner 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--color-brand) transparent transparent transparent;
+}
+
+.loader div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.loader div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.loader div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+/* Loading - The icon spinner */
+@keyframes loading-spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Typewriter styling */
+.typewriter-wrapper {
+  display: block;
+}
+
+.typewriter {
+  display: inline-block;
+}
+
+.typewriter__text {
+  overflow: hidden;
+  border-right: 4.2px solid var(--color-off-white);
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 0;
+}
+
+/* Typewriter - The typing animation */
+@keyframes typing {
+  0%,
+  100% {
+    width: 0;
+  }
+  33%,
+  66% {
+    width: 100%;
+  }
+}
+
+/* Typewriter - The cursor animation */
+@keyframes blink-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-grayish-black);
+  }
+}
+
+/* fullPage.js styling */
+#fp-nav {
+  z-index: 10;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+#fp-nav.fp-left {
+  left: 3em;
+}
+
+#fp-nav ul li .fp-tooltip {
+  color: var(--color-dark-not-black);
+  font-size: var(--size-smaller-body);
+  font-family: var(--font-primary);
+  padding: 0.3em;
+  background: var(--color-off-white);
+  text-transform: lowercase;
+}
+
+#fp-nav ul li a span {
+  background: var(--color-off-white);
+}

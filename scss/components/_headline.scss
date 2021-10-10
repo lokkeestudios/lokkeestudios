@@ -1,0 +1,45 @@
+//  ==========================
+//  Headline component styling
+//  ==========================
+
+.headline {
+  font-family: var(--font-headline);
+  font-weight: 700;
+  font-size: var(--size-headline);
+  line-height: 1.1;
+  color: var(--color-dark-not-black);
+  cursor: default;
+  margin: 0;
+
+  &--is-monospace {
+    font-family: var(--font-monospace);
+  }
+
+  &--is-small {
+    font-size: var(--size-smaller-headline);
+  }
+
+  &--is-gigantic {
+    font-size: var(--size-headline-gigantic);
+  }
+
+  &--is-light {
+    color: var(--color-off-white);
+  }
+
+  &--is-brand {
+    color: var(--color-brand);
+  }
+
+  &--is-capitalized {
+    text-transform: capitalize;
+  }
+
+  &--is-uppercase {
+    text-transform: uppercase;
+  }
+
+  &:not(&--is-not-spaced) {
+    margin-bottom: 0.7em;
+  }
+}

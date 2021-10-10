@@ -1,0 +1,23 @@
+//  ===========================
+//  Contains all font variables
+//  ===========================
+
+//  Roboto Google Fonts import
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+//  Roboto Condensed Google Fonts import
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+//  Roboto Mono Google Fonts import
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+//  Font families
+$roboto: 'Roboto', sans-serif;
+$roboto-condensed: 'Roboto Condensed', sans-serif;
+$roboto-mono: 'Roboto Mono', monospace;
+
+$fonts: (
+  'primary': $roboto,
+  'headline': $roboto-condensed,
+  'monospace': $roboto-mono
+);

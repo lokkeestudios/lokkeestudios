@@ -1,0 +1,129 @@
+//  ========================
+//  Button component styling
+//  ========================
+
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  padding: 1.2em 4.2em;
+  font-weight: 400;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  border: 1.6px solid;
+  border-color: var(--color-dark-not-black);
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  z-index: 1;
+  color: var(--color-off-white);
+  background-size: 135%;
+  background-color: var(--color-dark-not-black);
+  background-image: url("../img/button-light.svg");
+  background-repeat: no-repeat;
+  background-position: 500%;
+  transition: 0.4s ease-in-out;
+  transition-property: background-position, color;
+
+  &--background-is-light {
+    border-color: var(--color-off-white);
+    color: var(--color-dark-not-black);
+    background-color: var(--color-off-white);
+
+    &.button--is-hollow {
+      color: var(--color-off-white);
+    }
+  }
+
+  &--background-is-brand {
+    border-color: var(--color-brand);
+    color: var(--color-off-white);
+    background-color: var(--color-brand);
+  }
+
+  &--overlay-is-light {
+    background-image: url("../img/button-dark.svg");
+  }
+
+  &--overlay-is-brand {
+    background-image: url("../img/button-brand.svg");
+  }
+
+  &--is-hollow {
+    background-color: transparent;
+  }
+
+  &--is-capitalized {
+    text-transform: capitalize;
+  }
+
+  &--is-uppercase {
+    text-transform: uppercase;
+  }
+
+  &--is-bold {
+    font-weight: 700;
+  }
+
+  &:not(&--is-not-spaced) {
+    margin-bottom: 1.4em;
+  }
+}
+
+.button:hover {
+  background-position: 50%;
+  color: var(--color-dark-not-black);
+
+  &.button--overlay-is-light {
+    color: var(--color-off-white);
+  }
+
+  &.button--overlay-is-brand {
+    color: var(--color-off-white);
+  }
+}
+
+.button {
+  &::before {
+    content: "";
+    position: absolute;
+    width: calc(100% + 0.9em);
+    height: 50%;
+    left: -0.5em;
+    top: -0.5em;
+    z-index: 0;
+    border: 1px solid;
+    border-color: var(--color-dark-not-black);
+    border-bottom: 0;
+    opacity: var(--opacity-almost-invisible);
+  }
+
+  &.button--decoration-is-light {
+    &::before {
+      border-color: var(--color-off-white);
+    }
+  }
+}
+
+.button {
+  &::after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 0.9em);
+    height: 50%;
+    left: -0.5em;
+    bottom: -0.5em;
+    z-index: 0;
+    border: 1px solid;
+    border-color: var(--color-dark-not-black);
+    border-top: 0;
+    opacity: var(--opacity-almost-invisible);
+  }
+
+  &.button--decoration-is-light {
+    &::after {
+      border-color: var(--color-off-white);
+    }
+  }
+}

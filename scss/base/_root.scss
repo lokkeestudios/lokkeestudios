@@ -1,0 +1,34 @@
+//  =====================================
+//  Contains the root pseudo-class,
+//  which holds all custom CSS properties
+//  =====================================
+
+@use '../abstracts' as abstracts;
+
+:root {
+  //  Color properties
+  @each $primary, $value in abstracts.$primaries {
+    --color-#{$primary}: rgb(#{$value});
+    --rgb-#{$primary}: #{$value};
+  }
+  @each $neutral, $value in abstracts.$neutrals {
+    --color-#{$neutral}: rgb(#{$value});
+    --rgb-#{$neutral}: #{$value};
+  }
+  @each $gradient, $value in abstracts.$gradients {
+    --gradient-#{$gradient}: #{$value};
+  }
+  @each $opacity, $value in abstracts.$opacities {
+    --opacity-#{$opacity}: #{$value};
+  }
+
+  //  Font properties
+  @each $font, $value in abstracts.$fonts {
+    --font-#{$font}: #{$value};
+  }
+
+  //  Typography size properties
+  @each $size, $value in abstracts.$type-scale {
+    --size-#{$size}: #{$value};
+  }
+}

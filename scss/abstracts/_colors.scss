@@ -1,0 +1,41 @@
+//  ============================
+//  Contains all color variables
+//  ============================
+
+//  Primaries
+$brand: 106, 25, 255;
+$brand-v2: 151, 84, 239;
+$pinkish-red: 255, 70, 101;
+$cyan: 72, 227, 170;
+
+$primaries: (
+  'brand': $brand,
+  'brand-v2': $brand-v2,
+  'pinkish-red': $pinkish-red,
+  'cyan': $cyan
+);
+
+//  Neutrals
+$dark-not-black: 15, 25, 34;
+$not-quite-black: 31, 39, 49;
+$grayish-black: 45, 53, 62;
+$off-white: 255, 254, 250;
+
+$neutrals: (
+  'dark-not-black': $dark-not-black,
+  'not-quite-black': $not-quite-black,
+  'grayish-black': $grayish-black,
+  'off-white': $off-white
+);
+
+//  Gradients
+$gradients: (
+  'brand': linear-gradient(90deg, #6A19FF 0%, #9754EF 100%)
+);
+
+//  Opacities
+$opacities: (
+  'not-much-transparency': 0.85,
+  'somewhat-translucent': 0.65,
+  'almost-invisible': 0.35
+);

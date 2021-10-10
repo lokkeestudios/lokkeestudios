@@ -1,0 +1,55 @@
+//  ===========================
+//  Paragraph component styling
+//  ===========================
+
+.paragraph {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: var(--size-body);
+  line-height: 1.6;
+  color: var(--color-dark-not-black);
+  max-width: 60ch;
+  cursor: default;
+  letter-spacing: 0.05em;
+  margin: 0;
+
+  &--is-monospace {
+    font-family: var(--font-monospace);
+  }
+
+  &--is-bold {
+    font-weight: 700;
+  }
+
+  &--is-small {
+    font-size: var(--size-smaller-body);
+  }
+
+  &--is-light {
+    color: var(--color-off-white);
+  }
+
+  &--is-brand {
+    color: var(--color-brand);
+  }
+
+  &--is-capitalized {
+    text-transform: capitalize;
+  }
+
+  &--is-uppercase {
+    text-transform: uppercase;
+  }
+
+  &--is-somewhat-translucent {
+    opacity: var(--opacity-somewhat-translucent);
+  }
+
+  &:not(&--is-not-spaced) {
+    margin-bottom: 4em;
+  }
+
+  b, strong {
+    font-weight: 700;
+  }
+}
