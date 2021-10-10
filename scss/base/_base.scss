@@ -6,8 +6,8 @@
   font-family: var(--font-primary);
   background: var(--color-off-white);
   color: var(--color-dark-not-black);
-  overflow-x: hidden;
-  overflow-y: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 ::selection, ::-moz-selection {
