@@ -13,10 +13,10 @@
   cursor: pointer;
   letter-spacing: 0.05em;
   border: 1.6px solid;
+  text-decoration: none;
   border-color: var(--color-dark-not-black);
   font-family: var(--font-primary);
   font-size: var(--size-body);
-  z-index: 1;
   color: var(--color-off-white);
   background-size: 135%;
   background-color: var(--color-dark-not-black);
@@ -42,6 +42,12 @@
     background-color: var(--color-brand);
   }
 
+  &--background-is-red {
+    border-color: var(--color-pinkish-red);
+    color: var(--color-off-white);
+    background-color: var(--color-pinkish-red);
+  }
+
   &--overlay-is-light {
     background-image: url("../img/button-dark.svg");
   }
@@ -64,6 +70,10 @@
 
   &--is-bold {
     font-weight: 700;
+  }
+
+  &--is-small {
+    font-size: var(--size-smaller-body);
   }
 
   &:not(&--is-not-spaced) {
@@ -92,7 +102,7 @@
     height: 50%;
     left: -0.5em;
     top: -0.5em;
-    z-index: 0;
+    z-index: -1;
     border: 1px solid;
     border-color: var(--color-dark-not-black);
     border-bottom: 0;
@@ -114,7 +124,7 @@
     height: 50%;
     left: -0.5em;
     bottom: -0.5em;
-    z-index: 0;
+    z-index: -1;
     border: 1px solid;
     border-color: var(--color-dark-not-black);
     border-top: 0;

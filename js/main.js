@@ -8,18 +8,35 @@ new fullpage('#app', {
   onLeave: function (origin, destination) {
     console.log(origin.isFirst);
     if (destination.isFirst && window.innerWidth > 600) {
-      $(".navigation").css("background", "none");
+      document.querySelector('.navigation').style.background = 'none';
     } else if (origin.isFirst && window.innerWidth > 600) {
-      $(".navigation").css("background", "rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency))");
+      document.querySelector('.navigation').style.background = 'rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency))';
     }
   }
 })
 
 /* onLoad logic */
-$(window).on('load', () => {
-  $('.loader-wrapper').delay(250).fadeOut('slow');
+window.addEventListener('load', () => {
+  fadeOutLoader();
   updateTypewriter();
 });
+
+/* Loader fade-out logic */
+function fadeOutLoader() {
+  console.log("test");
+  const loader = document.querySelector('.loader-wrapper');
+  const fadeOut = setInterval(function () {
+    if (!loader.style.opacity) {
+      loader.style.opacity = 1;
+    }
+    if (loader.style.opacity > 0) {
+      loader.style.opacity -= 0.05;
+    } else {
+      clearInterval(fadeOut);
+      loader.style.display = "none";
+    }
+  }, 35);
+}
 
 /* Typewriter configuration */
 const texts = ["developer", "graphic designer", "generalist", "student", "coffeeholic", "freelancer", "globetrotter"];
@@ -35,7 +52,7 @@ function updateTypewriter() {
     text.innerHTML = texts[index];
 
     let textLength = texts[index].length;
-    let speed = textLength / 2.1;
+    let speed = textLength / 2.3;
 
     text.style.animation = 'typing ' + speed + 's steps(' + textLength + ', end), blink-caret .75s step-end infinite';
     (index === texts.length - 1) ? index = 0 : index++;

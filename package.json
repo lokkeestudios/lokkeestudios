@@ -28,7 +28,6 @@
     "parcel-plugin-static-files-copy": "^2.6.0"
   },
   "dependencies": {
-    "fullpage.js": "^3.1.2",
-    "jQuery": "^1.7.4"
+    "fullpage.js": "^3.1.2"
   }
 }

@@ -23,6 +23,19 @@
   <link href="site.webmanifest" rel="manifest">
   <link href="icon.png" rel="apple-touch-icon">
 
+  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" media="print"
+        onload="this.onload=null;this.removeAttribute('media');" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" media="print"
+        onload="this.onload=null;this.removeAttribute('media');" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" media="print"
+        onload="this.onload=null;this.removeAttribute('media');" rel="stylesheet">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  </noscript>
+
   <link
     crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
@@ -36,6 +49,16 @@
 </head>
 
 <body>
+
+<!-- Shows loading screen until the website finished loading -->
+<div class="loader-wrapper">
+  <div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
 
 <header>
   <nav class="navigation">
@@ -82,8 +105,6 @@
     <div class="container">
       <div class="horizontal-line horizontal-line--is-light"></div>
       <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">About</h1>
-      <!--<h2 class="headline headline--is-monospace headline--is-small headline--is-light headline--is-capitalized">
-        Develope_</h2>-->
       <div class="typewriter-wrapper">
         <div class="typewriter" id="typewriter">
           <h2
@@ -97,10 +118,12 @@
         officiis perspiciatis porro, quasi veniam, voluptatum! Ab accusamus distinctio, eos facere maxime neque
         praesentium quam sint suscipit totam ut vero voluptatem.
       </p>
-      <button
-        class="button button--background-is-brand button--overlay-is-light button--decoration-is-light button--is-bold button--is-uppercase button--is-not-spaced">
-        Find out more
-      </button>
+      <a href="#">
+        <button
+          class="button button--background-is-brand button--overlay-is-light button--decoration-is-light button--is-bold button--is-uppercase button--is-not-spaced">
+          Find out more
+        </button>
+      </a>
     </div>
   </section>
 
@@ -115,9 +138,12 @@
         officiis perspiciatis porro, quasi veniam, voluptatum! Ab accusamus distinctio, eos facere maxime neque
         praesentium quam sint suscipit totam ut vero voluptatem.
       </p>
-      <button class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced">Take
-        a look
-      </button>
+      <a href="#">
+        <button class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced">
+          Take
+          a look
+        </button>
+      </a>
     </div>
   </section>
 
@@ -132,34 +158,37 @@
         officiis perspiciatis porro, quasi veniam, voluptatum! Ab accusamus distinctio, eos facere maxime neque
         praesentium quam sint suscipit totam ut vero voluptatem.
       </p>
-      <button
-        class="button button--background-is-brand button--overlay-is-light button--decoration-is-light
+      <a href="#">
+        <button
+          class="button button--background-is-brand button--overlay-is-light button--decoration-is-light
           button--is-bold button--is-uppercase button--is-not-spaced">
-        Hit me up
-      </button>
+          Hit me up
+        </button>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" data-tooltip="Source">
+    <div class="container">
+      <div class="horizontal-line"></div>
+      <h1 class="headline headline--is-gigantic headline--is-uppercase">Source</h1>
+      <h3 class="headline headline--is-small headline--is-capitalized">Behind the simulation</h3>
+      <p class="paragraph paragraph--is-somewhat-translucent">
+        You take the blue pill...you keep scrolling, you leave this site and believe whatever you want to believe.
+        You take the red pill...you stay in Wonderland, and I show you how deep the rabbit hole goes.
+      </p>
+      <a href="https://sourcecode.lokkeestudios.com" rel="noreferrer" target="_blank">
+        <button
+          class="button button--is-bold button--background-is-red button--is-uppercase button--is-not-spaced">
+          Show me
+        </button>
+      </a>
     </div>
   </section>
 
 </div>
 
-<!-- Shows loading screen until the website finished loading -->
-<section class="loader-wrapper">
-  <div class="loader">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</section>
-
-<script
-  crossorigin="anonymous"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-></script>
-<script>window.jQuery || document.write('<script src="js/vendors/jquery-3.6.0.min.js"><\/script>')</script>
-<script src="js/vendors/modernizr-3.11.2.min.js"></script>
-<script crossorigin="anonymous" src="https://kit.fontawesome.com/65425eb122.js"></script>
+<script crossorigin="anonymous" defer src="https://kit.fontawesome.com/65425eb122.js"></script>
 <script
   crossorigin="anonymous"
   integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="
