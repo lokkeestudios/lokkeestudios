@@ -32,7 +32,7 @@
   position: relative;
   width: 38px;
   height: 38px;
-  background-image: url('../img/loader.svg');
+  background-image: url('../img/loading-icon.svg');
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,9 +54,11 @@
 .loader div:nth-child(1) {
   animation-delay: -0.45s;
 }
+
 .loader div:nth-child(2) {
   animation-delay: -0.3s;
 }
+
 .loader div:nth-child(3) {
   animation-delay: -0.15s;
 }
@@ -121,7 +123,7 @@
 }
 
 #fp-nav.fp-left {
-  left: 3em;
+  left: 3vw;
 }
 
 #fp-nav ul li .fp-tooltip {
@@ -129,10 +131,22 @@
   font-size: var(--size-smaller-body);
   font-family: var(--font-primary);
   padding: 0.3em;
-  background: var(--color-off-white);
-  text-transform: lowercase;
+  background: var(--color-cyan);
+  text-transform: capitalize;
 }
 
 #fp-nav ul li a span {
-  background: var(--color-off-white);
+  background: url("../img/navigation-icon.svg");
+}
+
+#fp-nav ul li :is(a, a.active) :is(span, span:hover) {
+  width: 1em;
+  height: 1em;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+#fp-nav ul li a.active span {
+  background: url("../img/navigation-icon-selected.svg");
 }

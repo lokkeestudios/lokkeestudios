@@ -13,6 +13,14 @@
   letter-spacing: 0.05em;
   margin: 0;
 
+  &--is-clickable {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--color-cyan);
+    }
+  }
+
   &--is-monospace {
     font-family: var(--font-monospace);
   }

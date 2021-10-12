@@ -412,7 +412,28 @@ template {
 
 .container {
   margin: 0 auto;
-  width: min(70%, 70.5rem);
+  width: min(80%, 80rem);
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 600px) {
+  .split {
+    flex-direction: row;
+  }
+  .split > * {
+    flex-basis: 100%;
+  }
+  .split > * + * {
+    margin-left: 2em;
+  }
+}
+
+.image {
+  display: block;
+  max-width: 100%;
 }
 
 .headline {
@@ -421,8 +442,12 @@ template {
   font-size: var(--size-headline);
   line-height: 1.1;
   color: var(--color-dark-not-black);
+  text-align: left;
   cursor: default;
   margin: 0;
+}
+.headline--is-centered {
+  text-align: center;
 }
 .headline--is-monospace {
   font-family: var(--font-monospace);
@@ -459,6 +484,12 @@ template {
   cursor: default;
   letter-spacing: 0.05em;
   margin: 0;
+}
+.paragraph--is-clickable {
+  cursor: pointer;
+}
+.paragraph--is-clickable:hover {
+  color: var(--color-cyan);
 }
 .paragraph--is-monospace {
   font-family: var(--font-monospace);
@@ -527,11 +558,6 @@ template {
   border-color: var(--color-brand);
   color: var(--color-off-white);
   background-color: var(--color-brand);
-}
-.button--background-is-red {
-  border-color: var(--color-pinkish-red);
-  color: var(--color-off-white);
-  background-color: var(--color-pinkish-red);
 }
 .button--overlay-is-light {
   background-image: url("../img/button-dark.svg");
@@ -638,13 +664,20 @@ template {
   display: inline-block;
 }
 
-.navigation__links {
+.navigation__content {
   display: inline-block;
   float: right;
 }
 @media only screen and (max-width: 600px) {
-  .navigation__links {
+  .navigation__content {
     display: none;
+    flex-direction: column;
+    float: none;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .navigation__content {
+    display: inline-block;
   }
 }
 
@@ -655,19 +688,35 @@ template {
   padding: 0;
   vertical-align: top;
 }
+@media only screen and (max-width: 600px) {
+  .navigation__list {
+    display: block;
+    padding-top: 2em;
+  }
+}
 
 .navigation__list-item {
   display: inline-block;
   margin-right: 1.4em;
 }
+.navigation__list-item .navigation__link:hover {
+  border-bottom: 1px solid var(--color-off-white);
+}
 
 .navigation__socials {
   display: inline-block;
+}
+@media only screen and (max-width: 600px) {
+  .navigation__socials {
+    display: block;
+    padding-top: 2em;
+  }
 }
 
 .navigation__social-icon {
   color: var(--color-off-white);
   font-size: 1.9em;
+  margin-top: -0.08em;
   margin-left: 0.2em;
 }
 
@@ -675,6 +724,7 @@ template {
   color: var(--color-off-white);
   font-size: 1.2em;
   float: right;
+  cursor: pointer;
   display: none !important;
 }
 @media only screen and (max-width: 600px) {
@@ -685,7 +735,7 @@ template {
 
 .horizontal-line {
   height: 0.1px;
-  width: 50%;
+  width: 100%;
   z-index: -1;
   border-top: 1px solid;
   padding: 0;
@@ -695,6 +745,9 @@ template {
 }
 .horizontal-line--is-light {
   border-color: var(--color-off-white);
+}
+.horizontal-line--is-halved {
+  width: 50%;
 }
 
 /* Just temporary placeholders */
@@ -717,7 +770,7 @@ template {
   position: relative;
   width: 38px;
   height: 38px;
-  background-image: url("../img/loader.svg");
+  background-image: url("../img/loading-icon.svg");
   display: flex;
   justify-content: center;
   align-items: center;
@@ -803,7 +856,7 @@ template {
 }
 
 #fp-nav.fp-left {
-  left: 3em;
+  left: 3vw;
 }
 
 #fp-nav ul li .fp-tooltip {
@@ -811,12 +864,24 @@ template {
   font-size: var(--size-smaller-body);
   font-family: var(--font-primary);
   padding: 0.3em;
-  background: var(--color-off-white);
-  text-transform: lowercase;
+  background: var(--color-cyan);
+  text-transform: capitalize;
 }
 
 #fp-nav ul li a span {
-  background: var(--color-off-white);
+  background: url("../img/navigation-icon.svg");
+}
+
+#fp-nav ul li :is(a, a.active) :is(span, span:hover) {
+  width: 1em;
+  height: 1em;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+#fp-nav ul li a.active span {
+  background: url("../img/navigation-icon-selected.svg");
 }
 
 /*# sourceMappingURL=main.css.map */

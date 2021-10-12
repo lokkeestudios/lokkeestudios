@@ -42,12 +42,6 @@
     background-color: var(--color-brand);
   }
 
-  &--background-is-red {
-    border-color: var(--color-pinkish-red);
-    color: var(--color-off-white);
-    background-color: var(--color-pinkish-red);
-  }
-
   &--overlay-is-light {
     background-image: url("../img/button-dark.svg");
   }

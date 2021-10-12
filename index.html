@@ -6,7 +6,7 @@
   <!-- Description not final -->
   <title>Lokkee Studios | Programming and Design from the Future</title>
   <meta
-    content="I'm Lokkee, a passionate freelance developer and graphic designer. I am experienced in developing web and desktop applications as well as games using engines like Unity. In addition, I do graphics like logos and illustrations. I'm available for collaboration to deliver you the finest product using my own time machine. Want to find out how?"
+    content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
     name="description">
 
   <meta content="width=device-width, maximum-scale=1.0" name="viewport">
@@ -16,7 +16,7 @@
   <meta content="website" property="og:type">
   <meta content="https://lokkeestudios.com/" property="og:url">
   <meta
-    content="I'm Lokkee, a passionate freelance developer and graphic designer. I am experienced in developing web and desktop applications as well as games using engines like Unity. In addition, I do graphics like logos and illustrations. I'm available for collaboration to deliver you the finest product using my own time machine. Want to find out how?"
+    content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
     property="og:description">
   <meta content="icon.png" property="og:image">
 
@@ -67,33 +67,33 @@
         <a class="navigation__link" href="./"><strong>Lokkee</strong> Studios</a>
       </div>
 
-      <div class="navigation__links">
+      <i class="fas fa-bars navigation__menu-toggle" onclick="toggleMenu()"></i>
+
+      <div class="navigation__content" id="#menu-toggled">
         <ul class="navigation__list">
-          <li class="navigation__list-item"><a class="navigation__link" href="#">About</a></li>
-          <li class="navigation__list-item"><a class="navigation__link" href="#">Work</a></li>
-          <li class="navigation__list-item"><a class="navigation__link" href="#">Contact</a></li>
+          <li class="navigation__list-item"><a class="navigation__link" href="#about">About</a></li>
+          <li class="navigation__list-item"><a class="navigation__link" href="#work">Work</a></li>
+          <li class="navigation__list-item"><a class="navigation__link" href="#contact">Contact</a></li>
         </ul>
 
         <div class="navigation__socials">
           <a class="navigation__link" href="https://github.lokkeestudios.com" rel="noreferrer" target="_blank"
-             title="github">
+             title="My Github Page">
             <i class="fab fa-github navigation__social-icon"></i>
           </a>
           <a class="navigation__link" href="https://discord.lokkeestudios.com" rel="noreferrer" target="_blank"
-             title="discord">
+             title="My Discord Server">
             <i class="fab fa-discord navigation__social-icon"></i>
           </a>
         </div>
       </div>
-
-      <i class="fas fa-bars navigation__menu-toggle"></i>
     </div>
   </nav>
 </header>
 
 <div id="app">
 
-  <section class="section section--is-brand section--has-future-grid-background" data-tooltip="Home">
+  <section class="section section--is-brand section--has-future-grid-background" data-anchor="home" data-tooltip="Home">
     <div class="container">
       <h1 class="headline headline--is-gigantic headline--is-light headline--is-not-spaced">
         I'm Freelancer bringing You Programming and Design from the Future
@@ -101,88 +101,108 @@
     </div>
   </section>
 
-  <section class="section section--is-dark" data-tooltip="About">
+  <section class="section section--is-dark" data-anchor="about" data-tooltip="About">
     <div class="container">
-      <div class="horizontal-line horizontal-line--is-light"></div>
-      <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">About</h1>
-      <div class="typewriter-wrapper">
-        <div class="typewriter" id="typewriter">
-          <h2
-            class="headline headline--is-monospace headline--is-small headline--is-light headline--is-capitalized typewriter__text"
-            id="typewriter-text">Seems like you broke me :( You silly sausage!</h2>
+      <div class="split">
+        <div>
+          <div class="horizontal-line horizontal-line--is-light"></div>
+          <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">About</h1>
+          <div class="typewriter-wrapper">
+            <div class="typewriter" id="typewriter">
+              <h2
+                class="headline headline--is-monospace headline--is-small headline--is-light headline--is-capitalized typewriter__text"
+                id="typewriter-text">Seems like you broke me :( You silly sausage!</h2>
+            </div>
+          </div>
+          <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent">
+            I'm Lokkee, a passionate freelancer bringing you programming and design from the future.
+            I am experienced in developing web and desktop applications including full front end design.
+            This includes brand identity, graphics and illustrations.
+          </p>
+        </div>
+
+        <div>
+
         </div>
       </div>
-      <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Exercitationem id neque non numquam porro sit temporibus! Aliquid, amet aut deleniti esse id magni maiores
-        officiis perspiciatis porro, quasi veniam, voluptatum! Ab accusamus distinctio, eos facere maxime neque
-        praesentium quam sint suscipit totam ut vero voluptatem.
-      </p>
-      <a href="#">
-        <button
-          class="button button--background-is-brand button--overlay-is-light button--decoration-is-light button--is-bold button--is-uppercase button--is-not-spaced">
-          Find out more
-        </button>
-      </a>
     </div>
   </section>
 
-  <section class="section" data-tooltip="Work">
+  <section class="section" data-anchor="work" data-tooltip="Work">
     <div class="container">
-      <div class="horizontal-line"></div>
-      <h1 class="headline headline--is-gigantic headline--is-uppercase">Work</h1>
-      <h2 class="headline headline--is-small headline--is-capitalized">Lorem ipsum dolor sit</h2>
-      <p class="paragraph paragraph--is-somewhat-translucent">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Exercitationem id neque non numquam porro sit temporibus! Aliquid, amet aut deleniti esse id magni maiores
-        officiis perspiciatis porro, quasi veniam, voluptatum! Ab accusamus distinctio, eos facere maxime neque
-        praesentium quam sint suscipit totam ut vero voluptatem.
-      </p>
-      <a href="#">
-        <button class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced">
-          Take
-          a look
-        </button>
-      </a>
+      <div class="split">
+        <div>
+
+        </div>
+
+        <div>
+          <div class="horizontal-line"></div>
+          <h1 class="headline headline--is-gigantic headline--is-uppercase">Work</h1>
+          <h2 class="headline headline--is-small headline--is-capitalized">Dig into my universe</h2>
+          <p class="paragraph paragraph--is-somewhat-translucent">
+            This is a collection of logos, apps, ... I have made.
+          </p>
+          <a href="#">
+            <button
+              class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced">
+              Explore
+            </button>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section section--is-dark" data-tooltip="Contact">
+  <section class="section section--is-dark" data-anchor="contact" data-tooltip="Contact">
     <div class="container">
-      <div class="horizontal-line horizontal-line--is-light"></div>
-      <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">Contact</h1>
-      <h2 class="headline headline--is-small headline--is-light headline--is-capitalized">Lorem ipsum dolor sit</h2>
-      <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Exercitationem id neque non numquam porro sit temporibus! Aliquid, amet aut deleniti esse id magni maiores
-        officiis perspiciatis porro, quasi veniam, voluptatum! Ab accusamus distinctio, eos facere maxime neque
-        praesentium quam sint suscipit totam ut vero voluptatem.
-      </p>
-      <a href="#">
-        <button
-          class="button button--background-is-brand button--overlay-is-light button--decoration-is-light
+      <div class="split">
+        <div>
+          <div class="horizontal-line horizontal-line--is-light"></div>
+          <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">Contact</h1>
+          <h2 class="headline headline--is-small headline--is-light headline--is-capitalized">You got a problem to
+            solve?</h2>
+          <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent paragraph--is-not-spaced">
+            Get your space suit ready and tell me your ideas to develop your dream application.
+          </p>
+          <br>
+          <p class="paragraph paragraph--is-light paragraph--is-clickable" onclick="openEmail()" title="Contact me">
+            <i class="far fa-envelope"></i> hello@lokkeestudios.com</p>
+        </div>
+
+        <div>
+          <button
+            class="button button--background-is-brand button--overlay-is-light button--decoration-is-light
           button--is-bold button--is-uppercase button--is-not-spaced">
-          Hit me up
-        </button>
-      </a>
+            Hit me up
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="section" data-tooltip="Source">
+  <section class="section" data-anchor="sourceCode" data-tooltip="Source code">
     <div class="container">
-      <div class="horizontal-line"></div>
-      <h1 class="headline headline--is-gigantic headline--is-uppercase">Source</h1>
-      <h3 class="headline headline--is-small headline--is-capitalized">Behind the simulation</h3>
-      <p class="paragraph paragraph--is-somewhat-translucent">
-        You take the blue pill...you keep scrolling, you leave this site and believe whatever you want to believe.
-        You take the red pill...you stay in Wonderland, and I show you how deep the rabbit hole goes.
-      </p>
-      <a href="https://sourcecode.lokkeestudios.com" rel="noreferrer" target="_blank">
-        <button
-          class="button button--is-bold button--background-is-red button--is-uppercase button--is-not-spaced">
-          Show me
-        </button>
-      </a>
+      <div class="split">
+        <div>
+
+        </div>
+
+        <div>
+          <div class="horizontal-line"></div>
+          <h1 class="headline headline--is-gigantic headline--is-uppercase">Source code</h1>
+          <h3 class="headline headline--is-small headline--is-capitalized">Behind the simulation</h3>
+          <p class="paragraph paragraph--is-somewhat-translucent">
+            You take the blue pill...you keep scrolling, you leave this site and believe whatever you want to believe.
+            You take the red pill...you stay in Wonderland, and I show you how deep the rabbit hole goes.
+          </p>
+          <a href="https://sourcecode.lokkeestudios.com" rel="noreferrer" target="_blank">
+            <button
+              class="button button--is-bold button--background-is-brand button--is-uppercase button--is-not-spaced">
+              Show me
+            </button>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 

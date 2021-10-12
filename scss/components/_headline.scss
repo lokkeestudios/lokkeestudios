@@ -8,8 +8,13 @@
   font-size: var(--size-headline);
   line-height: 1.1;
   color: var(--color-dark-not-black);
+  text-align: left;
   cursor: default;
   margin: 0;
+
+  &--is-centered {
+    text-align: center;
+  }
 
   &--is-monospace {
     font-family: var(--font-monospace);

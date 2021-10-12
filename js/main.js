@@ -1,15 +1,19 @@
+/* Mobile responsive width */
+const mobileWidth = 600;
+
 /* fullPage.js configuration */
 new fullpage('#app', {
   autoScrolling: true,
   navigation: true,
   navigationPosition: 'left',
-  scrollingSpeed: 850,
+  scrollingSpeed: 650,
   responsiveWidth: 600,
+  anchors: ['home', 'about', 'work', 'contact', 'sourceCode'],
   onLeave: function (origin, destination) {
     console.log(origin.isFirst);
-    if (destination.isFirst && window.innerWidth > 600) {
+    if (destination.isFirst && window.innerWidth > mobileWidth) {
       document.querySelector('.navigation').style.background = 'none';
-    } else if (origin.isFirst && window.innerWidth > 600) {
+    } else if (origin.isFirst && window.innerWidth > mobileWidth) {
       document.querySelector('.navigation').style.background = 'rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency))';
     }
   }
@@ -23,7 +27,6 @@ window.addEventListener('load', () => {
 
 /* Loader fade-out logic */
 function fadeOutLoader() {
-  console.log("test");
   const loader = document.querySelector('.loader-wrapper');
   const fadeOut = setInterval(function () {
     if (!loader.style.opacity) {
@@ -39,7 +42,7 @@ function fadeOutLoader() {
 }
 
 /* Typewriter configuration */
-const texts = ["developer", "graphic designer", "generalist", "student", "coffeeholic", "freelancer", "globetrotter"];
+const texts = ["developer", "graphic designer", "coffeeholic", "freelancer", "globetrotter"];
 let index = 0;
 
 document.getElementById("typewriter").addEventListener("animationend", updateTypewriter);
@@ -57,4 +60,20 @@ function updateTypewriter() {
     text.style.animation = 'typing ' + speed + 's steps(' + textLength + ', end), blink-caret .75s step-end infinite';
     (index === texts.length - 1) ? index = 0 : index++;
   }, 550);
+}
+
+/* Toggle mobile navigation-menu method */
+function toggleMenu() {
+  const navigationContent = document.getElementById("#menu-toggled");
+
+  if (navigationContent.style.display === "flex") {
+    navigationContent.style.display = "none";
+  } else {
+    navigationContent.style.display = "flex";
+  }
+}
+
+/* Contact email method */
+function openEmail() {
+  window.location = "mailto:hello@lokkeestudios.com";
 }

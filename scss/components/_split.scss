@@ -1,0 +1,20 @@
+//  =======================
+//  Split component styling
+//  ========================
+
+.split {
+  display: flex;
+  flex-direction: column;
+
+  @media only screen and (min-width: 600px) {
+    flex-direction: row;
+
+    & > * {
+      flex-basis: 100%;
+    }
+
+    & > * + * {
+      margin-left: 2em;
+    }
+  }
+}
