@@ -17,7 +17,7 @@
 }
 
 .loading-screen__loading-wheel {
-  position: relative;
+  position: absolute;
   width: 38px;
   height: 38px;
   background-image: url('../img/loading-icon.svg');
@@ -28,11 +28,9 @@
 
 .loading-screen__loading-wheel__part {
   box-sizing: border-box;
-  display: block;
   position: absolute;
-  width: 60px;
-  height: 60px;
-  margin: 5px;
+  width: 54px;
+  height: 54px;
   border: 3.6px solid;
   border-radius: 50%;
   animation: loading-wheel-spin 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
