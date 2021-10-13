@@ -1,0 +1,52 @@
+//  ================================
+//  Loading screen component styling
+//  ================================
+
+.loading-screen {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-dark-not-black);
+  z-index: 20;
+  align-items: center;
+  text-align: center;
+}
+
+.loading-screen__loading-wheel {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  background-image: url('../img/loading-icon.svg');
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-screen__loading-wheel__part {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border: 3.6px solid;
+  border-radius: 50%;
+  animation: loading-wheel-spin 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: var(--color-brand) transparent transparent transparent;
+}
+
+.loading-screen__loading-wheel__part:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.loading-screen__loading-wheel__part:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.loading-screen__loading-wheel__part:nth-child(3) {
+  animation-delay: -0.15s;
+}

@@ -2,6 +2,7 @@
 //  Index file for all Components
 //  ============================
 
+@forward 'loading-screen';
 @forward 'section';
 @forward 'container';
 @forward 'split';
@@ -10,4 +11,4 @@
 @forward 'paragraph';
 @forward 'button';
 @forward 'navigation';
-@forward 'decoration';
+@forward 'typewriter';

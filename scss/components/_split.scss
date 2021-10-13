@@ -6,6 +6,10 @@
   display: flex;
   flex-direction: column;
 
+  & > * + * {
+    margin-top: 2em;
+  }
+
   @media only screen and (min-width: 600px) {
     flex-direction: row;
 
@@ -14,7 +18,8 @@
     }
 
     & > * + * {
-      margin-left: 2em;
+      margin-top: 0;
+      margin-left: 4em;
     }
   }
 }

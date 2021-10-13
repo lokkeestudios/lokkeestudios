@@ -1,0 +1,47 @@
+//  =====================================
+//  Does some restyling to default styles
+//  of the fullpage.js library
+//
+//  This may not be the cleanest way and
+//  does indeed break the BEM-Principles
+//  but it does its job and prevented
+//  some library-digging headaches
+//  =====================================
+
+#fp-nav {
+  z-index: 10;
+
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+#fp-nav.fp-left {
+  left: 3vw;
+}
+
+#fp-nav ul li .fp-tooltip {
+  color: var(--color-dark-not-black);
+  font-size: var(--size-smaller-body);
+  font-family: var(--font-primary);
+  padding: 0.3em;
+  margin-left: 0.6em;
+  background: var(--color-cyan);
+  text-transform: capitalize;
+}
+
+#fp-nav ul li a span {
+  background: url("../img/navigation-icon.svg");
+}
+
+#fp-nav ul li :is(a, a.active) :is(span, span:hover) {
+  width: 1em;
+  height: 1em;
+  top: 0;
+  left: 0;
+  margin: 0;
+}
+
+#fp-nav ul li a.active span {
+  background: url("../img/navigation-icon-selected.svg");
+}

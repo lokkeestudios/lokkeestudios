@@ -14,3 +14,36 @@
     transition-delay: 0s !important;
   }
 }
+
+// Loading-wheel spin animation
+@keyframes loading-wheel-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Typewriter text typing animation
+@keyframes typewriter-typing {
+  0%,
+  100% {
+    width: 0;
+  }
+  38%,
+  62% {
+    width: 100%;
+  }
+}
+
+// Typewriter blinking cursor animation
+@keyframes typewriter-blink-caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--color-grayish-black);
+  }
+}

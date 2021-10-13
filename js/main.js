@@ -21,22 +21,22 @@ new fullpage('#app', {
 
 /* onLoad logic */
 window.addEventListener('load', () => {
-  fadeOutLoader();
+  fadeOutLoadingScreen();
   updateTypewriter();
 });
 
 /* Loader fade-out logic */
-function fadeOutLoader() {
-  const loader = document.querySelector('.loader-wrapper');
+function fadeOutLoadingScreen() {
+  const loadingScreen = document.querySelector('.loading-screen');
   const fadeOut = setInterval(function () {
-    if (!loader.style.opacity) {
-      loader.style.opacity = 1;
+    if (!loadingScreen.style.opacity) {
+      loadingScreen.style.opacity = 1;
     }
-    if (loader.style.opacity > 0) {
-      loader.style.opacity -= 0.05;
+    if (loadingScreen.style.opacity > 0) {
+      loadingScreen.style.opacity -= 0.05;
     } else {
       clearInterval(fadeOut);
-      loader.style.display = "none";
+      loadingScreen.style.display = "none";
     }
   }, 35);
 }
@@ -57,23 +57,35 @@ function updateTypewriter() {
     let textLength = texts[index].length;
     let speed = textLength / 2.3;
 
-    text.style.animation = 'typing ' + speed + 's steps(' + textLength + ', end), blink-caret .75s step-end infinite';
+    text.style.animation = 'typewriter-typing ' + speed + 's steps(' + textLength + ', end), typewriter-blink-caret .75s step-end infinite';
     (index === texts.length - 1) ? index = 0 : index++;
   }, 550);
 }
 
 /* Toggle mobile navigation-menu method */
-function toggleMenu() {
-  const navigationContent = document.getElementById("#menu-toggled");
+function toggleMenu(toggleIcon) {
+  const navigationContent = document.getElementById("menu-toggled");
 
   if (navigationContent.style.display === "flex") {
     navigationContent.style.display = "none";
+    toggleIcon.classList.remove("fa-times");
+    toggleIcon.classList.add("fa-bars");
   } else {
     navigationContent.style.display = "flex";
+    toggleIcon.classList.remove("fa-bars");
+    toggleIcon.classList.add("fa-times");
   }
 }
+
+document.querySelector('#toggleMenu').addEventListener("click", function () {
+  toggleMenu(this)
+});
 
 /* Contact email method */
 function openEmail() {
   window.location = "mailto:hello@lokkeestudios.com";
 }
+
+document.querySelector('#openEmail').addEventListener("click", function () {
+  openEmail()
+});

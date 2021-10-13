@@ -27,14 +27,20 @@
   font-weight: 400;
   letter-spacing: 0.05em;
   margin: 0;
+}
+
+.navigation__brand {
+  text-decoration: none;
+  color: var(--color-off-white);
+  font-size: var(--size-body);
+  font-family: var(--font-headline);
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
 
   b {
     font-weight: 700;
   }
-}
-
-.navigation__brand {
-  display: inline-block;
 }
 
 .navigation__content {
@@ -45,10 +51,6 @@
     display: none;
     flex-direction: column;
     float: none;
-  }
-
-  @media only screen and (min-width: 600px) {
-    display: inline-block;
   }
 }
 

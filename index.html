@@ -51,25 +51,23 @@
 <body>
 
 <!-- Shows loading screen until the website finished loading -->
-<div class="loader-wrapper">
-  <div class="loader">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+<div class="loading-screen">
+  <div class="loading-screen__loading-wheel">
+    <div class="loading-screen__loading-wheel__part"></div>
+    <div class="loading-screen__loading-wheel__part"></div>
+    <div class="loading-screen__loading-wheel__part"></div>
+    <div class="loading-screen__loading-wheel__part"></div>
   </div>
 </div>
 
 <header>
   <nav class="navigation">
     <div class="container">
-      <div class="navigation__brand">
-        <a class="navigation__link" href="./"><strong>Lokkee</strong> Studios</a>
-      </div>
+      <a class="navigation__brand" href="./"><strong>Lokkee</strong> Studios</a>
 
-      <i class="fas fa-bars navigation__menu-toggle" onclick="toggleMenu()"></i>
+      <i class="fas fa-bars navigation__menu-toggle" id="toggleMenu"></i>
 
-      <div class="navigation__content" id="#menu-toggled">
+      <div class="navigation__content" id="menu-toggled">
         <ul class="navigation__list">
           <li class="navigation__list-item"><a class="navigation__link" href="#about">About</a></li>
           <li class="navigation__list-item"><a class="navigation__link" href="#work">Work</a></li>
@@ -105,10 +103,9 @@
     <div class="container">
       <div class="split">
         <div>
-          <div class="horizontal-line horizontal-line--is-light"></div>
           <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">About</h1>
-          <div class="typewriter-wrapper">
-            <div class="typewriter" id="typewriter">
+          <div class="typewriter">
+            <div class="typewriter__container" id="typewriter">
               <h2
                 class="headline headline--is-monospace headline--is-small headline--is-light headline--is-capitalized typewriter__text"
                 id="typewriter-text">Seems like you broke me :( You silly sausage!</h2>
@@ -132,15 +129,16 @@
     <div class="container">
       <div class="split">
         <div>
-
+          <object class="image" data="img/animation-work.svg" type="image/svg+xml">
+            <img alt="Funky guy sitting at a desk working on a computer" class="image" src="img/animation-work.svg">
+          </object>
         </div>
 
         <div>
-          <div class="horizontal-line"></div>
           <h1 class="headline headline--is-gigantic headline--is-uppercase">Work</h1>
           <h2 class="headline headline--is-small headline--is-capitalized">Dig into my universe</h2>
           <p class="paragraph paragraph--is-somewhat-translucent">
-            This is a collection of logos, apps, ... I have made.
+            This is a collection of apps, websites, logos and games I have made.
           </p>
           <a href="#">
             <button
@@ -157,7 +155,6 @@
     <div class="container">
       <div class="split">
         <div>
-          <div class="horizontal-line horizontal-line--is-light"></div>
           <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">Contact</h1>
           <h2 class="headline headline--is-small headline--is-light headline--is-capitalized">You got a problem to
             solve?</h2>
@@ -165,16 +162,16 @@
             Get your space suit ready and tell me your ideas to develop your dream application.
           </p>
           <br>
-          <p class="paragraph paragraph--is-light paragraph--is-clickable" onclick="openEmail()" title="Contact me">
+          <p class="paragraph paragraph--is-light paragraph--is-clickable" id="openEmail" title="Contact me">
             <i class="far fa-envelope"></i> hello@lokkeestudios.com</p>
         </div>
 
         <div>
-          <button
-            class="button button--background-is-brand button--overlay-is-light button--decoration-is-light
-          button--is-bold button--is-uppercase button--is-not-spaced">
+          <!--<button
+            class="button button--background-is-brand button--overlay-is-light button--is-bold button--is-uppercase
+            button--is-not-spaced">
             Hit me up
-          </button>
+          </button>-->
         </div>
       </div>
     </div>
@@ -230,16 +227,6 @@
   ga('set', 'transport', 'beacon');
   ga('send', 'pageview');
 
-  /*
- * Log all jQuery AJAX requests to Google Analytics
- * See: https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
- */
-  if (typeof ga !== "undefined" && ga !== null) {
-    $(document).ajaxSend(function (event, xhr, settings) {
-      ga('send', 'pageview', settings.url);
-    });
-  }
-
   (function (window) {
     let undefined,
       link = function (href) {
@@ -258,25 +245,6 @@
       });
     };
   }(window));
-
-  $(function () {
-    let isDuplicateScrollEvent,
-      scrollTimeStart = new Date,
-      $window = $(window),
-      $document = $(document),
-      scrollPercent;
-
-    $window.scroll(function () {
-      scrollPercent = Math.round(100 * ($window.height() + $window.scrollTop()) / $document.height());
-      if (scrollPercent > 90 && !isDuplicateScrollEvent) { //page scrolled to 90%
-        isDuplicateScrollEvent = 1;
-        ga('send', 'event', 'scroll',
-          'Window: ' + $window.height() + 'px; Document: ' + $document.height() + 'px; Time: '
-          + Math.round((new Date - scrollTimeStart) / 1000) + 's'
-        );
-      }
-    });
-  });
 </script>
 <script async src="https://www.google-analytics.com/analytics.js"></script>
 </body>
