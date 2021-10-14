@@ -1,0 +1,44 @@
+//  ===========================================
+//  Contains all breakpoints for responsibility
+//  ===========================================
+
+//  Imports all responsive breakpoint sizes
+@use 'breakpoints' as *;
+
+///  The responsive breakpoint manager, for widths upwards the breakpoint
+///  @access public
+///  @param {String} $breakpoint - the breakpoint
+///  @requires $breakpoints
+@mixin responsive-up($breakpoint) {
+  $raw-size: map-get($breakpoints, $breakpoint);
+
+  @if $raw-size {
+    $size: if(type-of($raw-size) == 'string', unquote($raw-size), inspect($raw-size));
+
+    @media only screen and (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Make sure it is defined in the `$breakpoints` map.';
+  }
+}
+
+///  The reverse responsive breakpoint manager, for widths downwards the breakpoint
+///  @access public
+///  @param {String} $breakpoint - the breakpoint
+///  @requires $breakpoints-down
+@mixin responsive-down($breakpoint) {
+  $raw-size: map-get($breakpoints, $breakpoint);
+
+  @if $raw-size {
+    $size: if(type-of($raw-size) == 'string', unquote($raw-size), inspect($raw-size));
+
+    @media only screen and (max-width: $size) {
+      @content;
+    }
+  } @else {
+    @error 'No value found for `#{$breakpoint}`. '
+         + 'Make sure it is defined in the `$breakpoints` map.';
+  }
+}

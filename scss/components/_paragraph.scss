@@ -16,7 +16,7 @@
   &--is-clickable {
     cursor: pointer;
 
-    &:hover {
+    &:is(:hover, :focus) {
       color: var(--color-cyan);
     }
   }
@@ -54,7 +54,7 @@
   }
 
   &:not(&--is-not-spaced) {
-    margin-bottom: 4em;
+    margin-bottom: 3em;
   }
 
   b, strong {

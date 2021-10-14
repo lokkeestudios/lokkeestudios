@@ -2,15 +2,18 @@
 //  Split component styling
 //  ========================
 
+//  Imports mixins for responsiveness
+@use '../abstracts/mixins' as mixins;
+
 .split {
   display: flex;
   flex-direction: column;
 
   & > * + * {
-    margin-top: 2em;
+    margin-top: 2.6em;
   }
 
-  @media only screen and (min-width: 600px) {
+  @include mixins.responsive-up('small') {
     flex-direction: row;
 
     & > * {
@@ -19,7 +22,7 @@
 
     & > * + * {
       margin-top: 0;
-      margin-left: 4em;
+      margin-left: 4.6em;
     }
   }
 }

@@ -12,7 +12,7 @@
   font-weight: 400;
   cursor: pointer;
   letter-spacing: 0.05em;
-  border: 1.6px solid;
+  border: 2px solid;
   text-decoration: none;
   border-color: var(--color-dark-not-black);
   font-family: var(--font-primary);
@@ -75,7 +75,7 @@
   }
 }
 
-.button:hover {
+.button:is(:hover, :focus) {
   background-position: 50%;
   color: var(--color-dark-not-black);
 

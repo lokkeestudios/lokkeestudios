@@ -7,10 +7,9 @@ new fullpage('#app', {
   navigation: true,
   navigationPosition: 'left',
   scrollingSpeed: 650,
-  responsiveWidth: 600,
+  responsiveWidth: mobileWidth,
   anchors: ['home', 'about', 'work', 'contact', 'sourceCode'],
   onLeave: function (origin, destination) {
-    console.log(origin.isFirst);
     if (destination.isFirst && window.innerWidth > mobileWidth) {
       document.querySelector('.navigation').style.background = 'none';
     } else if (origin.isFirst && window.innerWidth > mobileWidth) {

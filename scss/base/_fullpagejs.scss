@@ -8,10 +8,13 @@
 //  some library-digging headaches
 //  =====================================
 
+//  Imports mixins for responsiveness
+@use '../abstracts/mixins' as mixins;
+
 #fp-nav {
   z-index: 10;
 
-  @media only screen and (max-width: 600px) {
+  @include mixins.responsive-down('small') {
     display: none;
   }
 }

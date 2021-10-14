@@ -506,9 +506,15 @@ template {
   height: 100vh;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  padding: 0;
   object-fit: cover;
   z-index: -2;
   background-color: var(--color-off-white);
+}
+@media only screen and (max-width: 600px) {
+  .section {
+    padding: 3rem 0;
+  }
 }
 .section--is-dark {
   background-color: var(--color-dark-not-black);
@@ -523,6 +529,7 @@ template {
 .container {
   margin: 0 auto;
   width: min(80%, 80rem);
+  vertical-align: middle;
 }
 
 .split {
@@ -530,7 +537,7 @@ template {
   flex-direction: column;
 }
 .split > * + * {
-  margin-top: 2em;
+  margin-top: 2.6em;
 }
 @media only screen and (min-width: 600px) {
   .split {
@@ -541,7 +548,7 @@ template {
   }
   .split > * + * {
     margin-top: 0;
-    margin-left: 4em;
+    margin-left: 4.6em;
   }
 }
 
@@ -603,7 +610,7 @@ template {
 .paragraph--is-clickable {
   cursor: pointer;
 }
-.paragraph--is-clickable:hover {
+.paragraph--is-clickable:is(:hover, :focus) {
   color: var(--color-cyan);
 }
 .paragraph--is-monospace {
@@ -631,7 +638,7 @@ template {
   opacity: var(--opacity-somewhat-translucent);
 }
 .paragraph:not(.paragraph--is-not-spaced) {
-  margin-bottom: 4em;
+  margin-bottom: 3em;
 }
 .paragraph b, .paragraph strong {
   font-weight: 700;
@@ -647,7 +654,7 @@ template {
   font-weight: 400;
   cursor: pointer;
   letter-spacing: 0.05em;
-  border: 1.6px solid;
+  border: 2px solid;
   text-decoration: none;
   border-color: var(--color-dark-not-black);
   font-family: var(--font-primary);
@@ -699,14 +706,14 @@ template {
   margin-bottom: 1.4em;
 }
 
-.button:hover {
+.button:is(:hover, :focus) {
   background-position: 50%;
   color: var(--color-dark-not-black);
 }
-.button:hover.button--overlay-is-light {
+.button:is(:hover, :focus).button--overlay-is-light {
   color: var(--color-off-white);
 }
-.button:hover.button--overlay-is-brand {
+.button:is(:hover, :focus).button--overlay-is-brand {
   color: var(--color-off-white);
 }
 
@@ -781,7 +788,7 @@ template {
   display: inline-block;
   margin-right: 1.4em;
 }
-.navigation__list-item .navigation__link:hover {
+.navigation__list-item .navigation__link:is(:hover, :focus) {
   border-bottom: 1px solid var(--color-off-white);
 }
 
