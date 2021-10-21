@@ -14,7 +14,8 @@
       "/robots.txt",
       "/site.webmanifest",
       "/tile.png",
-      "/tile-wide.png"
+      "/tile-wide.png",
+      "/handle_contact-form.php"
     ]
   },
   "scripts": {

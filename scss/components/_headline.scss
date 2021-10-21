@@ -8,7 +8,6 @@
   font-size: var(--size-headline);
   line-height: 1.1;
   color: var(--color-dark-not-black);
-  text-align: left;
   cursor: default;
   margin: 0;
 
@@ -34,6 +33,14 @@
 
   &--is-brand {
     color: var(--color-brand);
+  }
+
+  &--is-cyan {
+    color: var(--color-cyan);
+  }
+
+  &--is-somewhat-translucent {
+    opacity: var(--opacity-somewhat-translucent);
   }
 
   &--is-capitalized {

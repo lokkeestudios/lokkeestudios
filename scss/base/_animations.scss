@@ -31,19 +31,8 @@
   100% {
     width: 0;
   }
-  38%,
-  62% {
+  40%,
+  70% {
     width: 100%;
-  }
-}
-
-// Typewriter blinking cursor animation
-@keyframes typewriter-blink-caret {
-  0%,
-  100% {
-    border-color: transparent;
-  }
-  50% {
-    border-color: var(--color-grayish-black);
   }
 }

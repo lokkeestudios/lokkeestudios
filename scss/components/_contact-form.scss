@@ -1,0 +1,77 @@
+//  ==============================
+//  Contact Form component styling
+//  ==============================
+
+.contact-form-success {
+  display: none;
+}
+
+.contact-form__label {
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--color-off-white);
+  text-transform: uppercase;
+  opacity: var(--opacity-not-much-transparency);
+}
+
+.contact-form__output-field {
+  color: var(--color-pinkish-red);
+  font-family: var(--font-primary);
+  font-size: var(--size-smaller-body);
+  position: absolute;
+  margin-top: -4.4em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  display: none;
+}
+
+.contact-form__input-field, .contact-form__text-area {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+  border-radius: 5px;
+  border: 1.6px solid var(--color-grayish-black);
+  background: var(--color-not-quite-black);
+  margin-top: 0.8em;
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  color: var(--color-off-white);
+  margin-bottom: 4em;
+  resize: vertical;
+  transition: border 0.3s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:valid {
+    border-color: var(--color-cyan);
+
+    & + .contact-form__output-field {
+      color: var(--color-cyan);
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  &--is-touched:invalid {
+    border-color: var(--color-pinkish-red);
+
+    & + .contact-form__output-field + .contact-form__output-field {
+      color: var(--color-pinkish-red);
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  & + .contact-form__output-field {
+    color: var(--color-pinkish-red);
+    opacity: 0;
+    display: none;
+  }
+}
+
+.contact-form__text-area {
+  resize: none;
+  height: 18vh;
+}

@@ -21,6 +21,11 @@
     }
   }
 
+  &--is-centered {
+    text-align: center;
+    max-width: none;
+  }
+
   &--is-monospace {
     font-family: var(--font-monospace);
   }

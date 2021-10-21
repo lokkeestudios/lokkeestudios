@@ -5,5 +5,8 @@
 .container {
   margin: 0 auto;
   width: Min(80%, 80rem);
-  vertical-align: middle;
+
+  &:not(&--is-not-spaced) {
+    margin: 5rem auto;
+  }
 }

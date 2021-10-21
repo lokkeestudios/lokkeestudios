@@ -13,10 +13,6 @@
 
 #fp-nav {
   z-index: 10;
-
-  @include mixins.responsive-down('small') {
-    display: none;
-  }
 }
 
 #fp-nav.fp-left {

@@ -42,6 +42,10 @@
     background-color: var(--color-brand);
   }
 
+  &--is-small {
+    padding: 1em 2.4em;
+  }
+
   &--overlay-is-light {
     background-image: url("../img/button-dark.svg");
   }
@@ -64,10 +68,6 @@
 
   &--is-bold {
     font-weight: 700;
-  }
-
-  &--is-small {
-    font-size: var(--size-smaller-body);
   }
 
   &:not(&--is-not-spaced) {

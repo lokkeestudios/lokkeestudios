@@ -2,10 +2,8 @@
 //  Section component styling
 //  =========================
 
-//  Imports mixins for responsiveness
-@use '../abstracts/mixins' as mixins;
-
 .section {
+  box-sizing: border-box;
   width: 100%;
   height: 100vh;
   background-size: 100% 100%;
@@ -14,10 +12,6 @@
   object-fit: cover;
   z-index: -2;
   background-color: var(--color-off-white);
-
-  @include mixins.responsive-down('small') {
-    padding: 3rem 0;
-  }
 
   &--is-dark {
     background-color: var(--color-dark-not-black);

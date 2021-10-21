@@ -3,24 +3,29 @@
 //  ========================
 
 //  Imports mixins for responsiveness
-@use '../abstracts/mixins' as mixins;
+@use "../abstracts/mixins" as mixins;
 
 .split {
   display: flex;
   flex-direction: column;
 
-  & > * + * {
+  & > .split__slide {
+    width: 100%;
+    align-self: center;
+  }
+
+  & > .split__slide + .split__slide {
     margin-top: 2.6em;
   }
 
-  @include mixins.responsive-up('small') {
+  @include mixins.responsive-up("medium") {
     flex-direction: row;
 
-    & > * {
+    & > .split__slide {
       flex-basis: 100%;
     }
 
-    & > * + * {
+    & > .split__slide + .split__slide {
       margin-top: 0;
       margin-left: 4.6em;
     }

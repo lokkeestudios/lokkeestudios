@@ -9,7 +9,7 @@
     content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
     name="description">
 
-  <meta content="width=device-width, maximum-scale=1.0" name="viewport">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
 
   <meta content="Lokkee Studios | Programming and Design from the Future" property="og:title">
   <meta content="Lokkee Studios" property="og:site_name">
@@ -62,7 +62,7 @@
 
 <header>
   <nav class="navigation">
-    <div class="container">
+    <div class="container container--is-not-spaced">
       <a class="navigation__brand" href="./"><strong>Lokkee</strong> Studios</a>
 
       <i class="fas fa-bars navigation__menu-toggle" id="toggleMenu"></i>
@@ -76,11 +76,11 @@
 
         <div class="navigation__socials">
           <a class="navigation__link" href="https://github.lokkeestudios.com" rel="noreferrer" target="_blank"
-             title="My Github Page">
+             title="Github Page">
             <i class="fab fa-github navigation__social-icon"></i>
           </a>
           <a class="navigation__link" href="https://discord.lokkeestudios.com" rel="noreferrer" target="_blank"
-             title="My Discord Server">
+             title="Discord Server">
             <i class="fab fa-discord navigation__social-icon"></i>
           </a>
         </div>
@@ -91,7 +91,7 @@
 
 <div id="app">
 
-  <section class="section section--is-brand section--has-future-grid-background" data-anchor="home" data-tooltip="Home">
+  <section class="section section--is-brand section--has-future-grid-background" data-anchor="home" id="home" data-tooltip="Home">
     <div class="container">
       <h1 class="headline headline--is-gigantic headline--is-light headline--is-not-spaced">
         I'm Freelancer bringing You Programming and Design from the Future
@@ -102,13 +102,13 @@
   <section class="section section--is-dark" data-anchor="about" data-tooltip="About">
     <div class="container">
       <div class="split">
-        <div>
+        <div class="split__slide">
           <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">About</h1>
           <div class="typewriter">
             <div class="typewriter__container" id="typewriter">
-              <h2
-                class="headline headline--is-monospace headline--is-small headline--is-light headline--is-capitalized typewriter__text"
-                id="typewriter-text">Seems like you broke me :( You silly sausage!</h2>
+              <h3
+                class="headline headline--is-monospace headline--is-small headline--is-light typewriter__text"
+                id="typewriter-text">Seems like you broke me :( You silly sausage!</h3>
             </div>
           </div>
           <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent paragraph--is-not-spaced">
@@ -118,25 +118,25 @@
           </p>
         </div>
 
-        <div>
+        <div class="split__slide">
 
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" data-anchor="work" data-tooltip="Work">
+  <section class="section" data-anchor="work" id="work" data-tooltip="Work">
     <div class="container">
       <div class="split">
-        <div>
-          <object class="image" data="img/animation-work.svg" type="image/svg+xml">
-            <img alt="Funky guy sitting at a desk working on a computer" class="image" src="img/animation-work.svg">
+        <div class="split__slide">
+          <object class="image" data="img/animation-work.svg" type="image/svg+xml">Freaky guy sitting at a desk working
+            on a computer
           </object>
         </div>
 
-        <div>
+        <div class="split__slide">
           <h1 class="headline headline--is-gigantic headline--is-uppercase">Work</h1>
-          <h2 class="headline headline--is-small headline--is-capitalized">Dig into my universe</h2>
+          <h3 class="headline headline--is-small">Dig into my universe</h3>
           <p class="paragraph paragraph--is-somewhat-translucent">
             This is a collection of apps, websites, logos and games I have made.
           </p>
@@ -151,61 +151,123 @@
     </div>
   </section>
 
-  <section class="section section--is-dark" data-anchor="contact" data-tooltip="Contact">
+  <section class="section section--is-dark" data-anchor="contact" id="contact" data-tooltip="Contact">
     <div class="container">
       <div class="split">
-        <div>
+        <div class="split__slide">
           <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">Contact</h1>
-          <h2 class="headline headline--is-small headline--is-light headline--is-capitalized">You got a problem to
-            solve?</h2>
+          <h3 class="headline headline--is-small headline--is-light">You got a problem to
+            solve?</h3>
           <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent paragraph--is-not-spaced">
             Get your space suit ready and tell me your ideas to develop your dream application.
           </p>
           <br>
-          <a class="paragraph paragraph--is-light paragraph--is-clickable paragraph--is-not-spaced" id="openEmail" title="Contact me">
+          <a class="paragraph paragraph--is-light paragraph--is-clickable paragraph--is-not-spaced" id="openEmail"
+             title="Contact me">
             <i class="far fa-envelope"></i> hello@lokkeestudios.com</a>
         </div>
 
-        <div>
-          <!--<button
-            class="button button--background-is-brand button--overlay-is-light button--is-bold button--is-uppercase
-            button--is-not-spaced">
-            Hit me up
-          </button>-->
+        <div class="split__slide">
+          <div class="contact-form-success" id="contact-form-success">
+            <h1 class="headline headline--is-cyan">Successful!</h1>
+            <h3
+              class="headline headline--is-small headline--is-light headline--is-somewhat-translucent">
+              I'll be in touch with you</h3>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <label class="contact-form__label" for="name">Name</label>
+            <input class="contact-form__input-field" id="name" name="name" oninput="this.setCustomValidity('')"
+                   oninvalid="this.setCustomValidity('Name is empty')" pattern=".*\S.*"
+                   required
+                   type="text">
+            <p class="contact-form__output-field"><i class="fas fa-check"></i> Name is valid ^-^</p>
+            <p class="contact-form__output-field"><i class="fas fa-exclamation-triangle"></i> Name is empty</p>
+            <label class="contact-form__label" for="email">Email</label>
+            <input class="contact-form__input-field" id="email" name="email"
+                   oninput="this.setCustomValidity('')"
+                   oninvalid="this.setCustomValidity('Email is empty or invalid')" required
+                   type="email">
+            <p class="contact-form__output-field"><i class="fas fa-check"></i> Email is valid ^-^</p>
+            <p class="contact-form__output-field"><i class="fas fa-exclamation-triangle"></i> Email is empty or invalid
+            </p>
+            <label class="contact-form__label" for="message">Message</label>
+            <textarea class="contact-form__text-area" id="message"
+                      name="message" oninput="this.setCustomValidity('')"
+                      oninvalid="this.setCustomValidity('Message is empty')" required
+                      type="text"></textarea>
+            <p class="contact-form__output-field"><i class="fas fa-check"></i> Message is valid ^-^</p>
+            <p class="contact-form__output-field"><i class="fas fa-exclamation-triangle"></i> Message is empty</p>
+            <button
+              class="button button--background-is-light button--is-hollow button--is-bold button--is-uppercase
+              button--is-small button--is-not-spaced" type="submit">Hit me up <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" data-anchor="sourceCode" data-tooltip="Source code">
+  <section class="section" data-anchor="sourceCode" id="sourceCode" data-tooltip="Source code">
     <div class="container">
       <div class="split">
-        <div>
+        <div class="split__slide">
 
         </div>
 
-        <div>
+        <div class="split__slide">
           <div class="horizontal-line"></div>
           <h1 class="headline headline--is-gigantic headline--is-uppercase">Source code</h1>
-          <h3 class="headline headline--is-small headline--is-capitalized">Behind the simulation</h3>
+          <h3 class="headline headline--is-small">Behind the simulation</h3>
           <p class="paragraph paragraph--is-somewhat-translucent">
             You take the blue pill...you keep scrolling, you leave this site and believe whatever you want to believe.
             You take the red pill...you stay in Wonderland, and I show you how deep the rabbit hole goes.
           </p>
           <a href="https://sourcecode.lokkeestudios.com" rel="noreferrer" target="_blank">
             <button
-              class="button button--is-bold button--background-is-brand button--is-uppercase button--is-not-spaced">
+              class="button button--is-bold button--background-is-brand button--is-uppercase">
               Show me
             </button>
           </a>
         </div>
       </div>
     </div>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="container container--is-not-spaced">
+          <ul class="footer__content__list">
+            <li class="footer__content__list-item"><a class="footer__content__link" href="#">Imprint</a></li>
+            <li class="footer__content__list-item"><a class="footer__content__link" href="#">Privacy Policy</a></li>
+          </ul>
+          <div class="footer__content__socials">
+            <a class="footer__content__link" href="https://github.lokkeestudios.com" rel="noreferrer" target="_blank"
+               title="Github Page">
+              <i class="fab fa-github footer__content__social-icon"></i>
+            </a>
+            <a class="footer__content__link" href="https://discord.lokkeestudios.com" rel="noreferrer" target="_blank"
+               title="Discord Server">
+              <i class="fab fa-discord footer__content__social-icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        <p class="paragraph paragraph--is-small paragraph--is-centered paragraph--is-light paragraph--is-not-spaced">
+          Copyright &copy;
+          <script>document.write(new Date().getFullYear().toString())</script>
+          Lokkee Studios All Rights Reserved.
+        </p>
+      </div>
+    </footer>
   </section>
 
 </div>
 
 <script crossorigin="anonymous" defer src="https://kit.fontawesome.com/65425eb122.js"></script>
+<script crossorigin="anonymous" referrerpolicy="no-referrer"
+        src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"
+        type="text/javascript"></script>
 <script
   crossorigin="anonymous"
   integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="

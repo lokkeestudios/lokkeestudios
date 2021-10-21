@@ -16,7 +16,7 @@
   background: none;
   transition: background 0.85s ease-in-out;
 
-  @include mixins.responsive-down('small') {
+  @include mixins.responsive-down('medium') {
     background: rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency));
   }
 }
