@@ -5,6 +5,8 @@
 .footer {
   width: 100%;
   background: var(--color-dark-not-black);
+  position: fixed;
+  bottom: 0;
 }
 
 .footer__content {

@@ -30,17 +30,15 @@
 }
 
 #fp-nav ul li a span {
-  background: url("../img/navigation-icon.svg");
+  background: var(--color-grayish-black);
 }
 
 #fp-nav ul li :is(a, a.active) :is(span, span:hover) {
-  width: 1em;
-  height: 1em;
   top: 0;
   left: 0;
   margin: 0;
 }
 
 #fp-nav ul li a.active span {
-  background: url("../img/navigation-icon-selected.svg");
+  background: var(--color-brand-v2);
 }

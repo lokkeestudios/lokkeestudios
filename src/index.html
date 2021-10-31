@@ -1,9 +1,8 @@
 <!doctype html>
-<html class="page no-js" lang="en">
+<html class="page" lang="en">
 
 <head>
   <meta charset="utf-8">
-  <!-- Description not final -->
   <title>Lokkee Studios | Programming and Design from the Future</title>
   <meta
     content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
@@ -43,7 +42,7 @@
     referrerpolicy="no-referrer"
     rel="stylesheet"
   >
-  <link href="css/main.css" rel="stylesheet">
+  <link href="scss/main.scss" rel="stylesheet">
 
   <meta content="#6A19FF" name="theme-color">
 </head>
@@ -91,7 +90,7 @@
 
 <div id="app">
 
-  <section class="section section--is-brand section--has-future-grid-background" data-anchor="home" id="home" data-tooltip="Home">
+  <section class="section section--is-brand section--has-future-grid-background" data-anchor="home" data-tooltip="Home">
     <div class="container">
       <h1 class="headline headline--is-gigantic headline--is-light headline--is-not-spaced">
         I'm Freelancer bringing You Programming and Design from the Future
@@ -125,7 +124,7 @@
     </div>
   </section>
 
-  <section class="section" data-anchor="work" id="work" data-tooltip="Work">
+  <section class="section" data-anchor="work" data-tooltip="Work">
     <div class="container">
       <div class="split">
         <div class="split__slide">
@@ -140,7 +139,7 @@
           <p class="paragraph paragraph--is-somewhat-translucent">
             This is a collection of apps, websites, logos and games I have made.
           </p>
-          <a href="#">
+          <a href="/work">
             <button
               class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced">
               Explore
@@ -151,7 +150,7 @@
     </div>
   </section>
 
-  <section class="section section--is-dark" data-anchor="contact" id="contact" data-tooltip="Contact">
+  <section class="section section--is-dark" data-anchor="contact" data-tooltip="Contact">
     <div class="container">
       <div class="split">
         <div class="split__slide">
@@ -208,7 +207,7 @@
     </div>
   </section>
 
-  <section class="section" data-anchor="sourceCode" id="sourceCode" data-tooltip="Source code">
+  <section class="section" data-anchor="sourceCode" data-tooltip="Source code">
     <div class="container">
       <div class="split">
         <div class="split__slide">
@@ -237,8 +236,7 @@
       <div class="footer__content">
         <div class="container container--is-not-spaced">
           <ul class="footer__content__list">
-            <li class="footer__content__list-item"><a class="footer__content__link" href="#">Imprint</a></li>
-            <li class="footer__content__list-item"><a class="footer__content__link" href="#">Privacy Policy</a></li>
+            <li class="footer__content__list-item"><a class="footer__content__link" href="/imprint">Imprint</a></li>
           </ul>
           <div class="footer__content__socials">
             <a class="footer__content__link" href="https://github.lokkeestudios.com" rel="noreferrer" target="_blank"
@@ -276,6 +274,7 @@
 ></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+<script src="js/home.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>

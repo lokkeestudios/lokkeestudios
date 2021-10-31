@@ -6,29 +6,34 @@
   "author": "humans.txt (https://lokkeestudios.com)",
   "staticFiles": {
     "staticPath": [
-      "/.htaccess",
-      "/404.html",
-      "/browserconfig.xml",
-      "/favicon.ico",
-      "/humans.txt",
-      "/robots.txt",
-      "/site.webmanifest",
-      "/tile.png",
-      "/tile-wide.png",
-      "/handle_contact-form.php"
+      "src/.htaccess",
+      "src/404.html",
+      "src/browserconfig.xml",
+      "src/favicon.ico",
+      "src/humans.txt",
+      "src/robots.txt",
+      "src/site.webmanifest",
+      "src/tile.png",
+      "src/tile-wide.png",
+      "src/handle_contact-form.php"
     ]
   },
   "scripts": {
-    "build": "parcel build index.html",
-    "dev": "parcel index.html --open",
+    "build": "parcel build src/index.html",
+    "dev": "parcel src/index.html --open",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.0.0",
+    "@parcel/transformer-sass": "^2.0.0",
+    "@parcel/transformer-webmanifest": "^2.0.0",
     "parcel-bundler": "^1.9.4",
-    "parcel-plugin-static-files-copy": "^2.6.0"
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "sass": "^1.43.4"
   },
   "dependencies": {
-    "fullpage.js": "^3.1.2"
+    "fullpage.js": "^3.1.2",
+    "parcel": "^2.0.0"
   }
 }
