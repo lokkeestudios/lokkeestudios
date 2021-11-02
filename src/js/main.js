@@ -2,39 +2,65 @@
 const smallBreakpoint = 600;
 const mediumBreakpoint = 800;
 
-const navigation = document.querySelector('.navigation');
+const navigation = document.querySelector(".navigation");
 
 /* fullPage.js configuration */
 try {
-  new fullpage('#app', {
+  new fullpage("#app", {
     autoScrolling: true,
     navigation: true,
-    navigationPosition: 'left',
+    navigationPosition: "left",
     scrollingSpeed: 650,
     responsiveWidth: mediumBreakpoint,
     scrollOverflow: true,
-    anchors: ['home', 'about', 'work', 'contact', 'sourceCode'],
-    onLeave: function (origin, destination) {
+    anchors: ["home", "about", "work", "contact", "sourceCode"],
+    onLeave: function (origin, destination, direction) {
       if (destination.isFirst && window.innerWidth > mediumBreakpoint) {
-        navigation.style.background = 'none';
+        navigation.style.background = "none";
       } else if (origin.isFirst && window.innerWidth > mediumBreakpoint) {
-        navigation.style.background = 'rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency))';
+        navigation.style.background =
+          "rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency))";
       }
-    }
-  })
+      let backgroundStyle;
+      let colorStyle;
+
+      if (
+        destination.index == 0 ||
+        destination.index == 1 ||
+        destination.index == 3
+      ) {
+        backgroundStyle = "var(--color-off-white)";
+        colorStyle = "var(--color-dark-not-black)";
+      } else {
+        backgroundStyle = "var(--color-dark-not-black)";
+        colorStyle = "var(--color-off-white)";
+      }
+
+      document.querySelectorAll("#fp-nav ul li a span").forEach((element) => {
+        element.style.background = backgroundStyle;
+      });
+      document
+        .querySelectorAll("#fp-nav ul li .fp-tooltip")
+        .forEach((element) => {
+          element.style.background = backgroundStyle;
+          element.style.color = colorStyle;
+        });
+    },
+  });
 } catch (e) {
   /* fullpage.js is not defined/not needed on the current page */
-  navigation.style.background = 'rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency))';
+  navigation.style.background =
+    "rgba(var(--rgb-dark-not-black), var(--opacity-not-much-transparency))";
 }
 
 /* onLoad logic */
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
   fadeOutLoadingScreen();
 });
 
 /* Loader fade-out logic */
 function fadeOutLoadingScreen() {
-  const loadingScreen = document.querySelector('.loading-screen');
+  const loadingScreen = document.querySelector(".loading-screen");
   const fadeOut = setInterval(function () {
     if (!loadingScreen.style.opacity) {
       loadingScreen.style.opacity = 1;
@@ -54,10 +80,12 @@ function openEmail() {
 }
 
 try {
-  document.querySelector('#openEmail').addEventListener("click", function () {
-    openEmail()
+  document.querySelector("#openEmail").addEventListener("click", function () {
+    openEmail();
   });
-} catch (e) { /* There is no openEmail element in the DOM */ }
+} catch (e) {
+  /* There is no openEmail element in the DOM */
+}
 
 /* Toggle mobile navigation-menu method */
 function toggleMenu(toggleIcon) {
@@ -74,6 +102,6 @@ function toggleMenu(toggleIcon) {
   }
 }
 
-document.querySelector('#toggleMenu').addEventListener("click", function () {
-  toggleMenu(this)
+document.querySelector("#toggleMenu").addEventListener("click", function () {
+  toggleMenu(this);
 });

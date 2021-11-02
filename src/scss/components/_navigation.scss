@@ -47,7 +47,6 @@
 }
 
 .navigation__content {
-  display: inline-block;
   float: right;
 
   @include mixins.responsive-down('small') {

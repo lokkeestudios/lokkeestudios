@@ -25,20 +25,13 @@
   font-family: var(--font-primary);
   padding: 0.3em;
   margin-left: 0.6em;
-  background: var(--color-cyan);
+  background: var(--color-off-white);
   text-transform: capitalize;
+  transition: ease-in-out 0.65s;
+  transition-property: background, color;
 }
 
 #fp-nav ul li a span {
-  background: var(--color-grayish-black);
-}
-
-#fp-nav ul li :is(a, a.active) :is(span, span:hover) {
-  top: 0;
-  left: 0;
-  margin: 0;
-}
-
-#fp-nav ul li a.active span {
-  background: var(--color-brand-v2);
+  background: var(--color-off-white);
+  transition: background ease-in-out 0.65s;
 }
