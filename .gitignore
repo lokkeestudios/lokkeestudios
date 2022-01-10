@@ -1,4 +1,6 @@
 node_modules
-dist
-.parcel-cache
 .DS_Store
+dist
+dist-ssr
+*.local
+.idea

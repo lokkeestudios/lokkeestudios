@@ -1,313 +1,533 @@
-<!doctype html>
-<html class="page" lang="en">
+<!-- DESIGNED and DEVELOPED by LOKKEE (https://lokkeestudios.com) -->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <!-- reference core information -->
+    <meta charset="UTF-8" />
+    <title>Lokkee Studios | Programming and Design from the Future</title>
+    <meta
+      name="description"
+      content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="utf-8">
-  <title>Lokkee Studios | Programming and Design from the Future</title>
-  <meta
-    content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
-    name="description">
+    <!-- reference open graph details -->
+    <meta property="og:site_name" content="Lokkee Studios" />
+    <meta
+      property="og:title"
+      content="Lokkee Studios | Programming and Design from the Future"
+    />
+    <meta
+      property="og:description"
+      content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lokkeestudios.com/" />
+    <meta property="og:image" content="icon.png" />
 
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- reference favicons -->
+    <link rel="icon" href="favicon.ico?v=ANYTHING" sizes="any" />
+    <link rel="icon" href="icon.svg?v=ANYTHING" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png?v=ANYTHING" />
 
-  <meta content="Lokkee Studios | Programming and Design from the Future" property="og:title">
-  <meta content="Lokkee Studios" property="og:site_name">
-  <meta content="website" property="og:type">
-  <meta content="https://lokkeestudios.com/" property="og:url">
-  <meta
-    content="I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations."
-    property="og:description">
-  <meta content="icon.png" property="og:image">
-  <link rel="icon" href="favicon.ico" sizes="any">
+    <!-- reference manifest and theme color -->
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#6919ff" />
 
-  <link href="site.webmanifest" rel="manifest">
-  <link href="icon.png" rel="apple-touch-icon">
-  <meta content="#6A19FF" name="theme-color">
+    <!-- reference stylesheets -->
+    <link rel="stylesheet" href="css/index.css" />
 
-  <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" media="print"
-        onload="this.onload=null;this.removeAttribute('media');" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" media="print"
-        onload="this.onload=null;this.removeAttribute('media');" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" media="print"
-        onload="this.onload=null;this.removeAttribute('media');" rel="stylesheet">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  </noscript>
+    <!-- import google fonts -->
+    <link crossorigin rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+    />
+  </head>
 
-  <link
-    crossorigin="anonymous"
-    href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
-    integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w=="
-    referrerpolicy="no-referrer"
-    rel="stylesheet"
+  <body
+    class="font-body bg-neutrals-900 selection:bg-emerald-300/90 selection:text-emerald-800 w-full"
   >
-  <link href="scss/main.scss" rel="stylesheet">
-</head>
-
-<body>
-
-<!-- Shows loading screen until the website finished loading -->
-<div class="loading-screen">
-  <div class="loading-screen__loading-wheel">
-    <div class="loading-screen__loading-wheel__part"></div>
-    <div class="loading-screen__loading-wheel__part"></div>
-    <div class="loading-screen__loading-wheel__part"></div>
-    <div class="loading-screen__loading-wheel__part"></div>
-  </div>
-</div>
-
-<header>
-  <nav class="navigation">
-    <div class="container container--is-not-spaced">
-      <a class="navigation__brand" href="./"><strong>Lokkee</strong> Studios</a>
-
-      <i class="fas fa-bars navigation__menu-toggle" id="toggleMenu"></i>
-
-      <div class="navigation__content" id="menu-toggled">
-        <ul class="navigation__list">
-          <li class="navigation__list-item"><a class="navigation__link" href="#about">About</a></li>
-          <li class="navigation__list-item"><a class="navigation__link" href="#work">Work</a></li>
-          <li class="navigation__list-item"><a class="navigation__link" href="#contact">Contact</a></li>
-        </ul>
-
-        <div class="navigation__socials">
-          <a class="navigation__link" href="https://github.lokkeestudios.com" rel="noreferrer" target="_blank"
-             title="Github Page">
-            <i class="fab fa-github navigation__social-icon"></i>
-          </a>
-          <a class="navigation__link" href="https://discord.lokkeestudios.com" rel="noreferrer" target="_blank"
-             title="Discord Server">
-            <i class="fab fa-discord navigation__social-icon"></i>
-          </a>
-        </div>
+    <!-- loading screen -->
+    <div
+      class="loading-screen flex fixed top-0 z-50 h-screen w-screen bg-neutrals-900 justify-center items-center"
+    >
+      <div class="flex justify-center items-center h-18 w-18">
+        <div
+          class="absolute h-14 w-14 md:h-18 md:w-18 border-3 md:border-4 rounded-full border-neutrals-700"
+        ></div>
+        <div
+          class="absolute h-14 w-14 md:h-18 md:w-18 border-3 md:border-4 rounded-full border-transparent border-t-brand animate-spin"
+        ></div>
+        <img class="absolute h-10 w-10 md:h-14 md:w-14" src="img/logo.svg" />
       </div>
     </div>
-  </nav>
-</header>
 
-<div id="app">
+    <!-- navigation -->
+    <header class="fixed top-0 z-40 w-full" aria-label="Banner">
+      <div class="container mx-auto w-10/12 xl:w-3/4 2xl:w-2/3">
+        <nav
+          class="navigation bg-neutrals-900 backdrop-blur-md transition-colors duration-500 px-6 mt-6 lg:mt-10"
+          aria-label="Primary"
+          role="navigation"
+        >
+          <div class="flex justify-between items-center flex-col md:flex-row">
+            <!-- logo -->
+            <a
+              class="flex items-center font-display py-5 md:py-6 text-neutrals-50 text-sm lg:text-base uppercase"
+              href="./"
+            >
+              <img
+                class="w-8 h-8 mr-2 -mt-1.5 lg:w-9 lg:h-9"
+                src="img/logo.svg"
+                alt="Logo"
+              />
+              <span><strong class="font-bold">Lokkee</strong> Studios</span>
+            </a>
 
-  <section class="section section--is-brand section--has-future-grid-background" data-anchor="home" data-tooltip="Home">
-    <div class="container">
-      <h1 class="headline headline--is-gigantic headline--is-light headline--is-not-spaced">
-        I'm Freelancer bringing You Programming and Design from the Future
-      </h1>
-    </div>
-  </section>
+            <!-- mobile button -->
+            <input type="checkbox" class="peer hidden" id="mobile-toggle" />
+            <label
+              for="mobile-toggle"
+              class="text-neutrals-50 cursor-pointer md:hidden absolute top-5 right-6 peer-checked:hidden"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </label>
+            <label
+              for="mobile-toggle"
+              class="text-neutrals-50 cursor-pointer hidden md:hidden absolute top-5 right-6 peer-checked:block"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </label>
+            <div
+              class="navigation-menu hidden flex-col md:space-x-8 md:flex-row md:flex peer-checked:flex"
+            >
+              <!-- primary navigation -->
+              <div class="flex items-center space-x-4 mb-2 md:mb-0">
+                <a
+                  class="text-neutrals-50 text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+                  href="#about"
+                  >About</a
+                >
+                <a
+                  class="text-neutrals-50 text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+                  href="#work"
+                  >Work</a
+                >
+                <a
+                  class="text-neutrals-50 text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+                  href="#contact"
+                  >Contact</a
+                >
+              </div>
 
-  <section class="section section--is-dark" data-anchor="about" data-tooltip="About">
-    <div class="container">
-      <div class="split">
-        <div class="split__slide">
-          <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">About</h1>
-          <div class="typewriter">
-            <div class="typewriter__container" id="typewriter">
-              <h3
-                class="headline headline--is-monospace headline--is-small headline--is-light typewriter__text"
-                id="typewriter-text">Seems like you broke me :( You silly sausage!</h3>
+              <!-- secondary navigation -->
+              <div
+                class="flex items-center justify-center space-x-2 mb-4 md:mb-1.5"
+              >
+                <a
+                  href="https://github.lokkeestudios.com"
+                  rel="noreferrer"
+                  target="_blank"
+                  title="Github Page"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="text-neutrals-50 w-6 h-6 lg:w-7 lg:h-7"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://discord.lokkeestudios.com"
+                  rel="noreferrer"
+                  target="_blank"
+                  title="Discord Server"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="text-neutrals-50 w-6 h-6 lg:w-7 lg:h-7"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-          <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent paragraph--is-not-spaced">
-            I'm Lokkee, a passionate freelancer bringing you programming and design from the future.
-            I am experienced in developing web and desktop applications including full front end design.
-            This includes brand identity, graphics and illustrations.
-          </p>
-        </div>
-
-        <div class="split__slide">
-
-        </div>
+        </nav>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="section" data-anchor="work" data-tooltip="Work">
-    <div class="container">
-      <div class="split">
-        <div class="split__slide">
-          <object class="image" data="img/animation-work.svg" type="image/svg+xml">Freaky guy sitting at a desk working
-            on a computer
-          </object>
+    <!-- page content -->
+    <main>
+      <!-- hero section -->
+      <section
+        class="h-screen w-full bg-brand object-fill bg-fill bg-no-repeat flex py-20 justify-center items-center"
+        style="background-image: url('img/future-grid.webp')"
+        data-anchor="home"
+        data-tooltip="Home"
+        aria-label="Hero"
+      >
+        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+          <!-- content -->
+          <h1
+            class="font-display font-bold text-neutrals-50 text-5xl leading-tight md:text-7xl md:leading-tight lg:text-8xl lg:leading-tight"
+          >
+            I'm Freelancer bringing You Programming and Design from the Future
+          </h1>
         </div>
+      </section>
 
-        <div class="split__slide">
-          <h1 class="headline headline--is-gigantic headline--is-uppercase">Work</h1>
-          <h3 class="headline headline--is-small">Dig into my universe</h3>
-          <p class="paragraph paragraph--is-somewhat-translucent">
-            This is a collection of apps, websites, logos and games I have made.
-          </p>
-          <a href="/work">
-            <button
-              class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced">
-              Explore
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+      <section
+        class="h-screen w-full flex py-20 items-center"
+        data-anchor="about"
+        data-tooltip="About"
+        aria-label="About"
+      >
+        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+          <div class="flex flex-col lg:flex-row">
+            <div class="w-full self-center lg:flex-1">
+              <h2
+                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+              >
+                About
+              </h2>
+              <div class="inline-block mb-6">
+                <h3
+                  class="typewriter font-mono font-bold text-neutrals-50 text-4xl leading-tight md:text-6xl md:leading-tight lg:text-4xl lg:leading-tight 2xl:text-7xl 2xl:leading-tight overflow-hidden whitespace-nowrap w-0"
+                >
+                  Seems like you broke me<br />You silly sausage! :(
+                </h3>
+              </div>
+              <p
+                class="text-neutrals-50/70 leading-relaxed max-w-prose tracking-wider"
+              >
+                I'm Lokkee, a passionate freelancer bringing you programming and
+                design from the future. I am experienced in developing web and
+                desktop applications including full front end design. This
+                includes brand identity, graphics and illustrations.
+              </p>
+            </div>
 
-  <section class="section section--is-dark" data-anchor="contact" data-tooltip="Contact">
-    <div class="container">
-      <div class="split">
-        <div class="split__slide">
-          <h1 class="headline headline--is-gigantic headline--is-light headline--is-uppercase">Contact</h1>
-          <h3 class="headline headline--is-small headline--is-light">You got a problem to
-            solve?</h3>
-          <p class="paragraph paragraph--is-light paragraph--is-somewhat-translucent paragraph--is-not-spaced">
-            Get your space suit ready and tell me your ideas to develop your dream application.
-          </p>
-          <br>
-          <a class="paragraph paragraph--is-light paragraph--is-clickable paragraph--is-not-spaced" id="openEmail"
-             title="Contact me">
-            <i class="far fa-envelope"></i> hello@lokkeestudios.com</a>
-        </div>
-
-        <div class="split__slide">
-          <div class="contact-form-success" id="contact-form-success">
-            <h1 class="headline headline--is-cyan">Successful!</h1>
-            <h3
-              class="headline headline--is-small headline--is-light headline--is-somewhat-translucent">
-              I'll be in touch with you</h3>
+            <div class="w-full self-center mt-10 lg:flex-1 lg:mt-0 lg:ml-16">
+              <object
+                class="max-w-full md:w-3/5 pointer-events-none mx-auto"
+                data="img/animation-work.svg"
+                type="image/svg+xml"
+              >
+                Placeholder
+              </object>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <form class="contact-form" id="contact-form">
-            <label class="contact-form__label" for="name">Name</label>
-            <input class="contact-form__input-field" id="name" name="name" oninput="this.setCustomValidity('')"
-                   oninvalid="this.setCustomValidity('Name is empty')" pattern=".*\S.*"
-                   required
-                   type="text">
-            <p class="contact-form__output-field"><i class="fas fa-check"></i> Name is valid ^-^</p>
-            <p class="contact-form__output-field"><i class="fas fa-exclamation-triangle"></i> Name is empty</p>
-            <label class="contact-form__label" for="email">Email</label>
-            <input class="contact-form__input-field" id="email" name="email"
-                   oninput="this.setCustomValidity('')"
-                   oninvalid="this.setCustomValidity('Email is empty or invalid')" required
-                   type="email">
-            <p class="contact-form__output-field"><i class="fas fa-check"></i> Email is valid ^-^</p>
-            <p class="contact-form__output-field"><i class="fas fa-exclamation-triangle"></i> Email is empty or invalid
+      <section
+        class="h-screen w-full bg-neutrals-50 flex py-20 items-center"
+        data-anchor="work"
+        data-tooltip="Work"
+      >
+        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+          <div class="split">
+            <div class="split__slide">
+              <object
+                class="image"
+                data="img/animation-work.svg"
+                type="image/svg+xml"
+              >
+                Freaky guy sitting at a desk working on a computer
+              </object>
+            </div>
+
+            <div class="split__slide">
+              <h2
+                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+              >
+                Work
+              </h2>
+              <h3
+                class="font-display font-bold text-neutrals-900 text-4xl leading-tight md:text-6xl md:leading-tight lg:text-5xl lg:leading-tight 2xl:text-7xl 2xl:leading-tight mb-6"
+              >
+                Dig into my universe
+              </h3>
+              <p
+                class="text-neutrals-900/70 leading-relaxed max-w-prose tracking-wider mb-12"
+              >
+                This is a collection of apps, websites, logos and games I have
+                made.
+              </p>
+              <a href="/work">
+                <button
+                  class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced"
+                >
+                  Explore
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="h-screen w-full flex py-20 items-center"
+        data-anchor="contact"
+        data-tooltip="Contact"
+      >
+        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+          <div class="split">
+            <div class="split__slide">
+              <h2
+                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+              >
+                Contact
+              </h2>
+              <h3
+                class="font-display font-bold text-4xl leading-tight md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight mb-8"
+              >
+                You got a problem to solve?
+              </h3>
+              <p
+                class="text-neutrals-50/70 leading-relaxed max-w-prose tracking-wider mb-6"
+              >
+                Get your space suit ready and tell me your ideas to develop your
+                dream application.
+              </p>
+              <a
+                class="paragraph paragraph--is-light paragraph--is-clickable paragraph--is-not-spaced"
+                id="openEmail"
+                title="Contact me"
+              >
+                <i class="far fa-envelope"></i>
+                hello@lokkeestudios.com</a
+              >
+            </div>
+
+            <div class="split__slide">
+              <div class="contact-form-success" id="contact-form-success">
+                <h1 class="headline headline--is-cyan">Successful!</h1>
+                <h3
+                  class="headline headline--is-small headline--is-light headline--is-somewhat-translucent"
+                >
+                  I'll be in touch with you
+                </h3>
+              </div>
+
+              <form class="contact-form" id="contact-form">
+                <label class="contact-form__label" for="name">Name</label>
+                <input
+                  class="contact-form__input-field bg-neutrals-500 border-2 border-neutrals-700 focus:border-brand"
+                  id="name"
+                  name="name"
+                  oninput="this.setCustomValidity('')"
+                  oninvalid="this.setCustomValidity('Name is empty')"
+                  pattern=".*\S.*"
+                  required
+                  type="text"
+                />
+                <p class="contact-form__output-field">
+                  <i class="fas fa-check"></i> Name is valid ^-^
+                </p>
+                <p class="contact-form__output-field">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Name is empty
+                </p>
+                <label class="contact-form__label" for="email">Email</label>
+                <input
+                  class="contact-form__input-field bg-neutrals-500 border-2 border-neutrals-700 focus:border-brand"
+                  id="email"
+                  name="email"
+                  oninput="this.setCustomValidity('')"
+                  oninvalid="this.setCustomValidity('Email is empty or invalid')"
+                  required
+                  type="email"
+                />
+                <p class="contact-form__output-field">
+                  <i class="fas fa-check"></i> Email is valid ^-^
+                </p>
+                <p class="contact-form__output-field">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Email is empty or invalid
+                </p>
+                <label class="contact-form__label" for="message">Message</label>
+                <textarea
+                  class="contact-form__text-area bg-neutrals-500 border-2 border-neutrals-700 focus:border-brand"
+                  id="message"
+                  name="message"
+                  oninput="this.setCustomValidity('')"
+                  oninvalid="this.setCustomValidity('Message is empty')"
+                  required
+                  type="text"
+                ></textarea>
+                <p class="contact-form__output-field">
+                  <i class="fas fa-check"></i> Message is valid ^-^
+                </p>
+                <p class="contact-form__output-field">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Message is empty
+                </p>
+                <button
+                  class="button button--background-is-light button--is-hollow button--is-bold button--is-uppercase button--is-small button--is-not-spaced"
+                  type="submit"
+                >
+                  Hit me up <i class="fas fa-paper-plane"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="h-screen w-full bg-neutrals-50 flex py-20 items-center"
+        data-anchor="sourceCode"
+        data-tooltip="Source code"
+      >
+        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+          <div class="split">
+            <div class="split__slide"></div>
+
+            <div class="split__slide">
+              <div class="horizontal-line"></div>
+              <h2
+                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+              >
+                Source code
+              </h2>
+              <h3
+                class="font-display font-bold text-neutrals-900 text-4xl leading-tight md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight mb-6"
+              >
+                Behind the simulation
+              </h3>
+              <p
+                class="text-neutrals-900/70 leading-relaxed max-w-prose tracking-wider mb-12"
+              >
+                You take the blue pill...you keep scrolling, you leave this site
+                and believe whatever you want to believe. You take the red
+                pill...you stay in Wonderland, and I show you how deep the
+                rabbit hole goes.
+              </p>
+              <a
+                href="https://sourcecode.lokkeestudios.com"
+                rel="noreferrer"
+                target="_blank"
+              >
+                <button
+                  class="button button--is-bold button--background-is-brand button--is-uppercase"
+                >
+                  Show me
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--<footer class="footer">
+          <div class="footer__content">
+            <div class="container container--is-not-spaced">
+              <ul class="footer__content__list">
+                <li class="footer__content__list-item">
+                  <a class="footer__content__link" href="/imprint">Imprint</a>
+                </li>
+              </ul>
+              <div class="footer__content__socials">
+                <a
+                  class="footer__content__link"
+                  href="https://github.lokkeestudios.com"
+                  rel="noreferrer"
+                  target="_blank"
+                  title="Github Page"
+                >
+                  <i class="fab fa-github footer__content__social-icon"></i>
+                </a>
+                <a
+                  class="footer__content__link"
+                  href="https://discord.lokkeestudios.com"
+                  rel="noreferrer"
+                  target="_blank"
+                  title="Discord Server"
+                >
+                  <i class="fab fa-discord footer__content__social-icon"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="footer__copyright">
+            <p
+              class="
+                paragraph
+                paragraph--is-small
+                paragraph--is-centered
+                paragraph--is-light
+                paragraph--is-not-spaced
+              "
+            >
+              Copyright &copy;
+              <script>
+                document.write(new Date().getFullYear().toString());
+              </script>
+              Lokkee Studios All Rights Reserved.
             </p>
-            <label class="contact-form__label" for="message">Message</label>
-            <textarea class="contact-form__text-area" id="message"
-                      name="message" oninput="this.setCustomValidity('')"
-                      oninvalid="this.setCustomValidity('Message is empty')" required
-                      type="text"></textarea>
-            <p class="contact-form__output-field"><i class="fas fa-check"></i> Message is valid ^-^</p>
-            <p class="contact-form__output-field"><i class="fas fa-exclamation-triangle"></i> Message is empty</p>
-            <button
-              class="button button--background-is-light button--is-hollow button--is-bold button--is-uppercase
-              button--is-small button--is-not-spaced" type="submit">Hit me up <i class="fas fa-paper-plane"></i>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" data-anchor="sourceCode" data-tooltip="Source code">
-    <div class="container">
-      <div class="split">
-        <div class="split__slide">
-
-        </div>
-
-        <div class="split__slide">
-          <div class="horizontal-line"></div>
-          <h1 class="headline headline--is-gigantic headline--is-uppercase">Source code</h1>
-          <h3 class="headline headline--is-small">Behind the simulation</h3>
-          <p class="paragraph paragraph--is-somewhat-translucent">
-            You take the blue pill...you keep scrolling, you leave this site and believe whatever you want to believe.
-            You take the red pill...you stay in Wonderland, and I show you how deep the rabbit hole goes.
-          </p>
-          <a href="https://sourcecode.lokkeestudios.com" rel="noreferrer" target="_blank">
-            <button
-              class="button button--is-bold button--background-is-brand button--is-uppercase">
-              Show me
-            </button>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <footer class="footer">
-      <div class="footer__content">
-        <div class="container container--is-not-spaced">
-          <ul class="footer__content__list">
-            <li class="footer__content__list-item"><a class="footer__content__link" href="/imprint">Imprint</a></li>
-          </ul>
-          <div class="footer__content__socials">
-            <a class="footer__content__link" href="https://github.lokkeestudios.com" rel="noreferrer" target="_blank"
-               title="Github Page">
-              <i class="fab fa-github footer__content__social-icon"></i>
-            </a>
-            <a class="footer__content__link" href="https://discord.lokkeestudios.com" rel="noreferrer" target="_blank"
-               title="Discord Server">
-              <i class="fab fa-discord footer__content__social-icon"></i>
-            </a>
           </div>
-        </div>
-      </div>
-      <div class="footer__copyright">
-        <p class="paragraph paragraph--is-small paragraph--is-centered paragraph--is-light paragraph--is-not-spaced">
-          Copyright &copy;
-          <script>document.write(new Date().getFullYear().toString())</script>
-          Lokkee Studios All Rights Reserved.
-        </p>
-      </div>
-    </footer>
-  </section>
+        </footer>-->
+      </section>
+    </main>
 
-</div>
+    <script type="module" src="ts/index.ts"></script>
 
-<script crossorigin="anonymous" defer src="https://kit.fontawesome.com/65425eb122.js"></script>
-<script crossorigin="anonymous" referrerpolicy="no-referrer"
-        src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"
-        type="text/javascript"></script>
-<script
-  crossorigin="anonymous"
-  integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="
-  referrerpolicy="no-referrer"
-  src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"
-></script>
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
-<script src="js/home.js"></script>
-
-<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-<script>
-  window.ga = function () {
-    ga.q.push(arguments)
-  };
-  ga.q = [];
-  ga.l = +new Date;
-  ga('create', 'UA-XXXXX-Y', 'auto');
-  ga('set', 'anonymizeIp', true);
-  ga('set', 'transport', 'beacon');
-  ga('send', 'pageview');
-
-  (function (window) {
-    let undefined,
-      link = function (href) {
-        const a = window.document.createElement('a');
-        a.href = href;
-        return a;
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+      window.ga = function () {
+        ga.q.push(arguments);
       };
-    window.onerror = function (message, file, line, column) {
-      const host = link(file).hostname;
-      ga('send', {
-        'hitType': 'event',
-        'eventCategory': (host === window.location.hostname || host === undefined || host === '' ? '' : 'external ') + 'error',
-        'eventAction': message,
-        'eventLabel': (file + ' LINE: ' + line + (column ? ' COLUMN: ' + column : '')).trim(),
-        'nonInteraction': 1
-      });
-    };
-  }(window));
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-</body>
-
+      ga.q = [];
+      ga.l = +new Date();
+      ga("create", "UA-XXXXX-Y", "auto");
+      ga("set", "anonymizeIp", true);
+      ga("set", "transport", "beacon");
+      ga("send", "pageview");
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+  </body>
 </html>

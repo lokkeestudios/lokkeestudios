@@ -9,4 +9,3 @@ $subject = "Contact Form | Lokkee Studios";
 $headers = "From: $name <$email>\r\n";
 
 mail($recipient, $subject, $message, $headers);
-?>
