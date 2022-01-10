@@ -1,10 +1,11 @@
-# Lokkee Studios - The fanciest Portfolio Website out there
+<div align="center">  
+ <img src="src/img/logo.svg" width="300px"/>  
+</div>  
 
-<<<<<<< HEAD
-=======
-[![License](https://img.shields.io/badge/Copyright-%C2%A9%202022%20LOKKEE-yellow.svg)](LICENSE)
+# Lokkee Studios<br>Programming and Design from the Future
 
->>>>>>> origin/master
-This is the source code of my personal [portfolio website](https://lokkeestudios.com).
+<sup>Copyright &copy; 2022 Lokkee Studios All Rights Reserved.</sup>
+
+This is the source code of my [personal portfolio website](https://lokkeestudios.com).
 
 Why don't you check out the fancy time machine I built over there?
