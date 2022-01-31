@@ -1,6 +1,7 @@
 <!-- DESIGNED and DEVELOPED by LOKKEE (https://lokkeestudios.com) -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+  <!--------- INITIALIZATION ---------->
   <head>
     <!-- reference core information -->
     <meta charset="UTF-8" />
@@ -24,19 +25,23 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://lokkeestudios.com/" />
-    <meta property="og:image" content="icon.png" />
+    <meta property="og:image" content="/icon.png" />
 
     <!-- reference favicons -->
-    <link rel="icon" href="favicon.ico?v=ANYTHING" sizes="any" />
-    <link rel="icon" href="icon.svg?v=ANYTHING" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="icon.png?v=ANYTHING" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon.png" />
 
     <!-- reference manifest and theme color -->
-    <link rel="manifest" href="site.webmanifest" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#6919ff" />
 
     <!-- reference stylesheets -->
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide-core.min.css"
+    />
 
     <!-- import google fonts -->
     <link crossorigin rel="preconnect" href="https://fonts.gstatic.com" />
@@ -56,50 +61,43 @@
   </head>
 
   <body
-    class="font-body bg-neutrals-900 selection:bg-emerald-300/90 selection:text-emerald-800 w-full"
+    class="font-body bg-neutrals-900 text-neutrals-50 selection:bg-brand-light/90 w-full"
   >
-    <!-- loading screen -->
+    <!--------- LOADER ---------->
     <div
-      class="loading-screen flex fixed top-0 z-50 h-screen w-screen bg-neutrals-900 justify-center items-center"
+      id="loader"
+      class="flex fixed top-0 z-50 h-screen w-screen bg-neutrals-900 justify-center items-center"
     >
-      <div class="flex justify-center items-center h-18 w-18">
-        <div
-          class="absolute h-14 w-14 md:h-18 md:w-18 border-3 md:border-4 rounded-full border-neutrals-700"
-        ></div>
-        <div
-          class="absolute h-14 w-14 md:h-18 md:w-18 border-3 md:border-4 rounded-full border-transparent border-t-brand animate-spin"
-        ></div>
-        <img class="absolute h-10 w-10 md:h-14 md:w-14" src="img/logo.svg" />
-      </div>
+      <img id="loader-logo" class="absolute h-20 w-20" src="/img/logo.svg" />
     </div>
 
-    <!-- navigation -->
+    <!--------- NAVIGATION ---------->
     <header class="fixed top-0 z-40 w-full" aria-label="Banner">
-      <div class="container mx-auto w-10/12 xl:w-3/4 2xl:w-2/3">
-        <nav
-          class="navigation bg-neutrals-900 backdrop-blur-md transition-colors duration-500 px-6 mt-6 lg:mt-10"
-          aria-label="Primary"
-          role="navigation"
-        >
-          <div class="flex justify-between items-center flex-col md:flex-row">
+      <nav
+        id="navigation"
+        class="bg-transparent"
+        aria-label="Primary"
+        role="navigation"
+      >
+        <div class="mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+          <div
+            class="flex justify-between md:items-center flex-col md:flex-row relative"
+          >
             <!-- logo -->
             <a
-              class="flex items-center font-display py-5 md:py-6 text-neutrals-50 text-sm lg:text-base uppercase"
+              class="flex items-center font-display py-5 md:py-6 text-sm lg:text-base uppercase"
               href="./"
             >
-              <img
-                class="w-8 h-8 mr-2 -mt-1.5 lg:w-9 lg:h-9"
-                src="img/logo.svg"
-                alt="Logo"
-              />
-              <span><strong class="font-bold">Lokkee</strong> Studios</span>
+              <strong class="mr-1">Lokkee</strong>Studios
             </a>
 
             <!-- mobile button -->
             <input type="checkbox" class="peer hidden" id="mobile-toggle" />
+
+            <!-- open icon -->
             <label
               for="mobile-toggle"
-              class="text-neutrals-50 cursor-pointer md:hidden absolute top-5 right-6 peer-checked:hidden"
+              class="cursor-pointer md:hidden absolute top-[1.125rem] right-0 peer-checked:hidden"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,9 +112,11 @@
                 />
               </svg>
             </label>
+
+            <!-- close icon -->
             <label
               for="mobile-toggle"
-              class="text-neutrals-50 cursor-pointer hidden md:hidden absolute top-5 right-6 peer-checked:block"
+              class="cursor-pointer hidden md:hidden absolute top-[1.125rem] right-0 peer-checked:block"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -132,31 +132,29 @@
               </svg>
             </label>
             <div
-              class="navigation-menu hidden flex-col md:space-x-8 md:flex-row md:flex peer-checked:flex"
+              class="hidden flex-row justify-between md:space-x-8 md:flex peer-checked:flex"
             >
               <!-- primary navigation -->
               <div class="flex items-center space-x-4 mb-2 md:mb-0">
                 <a
-                  class="text-neutrals-50 text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+                  class="text-xxs lg:text-xs uppercase pr-2 py-4 md:py-6 hover:underline focus:underline"
                   href="#about"
                   >About</a
                 >
                 <a
-                  class="text-neutrals-50 text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+                  class="text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
                   href="#work"
                   >Work</a
                 >
                 <a
-                  class="text-neutrals-50 text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+                  class="text-xxs lg:text-xs uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
                   href="#contact"
                   >Contact</a
                 >
               </div>
 
               <!-- secondary navigation -->
-              <div
-                class="flex items-center justify-center space-x-2 mb-4 md:mb-1.5"
-              >
+              <div class="flex items-center space-x-2 mb-4 md:mb-1.5">
                 <a
                   href="https://github.lokkeestudios.com"
                   rel="noreferrer"
@@ -165,7 +163,7 @@
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="text-neutrals-50 w-6 h-6 lg:w-7 lg:h-7"
+                    class="w-6 h-6 lg:w-7 lg:h-7"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -184,7 +182,7 @@
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="text-neutrals-50 w-6 h-6 lg:w-7 lg:h-7"
+                    class="w-6 h-6 lg:w-7 lg:h-7"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -196,54 +194,64 @@
               </div>
             </div>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
 
-    <!-- page content -->
+    <!--------- PAGE CONTENT ---------->
     <main>
-      <!-- hero section -->
+      <!--------- HERO ---------->
       <section
-        class="h-screen w-full bg-brand object-fill bg-fill bg-no-repeat flex py-20 justify-center items-center"
+        id="home"
+        class="h-screen w-full bg-brand bg-center bg-no-repeat bg-[length:105%] flex py-20 justify-center items-center transition-all duration-75 sticky top-0"
         style="background-image: url('img/future-grid.webp')"
-        data-anchor="home"
-        data-tooltip="Home"
         aria-label="Hero"
       >
-        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
-          <!-- content -->
+        <div class="mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+          <!-- headline -->
           <h1
-            class="font-display font-bold text-neutrals-50 text-5xl leading-tight md:text-7xl md:leading-tight lg:text-8xl lg:leading-tight"
+            class="font-display font-bold text-5xl leading-tight md:text-7xl md:leading-tight lg:text-8xl lg:leading-tight text-center"
           >
-            I'm Freelancer bringing You Programming and Design from the Future
+            I'm a Freelancer bringing you Programming and Design from the Future
           </h1>
+          <!-- call to action -->
+          <a
+            href="#work"
+            class="inline-block px-5 py-4 border-2 border-neutrals-50 bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-900 transition-all duration-500 text-lg mt-16 relative left-1/2 -translate-x-1/2"
+            style="background-image: url('img/button-light.svg')"
+          >
+            Dig into my universe
+          </a>
         </div>
       </section>
 
+      <!--------- ABOUT ---------->
       <section
-        class="h-screen w-full flex py-20 items-center"
-        data-anchor="about"
-        data-tooltip="About"
+        id="about"
+        class="h-screen w-full flex py-20 items-center bg-neutrals-900 relative z-10"
         aria-label="About"
       >
-        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
-          <div class="flex flex-col lg:flex-row">
-            <div class="w-full self-center lg:flex-1">
+        <div class="mx-auto w-10/12 md:w-3/4 xl:w-2/3 h-full">
+          <!-- split -->
+          <div class="flex flex-col lg:flex-row h-full w-full">
+            <!-- split left -->
+            <div class="basis-full lg:self-center">
               <h2
-                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+                class="font-display font-bold text-brand lg:text-xl uppercase mb-4"
               >
                 About
               </h2>
-              <div class="inline-block mb-6">
+
+              <!-- typerwiter headline-->
+              <div class="inline-block">
                 <h3
-                  class="typewriter font-mono font-bold text-neutrals-50 text-4xl leading-tight md:text-6xl md:leading-tight lg:text-4xl lg:leading-tight 2xl:text-7xl 2xl:leading-tight overflow-hidden whitespace-nowrap w-0"
+                  id="typewriter"
+                  class="font-bold text-4xl lg:text-[2.4rem] xl:text-[2.7rem] 2xl:text-5xl xl:text-5xl mb-8 font-mono overflow-hidden whitespace-nowrap w-0"
                 >
-                  Seems like you broke me<br />You silly sausage! :(
+                  Error (╯°□°)╯︵ ┻━┻
                 </h3>
               </div>
-              <p
-                class="text-neutrals-50/70 leading-relaxed max-w-prose tracking-wider"
-              >
+              <p class="text-neutrals-50/70 leading-relaxed max-w-prose">
                 I'm Lokkee, a passionate freelancer bringing you programming and
                 design from the future. I am experienced in developing web and
                 desktop applications including full front end design. This
@@ -251,10 +259,11 @@
               </p>
             </div>
 
-            <div class="w-full self-center mt-10 lg:flex-1 lg:mt-0 lg:ml-16">
+            <!-- split right -->
+            <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
               <object
-                class="max-w-full md:w-3/5 pointer-events-none mx-auto"
-                data="img/animation-work.svg"
+                class="pointer-events-none"
+                data="/img/animation-work.svg"
                 type="image/svg+xml"
               >
                 Placeholder
@@ -264,88 +273,515 @@
         </div>
       </section>
 
+      <!--------- WORK ---------->
       <section
-        class="h-screen w-full bg-neutrals-50 flex py-20 items-center"
-        data-anchor="work"
-        data-tooltip="Work"
+        id="work"
+        class="min-h-screen w-full bg-neutrals-50 py-20 relative z-10"
+        aria-label="Work"
       >
-        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
-          <div class="split">
-            <div class="split__slide">
-              <object
-                class="image"
-                data="img/animation-work.svg"
-                type="image/svg+xml"
-              >
-                Freaky guy sitting at a desk working on a computer
-              </object>
-            </div>
+        <!-- header -->
+        <div class="text-center mb-12">
+          <h2
+            class="font-display font-bold text-brand lg:text-xl uppercase mb-4"
+          >
+            Work
+          </h2>
+          <h3
+            class="font-display font-bold text-neutrals-900 text-4xl lg:text-5xl"
+          >
+            Dig into my universe
+          </h3>
+        </div>
 
-            <div class="split__slide">
-              <h2
-                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+        <!-- projects horizontal slider -->
+
+        <div class="splide max-w-full">
+          <!-- navigation arrows -->
+          <div class="splide__arrows">
+            <!-- previous arrow -->
+            <button
+              class="splide__arrow splide__arrow--prev absolute top-1/2 left-[2%] z-10"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 40 40"
+                class="w-12 h-12 text-white/70"
+                fill="currentColor"
               >
-                Work
-              </h2>
-              <h3
-                class="font-display font-bold text-neutrals-900 text-4xl leading-tight md:text-6xl md:leading-tight lg:text-5xl lg:leading-tight 2xl:text-7xl 2xl:leading-tight mb-6"
+                <g transform="matrix(-1,0,0,1,40,0)">
+                  <path
+                    d="M15.5,0.932L11.2,5.312L25.7,19.912L11.2,34.412L15.5,38.812L30.1,24.212L34.5,19.912L15.5,0.912L15.5,0.932Z"
+                    style="fill-rule: nonzero"
+                  />
+                </g>
+              </svg>
+            </button>
+
+            <!-- next arrow -->
+            <button
+              class="splide__arrow splide__arrow--next absolute top-1/2 right-[2%] z-10"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 40 40"
+                class="w-12 h-12 text-neutrals-50/70"
+                fill="currentColor"
               >
-                Dig into my universe
-              </h3>
-              <p
-                class="text-neutrals-900/70 leading-relaxed max-w-prose tracking-wider mb-12"
-              >
-                This is a collection of apps, websites, logos and games I have
-                made.
-              </p>
-              <a href="/work">
-                <button
-                  class="button button--background-is-brand button--is-bold button--is-uppercase button--is-not-spaced"
+                <path
+                  d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+
+          <div class="splide__track">
+            <ul class="splide__list">
+              <!-- project 1-->
+              <li class="splide__slide">
+                <!--<p
+                  class="absolute bottom-0 z-10 right-1/2 translate-x-1/2 text-neutrals-50 p-2 bg-brand mb-4 before:w-0 before:h-0 before:absolute before:border-transparent before:border-[10px] before:border-t-brand before:right-1/2 before:translate-x-1/2 before:-bottom-5"
                 >
-                  Explore
-                </button>
-              </a>
-            </div>
+                  16/01/2021
+                </p>-->
+
+                <!-- right/upper side -->
+                <img
+                  src="/img/testt.png"
+                  alt="Test"
+                  class="absolute right-0 object-cover object-center h-3/5 lg:h-full lg:w-3/5"
+                />
+                <div
+                  class="absolute right-0 bg-gradient-to-r from-neutrals-900/70 h-3/5 lg:h-full lg:w-3/5"
+                ></div>
+
+                <!-- left/bottom side -->
+                <div class="w-full h-full bg-neutrals-900 flex items-end">
+                  <div
+                    class="h-2/5 w-full lg:h-full lg:w-2/5 p-6 lg:p-16 flex flex-col"
+                  >
+                    <!-- topic tags -->
+                    <div class="flex flex-row gap-4">
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Design</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Website</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Open source</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Game</span
+                      >
+                    </div>
+                    <h4 class="mt-6 lg:mt-12 text-3xl lg:text-6xl font-display">
+                      Project 1
+                    </h4>
+
+                    <!-- anchor links -->
+                    <div class="mt-auto flex gap-4">
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4 lg:h-5 lg:w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                        View project</a
+                      >
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                          />
+                        </svg>
+                        Source code</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- project 2 -->
+              <li class="splide__slide">
+                <!--<p
+                  class="absolute bottom-0 z-10 right-1/2 translate-x-1/2 text-neutrals-50 p-2 bg-brand mb-4 before:w-0 before:h-0 before:absolute before:border-transparent before:border-[10px] before:border-t-brand before:right-1/2 before:translate-x-1/2 before:-bottom-5"
+                >
+                  16/01/2021
+                </p>-->
+
+                <!-- right/upper side -->
+                <img
+                  src="/img/testt.png"
+                  alt="Test"
+                  class="absolute right-0 object-cover object-center h-3/5 lg:h-full lg:w-3/5"
+                />
+                <div
+                  class="absolute right-0 bg-gradient-to-r from-neutrals-900/70 h-3/5 lg:h-full lg:w-3/5"
+                ></div>
+
+                <!-- left/bottom side -->
+                <div class="w-full h-full bg-neutrals-900 flex items-end">
+                  <div
+                    class="h-2/5 w-full lg:h-full lg:w-2/5 p-6 lg:p-16 flex flex-col"
+                  >
+                    <!-- topic tags -->
+                    <div class="flex flex-row gap-4">
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Design</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Website</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Open source</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Game</span
+                      >
+                    </div>
+                    <h4 class="mt-6 lg:mt-12 text-3xl lg:text-6xl font-display">
+                      Project 1
+                    </h4>
+
+                    <!-- anchor links -->
+                    <div class="mt-auto flex gap-4">
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4 lg:h-5 lg:w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                        View project</a
+                      >
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                          />
+                        </svg>
+                        Source code</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- project 3 -->
+              <li class="splide__slide">
+                <!--<p
+                  class="absolute bottom-0 z-10 right-1/2 translate-x-1/2 text-neutrals-50 p-2 bg-brand mb-4 before:w-0 before:h-0 before:absolute before:border-transparent before:border-[10px] before:border-t-brand before:right-1/2 before:translate-x-1/2 before:-bottom-5"
+                >
+                  16/01/2021
+                </p>-->
+
+                <!-- right/upper side -->
+                <img
+                  src="/img/testt.png"
+                  alt="Test"
+                  class="absolute right-0 object-cover object-center h-3/5 lg:h-full lg:w-3/5"
+                />
+                <div
+                  class="absolute right-0 bg-gradient-to-r from-neutrals-900/70 h-3/5 lg:h-full lg:w-3/5"
+                ></div>
+
+                <!-- left/bottom side -->
+                <div class="w-full h-full bg-neutrals-900 flex items-end">
+                  <div
+                    class="h-2/5 w-full lg:h-full lg:w-2/5 p-6 lg:p-16 flex flex-col"
+                  >
+                    <!-- topic tags -->
+                    <div class="flex flex-row gap-4">
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Design</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Website</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Open source</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Game</span
+                      >
+                    </div>
+                    <h4 class="mt-6 lg:mt-12 text-3xl lg:text-6xl font-display">
+                      Project 1
+                    </h4>
+
+                    <!-- anchor links -->
+                    <div class="mt-auto flex gap-4">
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4 lg:h-5 lg:w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                        View project</a
+                      >
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                          />
+                        </svg>
+                        Source code</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <!-- project 4 -->
+              <li class="splide__slide">
+                <!--<p
+                  class="absolute bottom-0 z-10 right-1/2 translate-x-1/2 text-neutrals-50 p-2 bg-brand mb-4 before:w-0 before:h-0 before:absolute before:border-transparent before:border-[10px] before:border-t-brand before:right-1/2 before:translate-x-1/2 before:-bottom-5"
+                >
+                  16/01/2021
+                </p>-->
+
+                <!-- right/upper side -->
+                <img
+                  src="/img/testt.png"
+                  alt="Test"
+                  class="absolute right-0 object-cover object-center h-3/5 lg:h-full lg:w-3/5"
+                />
+                <div
+                  class="absolute right-0 bg-gradient-to-r from-neutrals-900/70 h-3/5 lg:h-full lg:w-3/5"
+                ></div>
+
+                <!-- left/bottom side -->
+                <div class="w-full h-full bg-neutrals-900 flex items-end">
+                  <div
+                    class="h-2/5 w-full lg:h-full lg:w-2/5 p-6 lg:p-16 flex flex-col"
+                  >
+                    <!-- topic tags -->
+                    <div class="flex flex-row gap-4">
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Design</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Website</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Open source</span
+                      >
+                      <span
+                        class="bg-brand whitespace-nowrap px-2 lg:px-3 py-1 rounded-sm text-xs lg:text-sm drop-shadow-md"
+                        >Game</span
+                      >
+                    </div>
+                    <h4 class="mt-6 lg:mt-12 text-3xl lg:text-6xl font-display">
+                      Project 1
+                    </h4>
+
+                    <!-- anchor links -->
+                    <div class="mt-auto flex gap-4">
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-4 w-4 lg:h-5 lg:w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                          />
+                        </svg>
+                        View project</a
+                      >
+                      <a
+                        href="#"
+                        class="whitespace-nowrap px-3 py-2 lg:px-5 lg:py-3 bg-neutrals-50 text-neutrals-900 text-xs lg:text-sm flex items-center bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500"
+                        style="background-image: url('img/button-brand.svg')"
+                        ><svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          class="h-5 w-5 inline mr-2"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                          />
+                        </svg>
+                        Source code</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
+        <!--<div class="w-full h-0.5 bg-brand z-10 self-center"></div>-->
       </section>
 
+      <!--------- CONTACT ---------->
       <section
-        class="h-screen w-full flex py-20 items-center"
-        data-anchor="contact"
-        data-tooltip="Contact"
+        id="contact"
+        class="h-screen w-full bg-neutrals-900 flex py-20 items-center relative z-10"
+        aria-label="Contact"
       >
-        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
-          <div class="split">
-            <div class="split__slide">
+        <div class="mx-auto w-10/12 md:w-3/4 xl:w-2/3 h-full">
+          <!-- split -->
+          <div class="flex flex-col lg:flex-row h-full w-full">
+            <!-- split left -->
+            <div class="basis-full lg:self-center">
               <h2
-                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+                class="font-display font-bold text-brand lg:text-xl uppercase mb-4"
               >
                 Contact
               </h2>
-              <h3
-                class="font-display font-bold text-4xl leading-tight md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight mb-8"
-              >
-                You got a problem to solve?
+              <h3 class="font-display font-bold text-4xl lg:text-5xl mb-8">
+                Got a problem to solve?
               </h3>
-              <p
-                class="text-neutrals-50/70 leading-relaxed max-w-prose tracking-wider mb-6"
-              >
+              <p class="text-neutrals-50/70 leading-relaxed max-w-prose mb-12">
                 Get your space suit ready and tell me your ideas to develop your
                 dream application.
               </p>
               <a
-                class="paragraph paragraph--is-light paragraph--is-clickable paragraph--is-not-spaced"
-                id="openEmail"
-                title="Contact me"
+                class="text-neutrals-50/70 leading-relaxed max-w-prose mb-14 hover:text-brand-light transition-colors cursor-pointer"
+                id="open-email"
+                title="Hit me up"
               >
-                <i class="far fa-envelope"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 inline mr-1 mb-1"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"
+                  ></path>
+                </svg>
                 hello@lokkeestudios.com</a
               >
             </div>
 
-            <div class="split__slide">
-              <div class="contact-form-success" id="contact-form-success">
+            <!-- split left -->
+            <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
+              <!--<div class="contact-form-success" id="contact-form-success">
                 <h1 class="headline headline--is-cyan">Successful!</h1>
                 <h3
                   class="headline headline--is-small headline--is-light headline--is-somewhat-translucent"
@@ -413,36 +849,34 @@
                 >
                   Hit me up <i class="fas fa-paper-plane"></i>
                 </button>
-              </form>
+              </form>-->
             </div>
           </div>
         </div>
       </section>
 
+      <!--------- SOURCE CODE ---------->
       <section
-        class="h-screen w-full bg-neutrals-50 flex py-20 items-center"
-        data-anchor="sourceCode"
-        data-tooltip="Source code"
+        id="sourcecode"
+        class="h-screen w-full bg-neutrals-50 flex py-20 items-center relative z-10"
+        aria-label="Source code"
       >
-        <div class="container mx-auto w-10/12 md:w-3/4 xl:w-2/3">
-          <div class="split">
-            <div class="split__slide"></div>
-
-            <div class="split__slide">
-              <div class="horizontal-line"></div>
+        <div class="mx-auto w-10/12 md:w-3/4 xl:w-2/3 h-full">
+          <!-- split -->
+          <div class="flex flex-col lg:flex-row h-full w-full">
+            <!-- split left -->
+            <div class="basis-full lg:self-center">
               <h2
-                class="font-display font-bold text-brand text-xl leading-tight md:text-3xl md:leading-tight"
+                class="font-display font-bold text-brand md:text-xl uppercase mb-4"
               >
                 Source code
               </h2>
               <h3
-                class="font-display font-bold text-neutrals-900 text-4xl leading-tight md:text-6xl md:leading-tight xl:text-7xl xl:leading-tight mb-6"
+                class="font-display font-bold text-neutrals-900 text-4xl md:text-5xl mb-8"
               >
                 Behind the simulation
               </h3>
-              <p
-                class="text-neutrals-900/70 leading-relaxed max-w-prose tracking-wider mb-12"
-              >
+              <p class="text-neutrals-900/70 leading-relaxed max-w-prose mb-14">
                 You take the blue pill...you keep scrolling, you leave this site
                 and believe whatever you want to believe. You take the red
                 pill...you stay in Wonderland, and I show you how deep the
@@ -453,56 +887,73 @@
                 rel="noreferrer"
                 target="_blank"
               >
-                <button
-                  class="button button--is-bold button--background-is-brand button--is-uppercase"
+                <a
+                  href="#"
+                  class="inline-block px-7 py-3 border-2 border-brand bg-brand text-neutrals-50 bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-brand transition-all duration-500"
+                  style="background-image: url('img/button-light.svg')"
                 >
                   Show me
-                </button>
+                </a>
               </a>
+            </div>
+
+            <!-- split right -->
+            <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
+              <object
+                class="max-w-full pointer-events-none"
+                data="/img/animation-work.svg"
+                type="image/svg+xml"
+              >
+                Placeholder
+              </object>
             </div>
           </div>
         </div>
+      </section>
+    </main>
 
-        <!--<footer class="footer">
-          <div class="footer__content">
-            <div class="container container--is-not-spaced">
-              <ul class="footer__content__list">
-                <li class="footer__content__list-item">
-                  <a class="footer__content__link" href="/imprint">Imprint</a>
-                </li>
-              </ul>
-              <div class="footer__content__socials">
-                <a
-                  class="footer__content__link"
-                  href="https://github.lokkeestudios.com"
-                  rel="noreferrer"
-                  target="_blank"
-                  title="Github Page"
-                >
-                  <i class="fab fa-github footer__content__social-icon"></i>
-                </a>
-                <a
-                  class="footer__content__link"
-                  href="https://discord.lokkeestudios.com"
-                  rel="noreferrer"
-                  target="_blank"
-                  title="Discord Server"
-                >
-                  <i class="fab fa-discord footer__content__social-icon"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="footer__copyright">
-            <p
-              class="
-                paragraph
-                paragraph--is-small
-                paragraph--is-centered
-                paragraph--is-light
-                paragraph--is-not-spaced
-              "
-            >
+    <!--------- FOOTER ---------->
+    <footer class="w-full relative bottom-0 py-6 z-10" aria-label="Primary">
+      <div class="mx-auto w-10/12 md:w-3/4 xl:w-2/3">
+        <!-- secondary links -->
+        <div
+          class="flex flex-col lg:flex-row justify-center items-center w-full py-8"
+        >
+          <img class="h-16 w-16" src="/img/logo.svg" />
+        </div>
+
+        <!-- primary links -->
+        <div
+          class="flex flex-row justify-center items-center w-full py-8 border-t-2 border-t-neutrals-500 gap-5 md:gap-12 lg:gap-20"
+        >
+          <a
+            class="text-xs lg:text-sm uppercase pr-2 py-4 md:py-6 hover:underline focus:underline"
+            href="#about"
+            >About</a
+          >
+          <a
+            class="text-xs lg:text-sm uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+            href="#work"
+            >Work</a
+          >
+          <a
+            class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
+            href="#contact"
+            >Contact</a
+          >
+          <a
+            class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
+            href="#sourcecode"
+            >Source code</a
+          >
+        </div>
+
+        <!-- policy -->
+        <div
+          class="flex flex-col lg:flex-row justify-center items-center w-full py-8 border-t-2 border-t-neutrals-500 gap-y-4"
+        >
+          <div class="flex basis-1/3 py-4 justify-center lg:justify-start">
+            <p class="text-xxs lg:text-xs">
               Copyright &copy;
               <script>
                 document.write(new Date().getFullYear().toString());
@@ -510,11 +961,56 @@
               Lokkee Studios All Rights Reserved.
             </p>
           </div>
-        </footer>-->
-      </section>
-    </main>
+          <div class="flex basis-1/3 justify-center gap-2 py-4">
+            <a
+              href="https://github.lokkeestudios.com"
+              rel="noreferrer"
+              target="_blank"
+              title="Github Page"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-7 h-7"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://discord.lokkeestudios.com"
+              rel="noreferrer"
+              target="_blank"
+              title="Discord Server"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-7 h-7"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="flex basis-1/3 justify-center lg:justify-end">
+            <a
+              class="text-xxs lg:text-xs uppercase py-4 md:py-6 hover:underline focus:underline"
+              href="./imprint"
+              >Imprint</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
 
-    <script type="module" src="ts/index.ts"></script>
+    <script type="module" src="/ts/index.ts"></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

@@ -6,14 +6,18 @@
   "description": "Programming and Design from the Future",
   "author": "LOKKEE",
   "scripts": {
-    "dev": "vite --open",
-    "build": "tsc && vite build"
+    "dev": "vite --open --port 3100",
+    "build": "vite build --emptyOutDir"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "gulp-data": "^1.3.1",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.12",
     "typescript": "^4.5.4",
     "vite": "^2.7.10"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^3.6.11"
   }
 }

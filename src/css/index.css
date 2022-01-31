@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  /* manual declaration, as this is only accessed through js */
+  @-webkit-keyframes typing {
+    0%,
+    to {
+      width: 0%;
+    }
+    40%,
+    70% {
+      width: 100%;
+    }
+  }
+  @keyframes typing {
+    0%,
+    to {
+      width: 0%;
+    }
+    40%,
+    70% {
+      width: 100%;
+    }
+  }
+}
