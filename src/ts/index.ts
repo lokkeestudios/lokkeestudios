@@ -1,32 +1,29 @@
-/*--------- INITIALIZATION ---------*/
+/*========= INITIALIZATION =========*/
 import Splide from "@splidejs/splide";
 
-/*--------- SPLIDEJS PROJECTS SLIDER ---------*/
-new Splide(".splide", {
-  type: "loop",
-  padding: { left: "16.666666%", right: "16.666666%" },
-  gap: "8rem",
-  heightRatio: 0.5,
-  breakpoints: {
-    1280: {
-      padding: { left: "12.5%", right: "12.5%" },
-      gap: "6rem",
-      heightRatio: 0.5,
+/*========= SPLIDEJS PROJECTS SLIDER =========*/
+if (document.querySelector(".splide") != null) {
+  new Splide(".splide", {
+    type: "loop",
+    padding: { left: "10%", right: "10%" },
+    gap: "8rem",
+    heightRatio: 0.5,
+    breakpoints: {
+      1536: {
+        padding: { left: "12.5%", right: "12.5%" },
+        gap: "6rem",
+        heightRatio: 0.5,
+      },
+      1024: {
+        padding: { left: "8.3333335%", right: "8.3333335%" },
+        gap: "1rem",
+        heightRatio: 1,
+      },
     },
-    1024: {
-      padding: { left: "12.5%", right: "12.5%" },
-      gap: "1rem",
-      heightRatio: 1,
-    },
-    768: {
-      padding: { left: "8.333333%", right: "8.333333%" },
-      gap: "1rem",
-      heightRatio: 1.6,
-    },
-  },
-}).mount();
+  }).mount();
+}
 
-/* Form logic such as submitting */
+/*========= CONTACT FORM =========*/
 const form: HTMLFormElement | null = document.getElementById(
   "contact-form"
 ) as HTMLFormElement;
@@ -58,14 +55,14 @@ function postFormData(formData: FormData) {
   });
 }
 
-/* onload logic */
+/*========= ONLOAD EVENT =========*/
 window.addEventListener("load", () => {
   updateNavigationBackground();
   updateTypewriter();
   fadeOutLoadingScreen();
 });
 
-/*--------- EMAIL ---------*/
+/*========= EMAIL =========*/
 const typewriterHeadlines: Array<string> = [
   "Developer",
   "Problem solver",
@@ -99,7 +96,7 @@ function updateTypewriter() {
   }, 450);
 }
 
-/*--------- EMAIL ---------*/
+/*========= EMAIL =========*/
 const openEmailAnchor: HTMLElement | null =
   document.getElementById("open-email");
 
@@ -108,7 +105,7 @@ openEmailAnchor?.addEventListener(
   () => (location.href = "mailto:hello@lokkeestudios.com")
 );
 
-/*--------- LOADER ---------*/
+/*========= LOADER =========*/
 function fadeOutLoadingScreen() {
   const loader: HTMLElement | null = document.getElementById("loader");
   const loaderLogo: HTMLElement | null = document.getElementById("loader-logo");
@@ -130,7 +127,7 @@ function fadeOutLoadingScreen() {
     100); /* shorter duration, to prevent animation flickering */
 }
 
-/*--------- NAVIGATION ---------*/
+/*========= NAVIGATION =========*/
 const navigationClasses: DOMTokenList | undefined =
   document.getElementById("navigation")?.classList;
 const triggerHeight: number = window.innerHeight;
@@ -147,7 +144,7 @@ function updateNavigationBackground() {
   }
 }
 
-/*--------- HERO ---------*/
+/*========= HERO =========*/
 const hero: HTMLElement | null = document.getElementById("home");
 const parallaxMultiplier: number = 0.015;
 

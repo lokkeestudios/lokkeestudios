@@ -1,6 +1,6 @@
 <div align="center">  
  <img src="src/img/logo.svg" width="300px"/>  
-</div>  
+</div>
 
 # Lokkee Studios<br>Programming and Design from the Future
 

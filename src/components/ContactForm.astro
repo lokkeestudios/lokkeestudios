@@ -1,0 +1,118 @@
+---
+const email: string = "hello@lokkeestudios.com";
+---
+
+<section
+  id="contact"
+  class="h-screen w-full bg-neutrals-900 flex py-20 items-center relative z-10"
+  aria-label="Contact"
+>
+  <div class="mx-auto w-10/12 lg:w-3/4 2xl:w-[80%] h-full">
+    <!-- split -->
+    <div class="flex flex-col lg:flex-row h-full w-full">
+      <!-- split left -->
+      <div class="basis-full lg:self-center">
+        <h2 class="font-display font-bold text-brand lg:text-xl uppercase mb-4">
+          Contact
+        </h2>
+        <h3 class="font-display font-bold text-4xl lg:text-5xl mb-8">
+          Got a problem to solve?
+        </h3>
+        <p class="text-neutrals-50/60 leading-relaxed max-w-prose mb-12">
+          Get your space suit ready and tell me your ideas to develop your dream
+          application.
+        </p>
+        <a
+          class="text-neutrals-50 leading-relaxed max-w-prose mb-14 hover:text-brand transition-colors cursor-pointer flex items-center"
+          id="open-email"
+          title="Hit me up"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-6 h-6 inline mr-1"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z"
+            ></path>
+          </svg>
+          {email}</a
+        >
+      </div>
+
+      <!-- split left -->
+      <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
+        <!--<div class="contact-form-success" id="contact-form-success">
+            <h1 class="headline headline--is-cyan">Successful!</h1>
+            <h3
+              class="headline headline--is-small headline--is-light headline--is-somewhat-translucent"
+            >
+              I'll be in touch with you
+            </h3>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <label class="contact-form__label" for="name">Name</label>
+            <input
+              class="contact-form__input-field bg-neutrals-500 border-2 border-neutrals-700 focus:border-brand"
+              id="name"
+              name="name"
+              oninput="this.setCustomValidity('')"
+              oninvalid="this.setCustomValidity('Name is empty')"
+              pattern=".*\S.*"
+              required
+              type="text"
+            />
+            <p class="contact-form__output-field">
+              <i class="fas fa-check"></i> Name is valid ^-^
+            </p>
+            <p class="contact-form__output-field">
+              <i class="fas fa-exclamation-triangle"></i>
+              Name is empty
+            </p>
+            <label class="contact-form__label" for="email">Email</label>
+            <input
+              class="contact-form__input-field bg-neutrals-500 border-2 border-neutrals-700 focus:border-brand"
+              id="email"
+              name="email"
+              oninput="this.setCustomValidity('')"
+              oninvalid="this.setCustomValidity('Email is empty or invalid')"
+              required
+              type="email"
+            />
+            <p class="contact-form__output-field">
+              <i class="fas fa-check"></i> Email is valid ^-^
+            </p>
+            <p class="contact-form__output-field">
+              <i class="fas fa-exclamation-triangle"></i>
+              Email is empty or invalid
+            </p>
+            <label class="contact-form__label" for="message">Message</label>
+            <textarea
+              class="contact-form__text-area bg-neutrals-500 border-2 border-neutrals-700 focus:border-brand"
+              id="message"
+              name="message"
+              oninput="this.setCustomValidity('')"
+              oninvalid="this.setCustomValidity('Message is empty')"
+              required
+              type="text"
+            ></textarea>
+            <p class="contact-form__output-field">
+              <i class="fas fa-check"></i> Message is valid ^-^
+            </p>
+            <p class="contact-form__output-field">
+              <i class="fas fa-exclamation-triangle"></i>
+              Message is empty
+            </p>
+            <button
+              class="button button--background-is-light button--is-hollow button--is-bold button--is-uppercase button--is-small button--is-not-spaced"
+              type="submit"
+            >
+              Hit me up <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>-->
+      </div>
+    </div>
+  </div>
+</section>
