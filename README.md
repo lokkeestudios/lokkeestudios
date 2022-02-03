@@ -1,5 +1,5 @@
-<div align="center">  
- <img src="src/img/logo.svg" width="300px"/>  
+<div style="display: flex; justify-content: center;">
+ <img src="icons/logo.svg" width="300"/>
 </div>
 
 # Lokkee Studios<br>Programming and Design from the Future
