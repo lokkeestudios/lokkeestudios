@@ -1,0 +1,54 @@
+---
+/* variable declarations */
+const email: string = "hello@lokkeestudios.com";
+---
+
+<section
+  class="min-h-screen w-full bg-neutrals-50 flex py-20 items-center sticky top-0"
+  aria-label="Imprint"
+>
+  <div class="mx-auto w-10/12 2xl:w-[80%]">
+    <h1
+      class="font-display text-neutrals-900 font-bold text-5xl leading-tight md:text-7xl md:leading-tight lg:text-8xl lg:leading-tight mb-12"
+    >
+      Imprint
+    </h1>
+
+    <h2
+      class="font-display font-bold text-neutrals-900 text-2xl lg:text-3xl mb-4"
+    >
+      Details
+    </h2>
+    <p class="text-neutrals-900/60 leading-relaxed max-w-prose mb-12">
+      Kilian Peters<br />
+      Lokkee Studios<br />
+      Langenfelderstraße 75<br />
+      22769 Hamburg
+    </p>
+
+    <h2
+      class="font-display font-bold text-neutrals-900 text-2xl lg:text-3xl mb-4"
+    >
+      Contact
+    </h2>
+    <p class="text-neutrals-900/60 leading-relaxed max-w-prose mb-12">
+      E-Mail:
+      <a
+        class="hover:text-brand transition-colors cursor-pointer underline"
+        id="open-email"
+        title="Hit me up"
+      >
+        {email}</a
+      ><br />
+    </p>
+
+    <h2
+      class="font-display font-bold text-neutrals-900 text-2xl lg:text-3xl mb-4"
+    >
+      Responsible for the content
+    </h2>
+    <p class="text-neutrals-900/60 leading-relaxed max-w-prose">
+      Kilian Peters
+    </p>
+  </div>
+</section>

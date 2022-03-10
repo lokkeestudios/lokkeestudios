@@ -1,0 +1,14 @@
+---
+/* data fetching */
+import work from "../data/work.json";
+
+/* declare properties */
+const { projectIndex } = Astro.props;
+
+/* import components */
+//import BaseLayout from "../layouts/BaseLayout.astro";
+
+const project = work[projectIndex];
+---
+
+<p>{project.title}</p>

@@ -1,16 +1,16 @@
 ---
+/* declare properties */
 const { title } = Astro.props;
 
 const description: string =
   "I'm Lokkee, a passionate freelancer bringing you programming and design from the future. I am experienced in developing web and desktop applications including full front end design. This includes brand identity, graphics and illustrations.";
-const url: string = "https://lokkeestudios.com";
+const site: string = "https://lokkeestudios.com";
 
 const github: string = "https://github.lokkeestudios.com";
 const discord: string = "https://discord.lokkeestudios.com";
 ---
 
-<!-- DESIGNED and DEVELOPED by LOKKEE (https://lokkeestudios.com) -->
-<!DOCTYPE html>
+<!-- This site was developed by Lokkee Studios (https://lokkeestudios.com) -->
 <html lang="en" class="scroll-smooth">
   <!--======= INITIALIZATION ========-->
   <head>
@@ -26,7 +26,7 @@ const discord: string = "https://discord.lokkeestudios.com";
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={site} />
     <meta property="og:image" content="/icon.png" />
 
     <!-- reference favicons -->
@@ -39,7 +39,11 @@ const discord: string = "https://discord.lokkeestudios.com";
     <meta name="theme-color" content="#6919ff" />
 
     <!-- reference stylesheets -->
-    <link rel="stylesheet" href={Astro.resolve("../styles/index.css")} />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href={Astro.resolve("../styles/global.css")}
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide-core.min.css"
@@ -63,7 +67,7 @@ const discord: string = "https://discord.lokkeestudios.com";
   </head>
 
   <body
-    class="font-body bg-neutrals-900 text-neutrals-50 selection:bg-brand-light/90 w-full"
+    class="font-body bg-neutrals-900 text-neutrals-50 selection:bg-brand/90 selection:text-neutrals-50 w-full"
   >
     <!--======= LOADER ========-->
     <div
@@ -75,93 +79,99 @@ const discord: string = "https://discord.lokkeestudios.com";
 
     <!--======= NAVIGATION ========-->
     <header class="fixed top-0 z-40 w-full" aria-label="Banner">
-      <nav
-        id="navigation"
-        class="bg-transparent"
-        aria-label="Primary"
-        role="navigation"
-      >
-        <div class="mx-auto w-10/12 lg:w-3/4 2xl:w-[80%]">
-          <div
-            class="flex justify-between md:items-center flex-col md:flex-row relative"
-          >
+      <div class="flex justify-between md:items-center flex-row relative">
+        <!-- background -->
+        <div
+          id="navigation-background"
+          class="w-full h-[5.1rem] -translate-y-[2.4rem] md:-translate-y-[0.9rem] bg-neutrals-900/80 backdrop-blur-[8px] absolute transition-all duration-500"
+        >
+        </div>
+
+        <!-- primary section -->
+        <div class="right-1/2 translate-x-1/2 w-10/12 2xl:w-[80%] absolute">
+          <div class="flex justify-between md:items-center flex-row relative">
             <!-- logo -->
             <a
-              class="flex items-center font-display py-5 md:py-6 text-sm lg:text-base uppercase"
-              href="./"
+              class="flex items-center font-display py-3 text-xs md:text-sm uppercase"
+              href="/"
             >
               <strong class="mr-1">Lokkee</strong>Studios
             </a>
 
-            <!-- mobile button -->
-            <input type="checkbox" class="peer hidden" id="mobile-toggle" />
-
-            <!-- open icon -->
-            <label
-              for="mobile-toggle"
-              class="flex items-center justify-center w-7 h-7 cursor-pointer md:hidden absolute top-[1.125rem] right-0 peer-checked:hidden"
+            <!-- mobile navigation button -->
+            <button
+              id="toggle-menu"
+              class="flex items-center justify-center cursor-pointer md:hidden"
             >
               <svg
+                id="toggle-menu-open"
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6 hover:w-7 hover:h-7 transition-all duration-200"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+                class="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"></path>
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16m-7 6h7"></path>
               </svg>
-            </label>
-
-            <!-- close icon -->
-            <label
-              for="mobile-toggle"
-              class="items-center justify-center w-7 h-7 cursor-pointer hidden md:hidden absolute top-[1.125rem] right-0 peer-checked:flex"
-            >
               <svg
+                id="toggle-menu-close"
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6 hover:w-7 hover:h-7 transition-all duration-200"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+                class="h-6 w-6 hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"></path>
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"></path>
               </svg>
-            </label>
-            <div
-              class="hidden flex-row justify-between items-center md:space-x-8 md:flex peer-checked:flex"
-            >
+            </button>
+          </div>
+        </div>
+
+        <!-- link section -->
+        <nav
+          id="navigation-contents"
+          aria-label="Primary"
+          role="navigation"
+          class="bg-transparent backdrop-blur-[8px] -translate-y-full w-full md:w-auto md:translate-y-0 md:ml-auto md:mr-[8.3333335%] 2xl:mr-[10%] md:bg-transparent opacity-0 md:opacity-100 transition-all duration-500"
+        >
+          <div class="mx-auto w-10/12 2xl:w-[80%] md:w-auto">
+            <div class="items-center space-x-8 flex py-1 md:py-0 flex-row">
               <!-- primary navigation -->
-              <div class="flex items-center space-x-4 mb-2 md:mb-0">
+              <div class="flex items-center space-x-8">
                 <a
-                  class="text-xxs lg:text-xs uppercase pr-2 py-4 md:py-6 hover:underline focus:underline"
+                  class="text-xxs uppercase py-5 hover:underline focus:underline"
                   href="/#about">About</a
                 >
                 <a
-                  class="text-xxs lg:text-xs uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+                  class="text-xxs uppercase py-5 hover:underline focus:underline"
                   href="/#work">Work</a
                 >
                 <a
-                  class="text-xxs lg:text-xs uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
+                  class="text-xxs uppercase py-5 hover:underline focus:underline"
                   href="/#contact">Contact</a
                 >
               </div>
 
               <!-- secondary navigation -->
-              <div class="flex items-center space-x-2">
+              <div class="flex items-center space-x-1">
                 <a
                   href={github}
                   rel="noreferrer"
                   target="_blank"
                   title="GitHub profile"
-                  class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+                  class="w-7 h-7 flex items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-200"
+                    class="w-6 h-6 hover:w-7 hover:h-7 transition-all duration-300"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -177,11 +187,11 @@ const discord: string = "https://discord.lokkeestudios.com";
                   rel="noreferrer"
                   target="_blank"
                   title="Discord server"
-                  class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+                  class="w-7 h-7 flex items-center justify-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-200"
+                    class="w-6 h-6 hover:w-7 hover:h-7 transition-all duration-300"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                   >
@@ -193,113 +203,114 @@ const discord: string = "https://discord.lokkeestudios.com";
               </div>
             </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </header>
 
     <!--======= PAGE CONTENT ========-->
     <slot />
 
     <!--======= FOOTER ========-->
-    <footer class="w-full relative bottom-0 py-6 z-10" aria-label="Primary">
-      <div class="mx-auto w-10/12 lg:w-3/4 2xl:w-[80%]">
-        <!-- secondary links -->
-        <div
-          class="flex flex-col lg:flex-row justify-center items-center w-full py-8"
-        >
-          <img
-            class="h-16 w-16"
-            src="/assets/logo.svg"
-            alt="Lokkee Studios logo"
-          />
-        </div>
-
-        <!-- primary links -->
-        <div
-          class="flex flex-row justify-center items-center w-full py-8 border-t-2 border-t-neutrals-500 gap-5 md:gap-12 lg:gap-20"
-        >
-          <a
-            class="text-xs lg:text-sm uppercase pr-2 py-4 md:py-6 hover:underline focus:underline"
-            href="/#about">About</a
+    <footer class="w-full bottom-0 py-6 relative z-10" aria-label="Primary">
+      <div class="mx-auto w-10/12 2xl:w-[80%]">
+        <div class="divide-y-2 divide-neutrals-500">
+          <div
+            class="flex flex-col lg:flex-row justify-center items-center w-full py-8"
           >
-          <a
-            class="text-xs lg:text-sm uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
-            href="/#work">Work</a
-          >
-          <a
-            class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
-            href="/#contact">Contact</a
-          >
-          <a
-            class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
-            href="/#sourcecode">Source code</a
-          >
-        </div>
-
-        <!-- policy -->
-        <div
-          class="flex flex-col lg:flex-row justify-center items-center w-full py-8 border-t-2 border-t-neutrals-500 gap-y-4"
-        >
-          <div class="flex basis-1/3 py-4 justify-center lg:justify-start">
-            <p class="text-xxs lg:text-xs">
-              Copyright &copy;
-              <script>
-                document.write(new Date().getFullYear().toString());
-              </script>
-              Lokkee Studios All Rights Reserved.
-            </p>
+            <img
+              class="h-16 w-16"
+              src="/assets/logo.svg"
+              alt="Lokkee Studios logo"
+            />
           </div>
-          <div class="flex basis-1/3 justify-center gap-2 py-4">
+
+          <!-- primary links -->
+          <div
+            class="flex flex-row justify-center items-center w-full py-8 gap-5 md:gap-12 lg:gap-20"
+          >
             <a
-              href={github}
-              rel="noreferrer"
-              target="_blank"
-              title="Github Page"
-              class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+              class="text-xs lg:text-sm uppercase pr-2 py-4 md:py-6 hover:underline focus:underline"
+              href="/#about">About</a
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-200"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
-                ></path>
-              </svg>
-            </a>
             <a
-              href={discord}
-              rel="noreferrer"
-              target="_blank"
-              title="Discord Server"
-              class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+              class="text-xs lg:text-sm uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
+              href="/#work">Work</a
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-200"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path
-                  d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"
-                ></path>
-              </svg>
-            </a>
+            <a
+              class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
+              href="/#contact">Contact</a
+            >
+            <a
+              class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
+              href="/#sourcecode">Source code</a
+            >
           </div>
-          <div class="flex basis-1/3 justify-center lg:justify-end">
-            <a
-              class="text-xxs lg:text-xs uppercase py-4 md:py-6 hover:underline focus:underline"
-              href="/imprint">Imprint</a
-            >
+
+          <!-- privacy + secondary links -->
+          <div
+            class="flex flex-col-reverse lg:flex-row justify-center items-center w-full py-8 gap-y-4"
+          >
+            <div class="flex basis-1/3 py-4 justify-center lg:justify-start">
+              <p class="text-xxs lg:text-xs">
+                Copyright &copy;
+                <script>
+                  document.write(new Date().getFullYear().toString());
+                </script>
+                Lokkee Studios All Rights Reserved.
+              </p>
+            </div>
+            <div class="flex basis-1/3 justify-center gap-2 py-4">
+              <a
+                href={github}
+                rel="noreferrer"
+                target="_blank"
+                title="Github Page"
+                class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-300"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href={discord}
+                rel="noreferrer"
+                target="_blank"
+                title="Discord Server"
+                class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-300"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M14.82 4.26a10.14 10.14 0 0 0-.53 1.1 14.66 14.66 0 0 0-4.58 0 10.14 10.14 0 0 0-.53-1.1 16 16 0 0 0-4.13 1.3 17.33 17.33 0 0 0-3 11.59 16.6 16.6 0 0 0 5.07 2.59A12.89 12.89 0 0 0 8.23 18a9.65 9.65 0 0 1-1.71-.83 3.39 3.39 0 0 0 .42-.33 11.66 11.66 0 0 0 10.12 0q.21.18.42.33a10.84 10.84 0 0 1-1.71.84 12.41 12.41 0 0 0 1.08 1.78 16.44 16.44 0 0 0 5.06-2.59 17.22 17.22 0 0 0-3-11.59 16.09 16.09 0 0 0-4.09-1.35zM8.68 14.81a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.93 1.93 0 0 1 1.8 2 1.93 1.93 0 0 1-1.8 2zm6.64 0a1.94 1.94 0 0 1-1.8-2 1.93 1.93 0 0 1 1.8-2 1.92 1.92 0 0 1 1.8 2 1.92 1.92 0 0 1-1.8 2z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+            <div class="flex basis-1/3 justify-center lg:justify-end">
+              <a
+                class="text-xxs lg:text-xs uppercase py-4 md:py-6 hover:underline focus:underline"
+                href="/imprint">Imprint</a
+              >
+            </div>
           </div>
         </div>
       </div>
     </footer>
 
-    <script type="module" src={Astro.resolve("../ts/index.ts")}></script>
+    <script type="module" src={Astro.resolve("../ts/base.ts")} hoist></script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

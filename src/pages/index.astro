@@ -1,197 +1,29 @@
 ---
 /* import components */
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ContactForm from "../components/ContactForm.astro";
-import ProjectItem from "../components/ProjectItem.astro";
 
-import work from "../data/work.json";
-const projects = work;
-
-const sourcecode: string = "https://sourcecode.lokkeestudios.com";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Work from "../components/Work.astro";
+import Contact from "../components/Contact.astro";
+import SourceCode from "../components/SourceCode.astro";
 ---
 
 <BaseLayout title="Lokkee Studios | Programming and Design from the Future">
   <main>
     <!--======= HERO ========-->
-    <section
-      id="home"
-      class="h-screen w-full bg-brand bg-center bg-no-repeat bg-[length:105%] flex py-20 justify-center items-center transition-all duration-75 sticky top-0"
-      style="background-image: url('/assets/future-grid.webp')"
-      aria-label="Hero"
-    >
-      <div class="mx-auto w-10/12 lg:w-3/4 2xl:w-[80%]">
-        <!-- headline -->
-        <h1
-          class="font-display font-bold text-5xl leading-tight md:text-7xl md:leading-tight lg:text-8xl lg:leading-tight text-center"
-        >
-          I'm a Freelancer bringing you Programming and Design from the Future
-        </h1>
-        <!-- call to action -->
-        <a
-          href="/#work"
-          class="inline-block px-5 py-4 border-2 border-neutrals-50 bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-900 transition-all duration-500 text-lg mt-16 relative left-1/2 -translate-x-1/2"
-          style="background-image: url('/assets/button-light.svg')"
-        >
-          Dig into my universe
-        </a>
-      </div>
-    </section>
+    <Hero />
 
     <!--======= ABOUT ========-->
-    <section
-      id="about"
-      class="min-h-screen w-full flex py-20 items-center bg-neutrals-900 relative z-10"
-      aria-label="About"
-    >
-      <div class="mx-auto w-10/12 lg:w-3/4 2xl:w-[80%] h-full">
-        <!-- split -->
-        <div class="flex flex-col lg:flex-row h-full w-full">
-          <!-- split left -->
-          <div class="basis-full lg:self-center">
-            <h2
-              class="font-display font-bold text-brand lg:text-xl uppercase mb-4"
-            >
-              About
-            </h2>
-
-            <!-- typerwiter headline-->
-            <div class="inline-block">
-              <h3
-                id="typewriter"
-                class="font-bold text-4xl lg:text-[2.4rem] xl:text-[2.7rem] 2xl:text-5xl xl:text-5xl mb-8 font-mono overflow-hidden whitespace-nowrap w-0"
-              >
-                Error (╯°□°)╯︵ ┻━┻
-              </h3>
-            </div>
-            <p class="text-neutrals-50/60 leading-relaxed max-w-prose">
-              I'm Lokkee, a passionate freelancer bringing you programming and
-              design from the future. I am experienced in developing web and
-              desktop applications including full front end design. This
-              includes brand identity, graphics and illustrations.
-            </p>
-          </div>
-
-          <!-- split right -->
-          <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
-            <img src="/assets/animation-work.svg" alt="Placeholder" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <About />
 
     <!--======= WORK ========-->
-    <section
-      id="work"
-      class="min-h-screen w-full bg-neutrals-50 py-20 relative z-10"
-      aria-label="Work"
-    >
-      <!-- header -->
-      <div class="text-center mb-12">
-        <h2 class="font-display font-bold text-brand lg:text-xl uppercase mb-4">
-          Work
-        </h2>
-        <h3
-          class="font-display font-bold text-neutrals-900 text-4xl lg:text-5xl"
-        >
-          Dig into my universe
-        </h3>
-      </div>
-
-      <!-- projects horizontal slider -->
-
-      <div class="splide max-w-full">
-        <!-- navigation arrows -->
-        <div class="splide__arrows hidden lg:block">
-          <!-- previous arrow -->
-          <button
-            class="splide__arrow splide__arrow--prev absolute top-1/2 -translate-y-1/2 left-[2%] z-10"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 40 40"
-              class="w-12 h-12 text-neutrals-50/70 hover:text-neutrals-50 transition-color duration-300"
-              fill="currentColor"
-            >
-              <g transform="matrix(-1,0,0,1,40,0)">
-                <path
-                  d="M15.5,0.932L11.2,5.312L25.7,19.912L11.2,34.412L15.5,38.812L30.1,24.212L34.5,19.912L15.5,0.912L15.5,0.932Z"
-                  style="fill-rule: nonzero"></path>
-              </g>
-            </svg>
-          </button>
-
-          <!-- next arrow -->
-          <button
-            class="splide__arrow splide__arrow--next absolute top-1/2 -translate-y-1/2 right-[2%] z-10"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 40 40"
-              class="w-12 h-12 text-neutrals-50/70 hover:text-neutrals-50 transition-color duration-300"
-              fill="currentColor"
-            >
-              <path
-                d="m15.5 0.932-4.3 4.38 14.5 14.6-14.5 14.5 4.3 4.4 14.6-14.6 4.4-4.3-4.4-4.4-14.6-14.6z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-
-        <div class="splide__track">
-          <ul class="splide__list">
-            {projects.map((project) => <ProjectItem project={project} />)}
-          </ul>
-        </div>
-      </div>
-    </section>
+    <Work />
 
     <!--======= CONTACT ========-->
-    <ContactForm />
+    <Contact />
 
     <!--======= SOURCE CODE ========-->
-    <section
-      id="sourcecode"
-      class="min-h-screen w-full bg-neutrals-50 flex py-20 items-center relative z-10"
-      aria-label="Source code"
-    >
-      <div class="mx-auto w-10/12 lg:w-3/4 2xl:w-[80%] h-full">
-        <!-- split -->
-        <div class="flex flex-col lg:flex-row h-full w-full">
-          <!-- split left -->
-          <div class="basis-full lg:self-center">
-            <h2
-              class="font-display font-bold text-brand md:text-xl uppercase mb-4"
-            >
-              Source code
-            </h2>
-            <h3
-              class="font-display font-bold text-neutrals-900 text-4xl md:text-5xl mb-8"
-            >
-              Behind the simulation
-            </h3>
-            <p class="text-neutrals-900/70 leading-relaxed max-w-prose mb-14">
-              You take the blue pill...you keep scrolling, you leave this site
-              and believe whatever you want to believe. You take the red
-              pill...you stay in Wonderland, and I show you how deep the rabbit
-              hole goes.
-            </p>
-            <a href={sourcecode} rel="noreferrer" target="_blank">
-              <a
-                href="/#"
-                class="inline-block px-7 py-3 border-2 border-brand bg-brand text-neutrals-50 bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-brand transition-all duration-500"
-                style="background-image: url('/assets/button-light.svg')"
-              >
-                Show me
-              </a>
-            </a>
-          </div>
-
-          <!-- split right -->
-          <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
-            <img src="/assets/animation-work.svg" alt="Placeholder" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <SourceCode />
   </main>
 </BaseLayout>

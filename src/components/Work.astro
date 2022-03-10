@@ -1,0 +1,79 @@
+---
+/* import components */
+import ProjectItem from "../components/ProjectItem.astro";
+
+/* data fetching */
+import work from "../data/work.json";
+const projects = work;
+---
+
+<section
+  class="w-full bg-neutrals-50 relative z-10 xl:min-h-screen"
+  aria-label="Work"
+>
+  <!-- header -->
+  <div class="mx-auto w-10/12 2xl:w-[80%] text-center pt-28">
+    <h2 class="font-display font-bold text-brand md:text-xl uppercase mb-4">
+      Work
+    </h2>
+    <h3
+      class="font-display font-bold text-neutrals-900 text-4xl md:text-5xl mb-8"
+    >
+      Dig into my universe
+    </h3>
+  </div>
+
+  <!-- projects horizontal slider -->
+  <!-- id is located here in order for anchor links to address the slider instead of the section -->
+  <div class="splide max-w-full bg-neutrals-900" id="work">
+    <!-- navigation arrows -->
+    <div class="splide__arrows">
+      <!-- previous arrow -->
+      <button
+        class="splide__arrow splide__arrow--prev absolute bottom-14 left-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5 text-neutrals-50"
+          fill="none"
+          q
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+        </svg>
+      </button>
+
+      <!-- next arrow -->
+      <button
+        class="splide__arrow splide__arrow--next absolute bottom-14 right-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-5 h-5 text-neutrals-50"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="splide__track">
+      <ul class="splide__list">
+        {projects.map((project) => <ProjectItem project={project} />)}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script type="module" src={Astro.resolve("../ts/work.ts")} hoist></script>
