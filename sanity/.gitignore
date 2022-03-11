@@ -4,10 +4,3 @@ dist-ssr
 
 # dependencies
 node_modules
-
-# ide
-*.local
-.idea
-
-# macos-specific files
-.DS_Store

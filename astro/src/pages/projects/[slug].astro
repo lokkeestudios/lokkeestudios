@@ -1,0 +1,27 @@
+---
+/* import components */
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Project from "../../components/Project.astro";
+
+import { client } from "../../lib/sanityClient.ts";
+
+/* generate site for each project */
+export async function getStaticPaths({}) {
+let projects = [];
+const query = '*[_type == "projects"]';
+  await client.fetch(query).then((data) => projects = data);
+
+  return projects.map(project => ({params: { slug: project.slug.current }, props: {project}}));
+}
+
+/* declare properties */
+const { project } = Astro.props;
+---
+
+<BaseLayout title={`${project.name} - Project | Lokkee Studios`}>
+  <main>
+    <!--======= PROJECT ========-->
+    <Project project={project}>
+  </main>
+</BaseLayout>

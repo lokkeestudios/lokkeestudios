@@ -1,0 +1,6 @@
+# ide
+*.local
+.idea
+
+# macos-specific files
+.DS_Store

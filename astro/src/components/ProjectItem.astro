@@ -1,4 +1,8 @@
 ---
+/* imports */
+import { getSanityImageUrl, formatDate } from '../utils/helpers.ts';
+
+/* declare properties */
 const { project } = Astro.props;
 ---
 
@@ -6,10 +10,10 @@ const { project } = Astro.props;
   class="splide__slide h-screen group overflow-hidden"
   aria-label={project.name}
 >
-  <a href={`/projects/${project.slug}`}>
+  <a href={`/projects/${project.slug.current}`}>
     <!-- preview of first image -->
     <img
-      src={project.images[0]}
+      src={getSanityImageUrl(project.images[0]).url()}
       alt={project.images[0].alttext}
       class="absolute right-0 object-cover object-center w-full h-full group-hover:scale-105 transition-all duration-500 filter grayscale group-hover:grayscale-0"
     />
@@ -29,7 +33,7 @@ const { project } = Astro.props;
         class="transition-transform duration-500 group-hover:-translate-y-full"
       >
         <span class="text-sm md:text-base leading-relaxed max-w-prose">
-          {project.date}
+          {formatDate(project.date)}
         </span>
         <h4
           class="mt-1 text-4xl lg:text-6xl font-display font-bold leading-[1.1] lg:leading-[1.1] mb-5"
@@ -55,7 +59,7 @@ const { project } = Astro.props;
       <div
         class="flex flex-row gap-4 group-hover:translate-y-[200%] transition-transform duration-500 border-b-[0.5px] border-neutrals-50/60 pb-3"
       >
-        {project.tags.map((tag: string[]) => (
+        {project.tags && project.tags.map((tag: string[]) => (
           <span class="text-xs drop-shadow-md lg:text-sm">{tag}</span>
         ))}
       </div>

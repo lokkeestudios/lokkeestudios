@@ -1,3 +1,6 @@
+/*========= IMPORTS =========*/
+import site from "../data/site";
+
 /*========= ONLOAD LISTENER =========*/
 window.addEventListener("load", () => {
   fadeOutLoadingScreen();
@@ -31,7 +34,7 @@ const openEmailAnchor: HTMLElement | null =
 
 openEmailAnchor?.addEventListener(
   "click",
-  () => (location.href = "mailto:hello@lokkeestudios.com")
+  () => (location.href = "mailto:" + site.email)
 );
 
 /*========= MOBILE NAVIGATION =========*/

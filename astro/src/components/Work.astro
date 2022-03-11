@@ -2,12 +2,11 @@
 /* import components */
 import ProjectItem from "../components/ProjectItem.astro";
 
-import { getSanityContent } from "../ts/helpers.js";
-import { allProjects } from "../ts/api.js";
+import { client } from "../lib/sanityClient.ts";
 
-/* data fetching */
-const response = await getSanityContent({ query: allProjects });
-const projects = response.allPost;
+let projects = [];
+const query = '*[_type == "projects"]';
+  await client.fetch(query).then((data) => projects = data);
 ---
 
 <section

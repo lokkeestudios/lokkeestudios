@@ -1,6 +1,6 @@
 ---
-/* variable declarations */
-const sourcecode: string = "https://sourcecode.lokkeestudios.com";
+/* imports */
+import site from "../data/site";
 ---
 
 <section
@@ -32,7 +32,7 @@ const sourcecode: string = "https://sourcecode.lokkeestudios.com";
           in Wonderland, and I show you how deep the rabbit hole goes.
         </p>
         <a
-          href={sourcecode}
+          href={site.sourcecodeURL}
           rel="noreferrer"
           target="_blank"
           class="inline-block px-7 py-3 border-2 border-brand bg-brand text-neutrals-50 bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-brand transition-all duration-500"
