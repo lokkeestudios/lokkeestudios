@@ -4,26 +4,27 @@
   "homepage": "https://lokkeestudios.com/",
   "license": "UNLICENSED",
   "description": "Programming and Design from the Future",
-  "author": "LOKKEE",
+  "author": "Lokkee Studios",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@sanity/client": "^3.2.0",
+    "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
-    "astro": "^0.23.7",
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5",
-    "prettier": "^2.5.1",
+    "astro": "^1.0.0-beta.38",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.13",
+    "prettier": "^2.6.2",
     "prettier-plugin-astro": "^0.0.12",
-    "prettier-plugin-tailwindcss": "^0.1.5",
-    "tailwindcss": "^3.0.23",
-    "typescript": "^4.5.4"
+    "prettier-plugin-tailwindcss": "^0.1.10",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.4"
   },
   "dependencies": {
-    "@splidejs/splide": "^3.6.11",
+    "@astrojs/tailwind": "^0.2.1",
+    "@splidejs/splide": "^3.6.12",
     "date-fns": "^2.28.0"
   }
 }

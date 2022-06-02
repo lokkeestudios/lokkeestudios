@@ -4,9 +4,9 @@ import ProjectItem from "../components/ProjectItem.astro";
 
 import { client } from "../lib/sanityClient.ts";
 
-let projects = [];
-const query = '*[_type == "projects"]';
-  await client.fetch(query).then((data) => projects = data);
+let projects: any[] = [];
+const query = "*[_type == 'projects'] | order(date desc)";
+  await client.fetch(query).then((data: any[]) => projects = data);
 ---
 
 <section
@@ -38,7 +38,6 @@ const query = '*[_type == "projects"]';
           xmlns="http://www.w3.org/2000/svg"
           class="w-5 h-5 text-neutrals-50"
           fill="none"
-          q
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
@@ -78,4 +77,6 @@ const query = '*[_type == "projects"]';
   </div>
 </section>
 
-<script type="module" src={Astro.resolve("../ts/work.ts")} hoist></script>
+<script>
+  import "../ts/work.ts";
+</script>

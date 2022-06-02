@@ -5,19 +5,18 @@ import site from "../data/site";
 
 <section
   id="sourcecode"
-  class="w-full bg-neutrals-50 flex py-28 items-center relative z-10 xl:min-h-screen"
+  class="w-full bg-neutrals-50 flex py-28 items-center relative z-10 xl:min-h-screen flex-col md:flex-row"
   aria-label="Source code"
 >
+  <img
+    class="object-cover object-center w-full max-h-screen relative -top-28 md:top-0 md:w-1/2 md:h-full md:pr-10 xl:pr-0 md:absolute"
+    src="/assets/source-code.webp"
+    alt="A picture of myself, lokkee"
+  />
   <div class="mx-auto w-10/12 2xl:w-[80%] h-full">
-    <!-- split -->
     <div class="flex flex-col md:flex-row h-full w-full">
-      <!-- split left -->
-      <div class="basis-full md:self-center mb-10 md:mb-0 md:mr-10 xl:mr-28">
-        <img src="/assets/source-code.svg" alt="A person working at the desk" />
-      </div>
 
-      <!-- split right -->
-      <div class="basis-full md:self-center">
+      <div class="basis-1/2 md:self-center ml-auto xl:pl-20">
         <h2 class="font-display font-bold text-brand md:text-xl uppercase mb-4">
           Source code
         </h2>

@@ -60,7 +60,7 @@ const { project } = Astro.props;
         class="flex flex-row gap-4 group-hover:translate-y-[200%] transition-transform duration-500 border-b-[0.5px] border-neutrals-50/60 pb-3"
       >
         {project.tags && project.tags.map((tag: string[]) => (
-          <span class="text-xs drop-shadow-md lg:text-sm">{tag}</span>
+          <span class="text-xs lg:text-sm">{tag}</span>
         ))}
       </div>
     </div>

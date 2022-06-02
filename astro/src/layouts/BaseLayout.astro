@@ -2,7 +2,8 @@
 /* imports */
 import site from "../data/site";
 
-import '../styles/global.css';
+/* import stylesheet */
+import "../styles/global.css";
 
 /* declare properties */
 const { title } = Astro.props;
@@ -37,6 +38,10 @@ const { title } = Astro.props;
     <meta name="theme-color" content="#6919ff" />
 
     <!-- reference stylesheets -->
+    <!--<style global>
+      @import "../styles/global.css";
+    </style>-->
+    <!--<link rel="stylesheet" href={Astro.resolve("../styles/global.css")} />-->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide-core.min.css"
@@ -303,7 +308,9 @@ const { title } = Astro.props;
       </div>
     </footer>
 
-    <script type="module" src={Astro.resolve("../ts/base.ts")} hoist></script>
+    <script>
+      import "../ts/base.ts";
+    </script>
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>

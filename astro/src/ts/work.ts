@@ -5,11 +5,12 @@ import Splide from "@splidejs/splide";
 if (document.querySelector(".splide") != null) {
   new Splide(".splide", {
     perPage: 2,
-    gap: "0.3rem",
+    perMove: 2,
     breakpoints: {
       1536: {},
       1024: {
         perPage: 1,
+        perMove: 1,
       },
     },
     classes: {

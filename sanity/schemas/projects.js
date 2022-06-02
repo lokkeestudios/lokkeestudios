@@ -22,7 +22,7 @@ export default {
     {
       name: "description",
       title: "Description",
-      type: "string",
+      type: "text",
     },
     {
       name: "date",
@@ -75,4 +75,11 @@ export default {
       media: "images.0",
     },
   },
+  orderings: [
+    {
+      title: "Date, New",
+      name: "dateDesc",
+      by: [{ field: "date", direction: "desc" }],
+    },
+  ],
 };

@@ -1,8 +1,12 @@
-export default {
-  buildOptions: {
-    site: "https://lokkeestudios.com/",
-  },
-  devOptions: {
-    tailwindConfig: "./tailwind.config.js",
-  },
-};
+/* imports */
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+
+export default defineConfig({
+  site: "https://lokkeestudios.com/",
+  integrations: [
+    tailwind({
+      config: { path: "./tailwind.config.js" },
+    }),
+  ],
+});

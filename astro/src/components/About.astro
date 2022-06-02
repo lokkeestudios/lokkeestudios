@@ -1,52 +1,43 @@
 <section
   id="about"
-  class="w-full flex items-center bg-neutrals-900 relative z-10 xl:min-h-screen"
+  class="w-full flex items-center bg-neutrals-900 py-28 relative z-10 xl:min-h-screen flex-col md:flex-row"
   aria-label="About"
 >
+  <img
+    class="object-cover object-center w-full max-h-screen relative -top-28 md:top-0 md:w-1/2 md:h-full md:pr-10 xl:pr-0 md:absolute"
+    src="/assets/about.webp"
+    alt="A picture of myself, lokkee"
+  />
   <div class="mx-auto w-10/12 2xl:w-[80%] h-full">
-    <!-- split -->
     <div class="flex flex-col md:flex-row h-full w-full">
-      <!-- split left -->
-      <div class="basis-full md:self-center mb-10 md:mb-0 md:mr-10 xl:mr-28">
-        <figure
-          class="relative before:top-0 before:left-0 before:w-full before:h-full before:bg-brand/10 before:absolute before:z-10"
+
+      <div class="basis-1/2 md:self-center ml-auto xl:pl-20">
+        <h2
+          class="font-display font-bold text-brand lg:text-xl uppercase mb-4"
         >
-          <img
-            class="object-cover object-top filter grayscale"
-            src="/assets/about.png"
-            alt="A picture of myself, lokkee"
-          />
-        </figure>
-      </div>
+          About
+        </h2>
 
-      <!-- split right -->
-      <div class="basis-full md:self-center">
-        <div class="py-28">
-          <h2
-            class="font-display font-bold text-brand lg:text-xl uppercase mb-4"
+        <!-- typerwiter headline-->
+        <div class="inline-block">
+          <h3
+            id="typewriter"
+            class="font-bold text-4xl lg:text-5xl mb-8 font-mono overflow-hidden whitespace-nowrap w-0"
           >
-            About
-          </h2>
-
-          <!-- typerwiter headline-->
-          <div class="inline-block">
-            <h3
-              id="typewriter"
-              class="font-bold text-4xl md:text-5xl mb-8 font-mono overflow-hidden whitespace-nowrap w-0"
-            >
-              Error (╯°□°)╯︵ ┻━┻
-            </h3>
-          </div>
-          <p class="text-neutrals-50/60 leading-relaxed max-w-prose">
-            I'm Lokkee, a passionate freelancer bringing you programming and
-            design from the future. I am experienced in developing web and
-            desktop applications including full front end design. This includes
-            brand identity, graphics and illustrations.
-          </p>
+            Error (╯°□°)╯︵ ┻━┻
+          </h3>
         </div>
+        <p class="text-neutrals-50/60 leading-relaxed max-w-prose">
+          I'm Lokkee, a passionate freelancer bringing you programming and
+          design from the future. I am experienced in developing web and
+          desktop applications including full front end design. This includes
+          brand identity, graphics and illustrations.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<script type="module" src={Astro.resolve("../ts/about.ts")} hoist></script>
+<script>
+  import "../ts/about.ts";
+</script>

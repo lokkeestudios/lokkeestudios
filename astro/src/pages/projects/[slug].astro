@@ -7,21 +7,21 @@ import Project from "../../components/Project.astro";
 import { client } from "../../lib/sanityClient.ts";
 
 /* generate site for each project */
-export async function getStaticPaths({}) {
-let projects = [];
-const query = '*[_type == "projects"]';
-  await client.fetch(query).then((data) => projects = data);
+export async function getStaticPaths() {
+  let projects: any[] = [];
+  const query = "*[_type == 'projects'] | order(date desc)";
+  await client.fetch(query).then((data: any[]) => projects = data);
 
-  return projects.map(project => ({params: { slug: project.slug.current }, props: {project}}));
+  return projects.map((project) => ({params: { slug: project.slug.current }, props: { project }}));
 }
 
 /* declare properties */
 const { project } = Astro.props;
 ---
 
-<BaseLayout title={`${project.name} - Project | Lokkee Studios`}>
+<BaseLayout title={`${project.name} ― Projects | Lokkee Studios`}>
   <main>
     <!--======= PROJECT ========-->
-    <Project project={project}>
+    <Project project={project} />
   </main>
 </BaseLayout>
