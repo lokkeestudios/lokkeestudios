@@ -1,6 +1,6 @@
 ---
 /* imports */
-import site from "../data/site";
+import site from "../../data/site";
 ---
 
 <section
@@ -10,6 +10,9 @@ import site from "../data/site";
 >
   <img
     class="object-cover object-center w-full max-h-screen relative -top-28 md:top-0 md:w-1/2 md:h-full md:pr-10 xl:pr-0 md:absolute"
+    loading="lazy"
+    width={756}
+    height={1008}
     src="/assets/source-code.webp"
     alt="A picture of myself, lokkee"
   />
@@ -26,8 +29,8 @@ import site from "../data/site";
           Behind the simulation
         </h3>
         <p class="text-neutrals-900/60 leading-relaxed max-w-prose mb-14">
-          You take the blue pill...you keep scrolling, you leave this site and
-          believe whatever you want to believe. You take the red pill...you stay
+          You take the blue pill - you keep scrolling, you leave this site and
+          believe whatever you want to believe. You take the red pill - you stay
           in Wonderland, and I show you how deep the rabbit hole goes.
         </p>
         <a

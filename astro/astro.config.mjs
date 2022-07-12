@@ -1,12 +1,12 @@
 /* imports */
-import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://lokkeestudios.com/",
-  integrations: [
-    tailwind({
-      config: { path: "./tailwind.config.js" },
-    }),
-  ],
+  integrations: [tailwind({
+    config: {
+      path: "./tailwind.config.js"
+    }
+  })]
 });

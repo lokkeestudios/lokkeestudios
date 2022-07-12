@@ -4,10 +4,10 @@ window.addEventListener("load", () => {
 });
 
 /*========= NAVIGATION =========*/
-const navigationClasses: DOMTokenList | undefined = document.getElementById(
+const navigationClasses = document.getElementById(
   "navigation-background"
 )?.classList;
-const navTriggerHeight: number = window.innerHeight;
+const navTriggerHeight = window.innerHeight;
 
 window.addEventListener("scroll", updateNavigationBackground);
 
@@ -22,13 +22,13 @@ function updateNavigationBackground() {
 }
 
 /*========= HERO =========*/
-const hero: HTMLElement | null = document.getElementById("home");
-const parallaxMultiplier: number = 0.015;
+const hero = document.getElementById("home");
+const parallaxMultiplier = 0.015;
 
 if (hero != null) {
   window.addEventListener("mousemove", (event: MouseEvent) => {
-    let x: number = event.clientX;
-    let y: number = event.clientY;
+    let x = event.clientX;
+    let y = event.clientY;
 
     hero.style.backgroundPositionX = "-" + x * parallaxMultiplier + "px";
     hero.style.backgroundPositionY = "-" + y * parallaxMultiplier + "px";

@@ -1,20 +1,20 @@
 ---
 /* import components */
-import ProjectItem from "../components/ProjectItem.astro";
+import ProjectItem from "../../components/ProjectItem.astro";
+import { client } from "../../lib/sanityClient";
+import Project from '../../types/Project';
 
-import { client } from "../lib/sanityClient.ts";
-
-let projects: any[] = [];
+let projects: Project[] = [];
 const query = "*[_type == 'projects'] | order(date desc)";
-  await client.fetch(query).then((data: any[]) => projects = data);
+await client.fetch(query).then((data) => projects = data);
 ---
 
 <section
-  class="w-full bg-neutrals-50 relative z-10 xl:min-h-screen"
+  class="w-full bg-neutrals-50 relative z-10 xl:min-h-screen py-28"
   aria-label="Work"
 >
   <!-- header -->
-  <div class="mx-auto w-10/12 2xl:w-[80%] text-center pt-28">
+  <div class="mx-auto w-10/12 2xl:w-[80%] text-center">
     <h2 class="font-display font-bold text-brand md:text-xl uppercase mb-4">
       Work
     </h2>
@@ -32,11 +32,11 @@ const query = "*[_type == 'projects'] | order(date desc)";
     <div class="splide__arrows">
       <!-- previous arrow -->
       <button
-        class="splide__arrow splide__arrow--prev absolute bottom-14 left-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
+        class="splide__arrow splide__arrow--prev absolute bottom-14 lg:bottom-1/2 lg:translate-y-1/2 left-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5 text-neutrals-50"
+          class="w-6 h-6 lg:w-7 lg:h-7 text-neutrals-50"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -51,11 +51,11 @@ const query = "*[_type == 'projects'] | order(date desc)";
 
       <!-- next arrow -->
       <button
-        class="splide__arrow splide__arrow--next absolute bottom-14 right-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
+        class="splide__arrow splide__arrow--next absolute bottom-14 lg:bottom-1/2 lg:translate-y-1/2 right-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-5 h-5 text-neutrals-50"
+          class="w-6 h-6 lg:w-7 lg:h-7 text-neutrals-50"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -78,5 +78,5 @@ const query = "*[_type == 'projects'] | order(date desc)";
 </section>
 
 <script>
-  import "../ts/work.ts";
+  import "../../ts/work.ts";
 </script>

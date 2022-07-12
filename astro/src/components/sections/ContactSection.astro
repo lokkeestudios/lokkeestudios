@@ -1,6 +1,6 @@
 ---
 /* imports */
-import site from "../data/site";
+import site from "../../data/site";
 ---
 
 <section
@@ -27,7 +27,7 @@ import site from "../data/site";
         </p>
         <a
           class="text-neutrals-50 leading-relaxed max-w-prose mb-14 hover:text-brand transition-colors cursor-pointer inline-block"
-          id="open-email"
+          href={`mailto:${site.email}`}
           title="Hit me up"
         >
           <svg
@@ -87,12 +87,12 @@ import site from "../data/site";
               type="text"
               id="form-name"
               name="name"
-              maxlength="40"
+              maxlength={40}
               oninput="this.setCustomValidity('')"
               oninvalid="this.setCustomValidity('Name is empty.')"
               onclick="document.getElementById('form-name').classList.add('peer'); document.getElementById('form-name').classList.add('invalid:border-alert-red');"
               required
-              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 text-sm rounded-md block w-full pl-10 pr-10 p-2.5 focus:ring-brand focus:border-brand"
+              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 pr-10 p-2.5 focus:ring-none focus:border-brand focus:outline-none"
             />
 
             <!-- validation displays -->
@@ -157,13 +157,13 @@ import site from "../data/site";
               type="email"
               id="form-email"
               name="email"
-              maxlength="40"
+              maxlength={40}
               oninput="this.setCustomValidity('')"
               oninvalid="this.setCustomValidity('Email is empty or invalid.')"
               onclick="document.getElementById('form-email').classList.add('peer'); document.getElementById('form-email').classList.add('invalid:border-alert-red');"
               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
               required
-              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 text-sm rounded-md block w-full pl-10 p-2.5 focus:ring-brand focus:border-brand"
+              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 p-2.5 focus:ring-none focus:border-brand focus:outline-none"
             />
 
             <!-- validation displays -->
@@ -212,12 +212,12 @@ import site from "../data/site";
               type="text"
               id="form-message"
               name="message"
-              rows="4"
+              rows={4}
               oninput="this.setCustomValidity('')"
               oninvalid="this.setCustomValidity('Message is empty.')"
               onclick="document.getElementById('form-message').classList.add('peer'); document.getElementById('form-message').classList.add('invalid:border-alert-red');"
               required
-              class="block p-2.5 w-full text-sm bg-neutrals-700 rounded-lg border border-neutrals-500 focus:ring-brand focus:border-brand"
+              class="block p-2.5 w-full bg-neutrals-700 rounded-lg border border-neutrals-500 focus:ring-none focus:border-brand focus:outline-none"
             ></textarea>
 
             <!-- validation displays -->
@@ -280,5 +280,5 @@ import site from "../data/site";
 </section>
 
 <script>
-  import "../ts/contact.ts";
+  import "../../ts/contact.ts";
 </script>

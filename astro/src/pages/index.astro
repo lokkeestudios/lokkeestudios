@@ -1,29 +1,30 @@
 ---
+/* import layout */
+import AboutSection from "../components/sections/AboutSection.astro";
+import ContactSection from "../components/sections/ContactSection.astro";
 /* import components */
+import HeroSection from "../components/sections/HeroSection.astro";
+import SourceCodeSection from "../components/sections/SourceCodeSection.astro";
+import WorkSection from "../components/sections/WorkSection.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Work from "../components/Work.astro";
-import Contact from "../components/Contact.astro";
-import SourceCode from "../components/SourceCode.astro";
 ---
 
-<BaseLayout title="Lokkee Studios | Programming and Design from the Future">
+<BaseLayout title="LOKKEE STUDIOS | Programming and Design from the Future">
   <main>
     <!--======= HERO ========-->
-    <Hero />
+    <HeroSection />
 
     <!--======= ABOUT ========-->
-    <About />
+    <AboutSection />
 
     <!--======= WORK ========-->
-    <Work />
+    <WorkSection />
 
     <!--======= CONTACT ========-->
-    <Contact />
+    <ContactSection />
 
     <!--======= SOURCE CODE ========-->
-    <SourceCode />
+    <SourceCodeSection />
   </main>
 </BaseLayout>

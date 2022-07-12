@@ -1,8 +1,13 @@
 ---
 /* imports */
-import { getSanityImageUrl, formatDate } from '../utils/helpers.ts';
+import Project from "../types/Project";
+import { formatDate,getSanityImageUrl } from '../utils/helpers';
 
 /* declare properties */
+export interface Props {
+  project: Project;
+};
+
 const { project } = Astro.props;
 ---
 
@@ -13,21 +18,17 @@ const { project } = Astro.props;
   <a href={`/projects/${project.slug.current}`}>
     <!-- preview of first image -->
     <img
-      src={getSanityImageUrl(project.images[0]).url()}
+      loading="lazy"
+      src={getSanityImageUrl(project.images[0]).format("webp").auto("format").url()}
       alt={project.images[0].alttext}
-      class="absolute right-0 object-cover object-center w-full h-full group-hover:scale-105 transition-all duration-500 filter grayscale group-hover:grayscale-0"
+      class="absolute right-0 object-cover object-center w-full h-full group-hover:scale-105 transition-all duration-500"
     />
-    <div
-      class="absolute right-0 w-full h-full bg-brand/10 group-hover:opacity-0 transition-opacity duration-500"
-    >
-    </div>
     <div
       class="absolute right-0 w-full h-full bg-gradient-to-t from-neutrals-900"
     >
     </div>
-
     <div
-      class="px-14 py-[24vh] absolute z-10 bottom-0 w-full max-w-[92vw] lg:max-w-none"
+      class="px-14 lg:px-36 py-[24vh] absolute z-10 bottom-0 w-full max-w-[92vw] lg:max-w-none"
     >
       <div
         class="transition-transform duration-500 group-hover:-translate-y-full"

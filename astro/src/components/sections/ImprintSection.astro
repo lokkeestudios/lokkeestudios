@@ -1,6 +1,6 @@
 ---
 /* imports */
-import site from "../data/site";
+import site from "../../data/site";
 ---
 
 <section
@@ -20,10 +20,10 @@ import site from "../data/site";
       Details
     </h2>
     <p class="text-neutrals-900/60 leading-relaxed max-w-prose mb-12">
-      Kilian Peters<br />
       Lokkee Studios<br />
+      Kilian Peters<br />
       Langenfelderstraße 75<br />
-      22769 Hamburg
+      22769 Hamburg, Germany
     </p>
 
     <h2
@@ -35,7 +35,7 @@ import site from "../data/site";
       E-Mail:
       <a
         class="hover:text-brand transition-colors cursor-pointer underline"
-        id="open-email"
+        href={`mailto:${site.email}`}
         title="Hit me up"
       >
         {site.email}</a
@@ -45,7 +45,7 @@ import site from "../data/site";
     <h2
       class="font-display font-bold text-neutrals-900 text-2xl lg:text-3xl mb-4"
     >
-      Responsible for the content
+      Content responsibility
     </h2>
     <p class="text-neutrals-900/60 leading-relaxed max-w-prose">
       Kilian Peters

@@ -5,7 +5,7 @@ export default {
   email: `hello@lokkeestudios.com`,
   // site url
   url: `https://lokkeestudios.com`,
-  // discord server url
+  // source code url
   sourcecodeURL: `https://sourcecode.lokkeestudios.com`,
   // github url
   githubURL: `https://github.lokkeestudios.com`,

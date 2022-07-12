@@ -1,0 +1,153 @@
+---
+/* imports */
+import Image from '../types/Image';
+import Project from '../types/Project';
+import { formatDate,getSanityImageUrl } from '../utils/helpers';
+
+export interface Props {
+  project: Project;
+};
+
+/* declare properties */
+const { project } = Astro.props;
+---
+
+<!-- hero section -->
+<section
+  class="h-screen w-full flex py-40 justify-center items-center transition-all duration-75 bg-neutrals-900"
+  aria-label="Hero"
+>
+  <!-- background layer -->
+  <img class="absolute inset-0 object-cover object-center w-full h-full" src={getSanityImageUrl(project.images[0]).url()} alt={project.images[0].alttext}>
+  <div class="absolute inset-0 w-full h-full bg-gradient-to-t from-neutrals-900"></div>
+
+
+  <div class="mx-auto w-10/12 2xl:w-[80%] relative z-10 h-full">
+    <div class="absolute bottom-0 w-full">
+      <!-- headline -->
+      <span class="text-sm md:text-base leading-relaxed max-w-prose">
+        {formatDate(project.date)}
+      </span>
+      <h1
+        class="mt-1 text-4xl lg:text-6xl font-display font-bold leading-[1.1] lg:leading-[1.1] mb-5"
+      >
+        {project.name}
+      </h1>
+
+      <!-- description -->
+      <p class="text-sm lg:text-base text-neutrals-50/80 leading-relaxed max-w-prose mb-12">
+        {project.description}
+      </p>
+      <div
+        class="flex flex-row gap-4 border-b-[0.5px] border-neutrals-50/60 pb-3"
+      >
+        {project.tags && project.tags.map((tag: string) => (
+          <span class="text-xs lg:text-sm">{tag}</span>
+        ))}
+      </div>
+    </div>
+
+    <!-- links -->
+    <div class="absolute flex flex-row items-center space-x-4 bottom-3 right-0">
+      {project.projecturl && (<a
+        href={project.projecturl}
+        rel="noreferrer"
+        target="_blank"
+        title="View project"
+        class="flex items-center justify-center p-3 rounded-full bg-neutrals-900/20"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6 lg:w-7 lg:h-7"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+          <path
+            fill-rule="evenodd"
+            d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>)}
+      {project.figmaurl && (<a
+        href={project.figmaurl}
+        rel="noreferrer"
+        target="_blank"
+        title="View design system"
+        class="flex items-center justify-center p-3 rounded-full bg-neutrals-900/20"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: currentColor;transform: ;msFilter:;"><path d="M15.332 8.668a3.333 3.333 0 0 0 0-6.663H8.668a3.333 3.333 0 0 0 0 6.663 3.333 3.333 0 0 0 0 6.665 3.333 3.333 0 0 0 0 6.664A3.334 3.334 0 0 0 12 18.664V8.668h3.332z"></path><circle cx="15.332" cy="12" r="3.332"></circle></svg>
+      </a>)}
+      {project.githuburl && (<a
+        href={project.githuburl}
+        rel="noreferrer"
+        target="_blank"
+        title="View source code"
+        class="flex items-center justify-center p-3 rounded-full bg-neutrals-900/20"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: currentColor;transform: ;msFilter:;"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"></path></svg>
+      </a>)}
+    </div>
+
+    <div class="absolute flex flex-row items-center space-x-4 top-0 left-0">
+      <a
+        href="/#work"
+        title="Go back"
+        class="flex items-center justify-center p-3 rounded-full bg-neutrals-900/20"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  {project.images.length > 1 && <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 absolute mx-auto bottom-12 animate-bounce" viewBox="0 0 20 20" fill="currentColor">
+    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v3.586L7.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 10.586V7z" clip-rule="evenodd" />
+  </svg>}
+</section>
+
+{project.images.length > 1 && (
+<section
+  class="w-full bg-neutrals-50 flex items-center py-10"
+  aria-label="Gallery"
+>
+  <div class="mx-auto w-10/12 2xl:w-[80%]">
+    <div class="flex flex-col w-full gap-y-10">
+      <!-- skip hero image which is at index 0 -->
+      {project.images.map((image: Image, index: number) => index != 0 && (
+          <img loading="lazy" src={getSanityImageUrl(image).format("webp").auto("format").url()} alt={image.alttext} class="w-full max-h-[100vh] object-cover object-center">
+          )
+      )}
+    </div>
+  <a
+    href="/#work"
+    title="Go back"
+    class="text-neutrals-900 text-lg mb-20 mt-10 flex justify-center items-center font-bol hover:text-brand transition-colors duration-300 group"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-5 h-5 lg:w-7 lg:h-7 inline mr-2 group-hover:-translate-x-2 transition-transform duration-300"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+    </svg> Go back
+  </a>
+  </div>
+</section>)}

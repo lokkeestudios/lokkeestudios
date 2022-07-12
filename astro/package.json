@@ -11,9 +11,10 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/tailwind": "^0.2.4",
     "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
-    "astro": "^1.0.0-beta.38",
+    "astro": "^1.0.0-beta.69",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.13",
     "prettier": "^2.6.2",
@@ -23,7 +24,6 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "@astrojs/tailwind": "^0.2.1",
     "@splidejs/splide": "^3.6.12",
     "date-fns": "^2.28.0"
   }
