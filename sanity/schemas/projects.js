@@ -67,11 +67,6 @@ export default {
       title: "GitHub Url",
       type: "url",
     },
-    {
-      name: "figmaurl",
-      title: "Figma Url",
-      type: "url",
-    },
   ],
   preview: {
     select: {
