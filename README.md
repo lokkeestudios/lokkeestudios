@@ -2,7 +2,7 @@
  <img src="icons/logo.svg" width="300"/>
 </div>
 
-# Lokkee Studios<br>Programming and Design from the Future
+# LOKKEE STUDIOS<br>Programming and Design from the Future
 
 <sup>Copyright &copy; 2022 Lokkee Studios All Rights Reserved.</sup>
 
