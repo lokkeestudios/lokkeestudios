@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/**/*.astro",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".eslintrc.cjs",
+    "astro.config.mjs",
+    "tailwind.config.cjs",
+    "prettier.config.cjs"
+  ]
+}
