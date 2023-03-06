@@ -1,28 +1,28 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-  content: ["./src/**/*.{html,astro,js,ts}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 
   theme: {
     extend: {
       fontFamily: {
         mono: ["'Roboto Mono', monospace", ...defaultTheme.fontFamily.mono],
+        sans: ["'Roboto', sans-serif", ...defaultTheme.fontFamily.sans],
         display: [
           "'Roboto Condensed', sans-serif",
           ...defaultTheme.fontFamily.sans,
         ],
-        body: ["'Roboto', sans-serif", ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        brand: "#6919ff",
+        primary: "#6919ff",
         neutrals: {
           900: "#0f1922",
           700: "#1f2731",
           500: "#2d353e",
           50: "#fffefa",
         },
-        "success-cyan": "#48e3aa",
-        "alert-red": "#ff4665",
+        "success": "#48e3aa",
+        "error": "#ff4665",
       },
       animation: {
         "loader-fade-out":

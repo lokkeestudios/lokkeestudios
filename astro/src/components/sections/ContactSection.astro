@@ -14,7 +14,7 @@ import site from "../../data/site";
       <!-- split left -->
       <div class="basis-full lg:self-center">
         <h2
-          class="inline-block font-display font-bold text-brand lg:text-xl uppercase mb-4"
+          class="inline-block font-display font-bold text-primary lg:text-xl uppercase mb-4"
         >
           Contact
         </h2>
@@ -26,7 +26,7 @@ import site from "../../data/site";
           application.
         </p>
         <a
-          class="text-neutrals-50 leading-relaxed max-w-prose mb-14 hover:text-brand transition-colors cursor-pointer inline-block"
+          class="text-neutrals-50 leading-relaxed max-w-prose mb-14 hover:text-primary transition-colors cursor-pointer inline-block"
           href={`mailto:${site.email}`}
           title="Hit me up"
         >
@@ -48,7 +48,7 @@ import site from "../../data/site";
       <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
         <div id="contact-form-success" class="hidden">
           <h2
-            class="font-display font-bold text-brand lg:text-xl uppercase mb-4"
+            class="font-display font-bold text-primary lg:text-xl uppercase mb-4"
           >
             Successful!
           </h2>
@@ -90,9 +90,9 @@ import site from "../../data/site";
               maxlength={40}
               oninput="this.setCustomValidity('')"
               oninvalid="this.setCustomValidity('Name is empty.')"
-              onclick="document.getElementById('form-name').classList.add('peer'); document.getElementById('form-name').classList.add('invalid:border-alert-red');"
+              onclick="document.getElementById('form-name').classList.add('peer'); document.getElementById('form-name').classList.add('invalid:border-error');"
               required
-              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 pr-10 p-2.5 focus:ring-none focus:border-brand focus:outline-none"
+              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 pr-10 p-2.5 focus:ring-none focus:border-primary focus:outline-none"
             />
 
             <!-- validation displays -->
@@ -101,7 +101,7 @@ import site from "../../data/site";
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-success-cyan"
+                class="w-5 h-5 text-success"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -116,7 +116,7 @@ import site from "../../data/site";
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-alert-red"
+                class="w-5 h-5 text-error"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -127,7 +127,7 @@ import site from "../../data/site";
               </svg>
             </div>
             <span
-              class="absolute text-xs text-alert-red mt-[0.4rem] invisible peer-invalid:visible"
+              class="absolute text-xs text-error mt-[0.4rem] invisible peer-invalid:visible"
               >Name is empty.</span
             >
           </div>
@@ -160,10 +160,10 @@ import site from "../../data/site";
               maxlength={40}
               oninput="this.setCustomValidity('')"
               oninvalid="this.setCustomValidity('Email is empty or invalid.')"
-              onclick="document.getElementById('form-email').classList.add('peer'); document.getElementById('form-email').classList.add('invalid:border-alert-red');"
+              onclick="document.getElementById('form-email').classList.add('peer'); document.getElementById('form-email').classList.add('invalid:border-error');"
               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
               required
-              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 p-2.5 focus:ring-none focus:border-brand focus:outline-none"
+              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 p-2.5 focus:ring-none focus:border-primary focus:outline-none"
             />
 
             <!-- validation displays -->
@@ -172,7 +172,7 @@ import site from "../../data/site";
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-success-cyan"
+                class="w-5 h-5 text-success"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -187,7 +187,7 @@ import site from "../../data/site";
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-alert-red"
+                class="w-5 h-5 text-error"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -198,7 +198,7 @@ import site from "../../data/site";
               </svg>
             </div>
             <span
-              class="absolute text-xs text-alert-red mt-[0.4rem] invisible peer-invalid:visible"
+              class="absolute text-xs text-error mt-[0.4rem] invisible peer-invalid:visible"
               >Email is empty or invalid.</span
             >
           </div>
@@ -215,9 +215,9 @@ import site from "../../data/site";
               rows={4}
               oninput="this.setCustomValidity('')"
               oninvalid="this.setCustomValidity('Message is empty.')"
-              onclick="document.getElementById('form-message').classList.add('peer'); document.getElementById('form-message').classList.add('invalid:border-alert-red');"
+              onclick="document.getElementById('form-message').classList.add('peer'); document.getElementById('form-message').classList.add('invalid:border-error');"
               required
-              class="block p-2.5 w-full bg-neutrals-700 rounded-lg border border-neutrals-500 focus:ring-none focus:border-brand focus:outline-none"
+              class="block p-2.5 w-full bg-neutrals-700 rounded-lg border border-neutrals-500 focus:ring-none focus:border-primary focus:outline-none"
             ></textarea>
 
             <!-- validation displays -->
@@ -226,7 +226,7 @@ import site from "../../data/site";
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-success-cyan"
+                class="w-5 h-5 text-success"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -241,7 +241,7 @@ import site from "../../data/site";
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-alert-red"
+                class="w-5 h-5 text-error"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -252,7 +252,7 @@ import site from "../../data/site";
               </svg>
             </div>
             <span
-              class="absolute text-xs text-alert-red mt-[0.4rem] invisible peer-invalid:visible"
+              class="absolute text-xs text-error mt-[0.4rem] invisible peer-invalid:visible"
               >Message is empty.</span
             >
           </div>
