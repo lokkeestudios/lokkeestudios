@@ -13,11 +13,16 @@
     "preview": "astro preview"
   },
   "dependencies": {
+    "@astrojs/react": "^2.1.0",
     "@astrojs/tailwind": "^3.0.1",
     "@sanity/client": "^5.2.2",
     "@splidejs/splide": "^4.1.4",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
     "astro": "^2.0.17",
     "date-fns": "^2.29.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
