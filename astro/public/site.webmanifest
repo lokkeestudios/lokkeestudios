@@ -1,22 +1,19 @@
 {
-  "short_name": "Lokkee Studios",
-  "name": "Lokkee Studios",
-  "description": "Programming and Design from the Future",
+  "name": "LOKKEE STUDIOS",
+  "short_name": "LOKKEE STUDIOS",
+  "background_color": "#0F1922",
+  "theme_color": "#6919FF",
+  "display": "standalone",
   "icons": [
     {
       "src": "icon.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
       "src": "icon.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "start_url": "/?utm_source=homescreen",
-  "display": "standalone",
-  "background_color": "#0f1922",
-  "theme_color": "#6919ff",
-  "lang": "en"
+  ]
 }
