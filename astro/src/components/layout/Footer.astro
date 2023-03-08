@@ -1,13 +1,15 @@
 ---
-/* imports */
-import site from "../data/site";
+import site from '../../data/site';
 ---
 
-<footer class="w-full bottom-0 py-6 relative z-10" aria-label="Primary">
+<footer
+  class="relative bottom-0 z-10 w-full py-6"
+  aria-label="Primary"
+>
   <div class="mx-auto w-10/12 2xl:w-[80%]">
     <div class="divide-y-2 divide-neutrals-500">
       <div
-        class="flex flex-col lg:flex-row justify-center items-center w-full py-8"
+        class="flex w-full flex-col items-center justify-center py-8 lg:flex-row"
       >
         <img
           class="h-16 w-16"
@@ -18,37 +20,41 @@ import site from "../data/site";
 
       <!-- primary links -->
       <div
-        class="flex flex-row justify-center items-center w-full py-8 gap-5 md:gap-12 lg:gap-20"
+        class="flex w-full flex-row items-center justify-center gap-5 py-8 md:gap-12 lg:gap-20"
       >
         <a
-          class="text-xs lg:text-sm uppercase pr-2 py-4 md:py-6 hover:underline focus:underline"
-          href="/#about">About</a
+          class="py-4 pr-2 text-xs uppercase hover:underline focus:underline md:py-6 lg:text-sm"
+          href="/#about"
+          >About</a
         >
         <a
-          class="text-xs lg:text-sm uppercase px-2 py-4 md:py-6 hover:underline focus:underline"
-          href="/#work">Work</a
+          class="px-2 py-4 text-xs uppercase hover:underline focus:underline md:py-6 lg:text-sm"
+          href="/#work"
+          >Work</a
         >
         <a
-          class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
-          href="/#contact">Contact</a
+          class="py-4 pl-2 text-xs uppercase hover:underline focus:underline md:py-6 lg:text-sm"
+          href="/#contact"
+          >Contact</a
         >
         <a
-          class="text-xs lg:text-sm uppercase pl-2 py-4 md:py-6 hover:underline focus:underline"
-          href="/#sourcecode">Source code</a
+          class="py-4 pl-2 text-xs uppercase hover:underline focus:underline md:py-6 lg:text-sm"
+          href="/#sourcecode"
+          >Source code</a
         >
       </div>
 
       <!-- privacy + secondary links -->
       <div
-        class="flex flex-col-reverse lg:flex-row justify-center items-center w-full py-8 gap-y-4"
+        class="flex w-full flex-col-reverse items-center justify-center gap-y-4 py-8 lg:flex-row"
       >
-        <div class="flex basis-1/3 py-4 justify-center lg:justify-start">
+        <div class="flex basis-1/3 justify-center py-4 lg:justify-start">
           <p class="text-xxs lg:text-xs">
             Copyright &copy;
             <span id="copyrightYear"> </span>
             <script>
               const currentYear = new Date().getFullYear().toString();
-              document.getElementById("copyrightYear")!.innerHTML = currentYear;
+              document.getElementById('copyrightYear')!.innerHTML = currentYear;
             </script>
             Lokkee Studios All Rights Reserved.
           </p>
@@ -59,11 +65,11 @@ import site from "../data/site";
             rel="noreferrer"
             target="_blank"
             title="Github Page"
-            class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+            class="flex h-7 w-7 items-center justify-center lg:h-8 lg:w-8"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-300"
+              class="h-6 w-6 transition-all duration-300 hover:h-7 hover:w-7 lg:h-7 lg:w-7 lg:hover:h-8 lg:hover:w-8"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -79,11 +85,11 @@ import site from "../data/site";
             rel="noreferrer"
             target="_blank"
             title="Discord Server"
-            class="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center"
+            class="flex h-7 w-7 items-center justify-center lg:h-8 lg:w-8"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 hover:w-7 hover:h-7 lg:w-7 lg:h-7 lg:hover:w-8 lg:hover:h-8 transition-all duration-300"
+              class="h-6 w-6 transition-all duration-300 hover:h-7 hover:w-7 lg:h-7 lg:w-7 lg:hover:h-8 lg:hover:w-8"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -95,8 +101,9 @@ import site from "../data/site";
         </div>
         <div class="flex basis-1/3 justify-center lg:justify-end">
           <a
-            class="text-xxs lg:text-xs uppercase py-4 md:py-6 hover:underline focus:underline"
-            href="/imprint">Imprint</a
+            class="py-4 text-xxs uppercase hover:underline focus:underline md:py-6 lg:text-xs"
+            href="/imprint"
+            >Imprint</a
           >
         </div>
       </div>

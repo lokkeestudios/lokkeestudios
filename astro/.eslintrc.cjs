@@ -30,12 +30,14 @@ module.exports = {
       parser: 'astro-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
+        tsconfigRootDir: __dirname,
         project: './tsconfig.eslint.json',
         extraFileExtensions: ['.astro'],
       },
       rules: {
-        'react/no-unknown-property': ['off'],
+        'react/no-unknown-property': 'off',
         'react/jsx-key': 'off',
+        'react/self-closing-comp': 'off',
       },
     },
     {
@@ -50,7 +52,6 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     tsconfigRootDir: __dirname,
     project: './tsconfig.eslint.json',
     extraFileExtensions: ['.astro'],

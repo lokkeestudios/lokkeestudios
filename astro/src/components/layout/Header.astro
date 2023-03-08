@@ -1,23 +1,26 @@
 ---
 /* imports */
-import site from "../data/site";
+import site from '../../data/site';
 ---
 
-<header class="fixed top-0 z-40 w-full" aria-label="Banner">
-  <div class="flex justify-between md:items-center flex-row relative">
+<header
+  class="fixed top-0 z-40 w-full"
+  aria-label="Banner"
+>
+  <div class="relative flex flex-row justify-between md:items-center">
     <!-- background -->
     <div
       id="navigation-background"
-      class="w-full h-[5.1rem] -translate-y-[2.4rem] md:-translate-y-[0.9rem] bg-neutrals-900/80 absolute transition-all duration-500"
+      class="absolute h-[5.1rem] w-full -translate-y-[2.4rem] bg-neutrals-900/80 backdrop-blur-lg transition-all duration-500 supports-[backdrop-filter]:bg-neutrals-900/60 md:-translate-y-[0.9rem]"
     >
     </div>
 
     <!-- primary section -->
-    <div class="right-1/2 translate-x-1/2 w-10/12 2xl:w-[80%] absolute">
-      <div class="flex justify-between md:items-center flex-row relative">
+    <div class="absolute right-1/2 w-10/12 translate-x-1/2 2xl:w-[80%]">
+      <div class="relative flex flex-row justify-between md:items-center">
         <!-- logo -->
         <a
-          class="flex items-center font-display py-3 text-xs md:text-base uppercase"
+          class="flex items-center py-3 font-display text-xs uppercase md:text-base"
           href="/"
         >
           <strong class="mr-1">Lokkee</strong>Studios
@@ -27,7 +30,7 @@ import site from "../data/site";
         <button
           id="toggle-menu"
           aria-label="Toggle the navigation menu"
-          class="flex items-center justify-center cursor-pointer md:hidden"
+          class="flex cursor-pointer items-center justify-center md:hidden"
         >
           <svg
             id="toggle-menu-open"
@@ -35,7 +38,7 @@ import site from "../data/site";
             xmlns="http://www.w3.org/2000/svg"
             width={24}
             height={24}
-            class="w-6 h-6"
+            class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -44,7 +47,8 @@ import site from "../data/site";
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M4 6h16M4 12h16m-7 6h7"></path>
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
           </svg>
           <svg
             id="toggle-menu-close"
@@ -52,7 +56,7 @@ import site from "../data/site";
             xmlns="http://www.w3.org/2000/svg"
             width={24}
             height={24}
-            class="h-6 w-6 hidden"
+            class="hidden h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -61,7 +65,8 @@ import site from "../data/site";
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"></path>
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
           </svg>
         </button>
       </div>
@@ -72,23 +77,26 @@ import site from "../data/site";
       id="navigation-contents"
       aria-label="Primary"
       role="navigation"
-      class="bg-transparent -translate-y-full w-full md:w-auto md:translate-y-0 md:ml-auto md:mr-[8.3333335%] 2xl:mr-[10%] md:bg-transparent opacity-0 md:opacity-100 transition-all duration-500"
+      class="w-full -translate-y-full bg-transparent opacity-0 transition-all duration-500 md:ml-auto md:mr-[8.3333335%] md:w-auto md:translate-y-0 md:bg-transparent md:opacity-100 2xl:mr-[10%]"
     >
-      <div class="mx-auto w-10/12 2xl:w-[80%] md:w-auto">
-        <div class="items-center space-x-8 flex py-1 md:py-0 flex-row">
+      <div class="mx-auto w-10/12 md:w-auto 2xl:w-[80%]">
+        <div class="flex flex-row items-center space-x-8 py-1 md:py-0">
           <!-- primary navigation -->
           <div class="flex items-center space-x-8">
             <a
-              class="text-xxs md:text-xs uppercase py-5 hover:underline focus:underline"
-              href="/#about">About</a
+              class="py-5 text-xxs uppercase hover:underline focus:underline md:text-xs"
+              href="/#about"
+              >About</a
             >
             <a
-              class="text-xxs md:text-xs uppercase py-5 hover:underline focus:underline"
-              href="/#work">Work</a
+              class="py-5 text-xxs uppercase hover:underline focus:underline md:text-xs"
+              href="/#work"
+              >Work</a
             >
             <a
-              class="text-xxs md:text-xs uppercase py-5 hover:underline focus:underline"
-              href="/#contact">Contact</a
+              class="py-5 text-xxs uppercase hover:underline focus:underline md:text-xs"
+              href="/#contact"
+              >Contact</a
             >
           </div>
 
@@ -99,13 +107,13 @@ import site from "../data/site";
               rel="noreferrer"
               target="_blank"
               title="GitHub profile"
-              class="w-7 h-7 flex items-center justify-center"
+              class="flex h-7 w-7 items-center justify-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
-                class="w-6 h-6 hover:w-7 hover:h-7 transition-all duration-300"
+                class="h-6 w-6 transition-all duration-300 hover:h-7 hover:w-7"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
@@ -121,13 +129,13 @@ import site from "../data/site";
               rel="noreferrer"
               target="_blank"
               title="Discord server"
-              class="w-7 h-7 flex items-center justify-center"
+              class="flex h-7 w-7 items-center justify-center"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
                 height={24}
-                class="w-6 h-6 hover:w-7 hover:h-7 transition-all duration-300"
+                class="h-6 w-6 transition-all duration-300 hover:h-7 hover:w-7"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >

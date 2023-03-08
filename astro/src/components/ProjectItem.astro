@@ -1,56 +1,58 @@
 ---
-/* imports */
-import Project from "../types/Project";
-import { formatDate,getSanityImageUrl } from '../utils/helpers';
+import type Project from '../types/Project';
+import formatDate from '../utils/formatDate';
+import getSanityImageUrl from '../utils/getSanityImageUrl';
 
-/* declare properties */
 export interface Props {
   project: Project;
-};
+}
 
 const { project } = Astro.props;
 ---
 
 <li
-  class="splide__slide h-screen group overflow-hidden"
+  class="splide__slide group h-screen overflow-hidden"
   aria-label={project.name}
 >
   <a href={`/projects/${project.slug.current}`}>
     <!-- preview of first image -->
     <img
       loading="lazy"
-      src={getSanityImageUrl(project.images[0]).format("webp").auto("format").url()}
+      src={getSanityImageUrl(project.images[0])
+        .format('webp')
+        .auto('format')
+        .url()}
       alt={project.images[0].alttext}
-      class="absolute right-0 object-cover object-center w-full h-full group-hover:scale-105 transition-all duration-500"
+      class="absolute right-0 h-full w-full object-cover object-center transition-all duration-500 group-hover:scale-105"
     />
     <div
-      class="absolute right-0 w-full h-full bg-gradient-to-t from-neutrals-900"
+      class="absolute right-0 h-full w-full bg-gradient-to-t from-neutrals-900"
     >
     </div>
     <div
-      class="px-14 lg:px-36 py-[24vh] absolute z-10 bottom-0 w-full max-w-[92vw] lg:max-w-none"
+      class="absolute bottom-0 z-10 w-full max-w-[92vw] px-14 py-[24vh] lg:max-w-none lg:px-36"
     >
       <div
         class="transition-transform duration-500 group-hover:-translate-y-full"
       >
-        <span class="text-sm md:text-base leading-relaxed max-w-prose">
+        <span class="max-w-prose text-sm leading-relaxed md:text-base">
           {formatDate(project.date)}
         </span>
         <h4
-          class="mt-1 text-4xl lg:text-6xl font-display font-bold leading-[1.1] lg:leading-[1.1] mb-5"
+          class="mt-1 mb-5 font-display text-4xl font-bold leading-[1.1] lg:text-6xl lg:leading-[1.1]"
         >
           {project.name}
         </h4>
       </div>
       <!-- description -->
       <div
-        class="overflow-hidden -translate-y-full group-hover:translate-y-0 transition-transform duration-500 absolute bottom-[25vh]"
+        class="absolute bottom-[25vh] -translate-y-full overflow-hidden transition-transform duration-500 group-hover:translate-y-0"
       >
         <div
-          class="translate-y-full group-hover:translate-y-0 transition-transform duration-500"
+          class="translate-y-full transition-transform duration-500 group-hover:translate-y-0"
         >
           <p
-            class="text-sm md:text-base text-neutrals-50/80 leading-relaxed max-w-prose mt-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500"
+            class="mt-4 max-w-prose translate-y-full text-sm leading-relaxed text-neutrals-50/80 transition-transform duration-500 group-hover:translate-y-0 md:text-base"
           >
             {project.description}
           </p>
@@ -58,11 +60,14 @@ const { project } = Astro.props;
       </div>
       <!-- topic tags -->
       <div
-        class="flex flex-row gap-4 group-hover:translate-y-[200%] transition-transform duration-500 border-b-[0.5px] border-neutrals-50/60 pb-3"
+        class="flex flex-row gap-4 border-b-[0.5px] border-neutrals-50/60 pb-3 transition-transform duration-500 group-hover:translate-y-[200%]"
       >
-        {project.tags && project.tags.map((tag: string[]) => (
-          <span class="text-xs lg:text-sm">{tag}</span>
-        ))}
+        {
+          project.tags &&
+            project.tags.map((tag: string[]) => (
+              <span class="text-xs lg:text-sm">{tag}</span>
+            ))
+        }
       </div>
     </div>
   </a>

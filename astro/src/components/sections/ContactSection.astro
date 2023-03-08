@@ -1,38 +1,38 @@
 ---
 /* imports */
-import site from "../../data/site";
+import site from '@data/site';
 ---
 
 <section
   id="contact"
-  class="w-full bg-neutrals-900 flex py-28 items-center relative z-10 xl:min-h-screen"
+  class="relative z-10 flex w-full items-center bg-neutrals-900 py-28 xl:min-h-screen"
   aria-label="Contact"
 >
-  <div class="mx-auto w-10/12 2xl:w-[80%] h-full">
+  <div class="mx-auto h-full w-10/12 2xl:w-[80%]">
     <!-- split -->
-    <div class="flex flex-col lg:flex-row h-full w-full">
+    <div class="flex h-full w-full flex-col lg:flex-row">
       <!-- split left -->
       <div class="basis-full lg:self-center">
         <h2
-          class="inline-block font-display font-bold text-primary lg:text-xl uppercase mb-4"
+          class="mb-4 inline-block font-display font-bold uppercase text-primary lg:text-xl"
         >
           Contact
         </h2>
-        <h3 class="font-display font-bold text-4xl lg:text-5xl mb-8">
+        <h3 class="mb-8 font-display text-4xl font-bold lg:text-5xl">
           Got a problem to solve?
         </h3>
-        <p class="text-neutrals-50/60 leading-relaxed max-w-prose mb-12">
+        <p class="mb-12 max-w-prose leading-relaxed text-neutrals-50/60">
           Get your space suit ready and tell me your ideas to develop your dream
           application.
         </p>
         <a
-          class="text-neutrals-50 leading-relaxed max-w-prose mb-14 hover:text-primary transition-colors cursor-pointer inline-block"
+          class="mb-14 inline-block max-w-prose cursor-pointer leading-relaxed text-neutrals-50 transition-colors hover:text-primary"
           href={`mailto:${site.email}`}
           title="Hit me up"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6 inline mr-1 mb-1"
+            class="mr-1 mb-1 inline h-6 w-6"
             viewBox="0 0 24 24"
             fill="currentColor"
           >
@@ -45,14 +45,17 @@ import site from "../../data/site";
       </div>
 
       <!-- split left -->
-      <div class="basis-full lg:self-center mt-10 lg:mt-0 lg:ml-28">
-        <div id="contact-form-success" class="hidden">
+      <div class="mt-10 basis-full lg:mt-0 lg:ml-28 lg:self-center">
+        <div
+          id="contact-form-success"
+          class="hidden"
+        >
           <h2
-            class="font-display font-bold text-primary lg:text-xl uppercase mb-4"
+            class="mb-4 font-display font-bold uppercase text-primary lg:text-xl"
           >
             Successful!
           </h2>
-          <h3 class="font-display font-bold text-4xl lg:text-5xl mb-8">
+          <h3 class="mb-8 font-display text-4xl font-bold lg:text-5xl">
             I'll be in touch with you
           </h3>
           <img
@@ -65,16 +68,18 @@ import site from "../../data/site";
         <!-- form -->
         <form id="contact-form">
           <!-- name input -->
-          <label for="form-name" class="block mb-2 text-sm uppercase"
+          <label
+            for="form-name"
+            class="mb-2 block text-sm uppercase"
             >Name</label
           >
           <div class="relative mt-1 mb-12">
             <div
-              class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 opacity-60"
+                class="h-5 w-5 opacity-60"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 ><path
@@ -92,57 +97,61 @@ import site from "../../data/site";
               oninvalid="this.setCustomValidity('Name is empty.')"
               onclick="document.getElementById('form-name').classList.add('peer'); document.getElementById('form-name').classList.add('invalid:border-error');"
               required
-              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 pr-10 p-2.5 focus:ring-none focus:border-primary focus:outline-none"
+              class="focus:ring-none block w-full rounded-md border-[1.5px] border-neutrals-500 bg-neutrals-700 p-2.5 pl-10 pr-10 focus:border-primary focus:outline-none"
             />
 
             <!-- validation displays -->
             <div
-              class="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none invisible peer-valid:visible"
+              class="pointer-events-none invisible absolute inset-y-0 right-0 flex items-center pr-3 peer-valid:visible"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-success"
+                class="h-5 w-5 text-success"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
                 <path
                   fill-rule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </div>
             <div
-              class="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none invisible peer-invalid:visible"
+              class="pointer-events-none invisible absolute inset-y-0 right-0 flex items-center pr-3 peer-invalid:visible"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-error"
+                class="h-5 w-5 text-error"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
                 <path
                   fill-rule="evenodd"
                   d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </div>
             <span
-              class="absolute text-xs text-error mt-[0.4rem] invisible peer-invalid:visible"
+              class="invisible absolute mt-[0.4rem] text-xs text-error peer-invalid:visible"
               >Name is empty.</span
             >
           </div>
 
           <!-- email input -->
-          <label for="form-email" class="block mb-2 text-sm uppercase"
+          <label
+            for="form-email"
+            class="mb-2 block text-sm uppercase"
             >Email</label
           >
           <div class="relative mt-1 mb-12">
             <div
-              class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 opacity-60"
+                class="h-5 w-5 opacity-60"
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 ><path
@@ -163,48 +172,52 @@ import site from "../../data/site";
               onclick="document.getElementById('form-email').classList.add('peer'); document.getElementById('form-email').classList.add('invalid:border-error');"
               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
               required
-              class="bg-neutrals-700 border-[1.5px] border-neutrals-500 rounded-md block w-full pl-10 p-2.5 focus:ring-none focus:border-primary focus:outline-none"
+              class="focus:ring-none block w-full rounded-md border-[1.5px] border-neutrals-500 bg-neutrals-700 p-2.5 pl-10 focus:border-primary focus:outline-none"
             />
 
             <!-- validation displays -->
             <div
-              class="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none invisible peer-valid:visible"
+              class="pointer-events-none invisible absolute inset-y-0 right-0 flex items-center pr-3 peer-valid:visible"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-success"
+                class="h-5 w-5 text-success"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
                 <path
                   fill-rule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </div>
             <div
-              class="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none invisible peer-invalid:visible"
+              class="pointer-events-none invisible absolute inset-y-0 right-0 flex items-center pr-3 peer-invalid:visible"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-error"
+                class="h-5 w-5 text-error"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
                 <path
                   fill-rule="evenodd"
                   d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </div>
             <span
-              class="absolute text-xs text-error mt-[0.4rem] invisible peer-invalid:visible"
+              class="invisible absolute mt-[0.4rem] text-xs text-error peer-invalid:visible"
               >Email is empty or invalid.</span
             >
           </div>
 
           <!-- message textarea -->
-          <label for="form-message" class="block mb-2 text-sm uppercase"
+          <label
+            for="form-message"
+            class="mb-2 block text-sm uppercase"
             >Message</label
           >
           <div class="relative mt-1 mb-12">
@@ -217,42 +230,44 @@ import site from "../../data/site";
               oninvalid="this.setCustomValidity('Message is empty.')"
               onclick="document.getElementById('form-message').classList.add('peer'); document.getElementById('form-message').classList.add('invalid:border-error');"
               required
-              class="block p-2.5 w-full bg-neutrals-700 rounded-lg border border-neutrals-500 focus:ring-none focus:border-primary focus:outline-none"
+              class="focus:ring-none block w-full rounded-lg border border-neutrals-500 bg-neutrals-700 p-2.5 focus:border-primary focus:outline-none"
             ></textarea>
 
             <!-- validation displays -->
             <div
-              class="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none invisible peer-valid:visible"
+              class="pointer-events-none invisible absolute inset-y-0 right-0 flex items-center pr-3 peer-valid:visible"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-success"
+                class="h-5 w-5 text-success"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
                 <path
                   fill-rule="evenodd"
                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </div>
             <div
-              class="flex absolute inset-y-0 right-0 items-center pr-3 pointer-events-none invisible peer-invalid:visible"
+              class="pointer-events-none invisible absolute inset-y-0 right-0 flex items-center pr-3 peer-invalid:visible"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-error"
+                class="h-5 w-5 text-error"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
                 <path
                   fill-rule="evenodd"
                   d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                  clip-rule="evenodd"></path>
+                  clip-rule="evenodd"
+                ></path>
               </svg>
             </div>
             <span
-              class="absolute text-xs text-error mt-[0.4rem] invisible peer-invalid:visible"
+              class="invisible absolute mt-[0.4rem] text-xs text-error peer-invalid:visible"
               >Message is empty.</span
             >
           </div>
@@ -260,12 +275,12 @@ import site from "../../data/site";
           <!-- submit button -->
           <button
             type="submit"
-            class="px-5 py-2 border-2 border-neutrals-50 bg-neutrals-50 text-neutrals-900 bg-[length:140%] bg-no-repeat bg-[position:400%] hover:bg-[position:50%] hover:text-neutrals-50 transition-all duration-500 flex items-center"
+            class="flex items-center border-2 border-neutrals-50 bg-neutrals-50 bg-[length:140%] bg-[position:400%] bg-no-repeat px-5 py-2 text-neutrals-900 transition-all duration-500 hover:bg-[position:50%] hover:text-neutrals-50"
             style="background-image: url('/assets/button-dark.svg')"
           >
             Hit me up <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 inline-block ml-2"
+              class="ml-2 inline-block h-5 w-5"
               viewBox="0 0 24 24"
               fill="currentColor"
               ><path
@@ -280,5 +295,5 @@ import site from "../../data/site";
 </section>
 
 <script>
-  import "../../ts/contact.ts";
+  import '../../ts/contact.ts';
 </script>

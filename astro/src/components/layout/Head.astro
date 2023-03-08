@@ -1,0 +1,84 @@
+---
+import site from '@data/site';
+import '@fontsource/roboto-condensed/400.css';
+import '@fontsource/roboto-condensed/700.css';
+import '@fontsource/roboto-mono/700.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@styles/globals.css';
+import { SEO } from 'astro-seo';
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+const { pathname } = Astro.url;
+
+const { siteUrl, description } = site;
+const cannonical = `${siteUrl}${pathname}`;
+---
+
+<head>
+  <SEO
+    charset="UTF-8"
+    title={title}
+    description={description}
+    canonical={cannonical}
+    openGraph={{
+      basic: {
+        title,
+        type: 'website',
+        url: cannonical,
+        image: '/banner-1200x630.png',
+      },
+      optional: {
+        description,
+        siteName: 'LOKKEE STUDIOS',
+      },
+      image: {
+        alt: 'LOKKEE STUDIOS',
+        width: 1200,
+        height: 630,
+      },
+    }}
+    twitter={{
+      card: 'summary_large_image',
+    }}
+    extend={{
+      link: [
+        { rel: 'icon', href: '/favicon.ico' },
+        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'generator', content: Astro.generator },
+        { name: 'theme-color', content: '#6919FF' },
+        {
+          name: 'google-site-verification',
+          content: 'M5b_xgbjIoOjw_GHMkLyUdW-uSAfYHuL9Elqv5IloxQ',
+        },
+      ],
+    }}
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide-core.min.css"
+  />
+  <script
+    type="text/partytown"
+    src="https://www.googletagmanager.com/gtag/js?id=G-QRN4K9F9Q2"
+  ></script>
+  <script type="text/partytown">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-QRN4K9F9Q2');
+  </script>
+</head>

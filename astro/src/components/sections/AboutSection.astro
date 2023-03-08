@@ -1,46 +1,43 @@
+---
+import { Image } from '@astrojs/image/components';
+import Caption from '@components/text/Caption.astro';
+import portraitImage from '../../assets/images/portrait.webp';
+import Paragraph from '../text/Paragraph.astro';
+---
+
 <section
   id="about"
-  class="w-full flex items-center bg-neutrals-900 py-28 relative z-10 xl:min-h-screen flex-col md:flex-row"
-  aria-label="About"
+  class="relative z-10 flex w-full flex-col items-center bg-neutrals-900 py-28 md:flex-row xl:min-h-screen"
 >
-  <img
-    class="object-cover object-center w-full max-h-screen relative -top-28 md:top-0 md:w-1/2 md:h-full md:pr-10 xl:pr-0 md:absolute"
+  <Image
+    src={portraitImage}
+    alt="A portrait of myself, LOKKEE"
     loading="lazy"
-    width={756}
-    height={1008}
-    src="/assets/about.webp"
-    alt="A picture of myself, lokkee"
+    class="relative -top-28 max-h-screen w-full object-cover object-center md:absolute md:top-0 md:h-full md:w-1/2 md:pr-10 xl:pr-0"
   />
-  <div class="mx-auto w-10/12 2xl:w-[80%] h-full">
-    <div class="flex flex-col md:flex-row h-full w-full">
-
-      <div class="basis-1/2 md:self-center ml-auto xl:pl-20">
-        <h2
-          class="font-display font-bold text-primary lg:text-xl uppercase mb-4"
-        >
-          About
-        </h2>
-
-        <!-- typerwiter headline-->
-        <div class="inline-block">
-          <h3
+  <div class="mx-auto h-full w-10/12 2xl:w-[80%]">
+    <div class="flex h-full w-full flex-col md:flex-row">
+      <div class="ml-auto basis-1/2 md:self-center xl:pl-20">
+        <Caption text="About" />
+        <div class="mb-6 inline-block font-mono text-4xl font-bold lg:text-5xl">
+          <h2 class="sr-only">Problem solver</h2>
+          <p
             id="typewriter"
-            class="font-bold text-4xl lg:text-5xl mb-8 font-mono overflow-hidden whitespace-nowrap w-0"
+            aria-hidden="true"
+            class="w-0 overflow-hidden whitespace-nowrap"
           >
             Error (╯°□°)╯︵ ┻━┻
-          </h3>
+          </p>
+          <p class="border-neutrals-300 border-r">A</p>
         </div>
-        <p class="text-neutrals-50/60 leading-relaxed max-w-prose">
-          I'm Lokkee, a passionate freelancer bringing you programming and
-          design from the future. I am experienced in developing web and
-          desktop applications including full front end design. This includes
-          brand identity, graphics and illustrations.
-        </p>
+        <Paragraph
+          text="I'm LOKKEE, a passionate freelancer bringing you programming and design from the future. I am experienced in developing websites and web applications including full front end design. This includes brand identity, graphics and illustrations."
+        />
       </div>
     </div>
   </div>
 </section>
 
 <script>
-  import "../../ts/about.ts";
+  import '../../ts/about.ts';
 </script>

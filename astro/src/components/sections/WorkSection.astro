@@ -1,42 +1,40 @@
 ---
-/* import components */
-import ProjectItem from "../../components/ProjectItem.astro";
-import { client } from "../../lib/sanityClient";
-import Project from '../../types/Project';
+import Caption from '@components/text/Caption.astro';
+import Heading from '@components/text/Heading.astro';
+import getAllProjects from '../../utils/getAllProjects';
+import ProjectItem from '../ProjectItem.astro';
 
-let projects: Project[] = [];
-const query = "*[_type == 'projects'] | order(date desc)";
-await client.fetch(query).then((data) => projects = data);
+const projects = await getAllProjects();
 ---
 
 <section
-  class="w-full bg-neutrals-50 relative z-10 xl:min-h-screen py-28"
+  class="relative z-10 w-full bg-neutrals-50 py-28 xl:min-h-screen"
   aria-label="Work"
 >
   <!-- header -->
-  <div class="mx-auto w-10/12 2xl:w-[80%] text-center">
-    <h2 class="font-display font-bold text-primary md:text-xl uppercase mb-4">
-      Work
-    </h2>
-    <h3
-      class="font-display font-bold text-neutrals-900 text-4xl md:text-5xl mb-8"
-    >
-      Dig into my universe
-    </h3>
+  <div class="mx-auto w-10/12 text-center 2xl:w-[80%]">
+    <Caption text="Work" />
+    <Heading
+      text="Dig into my universe"
+      isDark
+    />
   </div>
 
   <!-- projects horizontal slider -->
   <!-- id is located here in order for anchor links to address the slider instead of the section -->
-  <div class="splide max-w-full bg-neutrals-900" id="work">
+  <div
+    class="splide max-w-full bg-neutrals-900"
+    id="work"
+  >
     <!-- navigation arrows -->
     <div class="splide__arrows">
       <!-- previous arrow -->
       <button
-        class="splide__arrow splide__arrow--prev absolute bottom-14 lg:bottom-1/2 lg:translate-y-1/2 left-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
+        class="splide__arrow splide__arrow--prev absolute bottom-14 left-9 z-30 aspect-square rounded-full bg-neutrals-900/40 p-3 transition-opacity disabled:opacity-30 lg:bottom-1/2 lg:translate-y-1/2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-6 h-6 lg:w-7 lg:h-7 text-neutrals-50"
+          class="h-6 w-6 text-neutrals-50 lg:h-7 lg:w-7"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -45,17 +43,18 @@ await client.fetch(query).then((data) => projects = data);
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+            d="M7 16l-4-4m0 0l4-4m-4 4h18"
+          ></path>
         </svg>
       </button>
 
       <!-- next arrow -->
       <button
-        class="splide__arrow splide__arrow--next absolute bottom-14 lg:bottom-1/2 lg:translate-y-1/2 right-9 z-30 p-3 aspect-square bg-neutrals-900/40 rounded-full disabled:opacity-30 transition-opacity"
+        class="splide__arrow splide__arrow--next absolute bottom-14 right-9 z-30 aspect-square rounded-full bg-neutrals-900/40 p-3 transition-opacity disabled:opacity-30 lg:bottom-1/2 lg:translate-y-1/2"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="w-6 h-6 lg:w-7 lg:h-7 text-neutrals-50"
+          class="h-6 w-6 text-neutrals-50 lg:h-7 lg:w-7"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -64,7 +63,8 @@ await client.fetch(query).then((data) => projects = data);
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          ></path>
         </svg>
       </button>
     </div>
@@ -78,5 +78,5 @@ await client.fetch(query).then((data) => projects = data);
 </section>
 
 <script>
-  import "../../ts/work.ts";
+  import '../../ts/work.ts';
 </script>
