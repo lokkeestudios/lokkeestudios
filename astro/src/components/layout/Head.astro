@@ -17,6 +17,9 @@ const { pathname } = Astro.url;
 
 const { siteUrl, description } = site;
 const cannonical = `${siteUrl}${pathname}`;
+
+const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
+  import.meta.env;
 ---
 
 <head>
@@ -60,7 +63,7 @@ const cannonical = `${siteUrl}${pathname}`;
         { name: 'theme-color', content: '#6919FF' },
         {
           name: 'google-site-verification',
-          content: 'M5b_xgbjIoOjw_GHMkLyUdW-uSAfYHuL9Elqv5IloxQ',
+          content: PUBLIC_GOOGLE_SITE_VERIFICATION,
         },
       ],
     }}
@@ -68,15 +71,15 @@ const cannonical = `${siteUrl}${pathname}`;
   <script
     type="text/partytown"
     async
-    src="https://www.googletagmanager.com/gtag/js?id=G-QRN4K9F9Q2"
+    src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GOOGLE_ANALYTICS_ID}`}
   ></script>
-  <script type="text/partytown">
+  <script type="text/partytown" define:vars={{ PUBLIC_GOOGLE_ANALYTICS_ID }}>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
 
-    gtag('config', 'G-QRN4K9F9Q2');
+    gtag('config', PUBLIC_GOOGLE_ANALYTICS_ID);
   </script>
 </head>
