@@ -11,7 +11,7 @@ import {
 } from 'framer-motion';
 import React, { forwardRef, ReactNode } from 'react';
 
-interface PreviousButtonProps {
+/* interface PreviousButtonProps {
   previousDisabled: boolean;
   previousSlide: () => void;
 }
@@ -74,7 +74,7 @@ function NextButton({ nextDisabled, nextSlide }: NextButtonProps) {
       </svg>
     </button>
   );
-}
+} */
 
 interface ProjectsCarouselProps {
   projects: Project[];
@@ -119,11 +119,13 @@ const containerStyle: React.CSSProperties = {
   display: 'flex',
 };
 
-const transition: AnimationOptions<any> = {
+const transition: AnimationOptions = {
   type: 'spring',
   bounce: 0,
+  keyframes: [],
 };
 
+// eslint-disable-next-line react/display-name
 const Contaier = forwardRef<HTMLDivElement, { children: ReactNode }>(
   (props, ref) => (
     <div
@@ -207,7 +209,7 @@ function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
     } else if (offset.x < -clientWidth / 4) {
       handleNext();
     } else {
-      animate(x, calculateNewX(), transition);
+      // animate(x, calculateNewX(), transition);
     }
   };
 
@@ -220,8 +222,8 @@ function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
     if (!autoPlay) {
       return;
     }
-    const timer = setInterval(() => handleNext(), interval);
-    return () => clearInterval(timer);
+    setInterval(() => handleNext(), interval);
+    // return () => clearInterval(timer);
   }, [handleNext, interval]);
 
   return (
