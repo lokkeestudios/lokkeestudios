@@ -8,7 +8,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       typescript: {
-        project: 'astro/tsoconfig.eslint.json',
+        project: 'frontend/tsconfig.eslint.json',
       },
     },
   },
