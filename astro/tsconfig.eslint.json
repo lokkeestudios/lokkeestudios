@@ -4,6 +4,7 @@
     "noEmit": true
   },
   "include": [
+    "src/**/*.astro",
     "src/**/*.ts",
     "src/**/*.tsx",
     ".eslintrc.cjs",

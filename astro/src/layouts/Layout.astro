@@ -1,14 +1,15 @@
 ---
-import Footer from '@components/layout/Footer.astro';
+import Footer from '@components/layout/Footer';
 import Head from '@components/layout/Head.astro';
-import Header from '@components/layout/Header.astro';
-import LoadingScreen from '@components/layout/LoadingScreen.astro';
+import Header from '@components/layout/Header';
+import LoadingScreen from '@components/layout/LoadingScreen';
 
 export interface Props {
-  title: string;
+  title?: string;
+  isInitialHeaderBackgroundTransparent?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, isInitialHeaderBackgroundTransparent } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -19,17 +20,22 @@ const { title } = Astro.props;
 >
   <Head title={title} />
   <body
-    class="bg-neutrals-900 text-neutrals-50 antialiased selection:bg-primary/90 selection:text-neutrals-50"
+    class="fixed overflow-y-scroll bg-neutrals-900 text-neutrals-50 antialiased selection:bg-primary selection:text-neutrals-50"
   >
-    <LoadingScreen />
-    <Header />
+    <a
+      href="#main"
+      class="sr-only"
+    >
+      Skip to main content
+    </a>
+    <LoadingScreen client:load />
+    <Header
+      client:idle
+      isInitialBackgroundTransparent={isInitialHeaderBackgroundTransparent}
+    />
 
     <slot />
 
-    <Footer />
-
-    <script>
-      import '../ts/base.ts';
-    </script>
+    <Footer client:visible />
   </body>
 </html>

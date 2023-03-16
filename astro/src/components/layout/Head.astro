@@ -5,11 +5,10 @@ import '@fontsource/roboto-condensed/700.css';
 import '@fontsource/roboto-mono/700.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
-import '@styles/globals.css';
 import { SEO } from 'astro-seo';
 
 export interface Props {
-  title: string;
+  title?: string;
 }
 
 const { title } = Astro.props;
@@ -24,11 +23,13 @@ const cannonical = `${siteUrl}${pathname}`;
   <SEO
     charset="UTF-8"
     title={title}
+    titleTemplate="%s | LOKKEE STUDIOS"
+    titleDefault="LOKKEE STUDIOS | Programming and Design from the Future"
     description={description}
     canonical={cannonical}
     openGraph={{
       basic: {
-        title,
+        title: 'Programming and Design from the Future',
         type: 'website',
         url: cannonical,
         image: '/banner-1200x630.png',
@@ -64,12 +65,9 @@ const cannonical = `${siteUrl}${pathname}`;
       ],
     }}
   />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide-core.min.css"
-  />
   <script
     type="text/partytown"
+    async
     src="https://www.googletagmanager.com/gtag/js?id=G-QRN4K9F9Q2"
   ></script>
   <script type="text/partytown">

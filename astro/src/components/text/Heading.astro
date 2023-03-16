@@ -1,19 +1,20 @@
 ---
-import classNames from '../../utils/classNames';
+import classNames from '@utils/classNames';
+import type { HTMLAttributes } from 'astro/types';
 
-export interface Props {
-  text: string;
+export interface Props extends HTMLAttributes<'h2'> {
   isDark?: boolean;
 }
 
-const { text, isDark } = Astro.props;
+const { isDark, ...props } = Astro.props;
 ---
 
 <h2
   class={classNames(
-    'mb-6 font-display text-4xl font-bold  md:text-5xl',
+    'mb-4 font-display text-3xl sm:text-4xl font-bold md:text-5xl',
     isDark ? 'text-neutrals-900' : 'text-neutrals-50',
   )}
+  {...props}
 >
-  {text}
+  <slot />
 </h2>

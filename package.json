@@ -1,0 +1,13 @@
+{
+  "name": "lokkeestudios",
+  "author": "LOKKEE STUDIOS",
+  "description": "Programming and Design from the Future",
+  "homepage": "https://lokkeestudios.com",
+  "license": "UNLICENSED",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

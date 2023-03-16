@@ -1,45 +1,48 @@
 ---
+import pageNotFoundImage from '@assets/images/page-not-found.svg';
+import Container from '@components/Container';
+import Caption from '@components/text/Caption';
+import Heading from '@components/text/Heading.astro';
+import Paragraph from '@components/text/Paragraph.astro';
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
 ---
 
-<section class="flex min-h-screen w-full items-center bg-neutrals-900 py-20">
-  <div class="mx-auto h-full w-10/12 2xl:w-[80%]">
+<section class="flex min-h-screen w-full items-center py-20">
+  <Container>
     <div class="relative z-10 flex flex-col items-center text-center">
       <div
-        class="before:clip-glitch-1 after:clip-glitch-2 relative inline-block font-display text-[12rem] font-bold text-neutrals-50 before:absolute before:left-0.5 before:top-0 before:h-full before:w-full before:animate-glitch-1 before:bg-neutrals-900 before:content-['404'] after:absolute after:-left-0.5 after:top-0 after:h-full after:w-full after:animate-glitch-2 after:bg-neutrals-900 after:content-['404'] lg:text-[16rem]"
+        aria-hidden="true"
+        class="relative select-none font-display text-[12rem] font-bold text-neutrals-50 before:absolute before:inset-0 before:left-0.5 before:animate-glitch-1 before:bg-neutrals-900 before:content-['404'] before:[clip:rect(85px,550px,140px,0)] after:absolute after:inset-0 after:-left-0.5 after:animate-glitch-2 after:bg-neutrals-900 after:content-['404'] after:[clip:rect(24px,550px,90px,0)] before:motion-reduce:animate-none after:motion-reduce:animate-none lg:text-[16rem]"
       >
         404
       </div>
-      <h1 class="mb-4 font-display font-bold uppercase text-primary md:text-xl">
-        Page not found
-      </h1>
-      <p
-        class="mb-4 font-display text-4xl font-bold leading-tight text-neutrals-50 md:text-5xl md:leading-tight"
-      >
-        Whoops! Nothing here...
-      </p>
-      <p class="mb-2 max-w-prose leading-relaxed text-neutrals-50">
-        Let&apos;s rewind in time and get you...
-      </p>
+      <Caption>Page not found</Caption>
+      <Heading>Whoops! Nothing here...</Heading>
+      <Paragraph>Let&apos;s rewind in time and get you...</Paragraph>
       <a
         href="/"
-        class="group -translate-x-5 text-lg text-neutrals-50 transition-all duration-300 hover:translate-x-0 hover:text-primary focus-visible:translate-x-0"
+        class="group mt-3 flex -translate-x-3 items-center text-lg text-neutrals-50 transition-all duration-300 hover:translate-x-0 hover:text-primary focus-visible:translate-x-0 focus-visible:text-primary"
       >
         <ChevronRightIcon
           aria-hidden="true"
-          className="h-5 w-5 inline opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
+          className="h-5 w-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 mr-1"
         />
         <span
-          class="border-b border-b-neutrals-50 group-hover:border-transparent group-focus-visible:border-transparent"
+          class="border-b-[0.5px] border-b-neutrals-50 group-hover:border-transparent group-focus-visible:border-transparent"
         >
           back home
         </span>
       </a>
     </div>
     <img
-      src="/assets/page-not-found.svg"
-      alt="Disconnected plug"
-      class="absolute left-0 top-1/2 w-full -translate-y-1/2 opacity-60"
+      src={pageNotFoundImage.src}
+      alt=""
+      width={pageNotFoundImage.width}
+      height={pageNotFoundImage.height}
+      decoding="async"
+      loading="lazy"
+      aria-hidden="true"
+      class="absolute inset-0 top-1/2 w-full -translate-y-1/2 select-none opacity-50"
     />
-  </div>
+  </Container>
 </section>

@@ -1,82 +1,23 @@
 ---
-import Caption from '@components/text/Caption.astro';
+import ProjectsCarousel from '@components/project/ProjectsCarousel';
+import Caption from '@components/text/Caption';
 import Heading from '@components/text/Heading.astro';
-import getAllProjects from '../../utils/getAllProjects';
-import ProjectItem from '../ProjectItem.astro';
+import getProjects from '@utils/getProjects';
 
-const projects = await getAllProjects();
+const projects = await getProjects();
 ---
 
 <section
   class="relative z-10 w-full bg-neutrals-50 py-28 xl:min-h-screen"
   aria-label="Work"
 >
-  <!-- header -->
   <div class="mx-auto w-10/12 text-center 2xl:w-[80%]">
-    <Caption text="Work" />
-    <Heading
-      text="Dig into my universe"
-      isDark
-    />
+    <Caption>Work</Caption>
+    <Heading isDark>Dig into my universe</Heading>
   </div>
-
-  <!-- projects horizontal slider -->
-  <!-- id is located here in order for anchor links to address the slider instead of the section -->
-  <div
-    class="splide max-w-full bg-neutrals-900"
-    id="work"
-  >
-    <!-- navigation arrows -->
-    <div class="splide__arrows">
-      <!-- previous arrow -->
-      <button
-        class="splide__arrow splide__arrow--prev absolute bottom-14 left-9 z-30 aspect-square rounded-full bg-neutrals-900/40 p-3 transition-opacity disabled:opacity-30 lg:bottom-1/2 lg:translate-y-1/2"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-neutrals-50 lg:h-7 lg:w-7"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M7 16l-4-4m0 0l4-4m-4 4h18"
-          ></path>
-        </svg>
-      </button>
-
-      <!-- next arrow -->
-      <button
-        class="splide__arrow splide__arrow--next absolute bottom-14 right-9 z-30 aspect-square rounded-full bg-neutrals-900/40 p-3 transition-opacity disabled:opacity-30 lg:bottom-1/2 lg:translate-y-1/2"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6 text-neutrals-50 lg:h-7 lg:w-7"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M17 8l4 4m0 0l-4 4m4-4H3"
-          ></path>
-        </svg>
-      </button>
-    </div>
-
-    <div class="splide__track">
-      <ul class="splide__list">
-        {projects.map((project) => <ProjectItem project={project} />)}
-      </ul>
-    </div>
-  </div>
+  <!-- id="work" -->
+  <ProjectsCarousel
+    client:visible
+    projects={projects}
+  />
 </section>
-
-<script>
-  import '../../ts/work.ts';
-</script>

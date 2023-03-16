@@ -1,6 +1,0 @@
-# build output
-dist
-dist-ssr
-
-# dependencies
-node_modules

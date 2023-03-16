@@ -1,12 +1,11 @@
 ---
-/* import components */
-import ProjectPage from '../../components/ProjectPage.astro';
-import Layout from '../../layouts/Layout.astro';
-import type Project from '../../types/Project';
-import getAllProjects from '../../utils/getAllProjects';
+import ProjectDetailsSection from '@components/sections/ProjectDetailsSection.astro';
+import Layout from '@layouts/Layout.astro';
+import type { Project } from '@utils/getProjects';
+import getProjects from '@utils/getProjects';
 
 export async function getStaticPaths() {
-  const projects = await getAllProjects();
+  const projects = await getProjects();
 
   return projects.map((project) => ({
     params: { slug: project.slug.current },
@@ -20,8 +19,8 @@ export interface Props {
 const { project } = Astro.props;
 ---
 
-<Layout title={`${project.name} ― Projects | LOKKEE STUDIOS`}>
-  <main>
-    <ProjectPage project={project} />
+<Layout title={`${project.name} ― Projects`}>
+  <main id="main">
+    <ProjectDetailsSection project={project} />
   </main>
 </Layout>

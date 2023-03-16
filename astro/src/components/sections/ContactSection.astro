@@ -1,5 +1,5 @@
 ---
-/* imports */
+import Button from '@components/button/Button';
 import site from '@data/site';
 ---
 
@@ -70,7 +70,7 @@ import site from '@data/site';
           <!-- name input -->
           <label
             for="form-name"
-            class="mb-2 block text-sm uppercase"
+            class="mb-2 block text-sm uppercase text-neutrals-200"
             >Name</label
           >
           <div class="relative mt-1 mb-12">
@@ -79,7 +79,7 @@ import site from '@data/site';
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 opacity-60"
+                class="h-5 w-5 text-neutrals-400"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 ><path
@@ -97,7 +97,7 @@ import site from '@data/site';
               oninvalid="this.setCustomValidity('Name is empty.')"
               onclick="document.getElementById('form-name').classList.add('peer'); document.getElementById('form-name').classList.add('invalid:border-error');"
               required
-              class="focus:ring-none block w-full rounded-md border-[1.5px] border-neutrals-500 bg-neutrals-700 p-2.5 pl-10 pr-10 focus:border-primary focus:outline-none"
+              class="focus:ring-none block w-full rounded-md border-[1.5px] border-neutrals-700 bg-neutrals-800 p-2.5 pl-10 pr-10 focus:border-primary focus:outline-none"
             />
 
             <!-- validation displays -->
@@ -134,7 +134,7 @@ import site from '@data/site';
               </svg>
             </div>
             <span
-              class="invisible absolute mt-[0.4rem] text-xs text-error peer-invalid:visible"
+              class="invisible absolute mt-[0.4rem] text-sm text-error peer-invalid:visible"
               >Name is empty.</span
             >
           </div>
@@ -151,7 +151,7 @@ import site from '@data/site';
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 opacity-60"
+                class="h-5 w-5 text-neutrals-400"
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 ><path
@@ -172,7 +172,7 @@ import site from '@data/site';
               onclick="document.getElementById('form-email').classList.add('peer'); document.getElementById('form-email').classList.add('invalid:border-error');"
               pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
               required
-              class="focus:ring-none block w-full rounded-md border-[1.5px] border-neutrals-500 bg-neutrals-700 p-2.5 pl-10 focus:border-primary focus:outline-none"
+              class="focus:ring-none block w-full rounded-md border-[1.5px] border-neutrals-700 bg-neutrals-800 p-2.5 pl-10 focus:border-primary focus:outline-none"
             />
 
             <!-- validation displays -->
@@ -209,7 +209,7 @@ import site from '@data/site';
               </svg>
             </div>
             <span
-              class="invisible absolute mt-[0.4rem] text-xs text-error peer-invalid:visible"
+              class="invisible absolute mt-[0.4rem] text-sm text-error peer-invalid:visible"
               >Email is empty or invalid.</span
             >
           </div>
@@ -220,7 +220,7 @@ import site from '@data/site';
             class="mb-2 block text-sm uppercase"
             >Message</label
           >
-          <div class="relative mt-1 mb-12">
+          <div class="relative mt-1">
             <textarea
               type="text"
               id="form-message"
@@ -230,7 +230,7 @@ import site from '@data/site';
               oninvalid="this.setCustomValidity('Message is empty.')"
               onclick="document.getElementById('form-message').classList.add('peer'); document.getElementById('form-message').classList.add('invalid:border-error');"
               required
-              class="focus:ring-none block w-full rounded-lg border border-neutrals-500 bg-neutrals-700 p-2.5 focus:border-primary focus:outline-none"
+              class="focus:ring-none block w-full rounded-lg border border-neutrals-700 bg-neutrals-800 p-2.5 focus:border-primary focus:outline-none"
             ></textarea>
 
             <!-- validation displays -->
@@ -267,17 +267,12 @@ import site from '@data/site';
               </svg>
             </div>
             <span
-              class="invisible absolute mt-[0.4rem] text-xs text-error peer-invalid:visible"
+              class="invisible absolute mt-[0.4rem] text-sm text-error peer-invalid:visible"
               >Message is empty.</span
             >
           </div>
 
-          <!-- submit button -->
-          <button
-            type="submit"
-            class="flex items-center border-2 border-neutrals-50 bg-neutrals-50 bg-[length:140%] bg-[position:400%] bg-no-repeat px-5 py-2 text-neutrals-900 transition-all duration-500 hover:bg-[position:50%] hover:text-neutrals-50"
-            style="background-image: url('/assets/button-dark.svg')"
-          >
+          <Button type="submit">
             Hit me up <svg
               xmlns="http://www.w3.org/2000/svg"
               class="ml-2 inline-block h-5 w-5"
@@ -287,7 +282,7 @@ import site from '@data/site';
                 d="M20.563 3.34a1.002 1.002 0 0 0-.989-.079l-17 8a1 1 0 0 0 .026 1.821L8 15.445v6.722l5.836-4.168 4.764 2.084a1 1 0 0 0 1.399-.85l1-15a1.005 1.005 0 0 0-.436-.893zm-2.466 14.34-5.269-2.306L16 9.167l-7.649 4.25-2.932-1.283 13.471-6.34-.793 11.886z"
               ></path></svg
             >
-          </button>
+          </Button>
         </form>
       </div>
     </div>

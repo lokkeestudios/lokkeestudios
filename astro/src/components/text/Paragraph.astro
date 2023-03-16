@@ -1,19 +1,20 @@
 ---
-import classNames from '../../utils/classNames';
+import classNames from '@utils/classNames';
+import type { HTMLAttributes } from 'astro/types';
 
-export interface Props {
-  text: string;
+export interface Props extends HTMLAttributes<'p'> {
   isDark?: boolean;
 }
 
-const { text, isDark } = Astro.props;
+const { isDark, ...props } = Astro.props;
 ---
 
 <p
   class={classNames(
     'max-w-prose leading-relaxed',
-    isDark ? ' text-neutrals-900/60' : ' text-neutrals-50/60',
+    isDark ? ' text-neutrals-500' : ' text-neutrals-300',
   )}
+  {...props}
 >
-  {text}
+  <slot />
 </p>

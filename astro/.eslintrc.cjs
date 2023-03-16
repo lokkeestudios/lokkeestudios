@@ -7,7 +7,9 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
-      typescript: true,
+      typescript: {
+        project: 'astro/tsoconfig.eslint.json',
+      },
     },
   },
   extends: [
@@ -36,6 +38,7 @@ module.exports = {
       },
       rules: {
         'react/no-unknown-property': 'off',
+        'react/style-prop-object': 'off',
         'react/jsx-key': 'off',
         'react/self-closing-comp': 'off',
       },
@@ -68,7 +71,9 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.astro', '.tsx'] }],
     'react/require-default-props': ['error', { functions: 'defaultArguments' }],
-    'react/jsx-props-no-spreading': 'off',
+    'react/jsx-props-no-spreading': 'warn',
+    'react/no-array-index-key': 'warn',
+    'no-underscore-dangle': 'off',
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
     'prettier/prettier': 'error',
   },

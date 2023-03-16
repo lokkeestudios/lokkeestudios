@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 
@@ -13,33 +14,29 @@ module.exports = {
       colors: {
         primary: '#6919FF',
         neutrals: {
-          900: '#0F1922',
-          700: '#1F2731',
-          500: '#2D353E',
-          50: '#FFFEFA',
+          900: '#060918',
+          800: '#161A2C',
+          700: '#23263B',
+          600: '#2E364F',
+          500: '#4D5775',
+          400: '#6F7A9B',
+          300: '#96A1C0',
+          200: '#C7D0E5',
+          100: '#F0F2FE',
+          50: '#FFFEF9',
         },
-        success: '#48E3AA',
-        error: '#FF4665',
+        success: '#00F090',
+        warning: '#FFDC30',
+        error: '#FF2E5B',
+      },
+      borderWidth: {
+        0.5: '0.5px',
       },
       animation: {
-        'loader-fade-out':
-          'loader-fade-out 1.2s cubic-bezier(0.82, 0, 0.36, 1) 0.2s',
-        'loader-logo-fade-out':
-          'loader-logo-fade-out 0.75s cubic-bezier(0.82, 0, 0.36, 1)',
         'glitch-1': 'glitch 4s linear infinite alternate-reverse',
         'glitch-2': 'glitch 2s linear infinite alternate-reverse',
       },
       keyframes: {
-        'loader-fade-out': {
-          '95%, 100%': { top: '-100%' },
-        },
-        'loader-logo-fade-out': {
-          '60%': { opacity: 0 },
-          '100%': {
-            opacity: 0,
-            transform: 'scale(0)',
-          },
-        },
         glitch: {
           '10.5263%': {
             clip: 'rect(65px,9999px,200px,0)',
@@ -96,9 +93,6 @@ module.exports = {
             clip: 'rect(64px,9999px,117px,0)',
           },
         },
-      },
-      fontSize: {
-        xxs: ['0.625rem', '1.1'],
       },
     },
   },
