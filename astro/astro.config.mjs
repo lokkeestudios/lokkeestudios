@@ -9,8 +9,9 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lokkeestudios.com',
-  output: 'server',
-  adapter: vercelStatic(),
+  adapter: vercelStatic({
+    analytics: true,
+  }),
   experimental: {
     assets: true,
   },

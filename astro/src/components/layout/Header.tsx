@@ -106,7 +106,7 @@ function MobileNavigationMenu() {
                 exit={{
                   opacity: 0,
                 }}
-                className="fixed inset-0 -z-50 border-b-0.5 border-neutrals-600 bg-neutrals-900 py-4 pt-16"
+                className="fixed top-0 left-0 right-0 -z-50 border-b-0.5 border-neutrals-600 bg-neutrals-900 py-1 pt-16"
               >
                 <Container>
                   <Menu.Items
@@ -129,7 +129,7 @@ function MobileNavigationMenu() {
                             href={link.href}
                             className={classNames(
                               'w-full py-2 text-lg uppercase text-neutrals-50',
-                              active ? 'bg-primary' : '',
+                              active ? 'bg-neutrals-800' : '',
                             )}
                           >
                             {link.label}
