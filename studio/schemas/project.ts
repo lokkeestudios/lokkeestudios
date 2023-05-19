@@ -47,7 +47,7 @@ export default {
       type: 'image',
       fields: [
         {
-          name: 'alttext',
+          name: 'alt',
           title: 'Alt text',
           type: 'string',
         },
@@ -63,14 +63,13 @@ export default {
           type: 'image',
           fields: [
             {
-              name: 'alttext',
+              name: 'alt',
               title: 'Alt text',
               type: 'string',
             },
           ],
         },
       ],
-      validation: (Rule: Rule) => Rule.required(),
     },
     {
       name: 'projecturl',

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .mask-radial-faded {
+    mask-image: radial-gradient(
+      circle at center center,
+      black,
+      transparent 75%
+    );
+  }
+}

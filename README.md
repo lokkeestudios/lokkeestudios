@@ -12,6 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://lokkeestudios.com">LOKKEE STUDIOS</a> is bringing you websites from the future.<br /><br />
-  Why don't you check out the fancy time machine I built over there?
+  <a href="https://lokkeestudios.com">LOKKEE STUDIOS</a> is bringing you programming and design from the future.<br />
+  Our expertise is developing next-level websites and web applications including full frontend design.<br />
+  Why don't you check out the fancy time machine we built over there?
 </p>

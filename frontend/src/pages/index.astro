@@ -1,18 +1,20 @@
 ---
-import AboutSection from '@components/sections/AboutSection.astro';
-import ContactSection from '@components/sections/ContactSection.astro';
-import HeroSection from '@components/sections/HeroSection.astro';
-import SourceCodeSection from '@components/sections/SourceCodeSection.astro';
-// import WorkSection from '@components/sections/WorkSection.astro';
-import Layout from '@layouts/Layout.astro';
+import About from '@/components/sections/about.astro';
+import Contact from '@/components/sections/contact.astro';
+import Hero from '@/components/sections/hero.astro';
+import SourceCode from '@/components/sections/source-code.astro';
+import Work from '@/components/sections/work.astro';
+import Layout from '@/layouts/layout.astro';
+
+export const prerender = true;
 ---
 
 <Layout isInitialHeaderBackgroundTransparent>
   <main id="main">
-    <HeroSection />
-    <AboutSection />
-    <!--<WorkSection />-->
-    <ContactSection />
-    <SourceCodeSection />
+    <Hero />
+    <About />
+    <Work />
+    <Contact />
+    <SourceCode />
   </main>
 </Layout>

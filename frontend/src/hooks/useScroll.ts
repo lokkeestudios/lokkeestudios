@@ -13,6 +13,7 @@ function useScroll() {
   }
 
   useEffect(() => {
+    updateScrollState();
     window.addEventListener('scroll', updateScrollState, {
       capture: true,
       passive: true,

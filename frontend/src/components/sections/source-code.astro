@@ -1,0 +1,35 @@
+---
+import MatrixBackground from '@/components/matrix-background';
+import ButtonLink from '@/components/ui/button-link';
+import Container from '@/components/ui/container';
+import { Caption, Heading, Paragraph } from '@/components/ui/typography';
+import siteConfig from '@/config/site';
+---
+
+<section
+  id="sourcecode"
+  class="relative z-10 flex min-h-screen w-full bg-neutrals-900 py-28"
+>
+  <MatrixBackground client:visible />
+  <Container>
+    <div class="flex h-full flex-col items-center justify-center text-center">
+      <Caption>Source code</Caption>
+      <Heading>Behind the simulation</Heading>
+      <Paragraph>
+        You take the <span class="text-neutrals-100">blue pill</span> - you keep
+        scrolling, you leave this site and believe whatever you want to believe.
+        You take the <span class="text-neutrals-100">red pill</span> - you stay in
+        wonderland, and I show you how deep the rabbit hole goes.
+      </Paragraph>
+      <ButtonLink
+        href={siteConfig.links.sourcecode}
+        rel="noreferrer"
+        target="_blank"
+        foreground="error"
+        className="mt-8"
+      >
+        Show me
+      </ButtonLink>
+    </div>
+  </Container>
+</section>

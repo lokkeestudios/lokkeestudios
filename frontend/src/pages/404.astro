@@ -1,10 +1,12 @@
 ---
-import PageNotFoundSection from '@components/sections/PageNotFoundSection.astro';
-import Layout from '@layouts/Layout.astro';
+import PageNotFound from '@/components/sections/page-not-found.astro';
+import Layout from '@/layouts/layout.astro';
+
+export const prerender = true;
 ---
 
 <Layout title="Page not found">
   <main id="main">
-    <PageNotFoundSection />
+    <PageNotFound />
   </main>
 </Layout>

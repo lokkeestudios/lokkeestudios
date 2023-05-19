@@ -1,0 +1,183 @@
+---
+import ButtonLink from '@/components/ui/button-link';
+import Container from '@/components/ui/container';
+import Icons from '@/components/ui/icons';
+import SanityImage from '@/components/ui/sanity-image';
+import { Caption, Heading } from '@/components/ui/typography';
+import type { Project } from '@/lib/get-projects';
+import getProjects from '@/lib/get-projects';
+import { formatDate } from '@/lib/utils';
+
+export interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+
+const projects = await getProjects();
+
+function shuffleArray<T>(array: T[]) {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+}
+
+const otherSimilarProjects = shuffleArray(projects)
+  .filter((currentProject) => currentProject._id !== project._id)
+  .filter((currentProject) =>
+    currentProject.tags.some((tag) => project.tags.includes(tag)),
+  );
+---
+
+<section
+  class="relative flex min-h-screen w-full bg-neutrals-900 py-40 after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-t after:from-neutrals-900 after:to-neutrals-900/60"
+>
+  <SanityImage
+    image={project.poster}
+    isAboveTheFold
+    sizes="(max-width: 1024px) 200vw, 100vw"
+    className="absolute inset-0 h-full w-full object-cover object-center"
+  />
+  <Container>
+    <div class="relative z-10 flex h-full flex-col justify-end">
+      <a
+        href="/#work"
+        title="Go back"
+        class="absolute left-0 top-0 flex items-center justify-center hover:opacity-80 focus-visible:opacity-80 transition-opacity group"
+      >
+        <Icons.ArrowLongLeft
+          aria-hidden
+          className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
+        /> Go back
+      </a>
+      <p class="mb-4 text-xs uppercase text-neutrals-50/90 lg:text-sm">
+        {formatDate(project.date)}
+      </p>
+      <h1 class="mb-4 text-4xl font-bold lg:text-6xl">
+        {project.name}
+      </h1>
+      <p class="mb-8 max-w-prose leading-relaxed text-neutrals-50/90">
+        {project.description}
+      </p>
+      {
+        project.tags && (
+          <p class="text-neutrals-50/90 text-xs lg:text-sm">
+            {project.tags.join(', ')}
+          </p>
+        )
+      }
+      <hr
+        class="h-px border-0 bg-gradient-to-r from-neutrals-50/40 to-transparent mt-4 mb-8"
+      />
+      <div class="flex gap-x-4">
+        {
+          project.projecturl && (
+            <ButtonLink
+              href={project.projecturl}
+              rel="noreferrer"
+              target="_blank"
+              size="small"
+            >
+              <Icons.Eye
+                aria-hidden
+                className="h-5 w-5 mr-2"
+              />{' '}
+              View Project
+            </ButtonLink>
+          )
+        }
+        {
+          project.githuburl && (
+            <ButtonLink
+              href={project.githuburl}
+              rel="noreferrer"
+              target="_blank"
+              size="small"
+              isGhost
+            >
+              <Icons.GitHub
+                aria-hidden
+                className="h-5 w-5 mr-2"
+              />{' '}
+              View Source Code
+            </ButtonLink>
+          )
+        }
+      </div>
+    </div>
+    {
+      project.images.length > 1 && (
+        <Icons.ArrowDownCircle className="absolute bottom-12 left-1/2 z-10 h-9 w-9 -translate-x-1/2 animate-bounce" />
+      )
+    }
+  </Container>
+</section>
+{
+  project.images.length > 0 && (
+    <section
+      class="bg-neutrals-900"
+      aria-label="Project Gallery"
+    >
+      <div>
+        {project.images.map((image) => (
+          <SanityImage
+            image={image}
+            className="w-full"
+          />
+        ))}
+      </div>
+    </section>
+  )
+}
+<section class="py-28">
+  <Container>
+    <div class="flex flex-col justify-center items-center text-center">
+      <Caption>Related projects</Caption>
+      <Heading>Dive into the universe</Heading>
+      <div class="max-md:flex-col flex gap-4 md:gap-8 mt-4">
+        {
+          otherSimilarProjects.slice(0, 2).map((otherSimilarProject) => (
+            <a
+              href={`/project/${otherSimilarProject.slug.current}`}
+              class="relative p-4 md:p-8 rounded-lg flex-1 border-neutrals-200/20 border bg-[radial-gradient(circle_at_50%_100%,rgb(46_54_79/0.4)_1%,rgb(46_54_79/0.1)_100%)] hover:-translate-y-2 transition-[transform,filter] hover:drop-shadow-lg duration-300 hover:scale-[1.01] focus-visible:-translate-y-2 focus-visible:drop-shadow-lg focus-visible:scale-[1.01] flex-grow"
+            >
+              <SanityImage
+                image={otherSimilarProject.poster}
+                className="rounded-md w-full aspect-video object-cover object-center"
+              />
+              <div class="mt-4 flex flex-col items-center text-center gap-y-2">
+                <p class="text-xs uppercase text-neutrals-200">
+                  {formatDate(otherSimilarProject.date)}
+                </p>
+                <h3 class="font-bold text-2xl md:text-3xl">
+                  {otherSimilarProject.name}
+                </h3>
+                {project.tags && (
+                  <p class="text-neutrals-200 text-xs mb-2">
+                    {project.tags.join(', ')}
+                  </p>
+                )}
+                <p class="max-w-prose text-neutrals-200">
+                  {otherSimilarProject.description}
+                </p>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+      <a
+        href="/#work"
+        class="group mb-20 mt-10 inline-flex items-center justify-center text-lg transition-colors duration-300 hover:text-primary focus-visible:text-primary"
+      >
+        <Icons.ArrowLongLeft
+          aria-hidden
+          className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
+        />
+        {' '}Go back
+      </a>
+    </div>
+  </Container>
+</section>

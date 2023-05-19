@@ -1,10 +1,9 @@
 ---
-import site from '@data/site';
-import '@fontsource/roboto-condensed/400.css';
-import '@fontsource/roboto-condensed/700.css';
-import '@fontsource/roboto-mono/700.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
+import siteConfig from '@/config/site';
+import '@/styles/globals.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
 import { SEO } from 'astro-seo';
 
 export interface Props {
@@ -15,8 +14,8 @@ const { title } = Astro.props;
 
 const { pathname } = Astro.url;
 
-const { siteUrl, description } = site;
-const cannonical = `${siteUrl}${pathname}`;
+const { url, description } = siteConfig;
+const cannonical = `${url}${pathname}`;
 
 const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
   import.meta.env;

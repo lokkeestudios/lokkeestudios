@@ -1,8 +1,8 @@
 ---
-import Footer from '@components/layout/Footer';
-import Head from '@components/layout/Head.astro';
-import Header from '@components/layout/Header';
-import LoadingScreen from '@components/layout/LoadingScreen';
+import Footer from '@/components/layout/footer';
+import Head from '@/components/layout/head.astro';
+import Header from '@/components/layout/header';
+import LoadingScreen from '@/components/layout/loading-screen';
 
 export interface Props {
   title?: string;
@@ -16,11 +16,11 @@ const { title, isInitialHeaderBackgroundTransparent } = Astro.props;
 <!-- This site was developed by LOKKEE STUDIOS (https://lokkeestudios.com) -->
 <html
   lang="en"
-  class="scroll-smooth"
+  class="scroll-smooth [color-scheme:dark]"
 >
   <Head title={title} />
   <body
-    class="fixed overflow-y-scroll bg-neutrals-900 text-neutrals-50 antialiased selection:bg-primary selection:text-neutrals-50"
+    class="bg-neutrals-900 text-neutrals-50 antialiased selection:bg-primary selection:text-neutrals-50"
   >
     <a
       href="#main"
@@ -33,9 +33,7 @@ const { title, isInitialHeaderBackgroundTransparent } = Astro.props;
       client:idle
       isInitialBackgroundTransparent={isInitialHeaderBackgroundTransparent}
     />
-
     <slot />
-
     <Footer client:visible />
   </body>
 </html>

@@ -6,6 +6,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_SANITY_API_VERSION: string;
   readonly PUBLIC_GOOGLE_SITE_VERIFICATION: string;
   readonly PUBLIC_GOOGLE_ANALYTICS_ID: string;
+  readonly SENDGRID_API_KEY: string;
 }
 
 interface ImportMeta {

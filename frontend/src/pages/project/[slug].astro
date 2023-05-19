@@ -1,0 +1,28 @@
+---
+import ProjectDetails from '@/components/sections/project-details.astro';
+import Layout from '@/layouts/layout.astro';
+import type { Project } from '@/lib/get-projects';
+import getProjects from '@/lib/get-projects';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+
+  return projects.map((project) => ({
+    params: { slug: project.slug.current },
+    props: { project },
+  }));
+}
+export interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<Layout title={`${project.name} ― Projects`}>
+  <main id="main">
+    <ProjectDetails project={project} />
+  </main>
+</Layout>

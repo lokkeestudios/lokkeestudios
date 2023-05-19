@@ -1,9 +1,9 @@
-import lokkeestudiosLogo from '@assets/images/logos/lokkeestudios.svg';
-import Container from '@components/Container';
-import DiscordIcon from '@components/icons/DiscordIcon';
-import GithubIcon from '@components/icons/GithubIcon';
-import site from '@data/site';
+import lokkeestudiosLogoImage from '@/assets/images/logos/lokkeestudios.svg';
+import Container from '@/components/ui/container';
+import Icons from '@/components/ui/icons';
+import Image from '@/components/ui/image';
 import { useState } from 'react';
+import siteConfig from 'src/config/site';
 
 const primaryLinks = [
   {
@@ -34,13 +34,23 @@ const secondaryLinks = [
 const socials = [
   {
     label: 'View GitHub profile',
-    href: site.githubUrl,
-    icon: GithubIcon,
+    href: siteConfig.links.github,
+    icon: Icons.GitHub,
+  },
+  {
+    label: 'View Instagram profile',
+    href: siteConfig.links.instagram,
+    icon: Icons.Instagram,
+  },
+  {
+    label: 'View LinkedIn profile',
+    href: siteConfig.links.linkedin,
+    icon: Icons.LinkedIn,
   },
   {
     label: 'Join Discord server',
-    href: site.discordUrl,
-    icon: DiscordIcon,
+    href: siteConfig.links.discord,
+    icon: Icons.Discord,
   },
 ];
 
@@ -50,7 +60,7 @@ function Footer() {
   return (
     <footer
       aria-label="Primary"
-      className="relative z-10 w-full border-t-0.5 border-neutrals-600 py-3"
+      className="relative z-10 w-full border-t-0.5 border-neutrals-600  bg-neutrals-900 py-3"
     >
       <Container>
         <div className="flex justify-center py-12">
@@ -58,17 +68,14 @@ function Footer() {
             href="/"
             title="Navigate home"
           >
-            <img
-              src={lokkeestudiosLogo.src}
+            <Image
+              metadata={lokkeestudiosLogoImage}
               alt="LOKKEE STUDIOS"
-              width={64}
-              height={64}
-              decoding="async"
-              loading="lazy"
+              className="h-16 w-16"
             />
           </a>
         </div>
-        <hr className="h-[1px] border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent" />
+        <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent" />
         <nav
           aria-label="Primary"
           className="flex justify-center gap-x-6 py-12"
@@ -83,7 +90,7 @@ function Footer() {
             </a>
           ))}
         </nav>
-        <hr className="h-[1px] border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent" />
+        <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent" />
         <div className="grid grid-cols-1 items-center justify-center gap-6 py-12 lg:grid-cols-3">
           <nav
             aria-label="Secondary"
@@ -121,9 +128,9 @@ function Footer() {
             ))}
           </ul>
           <div className="flex justify-center lg:order-first lg:justify-start">
-            <p className="text-xs text-neutrals-300">
+            <small className="text-xs text-neutrals-300">
               &copy; {currentYear} LOKKEE STUDIOS
-            </p>
+            </small>
           </div>
         </div>
       </Container>

@@ -20,28 +20,21 @@ const props = {
 export const myTheme = buildLegacyTheme({
   '--black': props['--neutrals-900'],
   '--white': props['--neutrals-50'],
-
   '--gray': props['--neutrals-600'],
   '--gray-base': props['--neutrals-400'],
-
   '--component-bg': props['--neutrals-900'],
   '--component-text-color': props['--neutrals-200'],
-
   '--brand-primary': props['--primary'],
-
   '--default-button-color': props['--neutrals-400'],
   '--default-button-primary-color': props['--primary'],
   '--default-button-success-color': props['--success'],
   '--default-button-warning-color': props['--warning'],
   '--default-button-danger-color': props['--error'],
-
   '--state-info-color': props['--primary'],
   '--state-success-color': props['--success'],
   '--state-warning-color': props['--warning'],
   '--state-danger-color': props['--error'],
-
   '--main-navigation-color': props['--neutrals-900'],
   '--main-navigation-color--inverted': props['--neutrals-200'],
-
   '--focus-color': props['--primary'],
 });
