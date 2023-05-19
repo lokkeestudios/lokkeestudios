@@ -20,7 +20,7 @@ function MobileNavigation({ isOpen, onClose, links }: MobileNavigationProps) {
 
   useEffect(() => {
     function handleEscape(event: KeyboardEvent) {
-      if (event.key.toLowerCase() !== 'escape') return;
+      if (!event.key || event.key.toLowerCase() !== 'escape') return;
 
       onClose();
     }
