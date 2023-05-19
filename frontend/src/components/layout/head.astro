@@ -1,0 +1,84 @@
+---
+import siteConfig from '@/config/site';
+import '@/styles/globals.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
+import { SEO } from 'astro-seo';
+
+export interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
+
+const { pathname } = Astro.url;
+
+const { url, description } = siteConfig;
+const cannonical = `${url}${pathname}`;
+
+const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
+  import.meta.env;
+---
+
+<head>
+  <SEO
+    charset="UTF-8"
+    title={title}
+    titleTemplate="%s | LOKKEE STUDIOS"
+    titleDefault="LOKKEE STUDIOS | Programming and Design from the Future"
+    description={description}
+    canonical={cannonical}
+    openGraph={{
+      basic: {
+        title: 'Programming and Design from the Future',
+        type: 'website',
+        url: cannonical,
+        image: '/banner-1200x630.png',
+      },
+      optional: {
+        description,
+        siteName: 'LOKKEE STUDIOS',
+      },
+      image: {
+        alt: 'LOKKEE STUDIOS',
+        width: 1200,
+        height: 630,
+      },
+    }}
+    twitter={{
+      card: 'summary_large_image',
+    }}
+    extend={{
+      link: [
+        { rel: 'icon', href: '/favicon.ico' },
+        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+        { rel: 'manifest', href: '/site.webmanifest' },
+      ],
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'generator', content: Astro.generator },
+        { name: 'theme-color', content: '#6919FF' },
+        {
+          name: 'google-site-verification',
+          content: PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      ],
+    }}
+  />
+  <script
+    type="text/partytown"
+    async
+    src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GOOGLE_ANALYTICS_ID}`}
+  ></script>
+  <script type="text/partytown" define:vars={{ PUBLIC_GOOGLE_ANALYTICS_ID }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', PUBLIC_GOOGLE_ANALYTICS_ID);
+  </script>
+</head>

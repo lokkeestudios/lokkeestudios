@@ -15,6 +15,6 @@ const Label = forwardRef<
     {...props}
   />
 ));
-Label.displayName = LabelPrimitive.Root.displayName;
+Label.displayName = 'Label';
 
 export default Label;
