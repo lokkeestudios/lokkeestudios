@@ -25,8 +25,6 @@
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.1.0",
-    "@radix-ui/react-dropdown-menu": "^2.0.4",
-    "@radix-ui/react-label": "^2.0.1",
     "@sanity/client": "^6.1.1",
     "@sanity/image-url": "^1.0.2",
     "@sendgrid/mail": "^7.7.0",
