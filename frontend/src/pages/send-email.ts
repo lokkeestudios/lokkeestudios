@@ -1,27 +1,25 @@
-import siteConfig from '@/config/site';
-import mail from '@sendgrid/mail';
+// import siteConfig from '@/config/site';
+// import mail from '@sendgrid/mail';
 import type { APIRoute } from 'astro';
 
 export const prerender = false;
 
-const SENDER_EMAIL = siteConfig.email;
-const { SENDGRID_API_KEY } = import.meta.env;
+// const SENDER_EMAIL = siteConfig.email;
+// const { SENDGRID_API_KEY } = import.meta.env;
 
-mail.setApiKey(SENDGRID_API_KEY);
+// mail.setApiKey(SENDGRID_API_KEY);
 
 const post: APIRoute = async ({ request }) => {
+  console.log(request);
   const body: unknown = await request.json();
 
   console.log(body);
-  console.log(SENDER_EMAIL);
-  console.log(SENDGRID_API_KEY);
 
   return new Response(
     JSON.stringify({
-      message: 'Invalid email request',
-      body,
+      message: 'it is ok',
     }),
-    { status: 400 },
+    { status: 200 },
   );
 
   // const response = contactSubmissionSchema.safeParse(body);
