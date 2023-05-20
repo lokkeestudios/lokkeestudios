@@ -60,4 +60,4 @@ const post: APIRoute = async ({ request }) => {
     );
 };
 
-export default post;
+export { post };
