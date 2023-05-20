@@ -2,7 +2,7 @@ import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
-import vercelServerless from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel/serverless';
 import compress from 'astro-compress';
 import { defineConfig, sharpImageService } from 'astro/config';
 
@@ -10,7 +10,7 @@ import { defineConfig, sharpImageService } from 'astro/config';
 export default defineConfig({
   site: 'https://lokkeestudios.com',
   output: 'hybrid',
-  adapter: vercelServerless({
+  adapter: vercel({
     analytics: true,
   }),
   experimental: {
