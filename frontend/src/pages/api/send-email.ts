@@ -3,6 +3,8 @@ import contactSubmissionSchema from '@/lib/validations/contact-submission';
 import mail from '@sendgrid/mail';
 import type { APIRoute } from 'astro';
 
+export const prerender = false;
+
 const SENDER_EMAIL = siteConfig.email;
 const { SENDGRID_API_KEY } = import.meta.env;
 

@@ -25,7 +25,8 @@ function ContactForm() {
   });
 
   async function onSubmit(data: FormData) {
-    await sendEmail(data);
+    const t = await sendEmail(data);
+    console.log(t);
   }
 
   return isSubmitSuccessful ? (

@@ -9,12 +9,13 @@ import { defineConfig, sharpImageService } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lokkeestudios.com',
-  output: 'server',
+  output: 'hybrid',
   adapter: vercelServerless({
     analytics: true,
   }),
   experimental: {
     assets: true,
+    hybridOutput: true,
   },
   image: {
     service: sharpImageService(),
