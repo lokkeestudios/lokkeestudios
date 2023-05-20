@@ -9,11 +9,12 @@ export const prerender = false;
 
 // mail.setApiKey(SENDGRID_API_KEY);
 
-const post: APIRoute = async ({ request }) => {
-  console.log(request);
-  const body: unknown = await request.json();
+const post: APIRoute = async (test) => {
+  console.log(test);
+  // const body: unknown = await request.json();
 
-  console.log(body);
+  // console.log(body);
+  await new Promise((resolve) => setTimeout(resolve, 1));
 
   return new Response(
     JSON.stringify({
