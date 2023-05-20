@@ -5,7 +5,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     ".eslintrc.cjs",
-    "astro.config.mjs",
+    "astro.config.ts",
     "tailwind.config.cjs",
     "prettier.config.cjs"
   ]
