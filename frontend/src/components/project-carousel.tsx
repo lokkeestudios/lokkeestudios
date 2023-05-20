@@ -78,7 +78,8 @@ function ProjectItem({
       exit={{ opacity: 0, translateY: '5%' }}
       className="relative aspect-[2/3] h-[max(55vmin,24rem)] rounded-md overflow-hidden"
       style={{
-        backgroundColor: project.poster.metadata.palette.dominant.background,
+        backgroundColor:
+          project.poster.asset.metadata.palette.dominant.background,
       }}
     >
       <motion.a

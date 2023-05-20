@@ -24,7 +24,7 @@ function generateImageSizeProps({
 }) {
   const builder = imageBuilder.image(image).fit('max').auto('format');
 
-  const { width: originalWidth, aspectRatio } = image.metadata.dimensions;
+  const { width: originalWidth, aspectRatio } = image.asset.metadata.dimensions;
 
   const retinaSizes = Array.from(
     new Set([

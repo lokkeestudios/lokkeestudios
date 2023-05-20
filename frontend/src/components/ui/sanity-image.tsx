@@ -12,7 +12,7 @@ const SanityImage = forwardRef<HTMLImageElement, SanityImageProps>(
   ({ image, sizes = undefined, isAboveTheFold = false, ...props }, ref) => (
     <img
       style={{
-        backgroundColor: image.metadata.palette.dominant.background,
+        backgroundColor: image.asset.metadata.palette.dominant.background,
       }}
       alt={image.alt}
       loading={isAboveTheFold ? 'eager' : 'lazy'}

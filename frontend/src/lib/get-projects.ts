@@ -35,24 +35,23 @@ interface ImageMetadata {
 
 interface Image {
   _createdAt: string;
-  _id: string;
-  _rev: string;
   _type: string;
   _updatedAt: string;
-  assetId: string;
-  extension: string;
-  metadata: ImageMetadata;
-  mimeType: string;
-  originalFilename: string;
-  path: string;
-  sha1hash: string;
-  size: number;
-  uploadId: string;
-  url: string;
   alt: string;
   asset: {
     _ref: string;
     _type: string;
+    _id: string;
+    assetId: string;
+    extension: string;
+    metadata: ImageMetadata;
+    mimeType: string;
+    originalFilename: string;
+    path: string;
+    sha1hash: string;
+    size: number;
+    uploadId: string;
+    url: string;
   };
 }
 
@@ -77,8 +76,8 @@ function getProjects() {
   const query = groq`
     *[_type == "project"] | order(date desc) { 
       ...,
-      "poster": poster.asset->,
-      "images": images[].asset->
+      "poster": poster { ..., asset-> },
+      "images": images[] { ..., asset-> }
     }
   `;
 
