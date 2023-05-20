@@ -9,16 +9,12 @@ export const prerender = false;
 
 // mail.setApiKey(SENDGRID_API_KEY);
 
-const post: APIRoute = async (test) => {
-  console.log(test);
-  // const body: unknown = await request.json();
-
-  // console.log(body);
-  await new Promise((resolve) => setTimeout(resolve, 1));
+const get: APIRoute = () => {
+  console.log('it works!');
 
   return new Response(
     JSON.stringify({
-      message: 'it is ok',
+      message: 'it works!',
     }),
     { status: 200 },
   );
@@ -71,4 +67,4 @@ const post: APIRoute = async (test) => {
   //   );
 };
 
-export { post };
+export { get };
