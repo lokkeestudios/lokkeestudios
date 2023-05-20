@@ -113,7 +113,7 @@ function ProjectItem({
           decoding="async"
           {...generateImageSizeProps({ image: project.poster })}
           style={{ objectPosition: imagePosition }}
-          className="pointer-events-none -z-10 h-full w-full object-cover"
+          className="pointer-events-none -z-10 h-full w-full object-cover absolute inset-0 group-hover:scale-105 group-focus-visible:scale-105 transition-transform duration-700"
         />
       </motion.a>
     </motion.li>
