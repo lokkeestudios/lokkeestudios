@@ -27,7 +27,7 @@ function Caption({ children, className, ...props }: CaptionProps) {
   return (
     <p
       className={cn(
-        'mb-4 inline-block font-medium uppercase text-primary md:text-lg',
+        'mb-4 inline-block font-medium uppercase text-primary text-sm md:text-lg',
         className,
       )}
       {...props}
