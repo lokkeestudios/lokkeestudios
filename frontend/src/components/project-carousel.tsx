@@ -76,7 +76,7 @@ function ProjectItem({
       initial={{ opacity: 0, translateY: '5%' }}
       animate={{ opacity: 1, translateY: '0%' }}
       exit={{ opacity: 0, translateY: '5%' }}
-      className="relative aspect-[2/3] h-[max(45vmin,24rem)] rounded-md overflow-hidden"
+      className="relative aspect-[2/3] h-[max(55vmin,20rem)] rounded-md overflow-hidden"
       style={{
         backgroundColor:
           project.poster.asset.metadata.palette.dominant.background,
