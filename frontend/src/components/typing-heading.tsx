@@ -21,7 +21,7 @@ const headingVariants: Variants = {
 };
 
 const letterVariants: Variants = {
-  enter: { opacity: 0, y: -10, rotateX: -180 },
+  enter: { opacity: 0, y: -10 },
   visible: {
     opacity: 1,
     y: 0,
