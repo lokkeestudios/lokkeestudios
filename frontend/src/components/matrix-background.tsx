@@ -4,9 +4,13 @@ import { useCallback, useEffect, useRef } from 'react';
 const TEXT_COLOR = '#6919FF';
 const BACKGROUND_COLOR = '#060918';
 const ALPHA_BACKGROUND_COLOR = '#06091818';
-const FONT = '16pt monospace';
+const FONT = '15pt monospace';
 const TEXT_COLUMN_WIDTH = 20;
 const FPS = 20;
+
+function getPseudoRandomInRange(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function MatrixBackground() {
   const shouldReduceMotion = useReducedMotion();
@@ -59,7 +63,7 @@ function MatrixBackground() {
     canvasContext.font = FONT;
 
     const newYPositions = yPositions.map((y, index) => {
-      const char = String.fromCharCode(Math.random() * 128);
+      const char = String.fromCharCode(getPseudoRandomInRange(33, 126));
       const x = index * TEXT_COLUMN_WIDTH;
 
       canvasContext.fillText(char, x, y);
