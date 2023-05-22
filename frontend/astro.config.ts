@@ -6,6 +6,7 @@ import vercel from '@astrojs/vercel/serverless';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig, sharpImageService } from 'astro/config';
+import serviceWorker from 'astrojs-service-worker';
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,6 +34,7 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
+    serviceWorker(),
     sitemap(),
     robotsTxt(),
     compress(),

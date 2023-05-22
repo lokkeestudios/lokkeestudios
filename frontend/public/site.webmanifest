@@ -4,6 +4,7 @@
   "background_color": "#060918",
   "theme_color": "#6919FF",
   "display": "standalone",
+  "prefer_related_applications": true,
   "start_url": "/",
   "icons": [
     {
