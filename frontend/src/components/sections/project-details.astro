@@ -1,4 +1,5 @@
 ---
+import ProjectCard from '@/components/project-card';
 import ButtonLink from '@/components/ui/button-link';
 import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
@@ -139,33 +140,11 @@ const otherSimilarProjects = shuffleArray(projects)
       <Heading>Dive into the universe</Heading>
       <div class="max-md:flex-col flex gap-4 md:gap-8 mt-4">
         {
-          otherSimilarProjects.slice(0, 2).map((otherSimilarProject) => (
-            <a
-              href={`/project/${otherSimilarProject.slug.current}`}
-              class="relative p-4 md:p-8 rounded-lg flex-1 border-neutrals-200/20 border bg-[radial-gradient(circle_at_50%_100%,rgb(46_54_79/0.4)_1%,rgb(46_54_79/0.1)_100%)] hover:-translate-y-2 transition-[transform,filter] hover:drop-shadow-lg duration-300 hover:scale-[1.01] focus-visible:-translate-y-2 focus-visible:drop-shadow-lg focus-visible:scale-[1.01] flex-grow"
-            >
-              <SanityImage
-                image={otherSimilarProject.poster}
-                className="rounded-md w-full aspect-video object-cover object-center"
-              />
-              <div class="mt-4 flex flex-col items-center text-center gap-y-2">
-                <p class="text-xs uppercase text-neutrals-200">
-                  {formatDate(otherSimilarProject.date)}
-                </p>
-                <h3 class="font-bold text-2xl md:text-3xl">
-                  {otherSimilarProject.name}
-                </h3>
-                {project.tags && (
-                  <p class="text-neutrals-200 text-xs mb-2">
-                    {project.tags.join(', ')}
-                  </p>
-                )}
-                <p class="max-w-prose text-neutrals-200">
-                  {otherSimilarProject.description}
-                </p>
-              </div>
-            </a>
-          ))
+          otherSimilarProjects
+            .slice(0, 2)
+            .map((otherSimilarProject) => (
+              <ProjectCard project={otherSimilarProject} />
+            ))
         }
       </div>
       <a
