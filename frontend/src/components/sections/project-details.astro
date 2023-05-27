@@ -34,7 +34,7 @@ const otherSimilarProjects = shuffleArray(projects)
 ---
 
 <section
-  class="relative flex min-h-screen w-full bg-neutrals-900 py-32 after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-t after:from-neutrals-900 after:to-neutrals-900/60"
+  class="relative flex min-h-screen w-full bg-neutrals-900 py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-t after:from-neutrals-900 after:to-neutrals-900/60"
 >
   <SanityImage
     image={project.poster}
@@ -111,7 +111,7 @@ const otherSimilarProjects = shuffleArray(projects)
     </div>
     {
       project.images.length > 1 && (
-        <Icons.ArrowDownCircle className="absolute bottom-12 left-1/2 z-10 h-9 w-9 -translate-x-1/2 animate-bounce" />
+        <Icons.ArrowDownCircle className="absolute bottom-[3vh] left-1/2 z-10 h-9 w-9 -translate-x-1/2 animate-bounce" />
       )
     }
   </Container>
@@ -122,7 +122,7 @@ const otherSimilarProjects = shuffleArray(projects)
       class="bg-neutrals-900"
       aria-label="Project Gallery"
     >
-      <div>
+      <div class="max-w-7xl mx-auto">
         {project.images.map((image) => (
           <SanityImage
             image={image}
