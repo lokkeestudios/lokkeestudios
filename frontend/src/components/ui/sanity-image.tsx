@@ -5,11 +5,12 @@ import { HTMLAttributes, forwardRef } from 'react';
 interface SanityImageProps extends HTMLAttributes<HTMLImageElement> {
   image: Image;
   sizes?: string;
+  maxWidth?: number;
   isAboveTheFold?: boolean;
 }
 
 const SanityImage = forwardRef<HTMLImageElement, SanityImageProps>(
-  ({ image, sizes = undefined, isAboveTheFold = false, ...props }, ref) => (
+  ({ image, sizes = undefined, maxWidth = undefined, isAboveTheFold = false, ...props }, ref) => (
     <img
       style={{
         backgroundColor: image.asset.metadata.palette.dominant.background,
@@ -17,7 +18,7 @@ const SanityImage = forwardRef<HTMLImageElement, SanityImageProps>(
       alt={image.alt}
       loading={isAboveTheFold ? 'eager' : 'lazy'}
       decoding={isAboveTheFold ? 'sync' : 'async'}
-      {...generateImageSizeProps({ image, sizes })}
+      {...generateImageSizeProps({ image, sizes, maxWidth })}
       ref={ref}
       {...props}
     />

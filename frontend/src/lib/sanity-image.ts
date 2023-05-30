@@ -11,16 +11,16 @@ function imageUrlFor(source: SanityImageSource) {
 
 const MIN_WIDTH_STEP_PERCENTAGE = 0.1;
 const COMMON_SCREEN_SIZES = [360, 414, 768, 1366, 1536, 1920];
-const LARGEST_COMMON_VIEWPORT = 1920;
+const LARGEST_COMMON_SCREEN_SIZE = 1920;
 
 function generateImageSizeProps({
   image,
-  maxWidth = LARGEST_COMMON_VIEWPORT,
   sizes = undefined,
+  maxWidth = undefined,
 }: {
   image: Image;
-  maxWidth?: number;
   sizes?: string;
+  maxWidth?: number;
 }) {
   const builder = imageBuilder.image(image).fit('max').auto('format');
 
@@ -36,7 +36,7 @@ function generateImageSizeProps({
     .sort((a, b) => a - b)
     .filter((size) => {
       const isSizeBelowOrSlightlyAboveOriginal = size <= originalWidth * 1.1;
-      const isSizeBelowMaxWidthRetina = size <= maxWidth * 3;
+      const isSizeBelowMaxWidthRetina = size <= LARGEST_COMMON_SCREEN_SIZE * 3;
 
       return isSizeBelowOrSlightlyAboveOriginal && isSizeBelowMaxWidthRetina;
     })
@@ -49,12 +49,17 @@ function generateImageSizeProps({
       return isSizeDifferenceSufficient;
     });
 
+  const computedMaxWidth =
+    maxWidth && maxWidth <= originalWidth ? maxWidth : originalWidth;
+
   return {
-    src: builder.width(originalWidth).url(),
+    src: builder.width(computedMaxWidth).url(),
     srcSet: retinaSizes
       .map((size) => `${builder.width(size).url()} ${size}w`)
       .join(', '),
-    sizes: sizes || `(max-width: ${originalWidth}px) 100vw, ${originalWidth}px`,
+    sizes:
+      sizes ||
+      `(max-width: ${computedMaxWidth}px) 100vw, ${computedMaxWidth}px`,
     width: retinaSizes[0],
     height: retinaSizes[0] / aspectRatio,
   };
