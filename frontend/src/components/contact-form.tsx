@@ -24,8 +24,8 @@ function ContactForm() {
     mode: 'onTouched',
   });
 
-  async function onSubmit(data: FormData) {
-    await sendEmail(data);
+  async function onSubmit(contactData: FormData) {
+    await sendEmail(contactData);
   }
 
   return isSubmitSuccessful ? (
