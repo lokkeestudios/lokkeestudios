@@ -88,7 +88,7 @@ function ProjectItem({
         className={cx('group', isDragging ? 'pointer-events-none' : '')}
         draggable={false}
       >
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-neutrals-900/40 p-4 text-center opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 gap-y-2">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-neutrals-900/50 p-4 text-center opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 gap-y-2">
           <div className="overflow-hidden">
             <p className="translate-y-full text-xs transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 text-neutrals-50/90 uppercase">
               {formatDate(project.date)}
