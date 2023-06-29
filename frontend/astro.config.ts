@@ -17,7 +17,6 @@ export default defineConfig({
   }),
   experimental: {
     assets: true,
-    hybridOutput: true,
   },
   image: {
     service: sharpImageService(),
@@ -25,9 +24,7 @@ export default defineConfig({
   integrations: [
     react(),
     tailwind({
-      config: {
-        applyBaseStyles: false,
-      },
+      applyBaseStyles: false,
     }),
     partytown({
       config: {
