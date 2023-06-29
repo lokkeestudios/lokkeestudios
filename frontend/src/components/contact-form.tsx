@@ -43,9 +43,9 @@ function ContactForm() {
       className="flex flex-col gap-y-6"
     >
       <div>
-        <Label htmlFor="name">Name</Label>
+        <Label htmlFor="contact-form-name">Name</Label>
         <Input
-          id="name"
+          id="contact-form-name"
           className={errors.name ? 'border-error' : ''}
           {...register('name', { required: true })}
         />
@@ -60,9 +60,9 @@ function ContactForm() {
         )}
       </div>
       <div>
-        <Label htmlFor="email">Email</Label>
+        <Label htmlFor="contact-form-email">Email</Label>
         <Input
-          id="email"
+          id="contact-form-email"
           className={errors.email ? 'border-error' : ''}
           {...register('email', { required: true })}
         />
@@ -77,9 +77,9 @@ function ContactForm() {
         )}
       </div>
       <div>
-        <Label htmlFor="message">Message</Label>
+        <Label htmlFor="contact-form-message">Message</Label>
         <Textarea
-          id="message"
+          id="contact-form-message"
           className={errors.message ? 'border-error' : ''}
           {...register('message', { required: true })}
         />
