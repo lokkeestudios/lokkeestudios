@@ -16,20 +16,20 @@
   },
   "packageManager": "^pnpm@8.5.1",
   "dependencies": {
-    "@sanity/vision": "^3.11.1",
+    "@sanity/vision": "^3.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.11.1",
-    "sanity-plugin-vercel-deploy": "^3.3.3",
-    "styled-components": "^5.3.10"
+    "sanity": "^3.14.0",
+    "sanity-plugin-vercel-deploy": "^3.3.4",
+    "styled-components": "^6.0.1"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
-    "@types/react": "^18.2.6",
+    "@types/react": "^18.2.14",
     "@types/styled-components": "^5.1.26",
-    "eslint": "^8.40.0",
+    "eslint": "^8.43.0",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.4"
+    "typescript": "^5.1.6"
   }
 }
