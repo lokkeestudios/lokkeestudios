@@ -4,8 +4,6 @@ import Layout from '@/layouts/layout.astro';
 import type { Project } from '@/lib/get-projects';
 import getProjects from '@/lib/get-projects';
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const projects = await getProjects();
 
