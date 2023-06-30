@@ -11,7 +11,7 @@ import serviceWorker from 'astrojs-service-worker';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lokkeestudios.com',
-  output: 'hybrid',
+  output: 'server',
   adapter: vercel({
     analytics: true,
   }),

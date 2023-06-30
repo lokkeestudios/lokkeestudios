@@ -3,7 +3,7 @@ import contactSubmissionSchema from '@/lib/validations/contact-submission';
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-export const prerender = false;
+// export const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
 const { RESEND_API_KEY } = import.meta.env;
