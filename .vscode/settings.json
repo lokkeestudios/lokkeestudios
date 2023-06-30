@@ -1,8 +1,4 @@
 {
-  "eslint.workingDirectories": [
-    { "pattern": "frontend/*/" },
-    { "pattern": "studio/*/" }
-  ],
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
     ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
