@@ -10,6 +10,7 @@ const siteConfig = {
     discord: 'https://discord.lokkeestudios.com',
     instagram: 'https://instagram.lokkeestudios.com',
     linkedin: 'https://linkedin.lokkeestudios.com',
+    dribbble: 'https://dribbble.lokkeestudios.com',
   },
 };
 

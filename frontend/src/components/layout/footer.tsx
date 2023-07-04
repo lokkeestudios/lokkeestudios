@@ -48,6 +48,11 @@ const socials = [
     icon: Icons.LinkedIn,
   },
   {
+    label: 'View Dribbble profile',
+    href: siteConfig.links.dribbble,
+    icon: Icons.Dribbble,
+  },
+  {
     label: 'Join Discord server',
     href: siteConfig.links.discord,
     icon: Icons.Discord,
