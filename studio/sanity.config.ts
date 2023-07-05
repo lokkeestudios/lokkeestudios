@@ -9,15 +9,11 @@ import { myTheme } from './theme';
 export default defineConfig({
   name: 'lokkeestudios',
   title: 'LOKKEE STUDIOS',
-
   projectId,
   dataset,
-
   plugins: [deskTool(), visionTool(), vercelDeployTool()],
-
   schema: {
     types: schemaTypes,
   },
-
   theme: myTheme,
 });

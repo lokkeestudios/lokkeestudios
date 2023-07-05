@@ -267,7 +267,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
   const filteredProjects = projects.filter((project) =>
     selectedFilters.some((selectedFilter) =>
-      project.tags.includes(selectedFilter),
+      project.tags?.includes(selectedFilter),
     ),
   );
 

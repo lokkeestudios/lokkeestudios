@@ -1,19 +1,19 @@
 import sanityClient from '@/lib/sanity-client';
 import groq from 'groq';
 
-interface ImageMetadataPaletteColor {
-  _type: string;
+interface ImageAssetMetadataPaletteColor {
+  _type: 'sanity.imagePaletteSwatch';
   background: string;
   foreground: string;
   population: number;
   title: string;
 }
 
-interface ImageMetadata {
-  _type: string;
+interface ImageAssetMetadata {
+  _type: 'sanity.imageMetadata';
   blurHash: string;
   dimensions: {
-    _type: string;
+    _type: 'sanity.imageDimensions';
     aspectRatio: number;
     height: number;
     width: number;
@@ -22,54 +22,57 @@ interface ImageMetadata {
   isOpaque: boolean;
   lqip: string;
   palette: {
-    _type: string;
-    darkMuted: ImageMetadataPaletteColor;
-    darkVibrant: ImageMetadataPaletteColor;
-    dominant: ImageMetadataPaletteColor;
-    lightMuted: ImageMetadataPaletteColor;
-    lightVibrant: ImageMetadataPaletteColor;
-    muted: ImageMetadataPaletteColor;
-    vibrant: ImageMetadataPaletteColor;
+    _type: 'sanity.imagePalette';
+    darkMuted: ImageAssetMetadataPaletteColor;
+    darkVibrant: ImageAssetMetadataPaletteColor;
+    dominant: ImageAssetMetadataPaletteColor;
+    lightMuted: ImageAssetMetadataPaletteColor;
+    lightVibrant: ImageAssetMetadataPaletteColor;
+    muted: ImageAssetMetadataPaletteColor;
+    vibrant: ImageAssetMetadataPaletteColor;
   };
+}
+
+interface ImageAsset {
+  _id: string;
+  _type: 'sanity.imageAsset';
+  _rev: string;
+  _createdAt: string;
+  _updatedAt: string;
+  assetId: string;
+  extension: string;
+  metadata: ImageAssetMetadata;
+  mimeType: string;
+  originalFilename: string;
+  path: string;
+  sha1hash: string;
+  size: number;
+  uploadId: string;
+  url: string;
 }
 
 interface Image {
-  _createdAt: string;
-  _type: string;
-  _updatedAt: string;
+  _key: string;
+  _type: 'image';
   alt: string;
-  asset: {
-    _ref: string;
-    _type: string;
-    _id: string;
-    assetId: string;
-    extension: string;
-    metadata: ImageMetadata;
-    mimeType: string;
-    originalFilename: string;
-    path: string;
-    sha1hash: string;
-    size: number;
-    uploadId: string;
-    url: string;
-  };
+  asset: ImageAsset;
 }
 
 interface Project {
-  _createdAt: string;
   _id: string;
-  _rev: string;
-  _type: string;
+  _type: 'project';
+  _createdAt: string;
   _updatedAt: string;
+  _rev: string;
   date: string;
-  description: string;
+  description?: string;
   githuburl?: string;
+  projecturl?: string;
   images: Image[];
   name: string;
   poster: Image;
-  projecturl?: string;
-  slug: { _type: string; current: string };
-  tags: string[];
+  slug: { _type: 'slug'; current: string };
+  tags?: string[];
 }
 
 function getProjects() {
@@ -85,4 +88,4 @@ function getProjects() {
 }
 
 export default getProjects;
-export type { Project, Image };
+export type { Image, Project };

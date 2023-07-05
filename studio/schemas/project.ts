@@ -1,17 +1,19 @@
-import { Rule } from 'sanity';
+import { CaseIcon } from '@sanity/icons';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
-export default {
+export default defineType({
   name: 'project',
   title: 'Project',
   type: 'document',
+  icon: CaseIcon,
   fields: [
-    {
+    defineField({
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: (Rule: Rule) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -19,29 +21,29 @@ export default {
         source: 'name',
         maxLength: 96,
       },
-      validation: (Rule: Rule) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       name: 'date',
       title: 'Date',
       type: 'date',
       options: {
         dateFormat: 'MMMM YYYY',
       },
-      validation: (Rule: Rule) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'tags',
       title: 'Tags',
       type: 'array',
-      of: [{ type: 'string' }],
-    },
-    {
+      of: [defineArrayMember({ type: 'string' })],
+    }),
+    defineField({
       name: 'poster',
       title: 'Poster',
       type: 'image',
@@ -52,14 +54,14 @@ export default {
           type: 'string',
         },
       ],
-      validation: (Rule: Rule) => Rule.required(),
-    },
-    {
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'images',
       title: 'Images',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'image',
           fields: [
             {
@@ -68,19 +70,19 @@ export default {
               type: 'string',
             },
           ],
-        },
+        }),
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'projecturl',
       title: 'Project url',
       type: 'url',
-    },
-    {
+    }),
+    defineField({
       name: 'githuburl',
       title: 'GitHub url',
       type: 'url',
-    },
+    }),
   ],
   preview: {
     select: {
@@ -96,4 +98,4 @@ export default {
       by: [{ field: 'date', direction: 'desc' }],
     },
   ],
-};
+});

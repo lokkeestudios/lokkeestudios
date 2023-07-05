@@ -1,10 +1,11 @@
 {
-  "name": "lokkeestudios-studio",
-  "author": "LOKKEE STUDIOS",
+  "name": "studio",
+  "author": {
+    "name": "LOKKEE STUDIOS",
+    "url": "https://lokkeestudios.com"
+  },
   "description": "Programming and Design from the Future",
   "homepage": "https://studio.lokkeestudios.com",
-  "license": "UNLICENSED",
-  "type": "module",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -16,19 +17,20 @@
   },
   "packageManager": "^pnpm@8.5.1",
   "dependencies": {
-    "@sanity/vision": "^3.14.0",
+    "@sanity/icons": "^2.4.1",
+    "@sanity/vision": "^3.14.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
-    "sanity": "^3.14.0",
+    "sanity": "^3.14.1",
     "sanity-plugin-vercel-deploy": "^3.3.4",
-    "styled-components": "^6.0.1"
+    "styled-components": "^6.0.2"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^2.0.1",
     "@types/react": "^18.2.14",
     "@types/styled-components": "^5.1.26",
-    "eslint": "^8.43.0",
+    "eslint": "^8.44.0",
     "prettier": "^2.8.8",
     "typescript": "^5.1.6"
   }

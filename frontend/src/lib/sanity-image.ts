@@ -22,7 +22,7 @@ function generateImageSizeProps({
   sizes?: string;
   maxWidth?: number;
 }) {
-  const builder = imageBuilder.image(image).fit('max').auto('format');
+  const builder = imageUrlFor(image).fit('max').auto('format');
 
   const { width: originalWidth, aspectRatio } = image.asset.metadata.dimensions;
 
@@ -65,4 +65,4 @@ function generateImageSizeProps({
   };
 }
 
-export { imageUrlFor, generateImageSizeProps };
+export { generateImageSizeProps, imageUrlFor };
