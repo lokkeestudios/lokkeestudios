@@ -1,10 +1,11 @@
 {
-  "name": "lokkeestudios-frontend",
-  "author": "LOKKEE STUDIOS",
+  "name": "frontend",
+  "author": {
+    "name": "LOKKEE STUDIOS",
+    "url": "https://lokkeestudios.com"
+  },
   "description": "Programming and Design from the Future",
   "homepage": "https://lokkeestudios.com",
-  "license": "UNLICENSED",
-  "type": "module",
   "version": "1.0.0",
   "private": true,
   "scripts": {

@@ -1,16 +1,17 @@
 {
   "name": "lokkeestudios",
-  "author": "LOKKEE STUDIOS",
+  "author": {
+    "name": "LOKKEE STUDIOS",
+    "url": "https://lokkeestudios.com"
+  },
   "description": "Programming and Design from the Future",
   "homepage": "https://lokkeestudios.com",
-  "license": "UNLICENSED",
-  "type": "module",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install"
   },
+  "packageManager": "^pnpm@8.5.1",
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
