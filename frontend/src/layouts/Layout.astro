@@ -6,10 +6,17 @@ import LoadingScreen from '@/components/layout/loading-screen';
 
 export interface Props {
   title?: string;
+  description?: string;
+  openGraphImage?: { src: string; alt: string };
   isInitialHeaderBackgroundTransparent?: boolean;
 }
 
-const { title, isInitialHeaderBackgroundTransparent } = Astro.props;
+const {
+  title,
+  description,
+  openGraphImage,
+  isInitialHeaderBackgroundTransparent,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -18,7 +25,11 @@ const { title, isInitialHeaderBackgroundTransparent } = Astro.props;
   lang="en"
   class="scroll-smooth [color-scheme:dark]"
 >
-  <Head title={title} />
+  <Head
+    title={title}
+    description={description}
+    openGraphImage={openGraphImage}
+  />
   <body
     class="bg-neutrals-900 text-neutrals-50 antialiased selection:bg-primary selection:text-neutrals-50"
   >

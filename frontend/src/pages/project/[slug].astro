@@ -3,6 +3,7 @@ import ProjectDetails from '@/components/sections/project-details.astro';
 import Layout from '@/layouts/layout.astro';
 import type { Project } from '@/lib/get-projects';
 import getProjects from '@/lib/get-projects';
+import { imageUrlFor } from '@/lib/sanity-image';
 
 export async function getStaticPaths() {
   const projects = await getProjects();
@@ -17,9 +18,23 @@ export interface Props {
 }
 
 const { project } = Astro.props;
+
+const openGraphImage = {
+  src: imageUrlFor(project.poster)
+    .format('png')
+    .width(1200)
+    .height(630)
+    .fit('crop')
+    .url(),
+  alt: project.poster.alt,
+};
 ---
 
-<Layout title={`${project.name} ― Projects`}>
+<Layout
+  title={`${project.name} ― Projects`}
+  description={project.description}
+  openGraphImage={openGraphImage}
+>
   <main id="main">
     <ProjectDetails project={project} />
   </main>
