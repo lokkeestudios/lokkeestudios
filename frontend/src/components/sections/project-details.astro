@@ -60,13 +60,9 @@ const otherSimilarProjects = shuffleArray(projects)
       <h1 class="mb-4 text-4xl font-bold lg:text-6xl">
         {project.name}
       </h1>
-      {
-        project.description && (
-          <p class="mb-8 max-w-prose leading-relaxed text-neutrals-50/90">
-            {project.description}
-          </p>
-        )
-      }
+      <p class="mb-8 max-w-prose leading-relaxed text-neutrals-50/90">
+        {project.description}
+      </p>
       {
         project.tags && (
           <p class="text-neutrals-50/90 text-xs lg:text-sm">

@@ -65,7 +65,7 @@ interface Project {
   _updatedAt: string;
   _rev: string;
   date: string;
-  description?: string;
+  description: string;
   githuburl?: string;
   projecturl?: string;
   images: Image[];
