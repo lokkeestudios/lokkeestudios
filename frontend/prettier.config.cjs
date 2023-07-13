@@ -4,7 +4,10 @@ module.exports = {
   semi: true,
   singleQuote: true,
   singleAttributePerLine: true,
-  plugins: [require.resolve('prettier-plugin-astro')],
+  plugins: [
+    require('prettier-plugin-astro'),
+    require('prettier-plugin-tailwindcss'),
+  ],
   overrides: [
     {
       files: '*.astro',
