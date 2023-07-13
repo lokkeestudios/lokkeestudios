@@ -15,7 +15,7 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
-  "packageManager": "^pnpm@8.5.1",
+  "packageManager": "^pnpm@8.6.7",
   "dependencies": {
     "@sanity/icons": "^2.4.1",
     "@sanity/vision": "^3.14.1",

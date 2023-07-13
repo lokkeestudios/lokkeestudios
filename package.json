@@ -11,7 +11,7 @@
   "scripts": {
     "prepare": "husky install"
   },
-  "packageManager": "^pnpm@8.5.1",
+  "packageManager": "^pnpm@8.6.7",
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
