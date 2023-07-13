@@ -15,7 +15,7 @@
     "preview": "astro preview",
     "astro": "astro"
   },
-  "packageManager": "^pnpm@8.5.1",
+  "packageManager": "^pnpm@8.6.7",
   "dependencies": {
     "@astrojs/partytown": "^1.2.3",
     "@astrojs/react": "^2.2.1",
@@ -50,6 +50,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@total-typescript/ts-reset": "^0.4.2",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "eslint": "^8.43.0",
