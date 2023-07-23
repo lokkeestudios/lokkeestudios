@@ -15,6 +15,10 @@ const primaryLinks = [
     href: '/#work',
   },
   {
+    label: 'Customer Stories',
+    href: '/#stories',
+  },
+  {
     label: 'Contact',
     href: '/#contact',
   },

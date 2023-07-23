@@ -1,0 +1,46 @@
+---
+import TestimonialCard from '@/components/testimonial-card';
+import Container from '@/components/ui/container';
+import { Caption, Heading, Paragraph } from '@/components/ui/typography';
+import getTestimonials from '@/lib/get-testimonials';
+
+const testimonials = await getTestimonials();
+---
+
+{
+  testimonials.length > 0 && (
+    <section
+      id="stories"
+      class="relative z-10 w-full bg-neutrals-900 py-28"
+    >
+      <Container>
+        <div class="flex flex-col items-center text-center">
+          <Caption>Customer Stories</Caption>
+          <Heading>
+            Trusted by the
+            <br />
+            kindest clients
+          </Heading>
+          <Paragraph>
+            It is our mission to deliver you the web presence you deserve.
+          </Paragraph>
+        </div>
+      </Container>
+      <div class="mask-inline-faded group flex w-full overflow-x-hidden mt-8">
+        <ul class="group-hover:play-state-paused motion-reduce:play-state-paused animate-marquee flex">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard testimonial={testimonial} />
+          ))}
+        </ul>
+        <ul
+          aria-hidden="true"
+          class="group-hover:play-state-paused motion-reduce:play-state-paused animate-marquee flex"
+        >
+          {testimonials.map((testimonial) => (
+            <TestimonialCard testimonial={testimonial} />
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
