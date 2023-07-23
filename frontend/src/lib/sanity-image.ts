@@ -1,7 +1,63 @@
-import type { Image } from '@/lib/get-projects';
 import sanityClient from '@/lib/sanity-client';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+
+interface ImageAssetMetadataPaletteColor {
+  _type: 'sanity.imagePaletteSwatch';
+  background: string;
+  foreground: string;
+  population: number;
+  title: string;
+}
+
+interface ImageAssetMetadata {
+  _type: 'sanity.imageMetadata';
+  blurHash: string;
+  dimensions: {
+    _type: 'sanity.imageDimensions';
+    aspectRatio: number;
+    height: number;
+    width: number;
+  };
+  hasAlpha: boolean;
+  isOpaque: boolean;
+  lqip: string;
+  palette: {
+    _type: 'sanity.imagePalette';
+    darkMuted: ImageAssetMetadataPaletteColor;
+    darkVibrant: ImageAssetMetadataPaletteColor;
+    dominant: ImageAssetMetadataPaletteColor;
+    lightMuted: ImageAssetMetadataPaletteColor;
+    lightVibrant: ImageAssetMetadataPaletteColor;
+    muted: ImageAssetMetadataPaletteColor;
+    vibrant: ImageAssetMetadataPaletteColor;
+  };
+}
+
+interface ImageAsset {
+  _id: string;
+  _type: 'sanity.imageAsset';
+  _rev: string;
+  _createdAt: string;
+  _updatedAt: string;
+  assetId: string;
+  extension: string;
+  metadata: ImageAssetMetadata;
+  mimeType: string;
+  originalFilename: string;
+  path: string;
+  sha1hash: string;
+  size: number;
+  uploadId: string;
+  url: string;
+}
+
+interface Image {
+  _key: string;
+  _type: 'image';
+  alt: string;
+  asset: ImageAsset;
+}
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 
@@ -17,14 +73,21 @@ function generateImageSizeProps({
   image,
   sizes = undefined,
   maxWidth = undefined,
+  width = undefined,
+  height = undefined,
 }: {
   image: Image;
-  sizes?: string;
-  maxWidth?: number;
+  sizes?: string | undefined;
+  maxWidth?: number | undefined;
+  width?: number | undefined;
+  height?: number | undefined;
 }) {
   const builder = imageUrlFor(image).fit('max').auto('format');
 
   const { width: originalWidth, aspectRatio } = image.asset.metadata.dimensions;
+
+  const computedMaxWidth =
+    maxWidth && maxWidth <= originalWidth ? maxWidth : originalWidth;
 
   const retinaSizes = Array.from(
     new Set([
@@ -35,10 +98,10 @@ function generateImageSizeProps({
   )
     .sort((a, b) => a - b)
     .filter((size) => {
-      const isSizeBelowOrSlightlyAboveOriginal = size <= originalWidth * 1.1;
+      const isSizeBelowOrSlightlyAboveMaxWidth = size <= computedMaxWidth * 1.1;
       const isSizeBelowMaxWidthRetina = size <= LARGEST_COMMON_SCREEN_SIZE * 3;
 
-      return isSizeBelowOrSlightlyAboveOriginal && isSizeBelowMaxWidthRetina;
+      return isSizeBelowOrSlightlyAboveMaxWidth && isSizeBelowMaxWidthRetina;
     })
     .filter((size, index, unfilteredSizes) => {
       const nextSize = unfilteredSizes[index + 1];
@@ -49,9 +112,6 @@ function generateImageSizeProps({
       return isSizeDifferenceSufficient;
     });
 
-  const computedMaxWidth =
-    maxWidth && maxWidth <= originalWidth ? maxWidth : originalWidth;
-
   return {
     src: builder.width(computedMaxWidth).url(),
     srcSet: retinaSizes
@@ -60,9 +120,9 @@ function generateImageSizeProps({
     sizes:
       sizes ||
       `(max-width: ${computedMaxWidth}px) 100vw, ${computedMaxWidth}px`,
-    width: retinaSizes[0],
-    height: retinaSizes[0] / aspectRatio,
+    width: width || computedMaxWidth,
+    height: height || computedMaxWidth / aspectRatio,
   };
 }
 
-export { generateImageSizeProps, imageUrlFor };
+export { generateImageSizeProps, imageUrlFor, type Image };

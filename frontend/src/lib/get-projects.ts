@@ -1,62 +1,6 @@
 import sanityClient from '@/lib/sanity-client';
+import type { Image } from '@/lib/sanity-image';
 import groq from 'groq';
-
-interface ImageAssetMetadataPaletteColor {
-  _type: 'sanity.imagePaletteSwatch';
-  background: string;
-  foreground: string;
-  population: number;
-  title: string;
-}
-
-interface ImageAssetMetadata {
-  _type: 'sanity.imageMetadata';
-  blurHash: string;
-  dimensions: {
-    _type: 'sanity.imageDimensions';
-    aspectRatio: number;
-    height: number;
-    width: number;
-  };
-  hasAlpha: boolean;
-  isOpaque: boolean;
-  lqip: string;
-  palette: {
-    _type: 'sanity.imagePalette';
-    darkMuted: ImageAssetMetadataPaletteColor;
-    darkVibrant: ImageAssetMetadataPaletteColor;
-    dominant: ImageAssetMetadataPaletteColor;
-    lightMuted: ImageAssetMetadataPaletteColor;
-    lightVibrant: ImageAssetMetadataPaletteColor;
-    muted: ImageAssetMetadataPaletteColor;
-    vibrant: ImageAssetMetadataPaletteColor;
-  };
-}
-
-interface ImageAsset {
-  _id: string;
-  _type: 'sanity.imageAsset';
-  _rev: string;
-  _createdAt: string;
-  _updatedAt: string;
-  assetId: string;
-  extension: string;
-  metadata: ImageAssetMetadata;
-  mimeType: string;
-  originalFilename: string;
-  path: string;
-  sha1hash: string;
-  size: number;
-  uploadId: string;
-  url: string;
-}
-
-interface Image {
-  _key: string;
-  _type: 'image';
-  alt: string;
-  asset: ImageAsset;
-}
 
 interface Project {
   _id: string;
@@ -64,15 +8,15 @@ interface Project {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  name: string;
+  slug: { _type: 'slug'; current: string };
   date: string;
   description: string;
+  poster: Image;
+  images: Image[];
+  tags?: string[];
   githuburl?: string;
   projecturl?: string;
-  images: Image[];
-  name: string;
-  poster: Image;
-  slug: { _type: 'slug'; current: string };
-  tags?: string[];
 }
 
 function getProjects() {
@@ -88,4 +32,4 @@ function getProjects() {
 }
 
 export default getProjects;
-export type { Image, Project };
+export type { Project };

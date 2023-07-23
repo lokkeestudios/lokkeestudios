@@ -76,7 +76,7 @@ function ProjectItem({
       initial={{ opacity: 0, translateY: '5%' }}
       animate={{ opacity: 1, translateY: '0%' }}
       exit={{ opacity: 0, translateY: '5%' }}
-      className="relative aspect-[2/3] h-[max(55vmin,20rem)] rounded-md overflow-hidden"
+      className="relative aspect-[2/3] h-[max(55vmin,20rem)] overflow-hidden rounded-md"
       style={{
         backgroundColor:
           project.poster.asset.metadata.palette.dominant.background,
@@ -88,9 +88,9 @@ function ProjectItem({
         className={cx('group', isDragging ? 'pointer-events-none' : '')}
         draggable={false}
       >
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-neutrals-900/50 p-4 text-center opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 gap-y-2">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-y-2 bg-neutrals-900/50 p-4 text-center opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
           <div className="overflow-hidden">
-            <p className="translate-y-full text-xs transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 text-neutrals-50/90 uppercase">
+            <p className="translate-y-full text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0">
               {formatDate(project.date)}
             </p>
           </div>
@@ -101,7 +101,7 @@ function ProjectItem({
           </div>
           {project.tags && (
             <div className="overflow-hidden">
-              <p className="translate-y-full text-xs lg:text-sm transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 text-neutrals-50/90">
+              <p className="translate-y-full text-xs text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 lg:text-sm">
                 {project.tags.join(', ')}
               </p>
             </div>
@@ -113,7 +113,7 @@ function ProjectItem({
           decoding="async"
           {...generateImageSizeProps({ image: project.poster })}
           style={{ objectPosition: imagePosition }}
-          className="pointer-events-none -z-10 h-full w-full object-cover absolute inset-0 group-hover:scale-105 group-focus-visible:scale-105 transition-transform duration-700"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus-visible:scale-105"
         />
       </motion.a>
     </motion.li>
@@ -160,7 +160,7 @@ function ProjectFilterSelect({
           className="h-4 w-4"
         />
       </Listbox.Button>
-      <Listbox.Options className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 backdrop-blur-md supports-[backdrop-filter]:bg-neutrals-900/60 px-2 py-2 focus:outline-none drop-shadow-lg">
+      <Listbox.Options className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 px-2 py-2 drop-shadow-lg backdrop-blur-md focus:outline-none supports-[backdrop-filter]:bg-neutrals-900/60">
         {projectTagFilters.map((projectTagFilter) => (
           <Listbox.Option
             key={projectTagFilter}
@@ -266,8 +266,8 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
   }, [updateSliderConstraints]);
 
   const filteredProjects = projects.filter((project) =>
-    selectedFilters.some((selectedFilter) =>
-      project.tags?.includes(selectedFilter),
+    selectedFilters.some(
+      (selectedFilter) => project.tags?.includes(selectedFilter),
     ),
   );
 

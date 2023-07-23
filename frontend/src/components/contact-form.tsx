@@ -48,6 +48,7 @@ function ContactForm() {
           <Label htmlFor="contact-form-name">Name</Label>
           <Input
             id="contact-form-name"
+            type="text"
             className={errors.name ? 'border-error' : ''}
             {...register('name', { required: true })}
           />
@@ -65,6 +66,7 @@ function ContactForm() {
           <Label htmlFor="contact-form-email">Email</Label>
           <Input
             id="contact-form-email"
+            type="email"
             className={errors.email ? 'border-error' : ''}
             {...register('email', { required: true })}
           />

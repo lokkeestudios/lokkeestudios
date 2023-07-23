@@ -9,7 +9,7 @@ function Heading({ children, className, ...props }: HeadingProps) {
   return (
     <h2
       className={cn(
-        'mb-4 text-3xl font-bold text-neutrals-50 md:text-5xl',
+        'mb-4 text-3xl font-bold leading-tight text-neutrals-50 md:text-5xl',
         className,
       )}
       {...props}
@@ -27,7 +27,7 @@ function Caption({ children, className, ...props }: CaptionProps) {
   return (
     <p
       className={cn(
-        'mb-4 inline-block font-medium uppercase text-primary text-sm md:text-lg',
+        'mb-4 inline-block text-sm font-medium uppercase text-primary md:text-lg',
         className,
       )}
       {...props}
@@ -52,4 +52,4 @@ function Paragraph({ children, className, ...props }: ParagraphProps) {
   );
 }
 
-export { Heading, Caption, Paragraph };
+export { Caption, Heading, Paragraph };

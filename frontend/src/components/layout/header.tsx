@@ -20,7 +20,7 @@ const links = [
 ];
 
 interface HeaderProps {
-  isInitialBackgroundTransparent?: boolean;
+  isInitialBackgroundTransparent?: boolean | undefined;
 }
 
 function Header({ isInitialBackgroundTransparent = false }: HeaderProps) {
@@ -41,7 +41,7 @@ function Header({ isInitialBackgroundTransparent = false }: HeaderProps) {
     >
       <div
         className={cn(
-          'border-b-0.5 transition-colors duration-500 py-2',
+          'border-b-0.5 py-2 transition-colors duration-500',
           isBackgroundShown
             ? 'border-neutrals-600 bg-neutrals-900/90 backdrop-blur-md supports-[backdrop-filter]:bg-neutrals-900/50'
             : 'border-transparent bg-transparent',

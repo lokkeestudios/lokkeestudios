@@ -10,19 +10,19 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <a
       href={`/project/${project.slug.current}`}
-      className="relative p-4 md:p-8 rounded-lg flex-1 border-neutrals-200/20 border bg-[radial-gradient(circle_at_50%_100%,rgb(46_54_79/0.4)_1%,rgb(46_54_79/0.1)_100%)] md:hover:-translate-y-2 transition-[transform,filter] md:hover:drop-shadow-lg duration-300 md:hover:scale-[1.01] focus-visible:-translate-y-2 focus-visible:drop-shadow-lg focus-visible:scale-[1.01] flex-grow"
+      className="relative flex-1 flex-grow rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 transition-[transform,filter] duration-300 focus-visible:-translate-y-2 focus-visible:scale-[1.01] focus-visible:drop-shadow-lg md:p-8 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:drop-shadow-lg"
     >
       <SanityImage
         image={project.poster}
-        className="rounded-md w-full aspect-video object-cover object-center"
+        className="aspect-video w-full rounded-md object-cover object-center"
       />
-      <div className="mt-4 flex flex-col items-center text-center gap-y-2">
+      <div className="mt-4 flex flex-col items-center gap-y-2 text-center">
         <p className="text-xs uppercase text-neutrals-200">
           {formatDate(project.date)}
         </p>
-        <h3 className="font-bold text-2xl md:text-3xl">{project.name}</h3>
+        <h3 className="text-2xl font-bold md:text-3xl">{project.name}</h3>
         {project.tags && (
-          <p className="text-neutrals-200 text-xs mb-2">
+          <p className="mb-2 text-xs text-neutrals-200">
             {project.tags.join(', ')}
           </p>
         )}

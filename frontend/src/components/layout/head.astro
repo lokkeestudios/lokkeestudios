@@ -7,9 +7,9 @@ import '@fontsource/inter/700.css';
 import { SEO } from 'astro-seo';
 
 export interface Props {
-  title?: string;
-  description?: string;
-  openGraphImage?: { src: string; alt: string };
+  title?: string | undefined;
+  description?: string | undefined;
+  openGraphImage?: { src: string; alt: string } | undefined;
 }
 
 const { title, description, openGraphImage } = Astro.props;
@@ -26,7 +26,7 @@ const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
 <head>
   <SEO
     charset="UTF-8"
-    title={title}
+    title={title!}
     titleTemplate="%s | LOKKEE STUDIOS"
     titleDefault="LOKKEE STUDIOS | Programming and Design from the Future"
     description={description || siteDescription}

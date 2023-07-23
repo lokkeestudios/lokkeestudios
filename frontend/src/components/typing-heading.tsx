@@ -49,8 +49,8 @@ function TypingHeading({ headings }: TypingHeadingProps) {
   const [headingIndex, setHeadingIndex] = useState(0);
   const previousHeadingIndex = usePreviousState(0, headingIndex);
 
-  const currentHeading = headings[headingIndex];
-  const previousHeading = headings[previousHeadingIndex];
+  const currentHeading = headings[headingIndex]!;
+  const previousHeading = headings[previousHeadingIndex]!;
 
   const updateTypingModeTimer = useCallback(() => {
     if (typingMode === 'typing') {

@@ -103,6 +103,7 @@ function MatrixBackground() {
   return (
     <canvas
       ref={matrixCanvasRef}
+      aria-label="Matrix background"
       className="mask-radial-faded absolute inset-0 -z-10 h-full w-full opacity-75"
     />
   );

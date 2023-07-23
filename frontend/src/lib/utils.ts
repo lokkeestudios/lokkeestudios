@@ -16,4 +16,8 @@ function formatDate(input: string | number) {
   return formattedDate;
 }
 
-export { cn, formatDate };
+function shuffleArray<T>(array: T[]) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+export { cn, formatDate, shuffleArray };

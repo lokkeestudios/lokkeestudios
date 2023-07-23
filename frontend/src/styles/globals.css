@@ -10,4 +10,25 @@
       transparent 75%
     );
   }
+
+  .mask-inline-faded {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 25%,
+      black 75%,
+      transparent
+    );
+  }
+
+  .bg-shiny-frame {
+    background:
+      linear-gradient(rgb(6, 9, 24), rgb(6, 9, 24)) padding-box padding-box,
+      linear-gradient(42deg, rgb(6, 9, 24) 45%, rgba(255, 254, 249, 0.9))
+        border-box border-box;
+  }
+
+  .play-state-paused {
+    animation-play-state: paused;
+  }
 }
