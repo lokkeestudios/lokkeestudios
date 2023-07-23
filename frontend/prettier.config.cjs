@@ -5,8 +5,8 @@ module.exports = {
   singleQuote: true,
   singleAttributePerLine: true,
   plugins: [
-    require('prettier-plugin-astro'),
-    require('prettier-plugin-tailwindcss'),
+    require.resolve('prettier-plugin-astro'),
+    require.resolve('prettier-plugin-tailwindcss'),
   ],
   overrides: [
     {
