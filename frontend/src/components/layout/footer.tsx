@@ -53,6 +53,11 @@ const socials = [
     icon: Icons.Dribbble,
   },
   {
+    label: 'View Behance profile',
+    href: siteConfig.links.behance,
+    icon: Icons.Behance,
+  },
+  {
     label: 'Join Discord server',
     href: siteConfig.links.discord,
     icon: Icons.Discord,
