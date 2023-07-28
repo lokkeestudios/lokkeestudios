@@ -118,10 +118,10 @@ function generateImageSizeProps({
       .map((size) => `${builder.width(size).url()} ${size}w`)
       .join(', '),
     sizes:
-      sizes ||
+      sizes ??
       `(max-width: ${computedMaxWidth}px) 100vw, ${computedMaxWidth}px`,
-    width: width || computedMaxWidth,
-    height: height || computedMaxWidth / aspectRatio,
+    width: width ?? computedMaxWidth,
+    height: height ?? computedMaxWidth / aspectRatio,
   };
 }
 

@@ -16,7 +16,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
           <div className="mr-3 flex">
             <div className="bg-shiny-frame h-10 w-10 overflow-hidden rounded-full border border-transparent">
               <SanityImage
-                image={testimonial.logo || testimonial.avatar}
+                image={testimonial.logo ?? testimonial.avatar}
                 sizes="160px"
                 width={40}
                 height={40}

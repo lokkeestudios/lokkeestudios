@@ -1,5 +1,5 @@
 import { useReducedMotion } from 'framer-motion';
-import { useCallback, useEffect, useRef } from 'react';
+import { ElementRef, useCallback, useEffect, useRef } from 'react';
 
 const TEXT_COLOR = '#6919FF';
 const BACKGROUND_COLOR = '#060918';
@@ -14,7 +14,7 @@ function getPseudoRandomInRange(min: number, max: number) {
 
 function MatrixBackground() {
   const shouldReduceMotion = useReducedMotion();
-  const matrixCanvasRef = useRef<HTMLCanvasElement>(null);
+  const matrixCanvasRef = useRef<ElementRef<'canvas'>>(null);
 
   const initializeMatrixCanvas = useCallback(() => {
     if (!matrixCanvasRef.current) return undefined;
@@ -22,9 +22,9 @@ function MatrixBackground() {
     const { parentElement } = matrixCanvasRef.current;
 
     matrixCanvasRef.current.width =
-      parentElement?.offsetWidth || window.innerWidth;
+      parentElement?.offsetWidth ?? window.innerWidth;
     matrixCanvasRef.current.height =
-      parentElement?.offsetHeight || window.innerHeight;
+      parentElement?.offsetHeight ?? window.innerHeight;
 
     const canvasContext = matrixCanvasRef.current.getContext('2d');
     if (!canvasContext) return undefined;
