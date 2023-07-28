@@ -14,6 +14,7 @@ import {
 } from 'framer-motion';
 import {
   Dispatch,
+  ElementRef,
   Fragment,
   SetStateAction,
   useCallback,
@@ -37,7 +38,7 @@ function ProjectItem({
   carouselOffsetLeft,
   dragX,
 }: ProjectItemProps) {
-  const itemRef = useRef<HTMLLIElement>(null);
+  const itemRef = useRef<ElementRef<'li'>>(null);
   const [itemOffsetLeft, setItemOffsetLeft] = useState(0);
   const [itemWidth, setItemWidth] = useState(0);
   const imagePosition = useTransform(

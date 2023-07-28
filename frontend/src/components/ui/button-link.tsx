@@ -1,15 +1,17 @@
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { VariantProps } from 'class-variance-authority';
-import { AnchorHTMLAttributes, ReactNode, forwardRef } from 'react';
+import { AnchorHTMLAttributes, ElementRef, ReactNode, forwardRef } from 'react';
+
+type ButtonLinkHTMLElement = ElementRef<'a'>;
 
 interface ButtonLinkProps
-  extends AnchorHTMLAttributes<HTMLAnchorElement>,
+  extends AnchorHTMLAttributes<ButtonLinkHTMLElement>,
     VariantProps<typeof buttonVariants> {
   children: ReactNode;
 }
 
-const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
+const ButtonLink = forwardRef<ButtonLinkHTMLElement, ButtonLinkProps>(
   (
     { foreground, background, size, isGhost, children, className, ...props },
     ref,

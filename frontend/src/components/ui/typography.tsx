@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
-import type { HTMLAttributes, ReactNode } from 'react';
+import type { ElementRef, HTMLAttributes, ReactNode } from 'react';
 
-interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
+interface HeadingProps extends HTMLAttributes<ElementRef<'h2'>> {
   children: ReactNode;
 }
 
@@ -19,7 +19,7 @@ function Heading({ children, className, ...props }: HeadingProps) {
   );
 }
 
-interface CaptionProps extends HTMLAttributes<HTMLParagraphElement> {
+interface CaptionProps extends HTMLAttributes<ElementRef<'p'>> {
   children: ReactNode;
 }
 
@@ -37,7 +37,7 @@ function Caption({ children, className, ...props }: CaptionProps) {
   );
 }
 
-interface ParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
+interface ParagraphProps extends HTMLAttributes<ElementRef<'p'>> {
   children: ReactNode;
 }
 

@@ -1,11 +1,13 @@
 import { cn } from '@/lib/utils';
-import { LabelHTMLAttributes, ReactNode, forwardRef } from 'react';
+import { ElementRef, LabelHTMLAttributes, ReactNode, forwardRef } from 'react';
 
-interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+type LabelHTMLElement = ElementRef<'label'>;
+
+interface LabelProps extends LabelHTMLAttributes<LabelHTMLElement> {
   children: ReactNode;
 }
 
-const Label = forwardRef<HTMLLabelElement, LabelProps>(
+const Label = forwardRef<LabelHTMLElement, LabelProps>(
   ({ children, className, ...props }, ref) => (
     <label
       ref={ref}

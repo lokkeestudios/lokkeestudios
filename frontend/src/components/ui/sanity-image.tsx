@@ -1,7 +1,9 @@
 import { generateImageSizeProps, type Image } from '@/lib/sanity-image';
-import { forwardRef, HTMLAttributes } from 'react';
+import { ElementRef, forwardRef, HTMLAttributes } from 'react';
 
-interface SanityImageProps extends HTMLAttributes<HTMLImageElement> {
+type SanityImageHTMLElement = ElementRef<'img'>;
+
+interface SanityImageProps extends HTMLAttributes<SanityImageHTMLElement> {
   image: Image;
   sizes?: string | undefined;
   maxWidth?: number | undefined;
@@ -10,7 +12,7 @@ interface SanityImageProps extends HTMLAttributes<HTMLImageElement> {
   isAboveTheFold?: boolean | undefined;
 }
 
-const SanityImage = forwardRef<HTMLImageElement, SanityImageProps>(
+const SanityImage = forwardRef<SanityImageHTMLElement, SanityImageProps>(
   (
     {
       image,

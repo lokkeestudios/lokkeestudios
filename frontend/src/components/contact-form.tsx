@@ -44,7 +44,7 @@ function ContactForm() {
         disabled={isSubmitting}
         className="group flex flex-col gap-y-6"
       >
-        <div className="group-disabled:opacity-70">
+        <div>
           <Label htmlFor="contact-form-name">Name</Label>
           <Input
             id="contact-form-name"
@@ -62,7 +62,7 @@ function ContactForm() {
             </p>
           )}
         </div>
-        <div className="group-disabled:opacity-70">
+        <div>
           <Label htmlFor="contact-form-email">Email</Label>
           <Input
             id="contact-form-email"
@@ -80,7 +80,7 @@ function ContactForm() {
             </p>
           )}
         </div>
-        <div className="group-disabled:opacity-70">
+        <div>
           <Label htmlFor="contact-form-message">Message</Label>
           <Textarea
             id="contact-form-message"

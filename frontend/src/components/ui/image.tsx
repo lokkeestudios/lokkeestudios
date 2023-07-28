@@ -1,13 +1,15 @@
 import type { ImageMetadata } from 'astro';
-import { HTMLAttributes, forwardRef } from 'react';
+import { ElementRef, HTMLAttributes, forwardRef } from 'react';
 
-interface ImageProps extends HTMLAttributes<HTMLImageElement> {
+type ImageHTMLElement = ElementRef<'img'>;
+
+interface ImageProps extends HTMLAttributes<ImageHTMLElement> {
   metadata: ImageMetadata;
   alt: string;
   isAboveTheFold?: 'lazy' | 'eager' | undefined;
 }
 
-const Image = forwardRef<HTMLImageElement, ImageProps>(
+const Image = forwardRef<ImageHTMLElement, ImageProps>(
   ({ metadata, alt, isAboveTheFold = false, ...props }, ref) => (
     <img
       src={metadata.src}
