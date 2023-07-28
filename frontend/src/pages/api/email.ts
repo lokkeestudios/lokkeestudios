@@ -11,7 +11,7 @@ const { RESEND_API_KEY } = import.meta.env;
 const resend = new Resend(RESEND_API_KEY);
 
 const post: APIRoute = async ({ request }) => {
-  const data: unknown = await request.json();
+  const data = await request.json();
   const parsedData = contactSubmissionSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -24,7 +24,7 @@ const post: APIRoute = async ({ request }) => {
 
   return resend.emails
     .send({
-      from: `Contact | LOKKEE STUDIOS <${SENDER_EMAIL}>`,
+      from: `Contact LOKKEE STUDIOS <${SENDER_EMAIL}>`,
       to: SENDER_EMAIL,
       reply_to: email,
       subject: `${name} ― LOKKEE STUDIOS Inquiry`,
