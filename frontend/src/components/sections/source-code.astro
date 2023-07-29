@@ -8,12 +8,13 @@ import siteConfig from '@/config/site';
 
 <section
   id="sourcecode"
+  aria-labelledby="sourcecode-heading"
   class="relative z-10 flex min-h-screen w-full bg-neutrals-900 py-28"
 >
   <MatrixBackground client:visible />
   <Container>
     <div class="flex h-full flex-col items-center justify-center text-center">
-      <Caption>Source code</Caption>
+      <Caption id="sourcecode-heading">Source code</Caption>
       <Heading>Behind the simulation</Heading>
       <Paragraph>
         You take the <span class="text-neutrals-100">blue pill</span> - you keep

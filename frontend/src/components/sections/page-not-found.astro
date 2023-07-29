@@ -6,7 +6,10 @@ import Image from '@/components/ui/image';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
 ---
 
-<section class="flex min-h-screen w-full items-center py-20">
+<section
+  aria-labelledby="page-not-found-heading"
+  class="flex min-h-screen w-full items-center py-20"
+>
   <Container>
     <div class="relative z-10 flex flex-col items-center text-center">
       <div
@@ -15,7 +18,7 @@ import { Caption, Heading, Paragraph } from '@/components/ui/typography';
       >
         404
       </div>
-      <Caption>Page not found</Caption>
+      <Caption aria-labelledby="page-not-found-heading">Page not found</Caption>
       <Heading>Whoops! Nothing here</Heading>
       <Paragraph>Let&apos;s rewind in time and get you...</Paragraph>
       <a

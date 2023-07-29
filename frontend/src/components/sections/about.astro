@@ -17,6 +17,7 @@ const headings = [
 
 <section
   id="about"
+  aria-labelledby="about-heading"
   class="relative z-10 flex min-h-screen w-full flex-col items-center bg-neutrals-900 lg:flex-row"
 >
   <Image
@@ -27,7 +28,7 @@ const headings = [
   <Container>
     <div class="w-full py-28 lg:flex">
       <div class="lg:ml-auto lg:basis-1/2 lg:pl-10 xl:pl-20">
-        <Caption>About</Caption>
+        <Caption id="about-heading">About</Caption>
         <TypingHeading
           client:visible
           headings={headings}

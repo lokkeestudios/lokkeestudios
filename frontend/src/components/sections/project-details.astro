@@ -1,30 +1,20 @@
 ---
-import ProjectCard from '@/components/project-card';
 import ButtonLink from '@/components/ui/button-link';
 import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
 import SanityImage from '@/components/ui/sanity-image';
-import { Caption, Heading } from '@/components/ui/typography';
 import type { Project } from '@/lib/get-projects';
-import getProjects from '@/lib/get-projects';
-import { formatDate, shuffleArray } from '@/lib/utils';
+import { formatDate } from '@/lib/utils';
 
 export interface Props {
   project: Project;
 }
 
 const { project } = Astro.props;
-
-const projects = await getProjects();
-
-const otherSimilarProjects = shuffleArray(projects)
-  .filter((currentProject) => currentProject._id !== project._id)
-  .filter((currentProject) =>
-    currentProject.tags?.some((tag) => project.tags?.includes(tag)),
-  );
 ---
 
 <section
+  aria-labelledby="project-details-heading"
   class="relative flex min-h-screen w-full bg-neutrals-900 py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-t after:from-neutrals-900 after:to-neutrals-900/60"
 >
   <SanityImage
@@ -48,7 +38,10 @@ const otherSimilarProjects = shuffleArray(projects)
       <p class="mb-4 text-xs uppercase text-neutrals-50/90 lg:text-sm">
         {formatDate(project.date)}
       </p>
-      <h1 class="mb-4 text-4xl font-bold lg:text-6xl">
+      <h1
+        id="project-details-heading"
+        class="mb-4 text-4xl font-bold lg:text-6xl"
+      >
         {project.name}
       </h1>
       <p class="mb-8 max-w-prose leading-relaxed text-neutrals-50/90">
@@ -110,8 +103,8 @@ const otherSimilarProjects = shuffleArray(projects)
 {
   project.images.length > 0 && (
     <section
-      class="bg-neutrals-900"
       aria-label="Project Gallery"
+      class="bg-neutrals-900"
     >
       <div class="max-w-7xl mx-auto">
         {project.images.map((image) => (
@@ -125,30 +118,3 @@ const otherSimilarProjects = shuffleArray(projects)
     </section>
   )
 }
-<section class="py-28">
-  <Container>
-    <div class="flex flex-col justify-center items-center text-center">
-      <Caption>Related projects</Caption>
-      <Heading>Discover new worlds</Heading>
-      <div class="max-md:flex-col flex gap-4 md:gap-8 mt-4">
-        {
-          otherSimilarProjects
-            .slice(0, 2)
-            .map((otherSimilarProject) => (
-              <ProjectCard project={otherSimilarProject} />
-            ))
-        }
-      </div>
-      <a
-        href="/#work"
-        class="group mb-20 mt-10 inline-flex items-center justify-center text-lg transition-colors duration-300 hover:text-primary focus-visible:text-primary"
-      >
-        <Icons.ArrowLongLeft
-          aria-hidden
-          className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
-        />
-        {' '}Go back
-      </a>
-    </div>
-  </Container>
-</section>

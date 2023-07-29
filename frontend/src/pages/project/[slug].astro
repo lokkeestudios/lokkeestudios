@@ -1,5 +1,6 @@
 ---
 import ProjectDetails from '@/components/sections/project-details.astro';
+import ProjectRecommendations from '@/components/sections/project-recommendations.astro';
 import Layout from '@/layouts/layout.astro';
 import type { Project } from '@/lib/get-projects';
 import getProjects from '@/lib/get-projects';
@@ -37,5 +38,6 @@ const openGraphImage = {
 >
   <main id="main">
     <ProjectDetails project={project} />
+    <ProjectRecommendations project={project} />
   </main>
 </Layout>

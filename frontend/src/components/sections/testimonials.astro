@@ -11,11 +11,12 @@ const testimonials = await getTestimonials();
   testimonials.length > 0 && (
     <section
       id="stories"
+      aria-labelledby="stories-heading"
       class="relative z-10 w-full bg-neutrals-900 py-28"
     >
       <Container>
         <div class="flex flex-col items-center text-center">
-          <Caption>Customer Stories</Caption>
+          <Caption id="stories-heading">Customer Stories</Caption>
           <Heading>
             Trusted by the
             <br />
