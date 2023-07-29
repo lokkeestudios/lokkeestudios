@@ -2,14 +2,16 @@ import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
 import type { Project } from '@/lib/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity-image';
-import { formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 import { Listbox } from '@headlessui/react';
 import { cx } from 'class-variance-authority';
 import {
   AnimatePresence,
   MotionValue,
+  animate,
   motion,
   useMotionValue,
+  useMotionValueEvent,
   useTransform,
 } from 'framer-motion';
 import {
@@ -25,6 +27,9 @@ import {
 
 interface ProjectItemProps {
   project: Project;
+  index: number;
+  isCurrent: boolean;
+  isDisabled: boolean;
   isDragging: boolean;
   carouselWidth: number;
   carouselOffsetLeft: number;
@@ -33,6 +38,9 @@ interface ProjectItemProps {
 
 function ProjectItem({
   project,
+  index,
+  isCurrent,
+  isDisabled,
   isDragging,
   carouselWidth,
   carouselOffsetLeft,
@@ -69,6 +77,8 @@ function ProjectItem({
     };
   }, [updateSliderItemConstraints]);
 
+  const ProjectContentWrapper = isDisabled ? 'div' : 'a';
+
   return (
     <motion.li
       key={project._id}
@@ -77,26 +87,41 @@ function ProjectItem({
       initial={{ opacity: 0, translateY: '5%' }}
       animate={{ opacity: 1, translateY: '0%' }}
       exit={{ opacity: 0, translateY: '5%' }}
-      className="relative aspect-[2/3] h-[max(55vmin,20rem)] overflow-hidden rounded-md"
-      style={{
-        backgroundColor:
-          project.poster.asset.metadata.palette.dominant.background,
-      }}
+      aria-labelledby={`project-item-${project._id}-heading`}
+      data-item-index={index}
+      aria-current={isCurrent}
+      aria-hidden={isDisabled}
+      aria-disabled={isDisabled}
+      className="relative mr-6 aspect-[2/3] h-[clamp(28rem,65vmin,38rem)] overflow-hidden rounded-md"
     >
-      <motion.a
-        href={`/project/${project.slug.current}`}
-        aria-label={`Show ${project.name} project details`}
-        className={cx('group', isDragging ? 'pointer-events-none' : '')}
+      <ProjectContentWrapper
+        href={isDisabled ? undefined : `/project/${project.slug.current}`}
+        aria-label={
+          isDisabled ? undefined : `Show ${project.name} project details`
+        }
+        className={cx(
+          'group block h-full w-full border-0.5 border-neutrals-50/20',
+          (isDisabled || isDragging) && 'pointer-events-none',
+        )}
         draggable={false}
       >
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-y-2 bg-neutrals-900/50 p-4 text-center opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+        <article
+          className={cn(
+            'absolute inset-0 flex flex-col items-center justify-center gap-y-2 bg-neutrals-900/50 p-4 text-center opacity-0 backdrop-blur-sm transition-opacity duration-300',
+            !isDisabled &&
+              'group-hover:opacity-100 group-focus-visible:opacity-100',
+          )}
+        >
           <div className="overflow-hidden">
             <p className="translate-y-full text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0">
               {formatDate(project.date)}
             </p>
           </div>
           <div className="overflow-hidden">
-            <h3 className="translate-y-full text-2xl font-bold transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 lg:text-4xl">
+            <h3
+              id={`project-item-${project._id}-heading`}
+              className="translate-y-full text-2xl font-bold transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 lg:text-4xl"
+            >
               {project.name}
             </h3>
           </div>
@@ -107,23 +132,33 @@ function ProjectItem({
               </p>
             </div>
           )}
-        </div>
+        </article>
         <motion.img
           alt={project.poster.alt}
           loading="lazy"
           decoding="async"
           {...generateImageSizeProps({ image: project.poster })}
-          style={{ objectPosition: imagePosition }}
-          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 group-focus-visible:scale-105"
+          className={cn(
+            'pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700',
+            isDisabled
+              ? 'animate-project-item-disabled opacity-20 grayscale'
+              : 'animate-project-item-enabled group-hover:scale-105 group-focus-visible:scale-105',
+          )}
+          style={{
+            objectPosition: imagePosition,
+            backgroundColor:
+              project.poster.asset.metadata.palette.dominant.background,
+          }}
         />
-      </motion.a>
+      </ProjectContentWrapper>
     </motion.li>
   );
 }
 
-const projectTagFilters = ['Website', 'Graphic design'] as const;
+const projectTagFilters = ['Website', 'Graphic design', 'Archive'] as const;
 
 type ProjectTagFilter = (typeof projectTagFilters)[number];
+const wildcardFilter: ProjectTagFilter = 'Archive';
 
 interface ProjectFilterSelectProps {
   selectedFiltersState: [
@@ -146,9 +181,9 @@ function ProjectFilterSelect({
           setSelectedFilters(newSelectedFilters);
       }}
       multiple
-      className="relative min-w-[20rem]"
+      className="group relative min-w-[20rem]"
     >
-      <Listbox.Button className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-neutrals-800 px-4 py-2 text-sm text-neutrals-100">
+      <Listbox.Button className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-radial-highlight px-4 py-2 text-sm text-neutrals-100">
         {selectedFilters
           .sort(
             (a, b) =>
@@ -158,7 +193,7 @@ function ProjectFilterSelect({
           .join(', ')}
         <Icons.ChevronDown
           aria-hidden
-          className="h-4 w-4"
+          className="h-4 w-4 transition-transform group-data-[headlessui-state='open']:-scale-y-100"
         />
       </Listbox.Button>
       <Listbox.Options className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 px-2 py-2 drop-shadow-lg backdrop-blur-md focus:outline-none supports-[backdrop-filter]:bg-neutrals-900/60">
@@ -191,9 +226,12 @@ interface ProjectCarouselProps {
 }
 
 function ProjectCarousel({ projects }: ProjectCarouselProps) {
+  // TODO: make use of useMemo() for all width calculations, stored in state
   const [carouselWidth, setCarouselWidth] = useState(0);
   const [carouselItemsWrapperWidth, setCarouselItemsWrapperWidth] = useState(0);
   const [carouselOffsetLeft, setCarouselOffsetLeft] = useState(0);
+  const [currentProject, setCurrentProject] = useState(0);
+  const [projectItemWidth, setProjectItemWidth] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const carouselWrapperRef = useRef<HTMLDivElement>(null);
   const carouselItemsWrapperRef = useRef<HTMLUListElement>(null);
@@ -217,6 +255,10 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
       !carouselItemsWrapperRef.current
     )
       return;
+
+    setProjectItemWidth(
+      carouselItemsWrapperRef.current.offsetWidth / projects.length,
+    );
 
     setCarouselItemsWrapperWidth(carouselWrapperRef.current.offsetWidth);
     setCarouselOffsetLeft(carouselWrapperRef.current.offsetLeft);
@@ -250,13 +292,11 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
           carouselItemsWrapperRef.current.offsetWidth,
       );
     }, 500);
-  }, [dragX]);
+  }, [dragX, projects.length]);
 
   useEffect(() => {
     updateSliderConstraints();
-  }, [selectedFilters, updateSliderConstraints]);
 
-  useEffect(() => {
     window.addEventListener('resize', updateSliderConstraints);
     window.addEventListener('orientationchange', updateSliderConstraints);
 
@@ -266,11 +306,47 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
     };
   }, [updateSliderConstraints]);
 
-  const filteredProjects = projects.filter((project) =>
-    selectedFilters.some(
+  function clamp(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  useMotionValueEvent(dragX, 'change', (latestDragX) => {
+    setCurrentProject(
+      clamp(
+        0,
+        Math.round((-latestDragX + carouselInlineMargin) / projectItemWidth),
+        projects.length - 1,
+      ),
+    );
+  });
+
+  function slideToProjectIndex(projectIndex: number) {
+    void animate(dragX, carouselInlineMargin - projectIndex * projectItemWidth);
+  }
+
+  function slideToPreviousProject() {
+    slideToProjectIndex(clamp(0, currentProject - 1, projects.length - 1));
+  }
+
+  function slideToNextProject() {
+    slideToProjectIndex(clamp(0, currentProject + 1, projects.length - 1));
+  }
+
+  const filteredProjects = projects.filter((project) => {
+    const isAnyProjectTagFiltered = selectedFilters.some(
       (selectedFilter) => project.tags?.includes(selectedFilter),
-    ),
-  );
+    );
+    if (isAnyProjectTagFiltered) return true;
+
+    const isWildcardFilterEnabledAndNoProjectTagFiltered =
+      selectedFilters.includes(wildcardFilter) &&
+      !project.tags?.some((projectTag) =>
+        projectTagFilters.includes(projectTag),
+      );
+    return isWildcardFilterEnabledAndNoProjectTagFiltered;
+  });
+
+  const CAROUSEL_ITEMS_GAP = 24;
 
   return (
     <motion.div
@@ -284,42 +360,81 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
           />
         </div>
       </Container>
-      <motion.div
-        ref={carouselRef}
-        draggable
-        drag="x"
-        dragConstraints={{
-          left: carouselWidth - carouselInlineMargin,
-          right: carouselInlineMargin,
-        }}
-        whileTap={{ cursor: 'grabbing' }}
-        onDragStart={() => setIsDragging(true)}
-        onDragEnd={() => setIsDragging(false)}
-        dragTransition={{
-          power: 0.3,
-          timeConstant: 300,
-        }}
-        style={{ x: dragX }}
-        className="cursor-grab touch-none select-none py-8"
-      >
-        <motion.ul
-          ref={carouselItemsWrapperRef}
-          className="inline-flex gap-[3vmin]"
+      <div className="relative py-8">
+        <div
+          aria-label="Carousel Controls"
+          className="pointer-events-none absolute top-1/2 z-10 flex w-full -translate-y-1/2 justify-between px-4 lg:px-8"
         >
-          <AnimatePresence>
-            {filteredProjects.map((project) => (
-              <ProjectItem
-                key={project._id}
-                project={project}
-                isDragging={isDragging}
-                carouselWidth={carouselItemsWrapperWidth}
-                carouselOffsetLeft={carouselOffsetLeft}
-                dragX={dragX}
-              />
-            ))}
-          </AnimatePresence>
-        </motion.ul>
-      </motion.div>
+          <button
+            type="button"
+            onClick={slideToPreviousProject}
+            title="Previous project"
+            aria-controls="project-carousel"
+            disabled={currentProject === 0}
+            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-lg backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
+          >
+            <Icons.ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            onClick={slideToNextProject}
+            title="Next project"
+            aria-controls="project-carousel"
+            disabled={currentProject === projects.length - 1}
+            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-lg backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
+          >
+            <Icons.ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
+        <motion.div
+          ref={carouselRef}
+          id="project-carousel"
+          aria-label="Project Carousel"
+          draggable
+          drag="x"
+          dragConstraints={{
+            left: carouselWidth - carouselInlineMargin + CAROUSEL_ITEMS_GAP,
+            right: carouselInlineMargin,
+          }}
+          whileTap={{ cursor: 'grabbing' }}
+          onDragStart={() => setIsDragging(true)}
+          onDragEnd={() => setIsDragging(false)}
+          dragTransition={{
+            power: 0.3,
+            timeConstant: 300,
+          }}
+          style={{ x: dragX }}
+          className="cursor-grab touch-none select-none"
+        >
+          <motion.ul
+            ref={carouselItemsWrapperRef}
+            className="inline-flex"
+          >
+            <AnimatePresence>
+              {projects.map((project, index) => (
+                <ProjectItem
+                  key={project._id}
+                  project={project}
+                  index={index}
+                  isCurrent={currentProject === index}
+                  isDisabled={!filteredProjects.includes(project)}
+                  isDragging={isDragging}
+                  carouselWidth={carouselItemsWrapperWidth}
+                  carouselOffsetLeft={carouselOffsetLeft}
+                  dragX={dragX}
+                />
+              ))}
+            </AnimatePresence>
+          </motion.ul>
+        </motion.div>
+        <div
+          aria-live="polite"
+          aria-atomic="true"
+          className="sr-only"
+        >
+          {`Project ${currentProject + 1} of ${projects.length}`}
+        </div>
+      </div>
       <Container>
         <div className="h-px w-full bg-gradient-to-r from-neutrals-600/60 via-neutrals-600 to-neutrals-600/60">
           <motion.div

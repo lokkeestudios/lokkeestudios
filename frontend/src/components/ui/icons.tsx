@@ -2,6 +2,7 @@ import {
   ArrowDownCircleIcon,
   ArrowLongLeftIcon,
   ChevronDownIcon,
+  ChevronLeftIcon,
   ChevronRightIcon,
   EnvelopeIcon,
   EyeIcon,
@@ -12,6 +13,7 @@ type IconProps = React.SVGAttributes<SVGElement>;
 
 const Icons = {
   Eye: EyeIcon,
+  ChevronLeft: ChevronLeftIcon,
   ChevronRight: ChevronRightIcon,
   ChevronDown: ChevronDownIcon,
   ArrowDownCircle: ArrowDownCircleIcon,
