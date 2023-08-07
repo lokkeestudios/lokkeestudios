@@ -11,16 +11,18 @@ import siteConfig from '@/config/site';
   <Container>
     <h1
       id="imprint-heading"
-      class="mb-3 text-5xl font-bold leading-tight md:text-7xl md:leading-tight lg:text-8xl lg:leading-tight"
+      class="text-5xl font-bold leading-tight md:text-7xl md:leading-tight mb-8"
     >
       Imprint
     </h1>
-    <address class="grid gap-y-12 not-italic">
+    <address class="grid gap-y-16 not-italic">
       <div>
         <Heading>Details</Heading>
         <Paragraph>
-          LOKKEE STUDIOS<br />Kilian Peters<br />Langenfelderstraße 75<br
-          />22769 Hamburg, Germany
+          <span class="text-neutrals-100">LOKKEE STUDIOS OÜ</span><br />
+           Lõõtsa 2a<br />
+           11415 Tallinn, Estonia<br /><br />
+           CEO: Kilian Peters
         </Paragraph>
       </div>
       <div>
@@ -30,15 +32,11 @@ import siteConfig from '@/config/site';
           <a
             href={`mailto:${siteConfig.email}`}
             title="Hit me up"
-            class="border-b border-current transition-colors hover:text-primary"
+            class="border-b border-current transition-colors hover:text-primary text-neutrals-100"
           >
             {siteConfig.email}</a
           ><br />Phone number is given out on request.
         </Paragraph>
-      </div>
-      <div>
-        <Heading>Content responsibility</Heading>
-        <Paragraph>Kilian Peters</Paragraph>
       </div>
     </address>
   </Container>
