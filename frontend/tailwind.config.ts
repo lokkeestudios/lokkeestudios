@@ -1,7 +1,7 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+import type { Config } from 'tailwindcss';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+const config: Config = {
   content: ['./src/**/*.{astro,ts,tsx}'],
   theme: {
     extend: {
@@ -30,12 +30,15 @@ module.exports = {
         0.5: '0.5px',
       },
       minHeight: {
+        // @ts-ignore - required fallback for incremental adoption
         screen: ['100vh', '100svh'],
       },
       maxHeight: {
+        // @ts-ignore - required fallback for incremental adoption
         screen: ['100vh', '100svh'],
       },
       height: {
+        // @ts-ignore - required fallback for incremental adoption
         screen: ['100vh', '100svh'],
       },
       backgroundImage: {
@@ -46,11 +49,11 @@ module.exports = {
         'toggle-project-item': {
           from: {
             filter: 'grayscale(0%)',
-            opacity: 1,
+            opacity: '1',
           },
           to: {
             filter: 'grayscale(100%)',
-            opacity: 0.2,
+            opacity: '0.2',
           },
         },
         glitch: {
@@ -126,3 +129,4 @@ module.exports = {
   },
   plugins: [],
 };
+export default config;
