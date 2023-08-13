@@ -22,9 +22,9 @@ function MatrixBackground() {
     const { parentElement } = matrixCanvasRef.current;
 
     matrixCanvasRef.current.width =
-      parentElement?.offsetWidth ?? window.innerWidth;
+      parentElement?.offsetWidth || window.innerWidth;
     matrixCanvasRef.current.height =
-      parentElement?.offsetHeight ?? window.innerHeight;
+      parentElement?.offsetHeight || window.innerHeight;
 
     const canvasContext = matrixCanvasRef.current.getContext('2d');
     if (!canvasContext) return undefined;
