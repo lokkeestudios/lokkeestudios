@@ -92,7 +92,7 @@ function Footer() {
         <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent" />
         <nav
           aria-label="Primary"
-          className="flex justify-center gap-x-6 py-12"
+          className="flex flex-wrap justify-center gap-6 py-12"
         >
           {primaryLinks.map((link, index) => (
             <a
@@ -108,7 +108,7 @@ function Footer() {
         <div className="grid grid-cols-1 items-center justify-center gap-6 py-12 lg:grid-cols-3">
           <nav
             aria-label="Secondary"
-            className="flex justify-center gap-x-6 lg:order-last lg:justify-end"
+            className="flex flex-wrap justify-center gap-6 lg:order-last lg:justify-end"
           >
             {secondaryLinks.map((link, index) => (
               <a
@@ -122,7 +122,7 @@ function Footer() {
           </nav>
           <ul
             aria-label="Socials"
-            className="flex justify-center gap-x-2"
+            className="flex flex-wrap justify-center gap-2"
           >
             {socials.map(({ label, href, icon: Icon }, index) => (
               <li key={index}>
