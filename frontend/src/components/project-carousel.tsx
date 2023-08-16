@@ -252,7 +252,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const [dragStart, setDragStart] = useState<{
     scrollX: number;
     pointerX: number;
-  }>(null);
+  } | null>(null);
   const [selectedFilters, setSelectedFilters] = useState<ProjectTagFilter[]>([
     'Website',
   ]);
