@@ -28,7 +28,7 @@ const { project } = Astro.props;
       <a
         href="/#work"
         title="Go back"
-        class="absolute left-0 top-0 flex items-center justify-center hover:opacity-80 focus-visible:opacity-80 transition-opacity group"
+        class="group absolute left-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
       >
         <Icons.ArrowLongLeft
           aria-hidden
@@ -49,13 +49,13 @@ const { project } = Astro.props;
       </p>
       {
         project.tags && (
-          <p class="text-neutrals-50/90 text-xs lg:text-sm">
+          <p class="text-xs text-neutrals-50/90 lg:text-sm">
             {project.tags.join(', ')}
           </p>
         )
       }
       <hr
-        class="h-px border-0 bg-gradient-to-r from-neutrals-50/40 to-transparent mt-4 mb-8"
+        class="mb-8 mt-4 h-px border-0 bg-gradient-to-r from-neutrals-50/40 to-transparent"
       />
       <div class="flex gap-x-4">
         {
@@ -106,7 +106,7 @@ const { project } = Astro.props;
       aria-label="Project Gallery"
       class="bg-neutrals-900"
     >
-      <div class="max-w-7xl mx-auto">
+      <div class="mx-auto max-w-7xl">
         {project.images.map((image) => (
           <SanityImage
             image={image}
