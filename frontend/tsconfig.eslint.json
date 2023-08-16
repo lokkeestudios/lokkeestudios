@@ -7,6 +7,7 @@
     ".eslintrc.cjs",
     "astro.config.ts",
     "tailwind.config.ts",
-    "prettier.config.cjs"
+    "prettier.config.cjs",
+    "postcss.config.cjs"
   ]
 }

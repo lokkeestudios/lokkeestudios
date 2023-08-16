@@ -35,4 +35,16 @@
   .play-state-paused {
     animation-play-state: paused;
   }
+
+  .scrollbar-none {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
 }

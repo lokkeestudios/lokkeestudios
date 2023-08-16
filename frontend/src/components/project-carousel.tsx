@@ -419,7 +419,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
             onMouseUpCapture={handleMouseUp}
             onMouseMoveCapture={handleMouseMove}
             className={cn(
-              '-mb-6 grid auto-cols-min grid-flow-col gap-x-6 overflow-x-auto pb-3 pl-[calc(50vw-clamp(18rem,42vmin,26rem)/2-7px)] pr-[calc(50vw-(clamp(18rem,42vmin,26rem)+1.5rem)/2)]',
+              'scrollbar-none -mb-6 grid auto-cols-min grid-flow-col gap-x-6 overflow-x-auto pb-3 pl-[calc(50vw-clamp(18rem,42vmin,26rem)/2-7px)] pr-[calc(50vw-(clamp(18rem,42vmin,26rem)+1.5rem)/2)]',
               isDragging && 'cursor-grabbing',
             )}
           >
