@@ -46,16 +46,6 @@ const config: Config = {
           'radial-gradient(circle at 50% 100%, rgba(46, 54, 79, 0.4) 1%, rgba(46, 54, 79, 0.1) 100%)',
       },
       keyframes: {
-        'toggle-project-item': {
-          from: {
-            filter: 'grayscale(0%)',
-            opacity: '1',
-          },
-          to: {
-            filter: 'grayscale(100%)',
-            opacity: '0.2',
-          },
-        },
         glitch: {
           '10.5263%': {
             clip: 'rect(65px, 9999px, 200px, 0)',
@@ -119,8 +109,6 @@ const config: Config = {
         },
       },
       animation: {
-        'project-item-disabled': 'toggle-project-item 0.3s linear',
-        'project-item-enabled': 'toggle-project-item 0.3s linear reverse',
         'glitch-1': 'glitch 4s linear infinite alternate-reverse',
         'glitch-2': 'glitch 2s linear infinite alternate-reverse',
         marquee: 'marquee 25s linear infinite',

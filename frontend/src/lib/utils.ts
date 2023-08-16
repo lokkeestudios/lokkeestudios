@@ -20,4 +20,8 @@ function shuffleArray<T>(array: T[]) {
   return [...array].sort(() => Math.random() - 0.5);
 }
 
-export { cn, formatDate, shuffleArray };
+function clamp(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
+export { clamp, cn, formatDate, shuffleArray };

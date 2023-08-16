@@ -2,13 +2,12 @@ import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
 import type { Project } from '@/lib/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity-image';
-import { cn, formatDate } from '@/lib/utils';
+import { clamp, cn, formatDate } from '@/lib/utils';
 import { Listbox } from '@headlessui/react';
 import { cx } from 'class-variance-authority';
 import {
   AnimatePresence,
   MotionValue,
-  animate,
   motion,
   useMotionValue,
   useMotionValueEvent,
@@ -18,87 +17,79 @@ import {
   Dispatch,
   ElementRef,
   Fragment,
+  MouseEvent,
   SetStateAction,
+  UIEvent,
   useCallback,
   useEffect,
   useRef,
   useState,
 } from 'react';
 
-interface ProjectItemProps {
+interface ProjectSlideProps {
   project: Project;
   index: number;
-  isCurrent: boolean;
+  currentIndex: number;
   isDisabled: boolean;
   isDragging: boolean;
   carouselWidth: number;
-  carouselOffsetLeft: number;
-  dragX: MotionValue<number>;
+  scrollPosition: MotionValue<number>;
 }
 
-function ProjectItem({
+function ProjectSlide({
   project,
   index,
-  isCurrent,
+  currentIndex,
   isDisabled,
   isDragging,
   carouselWidth,
-  carouselOffsetLeft,
-  dragX,
-}: ProjectItemProps) {
-  const itemRef = useRef<ElementRef<'li'>>(null);
-  const [itemOffsetLeft, setItemOffsetLeft] = useState(0);
-  const [itemWidth, setItemWidth] = useState(0);
+  scrollPosition,
+}: ProjectSlideProps) {
+  const slideRef = useRef<ElementRef<'li'>>(null);
+  const [slideOffsetLeft, setSlideOffsetLeft] = useState(0);
+  const [slideWidth, setSlideWidth] = useState(0);
   const imagePosition = useTransform(
-    dragX,
-    [-itemOffsetLeft - itemWidth, -itemOffsetLeft + carouselWidth],
+    scrollPosition,
+    [slideOffsetLeft + slideWidth, slideOffsetLeft - carouselWidth],
     ['0%', '100%'],
   );
 
-  const updateSliderItemConstraints = useCallback(() => {
-    if (!itemRef.current) return;
+  const updateSlideConstraints = useCallback(() => {
+    if (!slideRef.current) return;
 
-    setItemOffsetLeft(itemRef.current.offsetLeft - carouselOffsetLeft);
-    setItemWidth(itemRef.current.offsetWidth);
-  }, [carouselOffsetLeft]);
+    setSlideOffsetLeft(slideRef.current.offsetLeft);
+    setSlideWidth(slideRef.current.offsetWidth);
+  }, []);
 
   useEffect(() => {
-    updateSliderItemConstraints();
+    updateSlideConstraints();
 
-    window.addEventListener('resize', updateSliderItemConstraints);
-    window.addEventListener('orientationchange', updateSliderItemConstraints);
+    window.addEventListener('resize', updateSlideConstraints);
+    window.addEventListener('orientationchange', updateSlideConstraints);
 
     return () => {
-      window.removeEventListener('resize', updateSliderItemConstraints);
-      window.removeEventListener(
-        'orientationchange',
-        updateSliderItemConstraints,
-      );
+      window.removeEventListener('resize', updateSlideConstraints);
+      window.removeEventListener('orientationchange', updateSlideConstraints);
     };
-  }, [updateSliderItemConstraints]);
-
-  const ProjectContentWrapper = isDisabled ? 'div' : 'a';
+  }, [updateSlideConstraints]);
 
   return (
     <motion.li
       key={project._id}
-      ref={itemRef}
-      layout={carouselWidth === 0 ? false : 'position'}
-      initial={{ opacity: 0, translateY: '5%' }}
-      animate={{ opacity: 1, translateY: '0%' }}
-      exit={{ opacity: 0, translateY: '5%' }}
+      ref={slideRef}
       aria-labelledby={`project-item-${project._id}-heading`}
       data-item-index={index}
-      aria-current={isCurrent}
+      aria-current={currentIndex === index}
       aria-hidden={isDisabled}
-      aria-disabled={isDisabled}
-      className="relative mr-6 aspect-[2/3] h-[clamp(28rem,65vmin,38rem)] overflow-hidden rounded-md"
+      className="relative aspect-[2/3] w-[clamp(18rem,42vmin,26rem)] overflow-hidden rounded-md"
     >
-      <ProjectContentWrapper
-        href={isDisabled ? undefined : `/project/${project.slug.current}`}
+      <a
+        href={`/project/${project.slug.current}`}
         aria-label={
           isDisabled ? undefined : `Show ${project.name} project details`
         }
+        aria-disabled={isDisabled}
+        tabIndex={isDisabled ? -1 : 0}
         className={cx(
           'group block h-full w-full border-0.5 border-neutrals-50/20',
           (isDisabled || isDragging) && 'pointer-events-none',
@@ -139,10 +130,10 @@ function ProjectItem({
           decoding="async"
           {...generateImageSizeProps({ image: project.poster })}
           className={cn(
-            'pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700',
+            'pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-[transform,opacity,filter] duration-700',
             isDisabled
-              ? 'animate-project-item-disabled opacity-20 grayscale'
-              : 'animate-project-item-enabled group-hover:scale-105 group-focus-visible:scale-105',
+              ? 'opacity-20 grayscale'
+              : 'group-hover:scale-105 group-focus-visible:scale-105',
           )}
           style={{
             objectPosition: imagePosition,
@@ -150,26 +141,25 @@ function ProjectItem({
               project.poster.asset.metadata.palette.dominant.background,
           }}
         />
-      </ProjectContentWrapper>
+      </a>
     </motion.li>
   );
 }
 
 const projectTagFilters = ['Website', 'Graphic design', 'Archive'] as const;
-
 type ProjectTagFilter = (typeof projectTagFilters)[number];
 const wildcardFilter: ProjectTagFilter = 'Archive';
 
-interface ProjectFilterSelectProps {
+interface ProjectFiltersSelectProps {
   selectedFiltersState: [
     ProjectTagFilter[],
     Dispatch<SetStateAction<ProjectTagFilter[]>>,
   ];
 }
 
-function ProjectFilterSelect({
+function ProjectFiltersSelect({
   selectedFiltersState,
-}: ProjectFilterSelectProps) {
+}: ProjectFiltersSelectProps) {
   const [selectedFilters, setSelectedFilters] = selectedFiltersState;
 
   return (
@@ -183,154 +173,189 @@ function ProjectFilterSelect({
       multiple
       className="group relative min-w-[20rem]"
     >
-      <Listbox.Button className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-radial-highlight px-4 py-2 text-sm text-neutrals-100">
-        {selectedFilters
-          .sort(
-            (a, b) =>
-              projectTagFilters.indexOf(a) - projectTagFilters.indexOf(b),
-          )
-          .map((selectedFilter) => selectedFilter)
-          .join(', ')}
-        <Icons.ChevronDown
-          aria-hidden
-          className="h-4 w-4 transition-transform group-data-[headlessui-state='open']:-scale-y-100"
-        />
-      </Listbox.Button>
-      <Listbox.Options className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 px-2 py-2 drop-shadow-lg backdrop-blur-md focus:outline-none supports-[backdrop-filter]:bg-neutrals-900/60">
-        {projectTagFilters.map((projectTagFilter) => (
-          <Listbox.Option
-            key={projectTagFilter}
-            as={Fragment}
-            value={projectTagFilter}
-          >
-            {({ active, selected }) => (
-              <li
-                className={cx(
-                  'cursor-pointer rounded-sm p-2 text-sm transition-all',
-                  selected && !active ? 'text-primary' : '',
-                  active ? 'bg-primary text-neutrals-50' : 'text-neutrals-300',
-                )}
+      {({ open }) => (
+        <>
+          <Listbox.Button className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-radial-highlight px-4 py-2 text-sm text-neutrals-100">
+            {selectedFilters
+              .sort(
+                (a, b) =>
+                  projectTagFilters.indexOf(a) - projectTagFilters.indexOf(b),
+              )
+              .map((selectedFilter) => selectedFilter)
+              .join(', ')}
+            <Icons.ChevronDown
+              aria-hidden
+              className="h-4 w-4 transition-transform duration-200 group-data-[headlessui-state='open']:-scale-y-100"
+            />
+          </Listbox.Button>
+          <AnimatePresence>
+            {open && (
+              <Listbox.Options
+                static
+                as={motion.ul}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 px-2 py-2 drop-shadow-lg backdrop-blur-md focus:outline-none supports-[backdrop-filter]:bg-neutrals-900/60"
               >
-                {projectTagFilter}
-              </li>
+                {projectTagFilters.map((projectTagFilter) => (
+                  <Listbox.Option
+                    key={projectTagFilter}
+                    as={Fragment}
+                    value={projectTagFilter}
+                  >
+                    {({ active, selected }) => (
+                      <li
+                        className={cx(
+                          'cursor-pointer rounded-sm p-2 text-sm transition-all',
+                          selected && !active ? 'text-neutrals-50' : '',
+                          active
+                            ? 'bg-primary text-neutrals-50'
+                            : 'text-neutrals-300',
+                        )}
+                      >
+                        {projectTagFilter}
+                      </li>
+                    )}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
             )}
-          </Listbox.Option>
-        ))}
-      </Listbox.Options>
+          </AnimatePresence>
+        </>
+      )}
     </Listbox>
   );
 }
+
+const CAROUSEL_SLIDES_GAP = 24;
 
 interface ProjectCarouselProps {
   projects: Project[];
 }
 
 function ProjectCarousel({ projects }: ProjectCarouselProps) {
-  // TODO: make use of useMemo() for all width calculations, stored in state
+  const carouselWrapperRef = useRef<ElementRef<'div'>>(null);
+  const carouselRef = useRef<ElementRef<'ul'>>(null);
   const [carouselWidth, setCarouselWidth] = useState(0);
-  const [carouselItemsWrapperWidth, setCarouselItemsWrapperWidth] = useState(0);
-  const [carouselOffsetLeft, setCarouselOffsetLeft] = useState(0);
-  const [currentProject, setCurrentProject] = useState(0);
-  const [projectItemWidth, setProjectItemWidth] = useState(0);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const carouselWrapperRef = useRef<HTMLDivElement>(null);
-  const carouselItemsWrapperRef = useRef<HTMLUListElement>(null);
-  const dragX = useMotionValue(0);
-  const [carouselInlineMargin, setCarouselInlineMargin] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const carouselPosition = useTransform(
-    dragX,
-    [carouselInlineMargin, carouselWidth - carouselInlineMargin],
+  const [carouselSlideWidth, setCarouselSlideWidth] = useState(0);
+  const [maxScrollWidth, setMaxScrollWidth] = useState(0);
+  const scrollPosition = useMotionValue(0);
+  const scrollProgress = useTransform(
+    scrollPosition,
+    [0, maxScrollWidth],
     ['0%', '100%'],
   );
-
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState<{
+    scrollX: number;
+    pointerX: number;
+  }>(null);
   const [selectedFilters, setSelectedFilters] = useState<ProjectTagFilter[]>([
     'Website',
   ]);
 
-  const updateSliderConstraints = useCallback(() => {
+  const updateCarouselConstraints = useCallback(() => {
     if (
       !carouselWrapperRef.current ||
       !carouselRef.current ||
-      !carouselItemsWrapperRef.current
+      !carouselRef.current.firstElementChild
     )
       return;
 
-    setProjectItemWidth(
-      carouselItemsWrapperRef.current.offsetWidth / projects.length,
+    setCarouselWidth(carouselWrapperRef.current.offsetWidth);
+    setCarouselSlideWidth(
+      (carouselRef.current.firstElementChild as ElementRef<'li'>).offsetWidth,
     );
-
-    setCarouselItemsWrapperWidth(carouselWrapperRef.current.offsetWidth);
-    setCarouselOffsetLeft(carouselWrapperRef.current.offsetLeft);
-
-    const firstChild = carouselItemsWrapperRef.current
-      .firstChild as HTMLLIElement;
-    if (firstChild) {
-      const firstChildWidth = firstChild.offsetWidth;
-      const firstChildOffsetLeft = firstChild.offsetLeft;
-      const initialX = -(
-        firstChildOffsetLeft +
-        firstChildWidth / 2 -
-        carouselRef.current.offsetWidth / 2
-      );
-      setCarouselInlineMargin(initialX);
-      dragX.jump(initialX);
-    }
-
-    if (!carouselRef.current || !carouselItemsWrapperRef.current) return;
-
-    setCarouselWidth(
-      carouselRef.current.offsetWidth -
-        carouselItemsWrapperRef.current.offsetWidth,
+    setMaxScrollWidth(
+      carouselRef.current.scrollWidth - carouselRef.current.offsetWidth,
     );
-
-    setTimeout(() => {
-      if (!carouselRef.current || !carouselItemsWrapperRef.current) return;
-
-      setCarouselWidth(
-        carouselRef.current.offsetWidth -
-          carouselItemsWrapperRef.current.offsetWidth,
-      );
-    }, 500);
-  }, [dragX, projects.length]);
+  }, []);
 
   useEffect(() => {
-    updateSliderConstraints();
+    updateCarouselConstraints();
 
-    window.addEventListener('resize', updateSliderConstraints);
-    window.addEventListener('orientationchange', updateSliderConstraints);
+    window.addEventListener('resize', updateCarouselConstraints);
+    window.addEventListener('orientationchange', updateCarouselConstraints);
 
     return () => {
-      window.removeEventListener('resize', updateSliderConstraints);
-      window.removeEventListener('orientationchange', updateSliderConstraints);
+      window.removeEventListener('resize', updateCarouselConstraints);
+      window.removeEventListener(
+        'orientationchange',
+        updateCarouselConstraints,
+      );
     };
-  }, [updateSliderConstraints]);
+  }, [updateCarouselConstraints]);
 
-  function clamp(value: number, min: number, max: number) {
-    return Math.min(Math.max(value, min), max);
-  }
-
-  useMotionValueEvent(dragX, 'change', (latestDragX) => {
-    setCurrentProject(
+  function updateCurrentSlide(latestScrollPosition: number) {
+    setCurrentSlide(
       clamp(
         0,
-        Math.round((-latestDragX + carouselInlineMargin) / projectItemWidth),
+        Math.round(
+          latestScrollPosition / (carouselSlideWidth + CAROUSEL_SLIDES_GAP),
+        ),
         projects.length - 1,
       ),
     );
-  });
-
-  function slideToProjectIndex(projectIndex: number) {
-    void animate(dragX, carouselInlineMargin - projectIndex * projectItemWidth);
   }
 
-  function slideToPreviousProject() {
-    slideToProjectIndex(clamp(0, currentProject - 1, projects.length - 1));
+  useMotionValueEvent(scrollPosition, 'change', updateCurrentSlide);
+
+  function scrollToSlide(slideIndex: number) {
+    if (!carouselRef.current) return;
+
+    carouselRef.current.scrollTo({
+      left: slideIndex * (carouselSlideWidth + CAROUSEL_SLIDES_GAP),
+      behavior: 'smooth',
+    });
   }
 
-  function slideToNextProject() {
-    slideToProjectIndex(clamp(0, currentProject + 1, projects.length - 1));
+  function scrollToPreviousSlide() {
+    scrollToSlide(currentSlide - 1);
   }
+
+  function scrollToNextSlide() {
+    scrollToSlide(currentSlide + 1);
+  }
+
+  const handleScroll = useCallback(
+    (event: UIEvent<ElementRef<'ul'>>) => {
+      scrollPosition.set(event.currentTarget.scrollLeft);
+    },
+    [scrollPosition],
+  );
+
+  const handleMouseDown = useCallback((event: MouseEvent) => {
+    const isMainMouseButtonClicked = event.button === 0;
+
+    if (isMainMouseButtonClicked) {
+      setDragStart({
+        scrollX: (event.currentTarget as HTMLElement).scrollLeft,
+        pointerX: event.clientX,
+      });
+      setIsDragging(true);
+    }
+  }, []);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+    setDragStart(null);
+  }, []);
+
+  const handleMouseMove = useCallback(
+    (event: MouseEvent) => {
+      if (carouselRef.current && dragStart) {
+        const distanceX = event.clientX - dragStart.pointerX;
+
+        carouselRef.current.scrollTo({
+          left: dragStart.scrollX - distanceX,
+        });
+      }
+    },
+    [dragStart],
+  );
 
   const filteredProjects = projects.filter((project) => {
     const isAnyProjectTagFiltered = selectedFilters.some(
@@ -346,16 +371,14 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
     return isWildcardFilterEnabledAndNoProjectTagFiltered;
   });
 
-  const CAROUSEL_ITEMS_GAP = 24;
-
   return (
-    <motion.div
+    <div
       ref={carouselWrapperRef}
-      className="mt-4 overflow-hidden"
+      className="mt-4 w-full"
     >
       <Container>
         <div className="flex items-center justify-center">
-          <ProjectFilterSelect
+          <ProjectFiltersSelect
             selectedFiltersState={[selectedFilters, setSelectedFilters]}
           />
         </div>
@@ -367,83 +390,70 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
         >
           <button
             type="button"
-            onClick={slideToPreviousProject}
-            title="Previous project"
+            onClick={scrollToPreviousSlide}
+            title="Previous project slide"
             aria-controls="project-carousel"
-            disabled={currentProject === 0}
-            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-lg backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
+            disabled={currentSlide === 0}
+            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-md backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
           >
             <Icons.ChevronLeft className="h-5 w-5" />
           </button>
           <button
             type="button"
-            onClick={slideToNextProject}
-            title="Next project"
+            onClick={scrollToNextSlide}
+            title="Next project slide"
             aria-controls="project-carousel"
-            disabled={currentProject === projects.length - 1}
-            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-lg backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
+            disabled={currentSlide === projects.length - 1}
+            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-md backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
           >
             <Icons.ChevronRight className="h-5 w-5" />
           </button>
         </div>
-        <motion.div
-          ref={carouselRef}
-          id="project-carousel"
-          aria-label="Project Carousel"
-          draggable
-          drag="x"
-          dragConstraints={{
-            left: carouselWidth - carouselInlineMargin + CAROUSEL_ITEMS_GAP,
-            right: carouselInlineMargin,
-          }}
-          whileTap={{ cursor: 'grabbing' }}
-          onDragStart={() => setIsDragging(true)}
-          onDragEnd={() => setIsDragging(false)}
-          dragTransition={{
-            power: 0.3,
-            timeConstant: 300,
-          }}
-          style={{ x: dragX }}
-          className="cursor-grab touch-none select-none"
-        >
-          <motion.ul
-            ref={carouselItemsWrapperRef}
-            className="inline-flex"
+        <div className="touch-none select-none overflow-hidden">
+          <ul
+            ref={carouselRef}
+            id="project-carousel"
+            aria-label="Project Carousel"
+            onScroll={handleScroll}
+            onMouseDownCapture={handleMouseDown}
+            onMouseUpCapture={handleMouseUp}
+            onMouseMoveCapture={handleMouseMove}
+            className={cn(
+              '-mb-6 grid auto-cols-min grid-flow-col gap-x-6 overflow-x-auto pb-3 pl-[calc(50vw-clamp(18rem,42vmin,26rem)/2-7px)] pr-[calc(50vw-(clamp(18rem,42vmin,26rem)+1.5rem)/2)]',
+              isDragging && 'cursor-grabbing',
+            )}
           >
-            <AnimatePresence>
-              {projects.map((project, index) => (
-                <ProjectItem
-                  key={project._id}
-                  project={project}
-                  index={index}
-                  isCurrent={currentProject === index}
-                  isDisabled={!filteredProjects.includes(project)}
-                  isDragging={isDragging}
-                  carouselWidth={carouselItemsWrapperWidth}
-                  carouselOffsetLeft={carouselOffsetLeft}
-                  dragX={dragX}
-                />
-              ))}
-            </AnimatePresence>
-          </motion.ul>
-        </motion.div>
+            {projects.map((project, index) => (
+              <ProjectSlide
+                key={project._id}
+                project={project}
+                index={index}
+                currentIndex={currentSlide}
+                isDisabled={!filteredProjects.includes(project)}
+                isDragging={isDragging}
+                carouselWidth={carouselWidth}
+                scrollPosition={scrollPosition}
+              />
+            ))}
+          </ul>
+        </div>
         <div
           aria-live="polite"
           aria-atomic="true"
           className="sr-only"
         >
-          {`Project ${currentProject + 1} of ${projects.length}`}
+          Project {currentSlide + 1} of {projects.length}
         </div>
       </div>
       <Container>
         <div className="h-px w-full bg-gradient-to-r from-neutrals-600/60 via-neutrals-600 to-neutrals-600/60">
           <motion.div
-            style={{ width: carouselPosition }}
+            style={{ width: scrollProgress }}
             className="h-full bg-gradient-to-r from-neutrals-100/30 via-neutrals-100 to-neutrals-100/30"
           />
         </div>
       </Container>
-    </motion.div>
+    </div>
   );
 }
 

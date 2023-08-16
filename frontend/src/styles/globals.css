@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
+  .color-scheme-dark {
+    color-scheme: dark;
+  }
+
   .mask-radial-faded {
     mask-image: radial-gradient(
       circle at center center,
