@@ -335,7 +335,6 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
         scrollX: (event.currentTarget as HTMLElement).scrollLeft,
         pointerX: event.clientX,
       });
-      setIsDragging(true);
     }
   }, []);
 
@@ -352,9 +351,10 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
         carouselRef.current.scrollTo({
           left: dragStart.scrollX - distanceX,
         });
+        if (!isDragging) setIsDragging(true);
       }
     },
-    [dragStart],
+    [dragStart, isDragging],
   );
 
   const filteredProjects = projects.filter((project) => {
