@@ -63,7 +63,7 @@ function Header({ isInitialBackgroundTransparent = false }: HeaderProps) {
                 <a
                   key={index}
                   href={link.href}
-                  className="relative py-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-125 focus-visible:after:-scale-x-125"
+                  className="relative p-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-0 after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-100 focus-visible:after:-scale-x-100"
                 >
                   {link.label}
                 </a>
