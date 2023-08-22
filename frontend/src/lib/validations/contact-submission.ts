@@ -9,7 +9,7 @@ const contactSubmissionSchema = z.object({
   message: z
     .string()
     .nonempty({ message: 'Message cannot be empty' })
-    .max(1000, { message: 'Message cannot be longer than 1000 characters' }),
+    .max(1800, { message: 'Message cannot be longer than 1800 characters' }),
 });
 
 export default contactSubmissionSchema;
