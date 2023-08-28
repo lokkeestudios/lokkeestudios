@@ -94,8 +94,8 @@ const { project } = Astro.props;
       </div>
     </div>
     {
-      project.images.length > 1 && (
-        <Icons.ArrowDownCircle className="absolute bottom-[3vh] left-1/2 z-10 h-9 w-9 -translate-x-1/2 animate-bounce" />
+      project.images.length > 0 && (
+        <Icons.ArrowDownCircle className="absolute bottom-[3vh] inset-x-0 mx-auto z-10 h-9 w-9 animate-bounce" />
       )
     }
   </Container>
