@@ -19,20 +19,13 @@ const links = [
   },
 ];
 
-interface HeaderProps {
-  isInitialBackgroundTransparent?: boolean | undefined;
-}
-
-function Header({ isInitialBackgroundTransparent = false }: HeaderProps) {
+function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const windowSize = useWindowSize();
   const { scrollY } = useScroll();
 
   const hasScrolledPastHeroSection = scrollY > windowSize.height - 1;
-  const isBackgroundShown =
-    !isInitialBackgroundTransparent ||
-    hasScrolledPastHeroSection ||
-    isMobileMenuOpen;
+  const isBackgroundShown = hasScrolledPastHeroSection || isMobileMenuOpen;
 
   return (
     <header

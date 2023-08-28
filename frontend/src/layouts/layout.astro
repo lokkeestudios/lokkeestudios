@@ -8,15 +8,9 @@ export interface Props {
   title?: string;
   description?: string;
   openGraphImage?: { src: string; alt: string };
-  isInitialHeaderBackgroundTransparent?: boolean;
 }
 
-const {
-  title,
-  description,
-  openGraphImage,
-  isInitialHeaderBackgroundTransparent,
-} = Astro.props;
+const { title, description, openGraphImage } = Astro.props;
 ---
 
 <!doctype html>
@@ -40,10 +34,7 @@ const {
       Skip to main content
     </a>
     <LoadingScreen client:load />
-    <Header
-      client:idle
-      isInitialBackgroundTransparent={isInitialHeaderBackgroundTransparent}
-    />
+    <Header client:idle />
     <slot />
     <Footer client:visible />
   </body>
