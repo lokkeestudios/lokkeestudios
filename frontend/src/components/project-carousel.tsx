@@ -14,16 +14,16 @@ import {
   useTransform,
 } from 'framer-motion';
 import {
-  Dispatch,
-  ElementRef,
   Fragment,
-  MouseEvent,
-  SetStateAction,
-  UIEvent,
   useCallback,
   useEffect,
   useRef,
   useState,
+  type Dispatch,
+  type ElementRef,
+  type MouseEvent,
+  type SetStateAction,
+  type UIEvent,
 } from 'react';
 
 interface ProjectSlideProps {
@@ -104,9 +104,12 @@ function ProjectSlide({
           )}
         >
           <div className="overflow-hidden">
-            <p className="translate-y-full text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0">
+            <time
+              dateTime={project.date}
+              className="translate-y-full text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0"
+            >
               {formatDate(project.date)}
-            </p>
+            </time>
           </div>
           <div className="overflow-hidden">
             <h3

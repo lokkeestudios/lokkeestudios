@@ -1,5 +1,5 @@
 import { useReducedMotion } from 'framer-motion';
-import { ElementRef, useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, type ElementRef } from 'react';
 
 const TEXT_COLOR = '#6919FF';
 const BACKGROUND_COLOR = '#060918';

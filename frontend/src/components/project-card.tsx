@@ -16,10 +16,13 @@ function ProjectCard({ project }: ProjectCardProps) {
         image={project.poster}
         className="aspect-video w-full rounded-md object-cover object-center"
       />
-      <div className="mt-4 flex flex-col items-center gap-y-2 text-center">
-        <p className="text-xs uppercase text-neutrals-200">
+      <article className="mt-4 flex flex-col items-center gap-y-2 text-center">
+        <time
+          dateTime={project.date}
+          className="text-xs uppercase text-neutrals-200"
+        >
           {formatDate(project.date)}
-        </p>
+        </time>
         <h3 className="text-2xl font-bold md:text-3xl">{project.name}</h3>
         {project.tags && (
           <p className="mb-2 text-xs text-neutrals-200">
@@ -27,7 +30,7 @@ function ProjectCard({ project }: ProjectCardProps) {
           </p>
         )}
         <p className="max-w-prose text-neutrals-200">{project.description}</p>
-      </div>
+      </article>
     </a>
   );
 }

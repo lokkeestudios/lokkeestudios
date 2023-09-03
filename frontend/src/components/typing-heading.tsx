@@ -1,5 +1,5 @@
 import usePreviousState from '@/hooks/use-previous-state';
-import { AnimatePresence, motion, Variants } from 'framer-motion';
+import { AnimatePresence, motion, type Variants } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
 
 const typingSpeed = 0.125;

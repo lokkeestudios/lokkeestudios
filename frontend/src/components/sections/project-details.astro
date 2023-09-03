@@ -35,9 +35,12 @@ const { project } = Astro.props;
           className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
         /> Go back
       </a>
-      <p class="mb-4 text-xs uppercase text-neutrals-50/90 lg:text-sm">
+      <time
+        datetime={project.date}
+        class="mb-4 text-xs uppercase text-neutrals-50/90 lg:text-sm"
+      >
         {formatDate(project.date)}
-      </p>
+      </time>
       <h1
         id="project-details-heading"
         class="mb-4 text-4xl font-bold lg:text-6xl"

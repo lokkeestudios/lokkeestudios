@@ -8,10 +8,10 @@ interface TestimonialCardProps {
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <li className="relative mr-8 h-fit w-[32rem] max-w-[85vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 md:p-8">
-      <blockquote className="flex flex-col justify-between gap-y-2">
-        <p className="max-w-prose text-neutrals-200 max-lg:text-sm">
+      <article className="flex flex-col justify-between gap-y-2">
+        <blockquote className="max-w-prose text-neutrals-200 max-lg:text-sm">
           &quot;{testimonial.quote}&quot;
-        </p>
+        </blockquote>
         <div className="mt-6 flex items-center">
           <div className="mr-3 flex">
             <div className="bg-shiny-frame h-10 w-10 overflow-hidden rounded-full border border-transparent">
@@ -38,13 +38,15 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
             )}
           </div>
           <div>
-            <h3 className="mb-0.5 max-lg:text-sm">{testimonial.name}</h3>
+            <cite>
+              <h3 className="mb-0.5 max-lg:text-sm">{testimonial.name}</h3>
+            </cite>
             <p className="text-xs text-neutrals-200 lg:text-sm">
               {testimonial.title}
             </p>
           </div>
         </div>
-      </blockquote>
+      </article>
     </li>
   );
 }
