@@ -98,7 +98,12 @@ const { project } = Astro.props;
     </div>
     {
       project.images.length > 0 && (
-        <Icons.ArrowDownCircle className="absolute bottom-[3vh] inset-x-0 mx-auto z-10 h-9 w-9 animate-bounce" />
+        <a
+          href="#project-gallery"
+          class="absolute inset-x-0 bottom-[3vh] z-10 mx-auto w-fit animate-bounce"
+        >
+          <Icons.ArrowDownCircle className="h-9 w-9" />
+        </a>
       )
     }
   </Container>
@@ -106,6 +111,7 @@ const { project } = Astro.props;
 {
   project.images.length > 0 && (
     <section
+      id="project-gallery"
       aria-label="Project Gallery"
       class="bg-neutrals-900"
     >
