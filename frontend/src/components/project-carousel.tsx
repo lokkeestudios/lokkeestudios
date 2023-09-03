@@ -106,7 +106,7 @@ function ProjectSlide({
           <div className="overflow-hidden">
             <time
               dateTime={project.date}
-              className="translate-y-full text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0"
+              className="block translate-y-full text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0"
             >
               {formatDate(project.date)}
             </time>
