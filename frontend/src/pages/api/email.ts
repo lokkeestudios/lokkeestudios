@@ -34,10 +34,10 @@ const post: APIRoute = async ({ request }) => {
       text: message,
     })
     .then(() => {
-      void resend.emails
+      resend.emails
         .send({
           from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
-          to: email,
+          to: SENDER_EMAIL,
           subject: `Thanks for getting in touch ${name}!`,
           react: ContactSubmissionConfirmationEmail({ name, email, message }),
         })
