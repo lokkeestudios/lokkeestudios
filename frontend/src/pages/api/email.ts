@@ -1,4 +1,5 @@
 import siteConfig from '@/config/site';
+import ContactSubmissionConfirmationEmail from '@/emails/contact-submission-confirmation';
 import contactSubmissionSchema from '@/lib/validations/contact-submission';
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
@@ -30,14 +31,14 @@ const post: APIRoute = async ({ request }) => {
       to: SENDER_EMAIL,
       reply_to: email,
       subject: `${name} ― LOKKEE STUDIOS Inquiry`,
-      text: message,
+      react: ContactSubmissionConfirmationEmail({ name, email, message }),
     })
     .then(() => {
-      void resend.emails.send({
+      void resend.sendEmail({
         from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
-        to: email,
+        to: SENDER_EMAIL,
         subject: `Thanks for getting in touch ${name}!`,
-        text: message,
+        react: ContactSubmissionConfirmationEmail({ name, email, message }),
       });
 
       return new Response(
