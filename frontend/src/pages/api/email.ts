@@ -7,13 +7,13 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
-const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
+// const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
 
 const { RESEND_API_KEY } = import.meta.env;
 
 const resend = new Resend(RESEND_API_KEY);
 
-const POST: APIRoute = async ({ request }) => {
+const post: APIRoute = async ({ request }) => {
   const data = await request.json();
   const parsedData = contactSubmissionSchema.safeParse(data);
 
@@ -58,4 +58,4 @@ const POST: APIRoute = async ({ request }) => {
     );
 };
 
-export { POST };
+export { post };
