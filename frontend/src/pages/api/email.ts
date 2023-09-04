@@ -7,7 +7,7 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
-// const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
+const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
 
 const { RESEND_API_KEY } = import.meta.env;
 
@@ -27,19 +27,26 @@ const post: APIRoute = async ({ request }) => {
 
   return resend.emails
     .send({
-      from: `Contact LOKKEE STUDIOS <${SENDER_EMAIL}>`,
+      from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
       to: SENDER_EMAIL,
       reply_to: email,
       subject: `${name} ― LOKKEE STUDIOS Inquiry`,
       text: message,
     })
     .then(() => {
-      void resend.emails.send({
-        from: `Noreply LOKKEE STUDIOS <${SENDER_EMAIL}>`,
-        to: email,
-        subject: `Thanks for getting in touch ${name}!`,
-        react: ContactSubmissionConfirmationEmail({ name, email, message }),
-      });
+      void resend.emails
+        .send({
+          from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
+          to: email,
+          subject: `Thanks for getting in touch ${name}!`,
+          react: ContactSubmissionConfirmationEmail({ name, email, message }),
+        })
+        .then(() => {
+          console.log('success');
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
 
       return new Response(
         JSON.stringify({
