@@ -7,7 +7,7 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
-const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
+// const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
 
 const { RESEND_API_KEY } = import.meta.env;
 
