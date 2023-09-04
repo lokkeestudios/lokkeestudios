@@ -118,6 +118,12 @@ function ContactSubmissionConfirmationEmail({
                 )}{' '}
                 as soon as possible.
               </Text>
+              <Text className="mb-0 text-[14px] leading-[24px] text-neutrals-50">
+                Have a good one!
+              </Text>
+              <Text className="mt-0 text-[14px] leading-[24px] text-neutrals-50">
+                Kilian
+              </Text>
               <Hr className="my-[24px] border-[0.5px] border-solid border-neutrals-200/20" />
               <Text className="my-0 text-xs leading-loose text-neutrals-300">
                 You are receiving this email because you have recently submitted
