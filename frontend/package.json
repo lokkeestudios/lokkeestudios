@@ -13,7 +13,8 @@
     "start": "astro dev",
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "email": "email dev --dir src/emails"
   },
   "packageManager": "^pnpm@8.6.7",
   "dependencies": {
@@ -26,6 +27,7 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.3.0",
+    "@react-email/components": "^0.0.7",
     "@sanity/client": "^6.4.9",
     "@sanity/image-url": "^1.0.2",
     "@types/react": "^18.2.21",
@@ -43,6 +45,7 @@
     "ky": "^0.33.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-email": "^1.9.4",
     "react-hook-form": "^7.45.4",
     "resend": "^1.0.0",
     "sharp": "^0.32.5",

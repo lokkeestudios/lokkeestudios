@@ -16,3 +16,6 @@ pnpm-debug.log*
 
 # Vercel-specific files
 .vercel
+
+# React Email previews
+.react-email

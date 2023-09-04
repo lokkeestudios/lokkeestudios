@@ -1,4 +1,5 @@
 import siteConfig from '@/config/site';
+import ContactSubmissionConfirmationEmail from '@/emails/contact-submission-confirmation';
 import contactSubmissionSchema from '@/lib/validations/contact-submission';
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
@@ -6,11 +7,13 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
+const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
+
 const { RESEND_API_KEY } = import.meta.env;
 
 const resend = new Resend(RESEND_API_KEY);
 
-const post: APIRoute = async ({ request }) => {
+const POST: APIRoute = async ({ request }) => {
   const data = await request.json();
   const parsedData = contactSubmissionSchema.safeParse(data);
 
@@ -30,17 +33,23 @@ const post: APIRoute = async ({ request }) => {
       subject: `${name} ― LOKKEE STUDIOS Inquiry`,
       text: message,
     })
-    .then(
-      () =>
-        new Response(
-          JSON.stringify({
-            message: 'Email sent successfully',
-          }),
-          {
-            status: 200,
-          },
-        ),
-    )
+    .then(() => {
+      void resend.emails.send({
+        from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
+        to: email,
+        subject: `Thanks for getting in touch ${name}!`,
+        react: ContactSubmissionConfirmationEmail({ name, email, message }),
+      });
+
+      return new Response(
+        JSON.stringify({
+          message: 'Email sent successfully',
+        }),
+        {
+          status: 200,
+        },
+      );
+    })
     .catch(
       (error) =>
         new Response(JSON.stringify(error), {
@@ -49,4 +58,4 @@ const post: APIRoute = async ({ request }) => {
     );
 };
 
-export { post };
+export { POST };
