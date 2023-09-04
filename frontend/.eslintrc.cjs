@@ -74,6 +74,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.astro', '.tsx'] }],
     'react/require-default-props': ['error', { functions: 'defaultArguments' }],
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-void': ['error', { allowAsStatement: true }],
     'import/prefer-default-export': 'warn',
     'consistent-return': ['error', { treatUndefinedAsUnspecified: false }],
     'react/jsx-props-no-spreading': 'warn',

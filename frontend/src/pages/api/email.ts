@@ -13,7 +13,7 @@ const { RESEND_API_KEY } = import.meta.env;
 
 const resend = new Resend(RESEND_API_KEY);
 
-const POST: APIRoute = async ({ request }) => {
+const post: APIRoute = async ({ request }) => {
   const data = await request.json();
   const parsedData = contactSubmissionSchema.safeParse(data);
 
@@ -58,4 +58,4 @@ const POST: APIRoute = async ({ request }) => {
     );
 };
 
-export { POST };
+export { post };
