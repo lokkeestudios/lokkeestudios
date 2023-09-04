@@ -7,7 +7,7 @@ import { Resend } from 'resend';
 export const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
-// const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
+const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
 
 const { RESEND_API_KEY } = import.meta.env;
 
@@ -34,8 +34,8 @@ const POST: APIRoute = async ({ request }) => {
       text: message,
     })
     .then(() => {
-      void resend.emails.send({
-        from: `Noreply LOKKEE STUDIOS <${SENDER_EMAIL}>`,
+      void resend.sendEmail({
+        from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
         to: email,
         subject: `Thanks for getting in touch ${name}!`,
         react: ContactSubmissionConfirmationEmail({ name, email, message }),
