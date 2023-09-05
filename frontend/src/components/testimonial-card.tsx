@@ -7,8 +7,8 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <li className="relative mr-8 h-fit w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 md:p-8">
-      <article className="flex flex-col justify-between gap-y-2">
+    <li className="relative mr-8 h-full w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 md:p-8">
+      <article className="flex h-full flex-col justify-between gap-y-2">
         <blockquote className="max-w-prose text-neutrals-200 max-lg:text-sm">
           &quot;{testimonial.quote}&quot;
         </blockquote>
@@ -39,7 +39,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
           </div>
           <div>
             <cite>
-              <h3 className="mb-0.5 not-italic max-lg:text-sm">
+              <h3 className="lg:text-md mb-0.5 not-italic">
                 {testimonial.name}
               </h3>
             </cite>
