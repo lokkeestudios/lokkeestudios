@@ -111,10 +111,11 @@ const config: Config = {
       animation: {
         'glitch-1': 'glitch 4s linear infinite alternate-reverse',
         'glitch-2': 'glitch 2s linear infinite alternate-reverse',
-        marquee: 'marquee 25s linear infinite',
+        marquee: 'marquee 35s linear infinite',
       },
     },
   },
   plugins: [],
 };
+
 export default config;
