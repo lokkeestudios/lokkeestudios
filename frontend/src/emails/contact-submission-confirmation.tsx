@@ -81,7 +81,7 @@ function ContactSubmissionConfirmationEmail({
           <Container className="my-[48px] w-[512px] rounded-md border-[0.5px] border-solid border-neutrals-200/20 p-[48px] shadow-lg">
             <Section>
               <Img
-                src="https://www.lokkeestudios.com/android-chrome-icon-512x512.png"
+                src="https://lokkeestudios.com/android-chrome-icon-512x512.png"
                 alt="LOKKEE STUDIOS"
                 width={64}
                 height={64}

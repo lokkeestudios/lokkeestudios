@@ -1,5 +1,5 @@
 <div align="center">
- <img src="icons/logo.svg" width="300"/>
+ <img src="https://lokkeestudios.com/favicon.svg" width="300"/>
 </div>
 
 <h1 align="center">LOKKEE STUDIOS<br>Programming and Design from the Future</h1>
