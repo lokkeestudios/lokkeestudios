@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { ElementRef, InputHTMLAttributes, forwardRef } from 'react';
+import { forwardRef, type ElementRef, type InputHTMLAttributes } from 'react';
 
 type InputHTMLElement = ElementRef<'input'>;
 

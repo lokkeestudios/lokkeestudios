@@ -1,5 +1,9 @@
 import { cn } from '@/lib/utils';
-import { ElementRef, TextareaHTMLAttributes, forwardRef } from 'react';
+import {
+  forwardRef,
+  type ElementRef,
+  type TextareaHTMLAttributes,
+} from 'react';
 
 type TextareaHTMLElement = ElementRef<'textarea'>;
 

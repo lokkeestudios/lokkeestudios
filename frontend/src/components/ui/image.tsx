@@ -1,5 +1,5 @@
 import type { ImageMetadata } from 'astro';
-import { ElementRef, HTMLAttributes, forwardRef } from 'react';
+import { forwardRef, type ElementRef, type HTMLAttributes } from 'react';
 
 type ImageHTMLElement = ElementRef<'img'>;
 

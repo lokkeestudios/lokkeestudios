@@ -1,7 +1,12 @@
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { VariantProps } from 'class-variance-authority';
-import { AnchorHTMLAttributes, ElementRef, ReactNode, forwardRef } from 'react';
+import {
+  forwardRef,
+  type AnchorHTMLAttributes,
+  type ElementRef,
+  type ReactNode,
+} from 'react';
 
 type ButtonLinkHTMLElement = ElementRef<'a'>;
 
