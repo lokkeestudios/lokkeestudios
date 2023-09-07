@@ -34,8 +34,14 @@ const { title, description, openGraphImage } = Astro.props;
       Skip to main content
     </a>
     <LoadingScreen client:load />
-    <Header client:idle />
+    <Header
+      client:idle
+      transition:persist
+    />
     <slot />
-    <Footer client:visible />
+    <Footer
+      client:visible
+      transition:persist
+    />
   </body>
 </html>

@@ -1,4 +1,4 @@
-/// <reference types="astro/client-image" />
+/// <reference types="astro/client" />
 
 interface ImportMetaEnv {
   readonly PUBLIC_SANITY_PROJECT_ID: string;

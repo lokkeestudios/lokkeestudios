@@ -4,15 +4,15 @@ function useScroll() {
   const [scrollDirection, setScrollDirection] = useState('up');
   const [scrollY, setScrollY] = useState(0);
 
-  function updateScrollState() {
-    const currentScrollY = window.scrollY;
-    const currentScrollDirection = currentScrollY > scrollY ? 'down' : 'up';
-
-    setScrollDirection(currentScrollDirection);
-    setScrollY(Math.max(currentScrollY, 0));
-  }
-
   useEffect(() => {
+    function updateScrollState() {
+      const currentScrollY = window.scrollY;
+      const currentScrollDirection = currentScrollY > scrollY ? 'down' : 'up';
+
+      setScrollDirection(currentScrollDirection);
+      setScrollY(Math.max(currentScrollY, 0));
+    }
+
     updateScrollState();
     window.addEventListener('scroll', updateScrollState, {
       capture: true,

@@ -5,7 +5,7 @@ import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/serverless';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
-import { defineConfig, sharpImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
 
 // https://astro.build/config
@@ -15,12 +15,6 @@ export default defineConfig({
   adapter: vercel({
     analytics: true,
   }),
-  experimental: {
-    assets: true,
-  },
-  image: {
-    service: sharpImageService(),
-  },
   integrations: [
     react(),
     tailwind({

@@ -5,6 +5,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 import { SEO } from 'astro-seo';
+import { ViewTransitions } from 'astro:transitions';
 
 export interface Props {
   title?: string | undefined;
@@ -70,6 +71,7 @@ const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
       ],
     }}
   />
+  <ViewTransitions />
   <script
     type="text/partytown"
     async
