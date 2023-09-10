@@ -7,8 +7,20 @@ import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
+import { loadEnv } from 'vite';
 
-// https://astro.build/config
+import sanity from '@sanity/astro';
+
+const { SANITY_PROJECT_ID, SANITY_DATASET, SANITY_API_VERSION } = loadEnv(
+  '',
+  process.cwd(),
+  'SANITY',
+) as {
+  SANITY_PROJECT_ID: string;
+  SANITY_DATASET: string;
+  SANITY_API_VERSION: string;
+};
+
 export default defineConfig({
   site: 'https://lokkeestudios.com',
   output: 'hybrid',
@@ -19,6 +31,12 @@ export default defineConfig({
     react(),
     tailwind({
       applyBaseStyles: false,
+    }),
+    sanity({
+      projectId: SANITY_PROJECT_ID,
+      dataset: SANITY_DATASET,
+      apiVersion: SANITY_API_VERSION,
+      useCdn: false,
     }),
     partytown({
       config: {

@@ -1,4 +1,4 @@
-import sanityClient from '@/lib/sanity-client';
+import { useSanityClient } from '@sanity/astro';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 
@@ -58,6 +58,8 @@ interface Image {
   alt: string;
   asset: ImageAsset;
 }
+
+const sanityClient = useSanityClient();
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 

@@ -1,5 +1,5 @@
-import sanityClient from '@/lib/sanity-client';
 import type { Image } from '@/lib/sanity-image';
+import { useSanityClient } from '@sanity/astro';
 import groq from 'groq';
 
 interface Project {
@@ -18,6 +18,8 @@ interface Project {
   githuburl?: string;
   projecturl?: string;
 }
+
+const sanityClient = useSanityClient();
 
 function getProjects() {
   const query = groq`

@@ -1,5 +1,5 @@
-import sanityClient from '@/lib/sanity-client';
 import type { Image } from '@/lib/sanity-image';
+import { useSanityClient } from '@sanity/astro';
 import groq from 'groq';
 
 interface Testimonial {
@@ -14,6 +14,8 @@ interface Testimonial {
   logo: Image;
   avatar: Image;
 }
+
+const sanityClient = useSanityClient();
 
 function getTestimonials() {
   const query = groq`
