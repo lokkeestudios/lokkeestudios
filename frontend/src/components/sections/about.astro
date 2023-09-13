@@ -1,7 +1,6 @@
 ---
 import lokkeeImage from '@/assets/images/lokkee.webp';
 import TypingHeading from '@/components/typing-heading';
-import Container from '@/components/ui/container';
 import Image from '@/components/ui/image';
 import { Caption, Paragraph } from '@/components/ui/typography';
 
@@ -18,29 +17,33 @@ const headings = [
 <section
   id="about"
   aria-labelledby="about-heading"
-  class="relative z-10 flex min-h-screen w-full flex-col items-center bg-neutrals-900 lg:flex-row"
+  class="relative z-10 w-full bg-neutrals-900"
 >
-  <Image
-    metadata={lokkeeImage}
-    alt="Myself, Kilian, at the harbour, with a view of the sea and a vision in mind"
-    className="inset-0 max-h-screen w-full object-cover object-center lg:absolute lg:h-full lg:w-1/2"
-  />
-  <Container>
-    <div class="w-full py-28 lg:flex">
-      <div class="lg:ml-auto lg:basis-1/2 lg:pl-10 xl:pl-20">
-        <Caption id="about-heading">About</Caption>
-        <TypingHeading
-          client:visible
-          headings={headings}
-        />
-        <Paragraph>
-          I am Kilian, a passionate freelancer from Hamburg, Germany, bringing
-          you <span class="text-neutrals-100"
-            >programming and design from the future</span
-          >. My expertise is developing next-level websites and web applications
-          including full frontend design.
-        </Paragraph>
-      </div>
+  <div
+    class="flex min-h-screen w-full items-center max-lg:flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,min(91.666667%/2,40rem))_minmax(0,min(91.666667%/2,40rem))_minmax(0,1fr)] xl:grid-cols-[minmax(0,1fr)_minmax(0,min(80%/2,40rem))_minmax(0,min(80%/2,40rem))_minmax(0,1fr)]"
+  >
+    <Image
+      metadata={lokkeeImage}
+      alt="Myself, Kilian, at the harbour, with a view of the sea and a vision in mind"
+      className="max-h-screen object-cover object-center lg:col-start-1 lg:col-end-3 h-full"
+    />
+    <div
+      class="w-full py-28 max-lg:mx-auto max-lg:w-11/12 max-lg:max-w-7xl lg:pl-10 xl:pl-20"
+    >
+      <Caption id="about-heading">About</Caption>
+      <TypingHeading
+        client:visible
+        headings={headings}
+      />
+      <Paragraph>
+        I am Kilian, a passionate freelancer from Hamburg, Germany, bringing you
+
+
+        <span class="text-neutrals-100"
+          >programming and design from the future</span
+        >. My expertise is developing next-level websites and web applications
+        including full frontend design.
+      </Paragraph>
     </div>
-  </Container>
+  </div>
 </section>
