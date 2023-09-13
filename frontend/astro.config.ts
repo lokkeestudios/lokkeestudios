@@ -3,22 +3,21 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/serverless';
+import sanity from '@sanity/astro';
 import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
 import { loadEnv } from 'vite';
 
-import sanity from '@sanity/astro';
-
-const { SANITY_PROJECT_ID, SANITY_DATASET, SANITY_API_VERSION } = loadEnv(
-  '',
-  process.cwd(),
-  'SANITY',
-) as {
-  SANITY_PROJECT_ID: string;
-  SANITY_DATASET: string;
-  SANITY_API_VERSION: string;
+const {
+  PUBLIC_SANITY_PROJECT_ID,
+  PUBLIC_SANITY_DATASET,
+  PUBLIC_SANITY_API_VERSION,
+} = loadEnv(import.meta.env.MODE, process.cwd(), '') as {
+  PUBLIC_SANITY_PROJECT_ID: string;
+  PUBLIC_SANITY_DATASET: string;
+  PUBLIC_SANITY_API_VERSION: string;
 };
 
 export default defineConfig({
@@ -33,9 +32,9 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sanity({
-      projectId: SANITY_PROJECT_ID,
-      dataset: SANITY_DATASET,
-      apiVersion: SANITY_API_VERSION,
+      projectId: PUBLIC_SANITY_PROJECT_ID,
+      dataset: PUBLIC_SANITY_DATASET,
+      apiVersion: PUBLIC_SANITY_API_VERSION,
       useCdn: false,
     }),
     partytown({

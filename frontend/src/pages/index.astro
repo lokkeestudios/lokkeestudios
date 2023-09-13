@@ -1,20 +1,20 @@
 ---
-import About from '@/components/sections/about.astro';
-import Contact from '@/components/sections/contact.astro';
-import Hero from '@/components/sections/hero.astro';
-import SourceCode from '@/components/sections/source-code.astro';
-import Testimonials from '@/components/sections/testimonials.astro';
-import Work from '@/components/sections/work.astro';
+import AboutSection from '@/components/sections/about.astro';
+import ContactSection from '@/components/sections/contact.astro';
+import HeroSection from '@/components/sections/hero.astro';
+import SourceCodeSection from '@/components/sections/source-code.astro';
+import TestimonialsSection from '@/components/sections/testimonials.astro';
+import WorkSection from '@/components/sections/work.astro';
 import Layout from '@/layouts/layout.astro';
 ---
 
 <Layout>
   <main id="main">
-    <Hero />
-    <About />
-    <Work />
-    <Testimonials />
-    <Contact />
-    <SourceCode />
+    <HeroSection />
+    <AboutSection />
+    <WorkSection />
+    <TestimonialsSection />
+    <ContactSection />
+    <SourceCodeSection />
   </main>
 </Layout>
