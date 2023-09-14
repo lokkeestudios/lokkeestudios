@@ -9,7 +9,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <li className="relative mr-8 h-full w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 md:p-8">
       <article className="flex h-full flex-col justify-between gap-y-2">
-        <blockquote className="max-w-prose text-neutrals-200 max-lg:text-sm">
+        <blockquote className="max-w-prose leading-relaxed text-neutrals-200 max-lg:text-sm">
           &quot;{testimonial.quote}&quot;
         </blockquote>
         <div className="mt-6 flex items-center">
