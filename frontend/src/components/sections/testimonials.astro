@@ -23,19 +23,19 @@ const testimonials = await getTestimonials();
             kindest clients
           </Heading>
           <Paragraph>
-            It is our mission to deliver you the web presence you deserve.
+            It is my mission to deliver you the web presence you deserve.
           </Paragraph>
         </div>
       </Container>
-      <div class="mask-inline-faded group flex w-full overflow-x-hidden mt-8">
-        <ul class="group-hover:play-state-paused motion-reduce:play-state-paused animate-marquee flex">
+      <div class="mask-inline-faded group mt-8 flex w-full overflow-x-hidden">
+        <ul class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee">
           {testimonials.map((testimonial) => (
             <TestimonialCard testimonial={testimonial} />
           ))}
         </ul>
         <ul
           aria-hidden="true"
-          class="group-hover:play-state-paused motion-reduce:play-state-paused animate-marquee flex"
+          class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee"
         >
           {testimonials.map((testimonial) => (
             <TestimonialCard testimonial={testimonial} />
