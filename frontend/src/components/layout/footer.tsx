@@ -26,14 +26,14 @@ const primaryLinks = [
     label: 'Source code',
     href: '/#sourcecode',
   },
-];
+] as const;
 
 const secondaryLinks = [
   {
     label: 'Imprint',
     href: '/imprint',
   },
-];
+] as const;
 
 const socials = [
   {
@@ -66,7 +66,7 @@ const socials = [
     href: siteConfig.links.discord,
     icon: Icons.Discord,
   },
-];
+] as const;
 
 function Footer() {
   const [currentYear] = useState(() => new Date().getFullYear());
@@ -94,9 +94,9 @@ function Footer() {
           aria-label="Primary"
           className="flex flex-wrap justify-center gap-6 py-12"
         >
-          {primaryLinks.map((link, index) => (
+          {primaryLinks.map((link) => (
             <a
-              key={index}
+              key={link.href}
               href={link.href}
               className="text-sm uppercase text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
             >
@@ -110,9 +110,9 @@ function Footer() {
             aria-label="Secondary"
             className="flex flex-wrap justify-center gap-6 lg:order-last lg:justify-end"
           >
-            {secondaryLinks.map((link, index) => (
+            {secondaryLinks.map((link) => (
               <a
-                key={index}
+                key={link.href}
                 className="text-xs uppercase text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
                 href={link.href}
               >
@@ -124,8 +124,8 @@ function Footer() {
             aria-label="Socials"
             className="flex flex-wrap justify-center gap-2"
           >
-            {socials.map(({ label, href, icon: Icon }, index) => (
-              <li key={index}>
+            {socials.map(({ label, href, icon: Icon }) => (
+              <li key={href}>
                 <a
                   href={href}
                   title={label}

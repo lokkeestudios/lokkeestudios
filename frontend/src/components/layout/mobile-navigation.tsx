@@ -5,14 +5,14 @@ import { AnimatePresence, motion, useAnimate } from 'framer-motion';
 import { useEffect } from 'react';
 
 interface Link {
-  label: string;
-  href: string;
+  readonly label: string;
+  readonly href: string;
 }
 
 interface MobileNavigationProps {
   isOpen: boolean;
   onClose: () => void;
-  links: Link[];
+  links: readonly Link[];
 }
 
 function MobileNavigation({ isOpen, onClose, links }: MobileNavigationProps) {
