@@ -3,7 +3,7 @@ import ButtonLink from '@/components/ui/button-link';
 import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
 import SanityImage from '@/components/ui/sanity-image';
-import type { Project } from '@/lib/get-projects';
+import type { Project } from '@/lib/sanity/get-projects';
 import { formatDate } from '@/lib/utils';
 
 export interface Props {
@@ -27,13 +27,12 @@ const { project } = Astro.props;
     <div class="relative z-10 flex h-full flex-col justify-end">
       <a
         href="/#work"
-        title="Go back"
         class="group absolute left-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
       >
         <Icons.ArrowLongLeft
           aria-hidden
           className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
-        /> Go back
+        /> Back to Projects
       </a>
       <time
         datetime={project.date}

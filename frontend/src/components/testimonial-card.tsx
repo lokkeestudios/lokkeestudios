@@ -1,5 +1,5 @@
 import SanityImage from '@/components/ui/sanity-image';
-import type { Testimonial } from '@/lib/get-testimonials';
+import type { Testimonial } from '@/lib/sanity/get-testimonials';
 
 interface TestimonialCardProps {
   testimonial: Testimonial;

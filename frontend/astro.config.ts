@@ -24,7 +24,12 @@ export default defineConfig({
   site: 'https://lokkeestudios.com',
   output: 'hybrid',
   adapter: vercel({
-    analytics: true,
+    webAnalytics: {
+      enabled: true,
+    },
+    speedInsights: {
+      enabled: true,
+    },
   }),
   integrations: [
     react(),

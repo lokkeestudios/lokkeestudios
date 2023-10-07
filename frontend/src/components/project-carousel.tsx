@@ -1,7 +1,7 @@
 import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
-import type { Project } from '@/lib/get-projects';
-import { generateImageSizeProps } from '@/lib/sanity-image';
+import type { Project } from '@/lib/sanity/get-projects';
+import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { clamp, cn, formatDate } from '@/lib/utils';
 import { Listbox } from '@headlessui/react';
 import { cx } from 'class-variance-authority';
@@ -440,13 +440,14 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
             ))}
           </ul>
         </div>
-        <div
+        <p
           aria-live="polite"
           aria-atomic="true"
+          role="status"
           className="sr-only"
         >
           Project {currentSlide + 1} of {projects.length}
-        </div>
+        </p>
       </div>
       <Container>
         <div className="h-px w-full bg-gradient-to-r from-neutrals-600/60 via-neutrals-600 to-neutrals-600/60">

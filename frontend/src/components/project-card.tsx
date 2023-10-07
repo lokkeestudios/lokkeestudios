@@ -1,5 +1,5 @@
 import SanityImage from '@/components/ui/sanity-image';
-import type { Project } from '@/lib/get-projects';
+import type { Project } from '@/lib/sanity/get-projects';
 import { formatDate } from '@/lib/utils';
 
 interface ProjectCardProps {

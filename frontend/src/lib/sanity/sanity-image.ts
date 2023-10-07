@@ -1,6 +1,6 @@
-import { useSanityClient } from '@sanity/astro';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { sanityClient } from 'sanity:client';
 
 interface ImageAssetMetadataPaletteColor {
   _type: 'sanity.imagePaletteSwatch';
@@ -58,8 +58,6 @@ interface Image {
   alt: string;
   asset: ImageAsset;
 }
-
-const sanityClient = useSanityClient();
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 
