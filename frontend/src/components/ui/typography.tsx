@@ -9,7 +9,7 @@ function Heading({ children, className, ...props }: HeadingProps) {
   return (
     <h2
       className={cn(
-        'mb-4 text-3xl font-bold leading-tight text-neutrals-50 md:text-5xl',
+        'mb-4 text-3xl font-bold leading-tight text-neutrals-50 md:text-5xl md:leading-tight',
         className,
       )}
       {...props}
