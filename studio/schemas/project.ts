@@ -1,4 +1,5 @@
 import { CaseIcon } from '@sanity/icons';
+import moment from 'moment';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export default defineType({
@@ -51,7 +52,8 @@ export default defineType({
       fields: [
         {
           name: 'alt',
-          title: 'Alt text',
+          title: 'Alternative text',
+          description: 'Crucial for SEO and accessiblity',
           type: 'string',
         },
       ],
@@ -67,7 +69,8 @@ export default defineType({
           fields: [
             {
               name: 'alt',
-              title: 'Alt text',
+              title: 'Alternative text',
+              description: 'Crucial for SEO and accessiblity',
               type: 'string',
             },
           ],
@@ -88,8 +91,17 @@ export default defineType({
   preview: {
     select: {
       title: 'name',
-      subtitle: 'date',
       media: 'poster',
+      date: 'date',
+    },
+    prepare({ title, media, date }) {
+      const subtitle = moment(date).format('MMMM YYYY');
+
+      return {
+        title,
+        subtitle,
+        media,
+      };
     },
   },
   orderings: [

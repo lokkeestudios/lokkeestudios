@@ -32,7 +32,8 @@ export default defineType({
       fields: [
         {
           name: 'alt',
-          title: 'Alt text',
+          title: 'Alternative text',
+          description: 'Crucial for SEO and accessiblity',
           type: 'string',
         },
       ],
@@ -45,7 +46,8 @@ export default defineType({
       fields: [
         {
           name: 'alt',
-          title: 'Alt text',
+          title: 'Alternative text',
+          description: 'Crucial for SEO and accessiblity',
           type: 'string',
         },
       ],

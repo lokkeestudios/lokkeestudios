@@ -1,6 +1,6 @@
 import { buildLegacyTheme } from 'sanity';
 
-const props = {
+export const themeProps = {
   '--primary': '#6919FF',
   '--neutrals-900': '#060918',
   '--neutrals-800': '#161A2C',
@@ -18,23 +18,23 @@ const props = {
 };
 
 export const myTheme = buildLegacyTheme({
-  '--black': props['--neutrals-900'],
-  '--white': props['--neutrals-50'],
-  '--gray': props['--neutrals-600'],
-  '--gray-base': props['--neutrals-400'],
-  '--component-bg': props['--neutrals-900'],
-  '--component-text-color': props['--neutrals-200'],
-  '--brand-primary': props['--primary'],
-  '--default-button-color': props['--neutrals-400'],
-  '--default-button-primary-color': props['--primary'],
-  '--default-button-success-color': props['--success'],
-  '--default-button-warning-color': props['--warning'],
-  '--default-button-danger-color': props['--error'],
-  '--state-info-color': props['--primary'],
-  '--state-success-color': props['--success'],
-  '--state-warning-color': props['--warning'],
-  '--state-danger-color': props['--error'],
-  '--main-navigation-color': props['--neutrals-900'],
-  '--main-navigation-color--inverted': props['--neutrals-200'],
-  '--focus-color': props['--primary'],
+  '--black': themeProps['--neutrals-900'],
+  '--white': themeProps['--neutrals-50'],
+  '--gray': themeProps['--neutrals-600'],
+  '--gray-base': themeProps['--neutrals-400'],
+  '--component-bg': themeProps['--neutrals-900'],
+  '--component-text-color': themeProps['--neutrals-200'],
+  '--brand-primary': themeProps['--primary'],
+  '--default-button-color': themeProps['--neutrals-400'],
+  '--default-button-primary-color': themeProps['--primary'],
+  '--default-button-success-color': themeProps['--success'],
+  '--default-button-warning-color': themeProps['--warning'],
+  '--default-button-danger-color': themeProps['--error'],
+  '--state-info-color': themeProps['--primary'],
+  '--state-success-color': themeProps['--success'],
+  '--state-warning-color': themeProps['--warning'],
+  '--state-danger-color': themeProps['--error'],
+  '--main-navigation-color': themeProps['--neutrals-900'],
+  '--main-navigation-color--inverted': themeProps['--neutrals-200'],
+  '--focus-color': themeProps['--primary'],
 });

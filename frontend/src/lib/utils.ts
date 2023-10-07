@@ -1,19 +1,17 @@
 import { clsx, type ClassValue } from 'clsx';
+import moment from 'moment';
 import { twMerge } from 'tailwind-merge';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-function formatDate(input: string | number) {
-  const date = new Date(input);
+function formatDate(date: string | number) {
+  return moment(date).format('MMMM YYYY');
+}
 
-  const formattedDate = date.toLocaleDateString('default', {
-    month: 'long',
-    year: 'numeric',
-  });
-
-  return formattedDate;
+function formatDateWithDay(date: string | number) {
+  return moment(date).format('MMMM Do YYYY');
 }
 
 function shuffleArray<T>(array: T[]) {
@@ -24,4 +22,4 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
 }
 
-export { clamp, cn, formatDate, shuffleArray };
+export { clamp, cn, formatDate, formatDateWithDay, shuffleArray };
