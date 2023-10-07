@@ -1,10 +1,11 @@
 ---
+import ScrollProgress from '@/components/blog/scroll-progress';
 import ProjectDetailsSection from '@/components/sections/project-details.astro';
 import ProjectRecommendationsSection from '@/components/sections/project-recommendations.astro';
 import Layout from '@/layouts/layout.astro';
-import type { Project } from '@/lib/get-projects';
-import getProjects from '@/lib/get-projects';
-import { imageUrlFor } from '@/lib/sanity-image';
+import type { Project } from '@/lib/sanity/get-projects';
+import getProjects from '@/lib/sanity/get-projects';
+import { imageUrlFor } from '@/lib/sanity/sanity-image';
 
 export async function getStaticPaths() {
   const projects = await getProjects();
@@ -36,6 +37,7 @@ const openGraphImage = {
   description={project.description}
   openGraphImage={openGraphImage}
 >
+  <ScrollProgress client:idle />
   <main id="main">
     <ProjectDetailsSection project={project} />
     <ProjectRecommendationsSection project={project} />
