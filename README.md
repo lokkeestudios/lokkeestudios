@@ -2,7 +2,7 @@
  <img src="https://lokkeestudios.com/favicon.svg" width="300"/>
 </div>
 
-<h1 align="center">LOKKEE STUDIOS<br>Programming and Design from the Future</h1>
+<h1 align="center">LOKKEE STUDIOS<br>Programming and Design Studio from the Future</h1>
 
 <p align="center">
  <a href="https://lokkeestudios.com" title="Get inspired by more great work">
