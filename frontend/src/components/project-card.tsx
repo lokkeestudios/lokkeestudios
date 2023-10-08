@@ -19,7 +19,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       <article className="mt-4 flex flex-col items-center gap-y-2 text-center">
         <time
           dateTime={project.date}
-          className="text-xs uppercase text-neutrals-200"
+          className="text-xs uppercase text-primary"
         >
           {formatDate(project.date)}
         </time>

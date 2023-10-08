@@ -1,0 +1,36 @@
+---
+import Icons from '@/components/ui/icons';
+import type { Props as $, Block } from 'astro-portabletext/types';
+import slugify from 'slugify';
+
+export type Props = $<Block>;
+
+const { node } = Astro.props;
+
+const HeadingTag = node.style as 'h2' | 'h3' | 'h4';
+
+const headingText: unknown = node.children[0]?.text;
+const safeHeadingText = typeof headingText === 'string' ? headingText : '';
+
+const headingSlug = slugify(safeHeadingText, {
+  lower: true,
+  strict: true,
+  locale: 'en',
+});
+---
+
+<HeadingTag
+  id={headingSlug}
+  class="flex scroll-m-24"
+>
+  <a
+    href={`#${headingSlug}`}
+    class="not-prose group relative flex items-center lg:-ml-2 lg:pl-2"
+  >
+    <div
+      class="absolute -ml-8 rounded-md border-0.5 border-neutrals-500 bg-neutrals-700 p-1.5 text-neutrals-200 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 max-lg:hidden"
+    >
+      <Icons.Link className="w-3 h-3" />
+    </div><slot />
+  </a>
+</HeadingTag>

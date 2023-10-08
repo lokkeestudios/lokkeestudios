@@ -1,0 +1,15 @@
+---
+import type { Props as $, Mark } from 'astro-portabletext/types';
+
+export type Props = $<Mark<{ href: string }>>;
+
+const { node } = Astro.props;
+---
+
+<a
+  href={node.markDef.href}
+  target="_blank"
+  rel="noreferrer"
+>
+  <slot />
+</a>

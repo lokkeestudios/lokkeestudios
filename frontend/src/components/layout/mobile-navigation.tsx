@@ -45,7 +45,7 @@ function MobileNavigation({ isOpen, onClose, links }: MobileNavigationProps) {
           }}
           transition={{ duration: 0.5 }}
           className={cn(
-            'border-b-0.5 border-neutrals-600 bg-neutrals-900/90 py-4 backdrop-blur-md supports-[backdrop-filter]:bg-neutrals-900/50 md:hidden',
+            'border-b-0.5 border-neutrals-600 bg-neutrals-900/90 py-4 backdrop-blur-md supports-[backdrop-filter]:bg-neutrals-900/50 lg:hidden',
           )}
         >
           <Container>
@@ -66,7 +66,7 @@ function MobileNavigation({ isOpen, onClose, links }: MobileNavigationProps) {
                   href={link.href}
                   onClick={() => onClose()}
                   className={cn(
-                    'py-0.5 uppercase text-neutrals-200 transition-[letter-spacing,color]',
+                    'py-1 uppercase text-neutrals-200 transition-[letter-spacing,color]',
                     'hover:tracking-wider hover:text-neutrals-50 focus-visible:tracking-wider focus-visible:text-neutrals-50',
                   )}
                 >
@@ -100,7 +100,7 @@ function MobileNavigationOverlay({
           transition={{ duration: 0.5 }}
           aria-hidden
           onClick={onClose}
-          className="fixed inset-0 -z-10 bg-neutrals-900/40 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 -z-10 bg-neutrals-900/40 backdrop-blur-sm lg:hidden"
         />
       )}
     </AnimatePresence>

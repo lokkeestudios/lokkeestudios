@@ -107,15 +107,66 @@ const config: Config = {
             transform: 'translateX(-100%)',
           },
         },
+        'dialog-overlay-show': {
+          from: {
+            opacity: '0',
+          },
+          to: {
+            opacity: '1',
+          },
+        },
+        'dialog-overlay-hide': {
+          from: {
+            opacity: '1',
+          },
+          to: {
+            opacity: '0',
+          },
+        },
+        'bg-gradient': {
+          '0%': { 'background-position': '0% center' },
+          '100%': { 'background-position': '-200% center' },
+        },
       },
       animation: {
         'glitch-1': 'glitch 4s linear infinite alternate-reverse',
         'glitch-2': 'glitch 2s linear infinite alternate-reverse',
         marquee: 'marquee 35s linear infinite',
+        'dialog-overlay-show': 'dialog-overlay-show 0.5s',
+        'dialog-overlay-hide': 'dialog-overlay-hide 0.5s',
+        'bg-gradient': 'bg-gradient 5s linear infinite',
       },
+      typography: ({ theme }: { theme: (key: string) => string }) => ({
+        primary: {
+          css: {
+            '--tw-prose-links': theme('colors.primary'),
+            '--tw-prose-invert-links': theme('colors.primary'),
+          },
+        },
+        neutrals: {
+          css: {
+            '--tw-prose-body': theme('colors.neutrals[300]'),
+            '--tw-prose-headings': theme('colors.neutrals[50]'),
+            '--tw-prose-lead': theme('colors.neutrals[400]'),
+            '--tw-prose-bold': theme('colors.neutrals[100]'),
+            '--tw-prose-counters': theme('colors.neutrals[400]'),
+            '--tw-prose-bullets': theme('colors.neutrals[600]'),
+            '--tw-prose-hr': theme('colors.neutrals[700]'),
+            '--tw-prose-quotes': theme('colors.neutrals[100]'),
+            '--tw-prose-quote-borders': theme('colors.neutrals[600]'),
+            '--tw-prose-captions': theme('colors.neutrals[400]'),
+            '--tw-prose-kbd': theme('colors.neutrals[100]'),
+            '--tw-prose-code': theme('colors.neutrals[100]'),
+            '--tw-prose-pre-code': theme('colors.neutrals[300]'),
+            '--tw-prose-pre-bg': 'rgb(0 0 0 / 50%)',
+            '--tw-prose-th-borders': theme('colors.neutrals[600]'),
+            '--tw-prose-td-borders': theme('colors.neutrals[700]'),
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 
 export default config;

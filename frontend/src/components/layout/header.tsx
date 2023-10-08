@@ -4,7 +4,6 @@ import ButtonLink from '@/components/ui/button-link';
 import Container from '@/components/ui/container';
 import Image from '@/components/ui/image';
 import useScroll from '@/hooks/useScroll';
-import useWindowSize from '@/hooks/useWindowSize';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
@@ -17,15 +16,19 @@ const links = [
     label: 'Work',
     href: '/#work',
   },
+  {
+    label: 'Blog',
+    href: '/blog',
+  },
 ] as const;
+
+const GRACE_THRESHOLD = 12;
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const windowSize = useWindowSize();
   const { scrollY } = useScroll();
 
-  const hasScrolledPastHeroSection = scrollY > windowSize.height - 1;
-  const isBackgroundShown = hasScrolledPastHeroSection || isMobileMenuOpen;
+  const isBackgroundShown = scrollY > GRACE_THRESHOLD || isMobileMenuOpen;
 
   return (
     <header
@@ -42,7 +45,7 @@ function Header() {
       >
         <Container>
           <div className="grid grid-cols-3">
-            <div className="flex items-center md:hidden">
+            <div className="flex items-center lg:hidden">
               <MobileNavigation.Toggle
                 isOpen={isMobileMenuOpen}
                 onIsOpenChange={setIsMobileMenuOpen}
@@ -50,7 +53,7 @@ function Header() {
             </div>
             <nav
               aria-label="Primary"
-              className="hidden items-center gap-x-6 md:flex"
+              className="hidden items-center gap-x-6 lg:flex"
             >
               {links.map((link) => (
                 <a

@@ -1,3 +1,4 @@
+import { codeInput } from '@sanity/code-input';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
@@ -11,7 +12,7 @@ export default defineConfig({
   title: 'LOKKEE STUDIOS',
   projectId,
   dataset,
-  plugins: [deskTool(), visionTool(), vercelDeployTool()],
+  plugins: [deskTool(), visionTool(), vercelDeployTool(), codeInput()],
   schema: {
     types: schemaTypes,
   },

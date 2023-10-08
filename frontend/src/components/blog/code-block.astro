@@ -1,0 +1,15 @@
+---
+import CodeBlockInternal, {
+  type CodeBlockProps,
+} from '@/components/blog/code-block';
+import type { Props as $ } from 'astro-portabletext/types';
+
+export type Props = $<CodeBlockProps>;
+
+const { node: props } = Astro.props;
+---
+
+<CodeBlockInternal
+  client:visible
+  {...props}
+/>
