@@ -1,6 +1,6 @@
 import { ComposeIcon } from '@sanity/icons';
 import moment from 'moment';
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { themeProps } from '../theme';
 

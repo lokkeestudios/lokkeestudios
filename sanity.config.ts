@@ -3,9 +3,16 @@ import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
 import { deskTool } from 'sanity/desk';
-import { dataset, projectId } from './environment';
+import { sanityClient } from 'sanity:client';
 import { schemaTypes } from './schemas';
 import { myTheme } from './theme';
+
+const { projectId, dataset } = sanityClient.config();
+
+if (!projectId || !dataset)
+  throw new Error(
+    'Both projectId and dataset must be set in order for the Sanity admin dashboard to properly function',
+  );
 
 export default defineConfig({
   name: 'lokkeestudios',

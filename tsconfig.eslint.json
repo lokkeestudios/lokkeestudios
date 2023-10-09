@@ -6,6 +6,9 @@
     "src/**/*.tsx",
     ".eslintrc.cjs",
     "astro.config.ts",
+    "sanity.config.ts",
+    "theme.ts",
+    "schemas/**/*.{ts,tsx}",
     "tailwind.config.ts",
     "prettier.config.cjs",
     "postcss.config.cjs"
