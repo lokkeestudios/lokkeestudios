@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 . "$(dirname -- "$0")/_/husky.sh"
 
-npx commitlint --edit $1
+
+npx --no -- commitlint --edit "$1"
