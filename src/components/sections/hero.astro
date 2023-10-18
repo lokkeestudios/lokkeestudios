@@ -15,16 +15,25 @@ import Container from '@/components/ui/container';
         id="hero-heading"
         class="text-center text-5xl font-bold leading-tight text-neutrals-50 md:text-7xl md:leading-tight lg:text-8xl lg:leading-tight"
       >
-        Programming and<br />Design Studio<br />from the Future
+        Web Development <br />and Design Studio <br />from the Future
       </h1>
-      <ButtonLink
-        href="/#work"
-        background="primary"
-        size="large"
-        className="mt-12"
-      >
-        Dig into my universe
-      </ButtonLink>
+      <div class="mt-12 flex items-center gap-x-6">
+        <ButtonLink
+          href="/#work"
+          background="primary"
+          size="large"
+        >
+          Dig into my universe
+        </ButtonLink>
+        <ButtonLink
+          href="/#services"
+          background="primary"
+          size="large"
+          isGhost
+        >
+          See services
+        </ButtonLink>
+      </div>
     </div>
   </Container>
 </section>

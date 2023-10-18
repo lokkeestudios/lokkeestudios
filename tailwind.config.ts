@@ -43,7 +43,7 @@ const config: Config = {
       },
       backgroundImage: {
         'radial-highlight':
-          'radial-gradient(circle at 50% 100%, rgba(46, 54, 79, 0.4) 1%, rgba(46, 54, 79, 0.1) 100%)',
+          'radial-gradient(circle at 50% 100%, rgba(46, 54, 79, 0.5) 1%, rgba(6, 9, 24, 1) 100%)',
       },
       keyframes: {
         glitch: {
@@ -124,8 +124,8 @@ const config: Config = {
           },
         },
         'bg-gradient': {
-          '0%': { 'background-position': '0% center' },
-          '100%': { 'background-position': '-200% center' },
+          from: { 'background-position': '0% center' },
+          to: { 'background-position': '-200% center' },
         },
       },
       animation: {

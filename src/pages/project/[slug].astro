@@ -22,12 +22,7 @@ export interface Props {
 const { project } = Astro.props;
 
 const openGraphImage = {
-  src: imageUrlFor(project.poster)
-    .format('png')
-    .width(1200)
-    .height(630)
-    .fit('crop')
-    .url(),
+  src: imageUrlFor(project.poster).format('png').width(1200).height(630).fit('crop').url(),
   alt: project.poster.alt,
 };
 ---

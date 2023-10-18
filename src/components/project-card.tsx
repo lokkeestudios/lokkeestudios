@@ -19,13 +19,13 @@ function ProjectCard({ project }: ProjectCardProps) {
       <article className="mt-4 flex flex-col items-center gap-y-2 text-center">
         <time
           dateTime={project.date}
-          className="text-xs uppercase text-primary"
+          className="text-xs uppercase text-neutrals-200"
         >
           {formatDate(project.date)}
         </time>
         <h3 className="text-2xl font-bold md:text-3xl">{project.name}</h3>
         {project.tags && (
-          <p className="mb-2 text-xs text-neutrals-200">
+          <p className="mb-2 text-xs text-neutrals-300">
             {project.tags.join(', ')}
           </p>
         )}

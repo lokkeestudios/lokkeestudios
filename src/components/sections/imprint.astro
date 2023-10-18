@@ -1,43 +1,43 @@
 ---
 import Container from '@/components/ui/container';
+import Section from '@/components/ui/section.astro';
 import { Heading, Paragraph } from '@/components/ui/typography';
 import siteConfig from '@/config/site';
 ---
 
-<section
-  aria-labelledby="imprint-heading"
-  class="flex min-h-screen w-full items-center py-28"
->
+<Section aria-labelledby="imprint-heading">
   <Container>
-    <h1
-      id="imprint-heading"
-      class="mb-8 text-5xl font-bold leading-tight md:text-7xl md:leading-tight"
-    >
-      Imprint
-    </h1>
-    <address class="grid gap-y-16 not-italic">
-      <div>
-        <Heading>Details</Heading>
-        <Paragraph>
-          <span class="text-neutrals-100">LOKKEE STUDIOS OÜ</span><br />
-           Lõõtsa 2a<br />
-           11415 Tallinn, Estonia<br /><br />
-           CEO: Kilian Peters
-        </Paragraph>
-      </div>
-      <div>
-        <Heading>Contact</Heading>
-        <Paragraph>
-          E-Mail:
-          <a
-            href={`mailto:${siteConfig.email}`}
-            title="Hit me up"
-            class="border-b border-current text-neutrals-100 transition-colors hover:text-primary"
-          >
-            {siteConfig.email}</a
-          ><br />Phone number is given out on request.
-        </Paragraph>
-      </div>
-    </address>
+    <div class="w-fit md:mx-auto">
+      <h1
+        id="imprint-heading"
+        class="mb-8 text-5xl font-bold leading-tight md:text-7xl md:leading-tight"
+      >
+        Imprint
+      </h1>
+      <address class="grid gap-y-16 not-italic">
+        <div>
+          <Heading>Details</Heading>
+          <Paragraph>
+            <span class="text-neutrals-100">LOKKEE STUDIOS OÜ</span><br />
+             Lõõtsa 2a<br />
+             11415 Tallinn, Estonia<br /><br />
+             CEO: Kilian Peters
+          </Paragraph>
+        </div>
+        <div>
+          <Heading>Contact</Heading>
+          <Paragraph>
+            E-Mail:
+            <a
+              href={`mailto:${siteConfig.email}`}
+              title="Hit me up"
+              class="border-b border-current text-neutrals-100 transition-colors hover:text-primary"
+            >
+              {siteConfig.email}</a
+            ><br />Phone number is given out on request.
+          </Paragraph>
+        </div>
+      </address>
+    </div>
   </Container>
-</section>
+</Section>

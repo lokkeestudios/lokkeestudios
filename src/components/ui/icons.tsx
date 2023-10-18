@@ -1,6 +1,7 @@
 import {
   ArrowDownCircleIcon,
   ArrowLongLeftIcon,
+  ArrowLongRightIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -21,6 +22,7 @@ const Icons = {
   ChevronDown: ChevronDownIcon,
   ArrowDownCircle: ArrowDownCircleIcon,
   ArrowLongLeft: ArrowLongLeftIcon,
+  ArrowLongRight: ArrowLongRightIcon,
   Envelope: EnvelopeIcon,
   Rocket: RocketLaunchIcon,
   Link: LinkIcon,

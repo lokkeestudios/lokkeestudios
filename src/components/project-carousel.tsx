@@ -85,13 +85,11 @@ function ProjectSlide({
     >
       <a
         href={`/project/${project.slug.current}`}
-        aria-label={
-          isDisabled ? undefined : `Show ${project.name} project details`
-        }
+        aria-label={isDisabled ? undefined : `Show ${project.name} project details`}
         aria-disabled={isDisabled}
         tabIndex={isDisabled ? -1 : 0}
         className={cx(
-          'group block h-full w-full border-0.5 border-neutrals-50/20',
+          'group block h-full w-full rounded-md border border-neutrals-50/30',
           (isDisabled || isDragging) && 'pointer-events-none',
         )}
         draggable={false}
@@ -99,8 +97,7 @@ function ProjectSlide({
         <article
           className={cn(
             'absolute inset-0 flex flex-col items-center justify-center gap-y-2 bg-neutrals-900/50 p-4 text-center opacity-0 backdrop-blur-sm transition-opacity duration-300',
-            !isDisabled &&
-              'group-hover:opacity-100 group-focus-visible:opacity-100',
+            !isDisabled && 'group-hover:opacity-100 group-focus-visible:opacity-100',
           )}
         >
           <div className="overflow-hidden">
@@ -140,8 +137,7 @@ function ProjectSlide({
           )}
           style={{
             objectPosition: imagePosition,
-            backgroundColor:
-              project.poster.asset.metadata.palette.dominant.background,
+            backgroundColor: project.poster.asset.metadata.palette.dominant.background,
           }}
         />
       </a>
@@ -154,15 +150,10 @@ type ProjectTagFilter = (typeof projectTagFilters)[number];
 const wildcardFilter: ProjectTagFilter = 'Archive';
 
 interface ProjectFiltersSelectProps {
-  selectedFiltersState: [
-    ProjectTagFilter[],
-    Dispatch<SetStateAction<ProjectTagFilter[]>>,
-  ];
+  selectedFiltersState: [ProjectTagFilter[], Dispatch<SetStateAction<ProjectTagFilter[]>>];
 }
 
-function ProjectFiltersSelect({
-  selectedFiltersState,
-}: ProjectFiltersSelectProps) {
+function ProjectFiltersSelect({ selectedFiltersState }: ProjectFiltersSelectProps) {
   const [selectedFilters, setSelectedFilters] = selectedFiltersState;
 
   return (
@@ -170,8 +161,7 @@ function ProjectFiltersSelect({
       as="div"
       value={selectedFilters}
       onChange={(newSelectedFilters) => {
-        if (newSelectedFilters.length !== 0)
-          setSelectedFilters(newSelectedFilters);
+        if (newSelectedFilters.length !== 0) setSelectedFilters(newSelectedFilters);
       }}
       multiple
       className="group relative min-w-[20rem]"
@@ -180,10 +170,7 @@ function ProjectFiltersSelect({
         <>
           <Listbox.Button className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-radial-highlight px-4 py-2 text-sm text-neutrals-100">
             {selectedFilters
-              .sort(
-                (a, b) =>
-                  projectTagFilters.indexOf(a) - projectTagFilters.indexOf(b),
-              )
+              .sort((a, b) => projectTagFilters.indexOf(a) - projectTagFilters.indexOf(b))
               .map((selectedFilter) => selectedFilter)
               .join(', ')}
             <Icons.ChevronDown
@@ -213,9 +200,7 @@ function ProjectFiltersSelect({
                         className={cx(
                           'cursor-pointer rounded-sm p-2 text-sm transition-all',
                           selected && !active ? 'text-neutrals-50' : '',
-                          active
-                            ? 'bg-primary text-neutrals-50'
-                            : 'text-neutrals-300',
+                          active ? 'bg-primary text-neutrals-50' : 'text-neutrals-300',
                         )}
                       >
                         {projectTagFilter}
@@ -245,20 +230,14 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
   const [carouselSlideWidth, setCarouselSlideWidth] = useState(0);
   const [maxScrollWidth, setMaxScrollWidth] = useState(0);
   const scrollPosition = useMotionValue(0);
-  const scrollProgress = useTransform(
-    scrollPosition,
-    [0, maxScrollWidth],
-    ['0%', '100%'],
-  );
+  const scrollProgress = useTransform(scrollPosition, [0, maxScrollWidth], ['0%', '100%']);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState<{
     scrollX: number;
     pointerX: number;
   } | null>(null);
-  const [selectedFilters, setSelectedFilters] = useState<ProjectTagFilter[]>([
-    'Website',
-  ]);
+  const [selectedFilters, setSelectedFilters] = useState<ProjectTagFilter[]>(['Website']);
 
   const updateCarouselConstraints = useCallback(() => {
     if (
@@ -269,12 +248,8 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
       return;
 
     setCarouselWidth(carouselWrapperRef.current.offsetWidth);
-    setCarouselSlideWidth(
-      (carouselRef.current.firstElementChild as ElementRef<'li'>).offsetWidth,
-    );
-    setMaxScrollWidth(
-      carouselRef.current.scrollWidth - carouselRef.current.offsetWidth,
-    );
+    setCarouselSlideWidth((carouselRef.current.firstElementChild as ElementRef<'li'>).offsetWidth);
+    setMaxScrollWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
   }, []);
 
   useEffect(() => {
@@ -285,10 +260,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
     return () => {
       window.removeEventListener('resize', updateCarouselConstraints);
-      window.removeEventListener(
-        'orientationchange',
-        updateCarouselConstraints,
-      );
+      window.removeEventListener('orientationchange', updateCarouselConstraints);
     };
   }, [updateCarouselConstraints]);
 
@@ -296,9 +268,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
     setCurrentSlide(
       clamp(
         0,
-        Math.round(
-          latestScrollPosition / (carouselSlideWidth + CAROUSEL_SLIDES_GAP),
-        ),
+        Math.round(latestScrollPosition / (carouselSlideWidth + CAROUSEL_SLIDES_GAP)),
         projects.length - 1,
       ),
     );
@@ -368,9 +338,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
 
     const isWildcardFilterEnabledAndNoProjectTagFiltered =
       selectedFilters.includes(wildcardFilter) &&
-      !project.tags?.some((projectTag) =>
-        projectTagFilters.includes(projectTag),
-      );
+      !project.tags?.some((projectTag) => projectTagFilters.includes(projectTag));
     return isWildcardFilterEnabledAndNoProjectTagFiltered;
   });
 
@@ -381,9 +349,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
     >
       <Container>
         <div className="flex items-center justify-center">
-          <ProjectFiltersSelect
-            selectedFiltersState={[selectedFilters, setSelectedFilters]}
-          />
+          <ProjectFiltersSelect selectedFiltersState={[selectedFilters, setSelectedFilters]} />
         </div>
       </Container>
       <div className="relative py-8">
@@ -441,9 +407,9 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
           </ul>
         </div>
         <p
+          role="status"
           aria-live="polite"
           aria-atomic="true"
-          role="status"
           className="sr-only"
         >
           Project {currentSlide + 1} of {projects.length}

@@ -1,47 +1,44 @@
 ---
+import StarsBackground from '@/components/stars-background';
 import TestimonialCard from '@/components/testimonial-card';
 import Container from '@/components/ui/container';
+import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
 import getTestimonials from '@/lib/sanity/get-testimonials';
 
 const testimonials = await getTestimonials();
 ---
 
-{
-  testimonials.length > 0 && (
-    <section
-      id="stories"
-      aria-labelledby="stories-heading"
-      class="relative z-10 w-full bg-neutrals-900 py-28"
+<Section
+  id="stories"
+  aria-labelledby="stories-heading"
+  hasBorderTop
+  hasGlowEffect
+>
+  <StarsBackground client:visible />
+  <Container>
+    <div class="mb-16 flex flex-col items-center text-center">
+      <Caption id="stories-heading">Customer Stories</Caption>
+      <Heading>
+        Trusted by the
+        <br />
+         kindest clients
+      </Heading>
+      <Paragraph>
+        Here&apos;s a glimpse into the heartfelt experiences of my incredible clients.<br />Your
+        trust fuels my passion.
+      </Paragraph>
+    </div>
+  </Container>
+  <div class="mask-inline-faded group flex w-full overflow-x-hidden">
+    <ul class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee">
+      {testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
+    </ul>
+    <ul
+      aria-hidden="true"
+      class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee"
     >
-      <Container>
-        <div class="flex flex-col items-center text-center">
-          <Caption id="stories-heading">Customer Stories</Caption>
-          <Heading>
-            Trusted by the
-            <br />
-            kindest clients
-          </Heading>
-          <Paragraph>
-            It is my mission to deliver you the web presence you deserve.
-          </Paragraph>
-        </div>
-      </Container>
-      <div class="mask-inline-faded group mt-8 flex w-full overflow-x-hidden">
-        <ul class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee">
-          {testimonials.map((testimonial) => (
-            <TestimonialCard testimonial={testimonial} />
-          ))}
-        </ul>
-        <ul
-          aria-hidden="true"
-          class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee"
-        >
-          {testimonials.map((testimonial) => (
-            <TestimonialCard testimonial={testimonial} />
-          ))}
-        </ul>
-      </div>
-    </section>
-  )
-}
+      {testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
+    </ul>
+  </div>
+</Section>

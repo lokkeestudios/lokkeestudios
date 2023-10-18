@@ -2,7 +2,7 @@
  <img src="https://lokkeestudios.com/favicon.svg" width="300"/>
 </div>
 
-<h1 align="center">LOKKEE STUDIOS<br>Programming and Design Studio from the Future</h1>
+<h1 align="center">LOKKEE STUDIOS<br>Web Development and Design Studio from the Future</h1>
 
 <p align="center">
  <a href="https://lokkeestudios.com" title="Get inspired by more great work">
@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="https://lokkeestudios.com">LOKKEE STUDIOS</a> is bringing you programming and design from the future.<br />
+  <a href="https://lokkeestudios.com">LOKKEE STUDIOS</a> is bringing you web development and design from the future.<br />
   Our expertise is developing next-level websites and web applications including full frontend design.<br />
   Why don't you check out the fancy time machine we built over there?
 </p>

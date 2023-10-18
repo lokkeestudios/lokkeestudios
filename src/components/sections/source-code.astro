@@ -2,14 +2,15 @@
 import MatrixBackground from '@/components/matrix-background';
 import ButtonLink from '@/components/ui/button-link';
 import Container from '@/components/ui/container';
+import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
 import siteConfig from '@/config/site';
 ---
 
-<section
-  id="sourcecode"
+<Section
+  id="source-code"
   aria-labelledby="sourcecode-heading"
-  class="relative z-10 flex min-h-screen w-full bg-neutrals-900 py-28"
+  hasBorderTop
 >
   <MatrixBackground client:visible />
   <Container>
@@ -17,10 +18,10 @@ import siteConfig from '@/config/site';
       <Caption id="sourcecode-heading">Source code</Caption>
       <Heading>Behind the simulation</Heading>
       <Paragraph>
-        You take the <span class="text-neutrals-100">blue pill</span> - you keep
-        scrolling, you leave this site and believe whatever you want to believe.
-        You take the <span class="text-neutrals-100">red pill</span> - you stay
-        in wonderland, and I show you how deep the rabbit hole goes.
+        You take the <span class="text-neutrals-100">blue pill</span> - you keep scrolling, you
+        leave this site and believe whatever you want to believe. You take the <span
+          class="text-neutrals-100">red pill</span
+        > - you stay in wonderland, and I show you how deep the rabbit hole goes.
       </Paragraph>
       <ButtonLink
         href={siteConfig.links.sourcecode}
@@ -33,4 +34,4 @@ import siteConfig from '@/config/site';
       </ButtonLink>
     </div>
   </Container>
-</section>
+</Section>

@@ -46,21 +46,15 @@ const { project } = Astro.props;
       >
         {project.name}
       </h1>
-      <p
-        class="mb-8 max-w-prose leading-relaxed text-neutrals-50/90 max-md:text-sm"
-      >
+      <p class="mb-8 max-w-prose leading-relaxed text-neutrals-50/90 max-md:text-sm">
         {project.description}
       </p>
       {
         project.tags && (
-          <p class="text-xs text-neutrals-50/90 lg:text-sm">
-            {project.tags.join(', ')}
-          </p>
+          <p class="text-xs text-neutrals-50/90 lg:text-sm">{project.tags.join(', ')}</p>
         )
       }
-      <hr
-        class="mb-8 mt-4 h-px border-0 bg-gradient-to-r from-neutrals-50/40 to-transparent"
-      />
+      <hr class="mb-8 mt-4 h-px border-0 bg-gradient-to-r from-neutrals-50/40 to-transparent" />
       <div class="flex gap-x-4">
         {
           project.projecturl && (

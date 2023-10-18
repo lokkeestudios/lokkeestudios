@@ -3,7 +3,7 @@ import MobileNavigation from '@/components/layout/mobile-navigation';
 import ButtonLink from '@/components/ui/button-link';
 import Container from '@/components/ui/container';
 import Image from '@/components/ui/image';
-import useScroll from '@/hooks/useScroll';
+import useScrollThreshold from '@/hooks/use-scroll-threshold';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
@@ -17,6 +17,10 @@ const links = [
     href: '/#work',
   },
   {
+    label: 'Services',
+    href: '/#services',
+  },
+  {
     label: 'Blog',
     href: '/blog',
   },
@@ -26,9 +30,9 @@ const GRACE_THRESHOLD = 12;
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
+  const { isScrollThresholdPassed } = useScrollThreshold({ threshold: GRACE_THRESHOLD });
 
-  const isBackgroundShown = scrollY > GRACE_THRESHOLD || isMobileMenuOpen;
+  const isBackgroundShown = isScrollThresholdPassed || isMobileMenuOpen;
 
   return (
     <header

@@ -1,12 +1,7 @@
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { VariantProps } from 'class-variance-authority';
-import {
-  forwardRef,
-  type AnchorHTMLAttributes,
-  type ElementRef,
-  type ReactNode,
-} from 'react';
+import { forwardRef, type AnchorHTMLAttributes, type ElementRef, type ReactNode } from 'react';
 
 type ButtonLinkHTMLElement = ElementRef<'a'>;
 
@@ -17,10 +12,7 @@ interface ButtonLinkProps
 }
 
 const ButtonLink = forwardRef<ButtonLinkHTMLElement, ButtonLinkProps>(
-  (
-    { foreground, background, size, isGhost, children, className, ...props },
-    ref,
-  ) => (
+  ({ foreground, background, size, isGhost, children, className, ...props }, ref) => (
     <a
       className={cn(
         buttonVariants({

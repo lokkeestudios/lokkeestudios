@@ -19,12 +19,16 @@ const primaryLinks = [
     href: '/#stories',
   },
   {
+    label: 'Services',
+    href: '/#services',
+  },
+  {
     label: 'Contact',
     href: '/#contact',
   },
   {
     label: 'Source code',
-    href: '/#sourcecode',
+    href: '/#source-code',
   },
   {
     label: 'Blog',
@@ -146,9 +150,7 @@ function Footer() {
             ))}
           </ul>
           <div className="flex justify-center lg:order-first lg:justify-start">
-            <small className="text-xs text-neutrals-300">
-              &copy; {currentYear} LOKKEE STUDIOS
-            </small>
+            <small className="text-xs text-neutrals-300">&copy; {currentYear} LOKKEE STUDIOS</small>
           </div>
         </div>
       </Container>

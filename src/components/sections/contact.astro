@@ -2,14 +2,17 @@
 import ContactForm from '@/components/contact-form';
 import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
+import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
 import siteConfig from '@/config/site';
 ---
 
-<section
+<Section
   id="contact"
   aria-labelledby="contact-heading"
-  class="relative z-10 flex w-full items-center bg-neutrals-900 py-28"
+  hasBorderTop
+  hasGlowEffect
+  class="lg:after:hidden"
 >
   <Container>
     <div class="flex h-full w-full flex-col lg:flex-row">
@@ -38,4 +41,4 @@ import siteConfig from '@/config/site';
       </div>
     </div>
   </Container>
-</section>
+</Section>

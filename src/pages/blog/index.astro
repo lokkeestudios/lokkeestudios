@@ -11,25 +11,27 @@ const blogPosts = await getBlogPosts();
 
 <Layout title="Blog">
   <main id="main">
-    <section class="flex min-h-screen justify-center py-28">
+    <section
+      aria-labelledby="blog-heading"
+      class={cn(
+        'relative z-10 w-full bg-neutrals-900 py-32 flex flex-col items-center justify-center min-h-screen',
+        'after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:mx-auto after:h-full after:w-full after:max-w-7xl after:bg-[radial-gradient(40.23%_36.93%_at_50%_0%,rgba(105,25,255,0.04)_0%,rgba(105,25,255,0)_100%,rgba(105,25,255,0)_100%),radial-gradient(32.98%_20.96%_at_50%_32.36%,rgba(105,25,255,0.08)_0%,rgba(105,25,255,0)_100%)]',
+      )}
+    >
       <Container>
         <div class="mx-auto max-w-5xl">
           <div
             class="relative sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]"
           >
-            <Caption>Blog</Caption>
+            <Caption id="blog-heading">Blog</Caption>
             <h1
               class="mb-4 text-3xl font-bold leading-tight text-neutrals-50 md:text-5xl md:leading-tight"
             >
-              Join our journey
+              Join our creative voyage
             </h1>
-            <p
-              class="mb-11 max-w-prose leading-relaxed text-neutrals-300 lg:mb-14"
-            >
-              All the <span class="text-neutrals-100">latest news</span> and a
-              glimpse into the <span class="text-neutrals-100"
-                >inner workings</span
-              > of the LOKKEE STUDIOS lab.
+            <p class="mb-11 max-w-prose leading-relaxed text-neutrals-300 lg:mb-14">
+              Ride along for the <span class="text-neutrals-100">latest updates</span> and an
+              exclusive look at what&apos;s brewing at LOKKEE STUDIOS lab.
             </p>
           </div>
           <div
