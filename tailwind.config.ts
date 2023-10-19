@@ -123,9 +123,13 @@ const config: Config = {
             opacity: '0',
           },
         },
-        'bg-gradient': {
-          from: { 'background-position': '0% center' },
-          to: { 'background-position': '-200% center' },
+        'shiny-badge-slide': {
+          '0%': {
+            transform: 'translateX(-100%) skewX(20deg)',
+          },
+          '15%, 100%': {
+            transform: 'translateX(100%) skewX(20deg)',
+          },
         },
       },
       animation: {
@@ -134,7 +138,7 @@ const config: Config = {
         marquee: 'marquee 35s linear infinite',
         'dialog-overlay-show': 'dialog-overlay-show 0.5s',
         'dialog-overlay-hide': 'dialog-overlay-hide 0.5s',
-        'bg-gradient': 'bg-gradient 5s linear infinite',
+        'shiny-badge-slide': 'shiny-badge-slide 8s infinite',
       },
       typography: ({ theme }: { theme: (key: string) => string }) => ({
         primary: {
