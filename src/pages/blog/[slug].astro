@@ -1,14 +1,9 @@
 ---
-import PortableText from '@/components/blog/portable-text.astro';
 import ScrollProgress from '@/components/blog/scroll-progress';
-import Container from '@/components/ui/container';
-import Icons from '@/components/ui/icons';
-import SanityImage from '@/components/ui/sanity-image';
-import { Paragraph } from '@/components/ui/typography';
+import BlogPostSection from '@/components/sections/blog-post.astro';
 import Layout from '@/layouts/layout.astro';
 import getBlogPosts, { type BlogPost } from '@/lib/sanity/get-blog-posts';
 import { imageUrlFor } from '@/lib/sanity/sanity-image';
-import { formatDateWithDay } from '@/lib/utils';
 
 export async function getStaticPaths() {
   const blogPosts = await getBlogPosts();
@@ -37,62 +32,6 @@ const openGraphImage = {
 >
   <ScrollProgress client:idle />
   <main id="main">
-    <section
-      aria-labelledby="blog-post-heading"
-      class="flex min-h-screen items-center justify-center py-24"
-    >
-      <Container>
-        <a
-          href="/blog"
-          class="group mb-8 flex w-fit items-center text-neutrals-300 transition-colors duration-300 hover:text-neutrals-50 focus-visible:text-neutrals-50"
-        >
-          <Icons.ArrowLongLeft
-            aria-hidden
-            className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
-          /> Back to Blog
-        </a>
-        <div class="mx-auto mb-8 flex max-w-4xl flex-col items-center text-center">
-          <time
-            datetime={blogPost.date}
-            class="mb-4 block text-sm text-neutrals-300"
-          >
-            {formatDateWithDay(blogPost.date)}
-          </time>
-          <h1
-            id="blog-post-heading"
-            class="mb-4 text-3xl font-bold leading-tight text-neutrals-50 md:text-5xl md:leading-tight"
-          >
-            {blogPost.title}
-          </h1>
-          <Paragraph>
-            {blogPost.excerpt}
-          </Paragraph>
-        </div>
-        <div class="mb-16 w-full overflow-hidden rounded-md border-0.5 border-neutrals-50/40">
-          <SanityImage
-            image={blogPost.poster}
-            isAboveTheFold
-            maxWidth={1280}
-            className="w-full"
-          />
-        </div>
-        <PortableText
-          content={blogPost.content}
-          className="mx-auto"
-        />
-        <hr
-          class="my-16 h-px border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent"
-        />
-        <a
-          href="/blog"
-          class="group mx-auto flex w-fit items-center text-center text-lg text-neutrals-50 transition-colors duration-300 hover:text-primary focus-visible:text-primary"
-        >
-          <Icons.ArrowLongLeft
-            aria-hidden
-            className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
-          /> Back to Blog
-        </a>
-      </Container>
-    </section>
+    <BlogPostSection blogPost={blogPost} />
   </main>
 </Layout>
