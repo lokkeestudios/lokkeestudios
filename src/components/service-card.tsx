@@ -65,12 +65,12 @@ interface ComponentWithChildrenProps {
 }
 
 function Title({ children }: ComponentWithChildrenProps) {
-  return <h3 className="mb-2 md:text-lg font-medium text-primary">{children}</h3>;
+  return <h3 className="mb-2 font-medium text-primary md:text-lg">{children}</h3>;
 }
 ServiceCard.Title = Title;
 
 function Price({ children }: ComponentWithChildrenProps) {
-  return <p className="mb-2 text-3xl md:text-4xl font-bold flex">{children}</p>;
+  return <p className="mb-2 flex text-3xl font-bold md:text-4xl">{children}</p>;
 }
 ServiceCard.Price = Price;
 

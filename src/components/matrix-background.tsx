@@ -21,24 +21,16 @@ function MatrixBackground() {
 
     const { parentElement } = matrixCanvasRef.current;
 
-    matrixCanvasRef.current.width =
-      parentElement?.offsetWidth || window.innerWidth;
-    matrixCanvasRef.current.height =
-      parentElement?.offsetHeight || window.innerHeight;
+    matrixCanvasRef.current.width = parentElement?.offsetWidth || window.innerWidth;
+    matrixCanvasRef.current.height = parentElement?.offsetHeight || window.innerHeight;
 
     const canvasContext = matrixCanvasRef.current.getContext('2d');
     if (!canvasContext) return undefined;
 
     canvasContext.fillStyle = BACKGROUND_COLOR;
-    canvasContext.fillRect(
-      0,
-      0,
-      matrixCanvasRef.current.width,
-      matrixCanvasRef.current.height,
-    );
+    canvasContext.fillRect(0, 0, matrixCanvasRef.current.width, matrixCanvasRef.current.height);
 
-    const numberOfColumns =
-      Math.floor(matrixCanvasRef.current.width / TEXT_COLUMN_WIDTH) + 1;
+    const numberOfColumns = Math.floor(matrixCanvasRef.current.width / TEXT_COLUMN_WIDTH) + 1;
     const defaultYPositions = Array<number>(numberOfColumns).fill(0);
 
     return defaultYPositions;
@@ -52,12 +44,7 @@ function MatrixBackground() {
     if (!canvasContext) return undefined;
 
     canvasContext.fillStyle = ALPHA_BACKGROUND_COLOR;
-    canvasContext.fillRect(
-      0,
-      0,
-      matrixCanvasRef.current.width,
-      matrixCanvasRef.current.height,
-    );
+    canvasContext.fillRect(0, 0, matrixCanvasRef.current.width, matrixCanvasRef.current.height);
 
     canvasContext.fillStyle = TEXT_COLOR;
     canvasContext.font = FONT;

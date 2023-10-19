@@ -1,10 +1,5 @@
 import { cn } from '@/lib/utils';
-import {
-  forwardRef,
-  type ElementRef,
-  type HTMLAttributes,
-  type ReactNode,
-} from 'react';
+import { forwardRef, type ElementRef, type HTMLAttributes, type ReactNode } from 'react';
 
 type ContainerHTMLElement = ElementRef<'div'>;
 

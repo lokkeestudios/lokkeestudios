@@ -1,6 +1,13 @@
 import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { forwardRef, type ButtonHTMLAttributes, type ElementRef, type ReactNode } from 'react';
+import {
+  type AnchorHTMLAttributes,
+  type ButtonHTMLAttributes,
+  type ElementRef,
+  type LegacyRef,
+  type ReactNode,
+  type Ref,
+} from 'react';
 
 const buttonVariants = cva(
   'relative isolate flex justify-center items-center select-none overflow-hidden rounded-sm border align-middle transition-all duration-500 before:absolute before:-left-3 before:top-0 before:-z-10 before:h-full before:w-[calc(100%+1.5rem)] before:origin-left before:-skew-x-[16deg] before:scale-x-0 before:transition-transform before:duration-500 hover:[&:not(:disabled)]:before:scale-x-100 focus-visible:[&:not(:disabled)]:before:scale-x-100 active:[&:not(:disabled)]:scale-[1.01] disabled:opacity-70',
@@ -87,17 +94,48 @@ const buttonVariants = cva(
 );
 
 type ButtonHTMLElement = ElementRef<'button'>;
+type AnchorHTMLElement = ElementRef<'a'>;
 
-interface ButtonProps
-  extends ButtonHTMLAttributes<ButtonHTMLElement>,
-    VariantProps<typeof buttonVariants> {
-  children: ReactNode;
-}
+type ButtonProps = (
+  | (ButtonHTMLAttributes<ButtonHTMLElement> & {
+      as?: 'button';
+      type: 'button' | 'submit' | 'reset';
+      ref?: Ref<ButtonHTMLElement>;
+    })
+  | (AnchorHTMLAttributes<AnchorHTMLElement> & {
+      as: 'a';
+      href: string;
+      ref?: LegacyRef<AnchorHTMLElement>;
+    })
+) & { children: ReactNode } & VariantProps<typeof buttonVariants>;
 
-const Button = forwardRef<ButtonHTMLElement, ButtonProps>(
-  ({ foreground, background, size, isGhost, children, className, type, ...props }, ref) => (
+function Button(props: ButtonProps) {
+  if (props.as === 'a') {
+    const { foreground, background, size, isGhost, ref, children, className, ...restProps } = props;
+
+    return (
+      <a
+        className={cn(
+          buttonVariants({
+            foreground,
+            background,
+            size,
+            isGhost,
+            className,
+          }),
+        )}
+        ref={ref}
+        {...restProps}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  const { foreground, background, size, isGhost, ref, children, className, ...restProps } = props;
+
+  return (
     <button
-      type={type ?? 'button'}
       className={cn(
         buttonVariants({
           foreground,
@@ -108,13 +146,11 @@ const Button = forwardRef<ButtonHTMLElement, ButtonProps>(
         }),
       )}
       ref={ref}
-      {...props}
+      {...restProps}
     >
       {children}
     </button>
-  ),
-);
-Button.displayName = 'Button';
+  );
+}
 
 export default Button;
-export { buttonVariants };

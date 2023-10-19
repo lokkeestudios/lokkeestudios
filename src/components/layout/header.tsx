@@ -1,6 +1,6 @@
 import lokkeestudiosTypeLogoImage from '@/assets/images/logos/lokkeestudios-type.svg';
 import MobileNavigation from '@/components/layout/mobile-navigation';
-import ButtonLink from '@/components/ui/button-link';
+import Button from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Image from '@/components/ui/image';
 import useScrollThreshold from '@/hooks/use-scroll-threshold';
@@ -82,13 +82,14 @@ function Header() {
               </a>
             </div>
             <div className="flex items-center justify-end">
-              <ButtonLink
+              <Button
+                as="a"
                 href="/#contact"
                 size="small"
                 isGhost
               >
                 Hit me up
-              </ButtonLink>
+              </Button>
             </div>
           </div>
         </Container>

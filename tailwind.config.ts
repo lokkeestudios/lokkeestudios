@@ -125,10 +125,10 @@ const config: Config = {
         },
         'shiny-badge-slide': {
           '0%': {
-            transform: 'translateX(-100%) skewX(20deg)',
+            transform: 'translateX(-100%) skewX(-16deg)',
           },
-          '15%, 100%': {
-            transform: 'translateX(100%) skewX(20deg)',
+          '10%, 100%': {
+            transform: 'translateX(100%) skewX(-16deg)',
           },
         },
       },

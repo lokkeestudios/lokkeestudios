@@ -32,20 +32,15 @@ interface CodeBlockProps extends TypedObject {
   highlightedLines: (number | Refractor.Marker)[];
 }
 
-function CodeBlock({
-  filename,
-  language,
-  code,
-  highlightedLines,
-}: CodeBlockProps) {
+function CodeBlock({ filename, language, code, highlightedLines }: CodeBlockProps) {
   const [copiedStatus, setCopiedStatus] = useState<string>();
   const clipboardControls = useAnimationControls();
   const clipboardCheckControls = useAnimationControls();
 
-  const showCopiedStatus = useCallback(async () => {
+  const showCopiedStatus = useCallback(() => {
     setCopiedStatus('Copied code');
 
-    await Promise.allSettled([
+    void Promise.allSettled([
       clipboardControls.start({
         opacity: [1, 0, 0, 0, 0, 1],
         scale: [1, 0.5, 0.5, 0.5, 0.5, 1],

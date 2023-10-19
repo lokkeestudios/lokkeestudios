@@ -1,11 +1,5 @@
 import futureGridImage from '@/assets/images/future-grid.webp';
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useCallback, useEffect } from 'react';
 
 const springConfig = {

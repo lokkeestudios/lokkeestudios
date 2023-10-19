@@ -39,7 +39,11 @@ function ContactForm() {
       />
     </div>
   ) : (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form
+      onSubmit={() => {
+        void handleSubmit(onSubmit);
+      }}
+    >
       <fieldset
         disabled={isSubmitting}
         className="group flex flex-col gap-y-6"

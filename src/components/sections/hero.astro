@@ -1,6 +1,6 @@
 ---
 import GridBackground from '@/components/grid-background';
-import ButtonLink from '@/components/ui/button-link';
+import Button from '@/components/ui/button';
 import Container from '@/components/ui/container';
 ---
 
@@ -18,21 +18,23 @@ import Container from '@/components/ui/container';
         Web Development <br />and Design Studio <br />from the Future
       </h1>
       <div class="mt-12 flex items-center gap-x-6">
-        <ButtonLink
+        <Button
+          as="a"
           href="/#work"
           background="primary"
           size="large"
         >
           Dig into my universe
-        </ButtonLink>
-        <ButtonLink
+        </Button>
+        <Button
+          as="a"
           href="/#services"
           background="primary"
           size="large"
           isGhost
         >
           See services
-        </ButtonLink>
+        </Button>
       </div>
     </div>
   </Container>

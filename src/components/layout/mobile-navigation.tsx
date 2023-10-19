@@ -86,10 +86,7 @@ interface MobileNavigationOverlayProps {
   onClose: () => void;
 }
 
-function MobileNavigationOverlay({
-  isOpen,
-  onClose,
-}: MobileNavigationOverlayProps) {
+function MobileNavigationOverlay({ isOpen, onClose }: MobileNavigationOverlayProps) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -113,20 +110,15 @@ interface MobileNavigationToggleProps {
   onIsOpenChange: (isOpen: boolean) => void;
 }
 
-function MobileNavigationToggle({
-  isOpen,
-  onIsOpenChange,
-}: MobileNavigationToggleProps) {
+function MobileNavigationToggle({ isOpen, onIsOpenChange }: MobileNavigationToggleProps) {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    animate([
+    void animate([
       [
         'path[data-toggle-bar-top]',
         {
-          y: isOpen
-            ? ['0rem', '-0.325rem', '-0.325rem']
-            : ['-0.325rem', '-0.325rem', '0rem'],
+          y: isOpen ? ['0rem', '-0.325rem', '-0.325rem'] : ['-0.325rem', '-0.325rem', '0rem'],
           d: isOpen
             ? [
                 'M3,17.25C3,16.839 3.339,16.5 3.75,16.5L20.25,16.5C20.661,16.5 21,16.839 21,17.25C21,17.661 20.661,18 20.25,18L3.75,18C3.339,18 3,17.661 3,17.25Z',
@@ -149,9 +141,7 @@ function MobileNavigationToggle({
       [
         'path[data-toggle-bar-bottom]',
         {
-          y: isOpen
-            ? ['0rem', '0.325rem', '0.325rem']
-            : ['0.325rem', '0.325rem', '0rem'],
+          y: isOpen ? ['0rem', '0.325rem', '0.325rem'] : ['0.325rem', '0.325rem', '0rem'],
           d: isOpen
             ? [
                 'M3,6.75C3,6.339 3.339,6 3.75,6L20.25,6C20.661,6 21,6.339 21,6.75C21,7.161 20.661,7.5 20.25,7.5L3.75,7.5C3.339,7.5 3,7.161 3,6.75Z',

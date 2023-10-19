@@ -54,8 +54,7 @@ function TypingHeading({ headings }: TypingHeadingProps) {
 
   const updateTypingModeTimer = useCallback(() => {
     if (typingMode === 'typing') {
-      const typeDuration =
-        (currentHeading.length * typingSpeed + delayBeforeDelete) * 1000;
+      const typeDuration = (currentHeading.length * typingSpeed + delayBeforeDelete) * 1000;
 
       return setTimeout(() => {
         const nextHeadingIndex = (headingIndex + 1) % headings.length;
@@ -70,13 +69,7 @@ function TypingHeading({ headings }: TypingHeadingProps) {
     return setTimeout(() => {
       setTypingMode('typing');
     }, deleteDuration);
-  }, [
-    currentHeading.length,
-    headingIndex,
-    headings.length,
-    previousHeading.length,
-    typingMode,
-  ]);
+  }, [currentHeading.length, headingIndex, headings.length, previousHeading.length, typingMode]);
 
   useEffect(() => {
     const typingTimer = updateTypingModeTimer();

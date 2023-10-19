@@ -1,5 +1,5 @@
 ---
-import ButtonLink from '@/components/ui/button-link';
+import Button from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
 import SanityImage from '@/components/ui/sanity-image';
@@ -58,7 +58,8 @@ const { project } = Astro.props;
       <div class="flex gap-x-4">
         {
           project.projecturl && (
-            <ButtonLink
+            <Button
+              as="a"
               href={project.projecturl}
               rel="noreferrer"
               target="_blank"
@@ -69,12 +70,13 @@ const { project } = Astro.props;
                 className="h-5 w-5 mr-2"
               />{' '}
               View Project
-            </ButtonLink>
+            </Button>
           )
         }
         {
           project.githuburl && (
-            <ButtonLink
+            <Button
+              as="a"
               href={project.githuburl}
               rel="noreferrer"
               target="_blank"
@@ -86,7 +88,7 @@ const { project } = Astro.props;
                 className="h-5 w-5 mr-2"
               />{' '}
               View Source Code
-            </ButtonLink>
+            </Button>
           )
         }
       </div>

@@ -39,13 +39,9 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
           </div>
           <div>
             <cite>
-              <h3 className="lg:text-md mb-0.5 not-italic">
-                {testimonial.name}
-              </h3>
+              <h3 className="lg:text-md mb-0.5 not-italic">{testimonial.name}</h3>
             </cite>
-            <p className="text-xs text-neutrals-200 lg:text-sm">
-              {testimonial.title}
-            </p>
+            <p className="text-xs text-neutrals-200 lg:text-sm">{testimonial.title}</p>
           </div>
         </div>
       </article>

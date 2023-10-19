@@ -1,6 +1,6 @@
 ---
 import MatrixBackground from '@/components/matrix-background';
-import ButtonLink from '@/components/ui/button-link';
+import Button from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
@@ -23,7 +23,8 @@ import siteConfig from '@/config/site';
           class="text-neutrals-100">red pill</span
         > - you stay in wonderland, and I show you how deep the rabbit hole goes.
       </Paragraph>
-      <ButtonLink
+      <Button
+        as="a"
         href={siteConfig.links.sourcecode}
         rel="noreferrer"
         target="_blank"
@@ -31,7 +32,7 @@ import siteConfig from '@/config/site';
         className="mt-8"
       >
         Show me
-      </ButtonLink>
+      </Button>
     </div>
   </Container>
 </Section>
