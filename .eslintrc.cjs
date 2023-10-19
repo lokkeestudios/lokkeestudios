@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import('eslint').Linter.config} */
+const config = {
   env: {
     node: true,
     es2022: true,
@@ -38,10 +39,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
       ],
       rules: {
-        '@typescript-eslint/no-floating-promises': [
-          'error',
-          { ignoreVoid: true },
-        ],
+        '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
         '@typescript-eslint/no-unused-vars': [
           'error',
           { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
@@ -75,16 +73,10 @@ module.exports = {
       rules: {
         'react/react-in-jsx-scope': 'off',
         'react/jsx-filename-extension': [1, { extensions: ['.astro', '.tsx'] }],
-        'react/require-default-props': [
-          'error',
-          { functions: 'defaultArguments' },
-        ],
+        'react/require-default-props': ['error', { functions: 'defaultArguments' }],
         'react/jsx-props-no-spreading': 'warn',
         'react/no-array-index-key': 'warn',
-        '@typescript-eslint/no-floating-promises': [
-          'error',
-          { ignoreVoid: true },
-        ],
+        '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
         '@typescript-eslint/no-unused-vars': [
           'error',
           { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
@@ -107,3 +99,5 @@ module.exports = {
     'prettier/prettier': 'error',
   },
 };
+
+module.exports = config;

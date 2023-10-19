@@ -4,7 +4,7 @@
     "name": "LOKKEE STUDIOS",
     "url": "https://lokkeestudios.com"
   },
-  "description": "Programming and Design Studio from the Future",
+  "description": "Web Programming and Design Studio from the Future",
   "homepage": "https://lokkeestudios.com",
   "version": "1.0.0",
   "private": true,
@@ -76,6 +76,7 @@
     "@commitlint/cli": "^17.8.0",
     "@commitlint/config-conventional": "^17.8.0",
     "@total-typescript/ts-reset": "^0.5.1",
+    "@types/eslint": "^8.44.6",
     "@types/react-copy-to-clipboard": "^5.0.6",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",

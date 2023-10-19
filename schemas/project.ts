@@ -2,7 +2,7 @@ import { CaseIcon } from '@sanity/icons';
 import moment from 'moment';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
-export default defineType({
+const projectSchema = defineType({
   name: 'project',
   title: 'Project',
   type: 'document',
@@ -112,3 +112,5 @@ export default defineType({
     },
   ],
 });
+
+export default projectSchema;

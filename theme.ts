@@ -1,6 +1,6 @@
 import { buildLegacyTheme } from 'sanity';
 
-export const themeProps = {
+const themeProps = {
   '--primary': '#6919FF',
   '--neutrals-900': '#060918',
   '--neutrals-800': '#161A2C',
@@ -17,7 +17,7 @@ export const themeProps = {
   '--error': '#FF2E5B',
 };
 
-export const myTheme = buildLegacyTheme({
+const myTheme = buildLegacyTheme({
   '--black': themeProps['--neutrals-900'],
   '--white': themeProps['--neutrals-50'],
   '--gray': themeProps['--neutrals-600'],
@@ -38,3 +38,5 @@ export const myTheme = buildLegacyTheme({
   '--main-navigation-color--inverted': themeProps['--neutrals-200'],
   '--focus-color': themeProps['--primary'],
 });
+
+export { myTheme, themeProps };

@@ -1,12 +1,12 @@
-import type { Config } from 'tailwindcss';
-import defaultTheme from 'tailwindcss/defaultTheme';
+import { type Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
-const config: Config = {
+const config = {
   content: ['./src/**/*.{astro,ts,tsx}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Inter', ...fontFamily.sans],
       },
       colors: {
         primary: '#6919FF',
@@ -30,15 +30,15 @@ const config: Config = {
         0.5: '0.5px',
       },
       minHeight: {
-        // @ts-ignore - required fallback for incremental adoption
+        /* @ts-ignore - required fallback for incremental adoption */
         screen: ['100vh', '100svh'],
       },
       maxHeight: {
-        // @ts-ignore - required fallback for incremental adoption
+        /* @ts-ignore - required fallback for incremental adoption */
         screen: ['100vh', '100svh'],
       },
       height: {
-        // @ts-ignore - required fallback for incremental adoption
+        /* @ts-ignore - required fallback for incremental adoption */
         screen: ['100vh', '100svh'],
       },
       backgroundImage: {
@@ -171,6 +171,6 @@ const config: Config = {
     },
   },
   plugins: [require('@tailwindcss/typography')],
-};
+} satisfies Config;
 
 export default config;

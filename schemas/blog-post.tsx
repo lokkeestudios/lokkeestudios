@@ -24,7 +24,7 @@ function CodeDecorator({ children }: CodeDecoratorProps) {
   );
 }
 
-export default defineType({
+const blogPostSchema = defineType({
   name: 'blogPost',
   title: 'Blog Post',
   type: 'document',
@@ -150,3 +150,5 @@ export default defineType({
     },
   ],
 });
+
+export default blogPostSchema;

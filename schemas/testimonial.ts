@@ -1,7 +1,7 @@
 import { UsersIcon } from '@sanity/icons';
 import { defineField, defineType } from 'sanity';
 
-export default defineType({
+const testimonialSchema = defineType({
   name: 'testimonial',
   title: 'Testimonial',
   type: 'document',
@@ -61,3 +61,5 @@ export default defineType({
     },
   },
 });
+
+export default testimonialSchema;

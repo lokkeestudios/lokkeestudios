@@ -14,7 +14,7 @@ if (!projectId || !dataset)
     'Both projectId and dataset must be set in order for the Sanity admin dashboard to properly function',
   );
 
-export default defineConfig({
+const config = defineConfig({
   name: 'lokkeestudios',
   title: 'LOKKEE STUDIOS',
   projectId,
@@ -25,3 +25,5 @@ export default defineConfig({
   },
   theme: myTheme,
 });
+
+export default config;
