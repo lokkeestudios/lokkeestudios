@@ -1,10 +1,8 @@
 ---
 import ContactForm from '@/components/contact-form';
 import Container from '@/components/ui/container';
-import Icons from '@/components/ui/icons';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
-import siteConfig from '@/config/site';
 ---
 
 <Section
@@ -15,8 +13,8 @@ import siteConfig from '@/config/site';
   class="lg:after:hidden"
 >
   <Container>
-    <div class="flex h-full w-full flex-col lg:flex-row">
-      <div class="basis-full lg:self-center">
+    <div class="flex h-full w-full flex-col lg:relative lg:flex-row">
+      <div class="basis-full self-start lg:sticky lg:top-24">
         <Caption id="contact-heading">Contact</Caption>
         <Heading>Got a problem to solve?</Heading>
         <Paragraph>
@@ -24,17 +22,6 @@ import siteConfig from '@/config/site';
             class="text-neutrals-100">your dream website</span
           >.
         </Paragraph>
-        <a
-          class="mt-8 inline-flex items-center text-neutrals-50 transition-colors hover:text-primary focus-visible:text-primary"
-          href={`mailto:${siteConfig.email}`}
-          title="Hit me up"
-        >
-          <Icons.Envelope
-            aria-hidden="true"
-            className="mr-2 inline h-5 w-5"
-          />
-          {siteConfig.email}</a
-        >
       </div>
       <div class="mt-10 basis-full lg:ml-10 lg:mt-0 xl:ml-20">
         <ContactForm client:visible />

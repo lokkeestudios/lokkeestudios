@@ -6,6 +6,7 @@ import Input from '@/components/ui/input';
 import Label from '@/components/ui/label';
 import Textarea from '@/components/ui/textarea';
 import { Caption, Heading } from '@/components/ui/typography';
+import siteConfig from '@/config/site';
 import sendEmail from '@/lib/send-email';
 import contactSubmissionSchema from '@/lib/validations/contact-submission';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -101,27 +102,40 @@ function ContactForm() {
             </p>
           )}
         </div>
-        <Button
-          type="submit"
-          className="disabled:cursor-progress"
-        >
-          Hit me up
-          <div
-            aria-hidden
-            className="ml-2 inline opacity-70 group-enabled:hidden"
+        <div className="flex items-center justify-between">
+          <a
+            className="inline-flex items-center text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
+            href={`mailto:${siteConfig.email}`}
+            title="Hit me up"
           >
-            <Ring
-              size={20}
-              lineWeight={5}
-              speed={2}
-              color="currentColor"
+            <Icons.Envelope
+              aria-hidden="true"
+              className="mr-2 inline h-5 w-5"
             />
-          </div>
-          <Icons.Rocket
-            aria-hidden
-            className="ml-2 inline h-5 w-5 group-disabled:hidden"
-          />
-        </Button>
+            {siteConfig.email}
+          </a>
+          <Button
+            type="submit"
+            className="disabled:cursor-progress"
+          >
+            Hit me up
+            <div
+              aria-hidden
+              className="ml-2 inline opacity-70 group-enabled:hidden"
+            >
+              <Ring
+                size={20}
+                lineWeight={5}
+                speed={2}
+                color="currentColor"
+              />
+            </div>
+            <Icons.Rocket
+              aria-hidden
+              className="ml-2 inline h-5 w-5 group-disabled:hidden"
+            />
+          </Button>
+        </div>
         {errors.root && (
           <p className="mt-2 flex items-center text-sm text-error">
             <Icons.Warning

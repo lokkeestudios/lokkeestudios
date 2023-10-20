@@ -1,10 +1,5 @@
 import { cn } from '@/lib/utils';
-import {
-  forwardRef,
-  type ElementRef,
-  type LabelHTMLAttributes,
-  type ReactNode,
-} from 'react';
+import { forwardRef, type ElementRef, type LabelHTMLAttributes, type ReactNode } from 'react';
 
 type LabelHTMLElement = ElementRef<'label'>;
 
@@ -18,7 +13,7 @@ const Label = forwardRef<LabelHTMLElement, LabelProps>(
       ref={ref}
       htmlFor={htmlFor}
       className={cn(
-        'mb-2 block text-sm uppercase leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+        'mb-2 block text-sm uppercase leading-none text-neutrals-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
         className,
       )}
       {...props}
