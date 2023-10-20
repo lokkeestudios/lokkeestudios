@@ -127,7 +127,7 @@ const config = {
           '0%': {
             transform: 'translateX(-100%) skewX(-16deg)',
           },
-          '10%, 100%': {
+          '15%, 100%': {
             transform: 'translateX(100%) skewX(-16deg)',
           },
         },
@@ -138,7 +138,7 @@ const config = {
         marquee: 'marquee 35s linear infinite',
         'dialog-overlay-show': 'dialog-overlay-show 0.5s',
         'dialog-overlay-hide': 'dialog-overlay-hide 0.5s',
-        'shiny-badge-slide': 'shiny-badge-slide 8s infinite',
+        'shiny-badge-slide': 'shiny-badge-slide 6s infinite',
       },
       typography: ({ theme }: { theme: (key: string) => string }) => ({
         primary: {
