@@ -59,7 +59,7 @@ function StarsBackground() {
         retina_detect: true,
       }}
       init={initializeParticleEngine}
-      className="mask-inline-faded pointer-events-none absolute inset-0"
+      className="mask-inline-faded pointer-events-none absolute inset-0 -z-10"
     />
   );
 }
