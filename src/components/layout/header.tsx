@@ -74,6 +74,7 @@ function Header() {
               <a
                 href="/"
                 title="Navigate home"
+                className="hover:animate-jiggle"
               >
                 <Image
                   metadata={lokkeestudiosTypeLogoImage}
