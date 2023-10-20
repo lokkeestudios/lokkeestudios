@@ -1,4 +1,4 @@
-import lokkeestudiosTypeLogoImage from '@/assets/images/logos/lokkeestudios-type.svg';
+import lokkeestudiosWordmarkLogoImage from '@/assets/images/logos/lokkeestudios-wordmark.svg';
 import MobileNavigation from '@/components/layout/mobile-navigation';
 import Button from '@/components/ui/button';
 import Container from '@/components/ui/container';
@@ -77,7 +77,7 @@ function Header() {
                 className="hover:animate-jiggle"
               >
                 <Image
-                  metadata={lokkeestudiosTypeLogoImage}
+                  metadata={lokkeestudiosWordmarkLogoImage}
                   alt="LOKKEE STUDIOS"
                   className="h-3.5 md:h-4"
                 />
