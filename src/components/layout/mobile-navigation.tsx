@@ -43,30 +43,30 @@ function MobileNavigation({ isOpen, onClose, links }: MobileNavigationProps) {
           exit={{
             opacity: 0,
           }}
-          transition={{ duration: 0.5 }}
-          className={cn(
-            'border-b-0.5 border-neutrals-600 bg-neutrals-900/90 py-4 backdrop-blur-md supports-[backdrop-filter]:bg-neutrals-900/50 lg:hidden',
-          )}
+          transition={{ duration: 0.1 }}
+          className={cn('border-neutrals-600 py-4 lg:hidden')}
         >
           <Container>
             <motion.nav
               aria-label="Primary"
-              initial={{ y: 10 }}
+              initial={{ y: -10, rotateX: 25 }}
               animate={{
                 y: 0,
+                rotateX: 0,
               }}
               exit={{
-                y: 10,
+                y: -10,
+                rotateX: 25,
               }}
-              className="flex flex-col justify-center"
+              className="flex flex-col justify-center divide-y-0.5 divide-neutrals-600"
             >
               {links.map((link, index) => (
                 <a
                   key={index}
                   href={link.href}
-                  onClick={() => onClose()}
+                  onClick={onClose}
                   className={cn(
-                    'py-1 uppercase text-neutrals-200 transition-[letter-spacing,color]',
+                    'py-4 pl-2 uppercase text-neutrals-200 transition-[letter-spacing,color]',
                     'hover:tracking-wider hover:text-neutrals-50 focus-visible:tracking-wider focus-visible:text-neutrals-50',
                   )}
                 >
@@ -97,7 +97,7 @@ function MobileNavigationOverlay({ isOpen, onClose }: MobileNavigationOverlayPro
           transition={{ duration: 0.5 }}
           aria-hidden
           onClick={onClose}
-          className="fixed inset-0 -z-10 bg-neutrals-900/40 backdrop-blur-sm lg:hidden"
+          className="fixed inset-0 -z-10 bg-neutrals-900/90 backdrop-blur-sm lg:hidden"
         />
       )}
     </AnimatePresence>
@@ -108,9 +108,14 @@ MobileNavigation.Overlay = MobileNavigationOverlay;
 interface MobileNavigationToggleProps {
   isOpen: boolean;
   onIsOpenChange: (isOpen: boolean) => void;
+  isBackgroundShown: boolean;
 }
 
-function MobileNavigationToggle({ isOpen, onIsOpenChange }: MobileNavigationToggleProps) {
+function MobileNavigationToggle({
+  isOpen,
+  onIsOpenChange,
+  isBackgroundShown,
+}: MobileNavigationToggleProps) {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -167,6 +172,10 @@ function MobileNavigationToggle({ isOpen, onIsOpenChange }: MobileNavigationTogg
       aria-expanded={isOpen}
       onClick={() => onIsOpenChange(!isOpen)}
       aria-label="Toggle navigation menu"
+      className={cn(
+        'rounded-full px-3 py-1.5 transition-colors duration-500 md:px-4 md:py-2',
+        isBackgroundShown && 'bg-neutrals-900/40',
+      )}
     >
       <span className="sr-only">Menu</span>
       <motion.svg
@@ -175,7 +184,7 @@ function MobileNavigationToggle({ isOpen, onIsOpenChange }: MobileNavigationTogg
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden
-        className="h-7 w-7"
+        className="md:6-4 h-6 w-6 divide-y-0.5 divide-neutrals-800 md:h-7"
       >
         <motion.path
           fillRule="evenodd"
