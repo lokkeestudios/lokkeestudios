@@ -1,10 +1,10 @@
 import partytown from '@astrojs/partytown';
+import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/serverless';
 import sanity from '@sanity/astro';
-import compress from 'astro-compress';
 import robotsTxt from 'astro-robots-txt';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
@@ -21,6 +21,7 @@ if (!PUBLIC_SANITY_PROJECT_ID || !PUBLIC_SANITY_DATASET)
     'Both environment variables PUBLIC_SANITY_PROJECT_ID and PUBLIC_SANITY_DATASET must be set in order for the site to properly function',
   );
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://lokkeestudios.com',
   output: 'hybrid',
@@ -48,9 +49,9 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
+    prefetch({ intentSelector: 'a[href^="/"]' }),
     serviceWorker(),
     sitemap(),
     robotsTxt(),
-    compress(),
   ],
 });
