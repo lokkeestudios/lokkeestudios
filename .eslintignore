@@ -17,11 +17,11 @@ pnpm-debug.log*
 .env
 .env.production
 
-# macOS-specific files
+# macos
 .DS_Store
 
-# Vercel-specific files
+# vercel
 .vercel
 
-# React Email previews
+# react-email previews
 .react-email
