@@ -42,7 +42,7 @@ function Header() {
       <Container>
         <div
           className={cn(
-            'mx-4 mt-4 rounded-full border-0.5 p-2 transition-colors duration-500',
+            'mt-4 rounded-full border-0.5 p-2 transition-colors duration-500',
             isBackgroundShown
               ? 'border-neutrals-600 bg-neutrals-900/90 backdrop-blur-md supports-[backdrop-filter]:bg-neutrals-900/50'
               : 'border-transparent bg-transparent',

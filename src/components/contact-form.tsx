@@ -102,9 +102,9 @@ function ContactForm() {
             </p>
           )}
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center sm:justify-between">
           <a
-            className="inline-flex items-center text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
+            className="inline-flex items-center text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50 max-sm:hidden"
             href={`mailto:${siteConfig.email}`}
             title="Hit me up"
           >
@@ -116,7 +116,7 @@ function ContactForm() {
           </a>
           <Button
             type="submit"
-            className="disabled:cursor-progress"
+            className="disabled:cursor-progress max-sm:w-full"
           >
             Hit me up
             <div

@@ -45,7 +45,9 @@ const { blogPost } = Astro.props;
         {blogPost.excerpt}
       </Paragraph>
     </div>
-    <div class="mb-16 w-full overflow-hidden rounded-md border-0.5 border-neutrals-50/40">
+    <div
+      class="mb-16 w-screen overflow-hidden border-y-0.5 border-neutrals-50/40 max-md:relative max-md:left-1/2 max-md:-translate-x-1/2 md:w-full md:rounded-md md:border-0.5"
+    >
       <SanityImage
         image={blogPost.poster}
         isAboveTheFold

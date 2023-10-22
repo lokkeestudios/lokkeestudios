@@ -117,7 +117,7 @@ function ServicesGrid() {
         <div>
           <ServiceCard.Title>Shopify theme</ServiceCard.Title>
           <ServiceCard.Price>
-            €1000<span className="text-xl font-normal">*</span>
+            €2.300<span className="text-xl font-normal">*</span>
           </ServiceCard.Price>
           <ServiceCard.Description>
             Level up your Shopify store&apos;s web presence with a custom-made theme, adapted to
