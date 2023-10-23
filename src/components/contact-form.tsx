@@ -102,9 +102,9 @@ function ContactForm() {
             </p>
           )}
         </div>
-        <div className="flex items-center sm:justify-between">
+        <div className="flex max-sm:flex-col-reverse max-sm:gap-y-6 sm:items-center sm:justify-between">
           <a
-            className="inline-flex items-center text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50 max-sm:hidden"
+            className="inline-flex items-center text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
             href={`mailto:${siteConfig.email}`}
             title="Hit me up"
           >
