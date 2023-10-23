@@ -6,6 +6,7 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 import { SEO } from 'astro-seo';
 import { ViewTransitions } from 'astro:transitions';
+import { Head as InternalHead } from 'astro-capo';
 
 export interface Props {
   title?: string | undefined;
@@ -17,34 +18,43 @@ const { title, description, openGraphImage } = Astro.props;
 
 const { pathname } = Astro.url;
 
-const { url, description: siteDescription } = siteConfig;
-const cannonical = `${url}${pathname}`;
+const {
+  PUBLIC_GOOGLE_SITE_VERIFICATION,
+  PUBLIC_GOOGLE_ANALYTICS_ID,
+  DEV: isDevMode,
+} = import.meta.env;
 
-const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
-  import.meta.env;
+const {
+  name: siteName,
+  slogan: siteSlogan,
+  description: siteDescription,
+  url: siteUrl,
+} = siteConfig;
+
+const cannonical = `${siteUrl}${pathname}`;
 ---
 
-<head>
+<InternalHead>
   <SEO
     charset="UTF-8"
     title={title!}
-    titleTemplate="%s | LOKKEE STUDIOS"
-    titleDefault="LOKKEE STUDIOS | Web Development and Design Studio from the Future"
+    titleTemplate={`%s | ${siteName}`}
+    titleDefault={`${siteName} | ${siteSlogan}`}
     description={description ?? siteDescription}
     canonical={cannonical}
     openGraph={{
       basic: {
-        title: title ?? 'Web Development and Design Studio from the Future',
+        title: title ?? siteSlogan,
         type: 'website',
         url: cannonical,
         image: openGraphImage?.src ?? '/banner-1200x630.png',
       },
       optional: {
         description: description ?? siteDescription,
-        siteName: 'LOKKEE STUDIOS',
+        siteName,
       },
       image: {
-        alt: openGraphImage?.alt ?? 'LOKKEE STUDIOS',
+        alt: openGraphImage?.alt ?? siteName,
         width: 1200,
         height: 630,
       },
@@ -54,17 +64,14 @@ const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
     }}
     extend={{
       link: [
-        { rel: 'icon', href: '/favicon.ico' },
-        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
-        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-        { rel: 'manifest', href: '/site.webmanifest' },
+        // Makes sure a favicon is also shown in dev mode, before its generation. Ensures there is no duplicate link in the production build
+        ...(isDevMode ? [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }] : []),
         { rel: 'sitemap', href: '/sitemap-index.xml' },
       ],
       meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'viewport', content: 'width=device-width' },
         { name: 'robots', content: 'index' },
         { name: 'generator', content: Astro.generator },
-        { name: 'theme-color', content: '#6919FF' },
         {
           name: 'google-site-verification',
           content: PUBLIC_GOOGLE_SITE_VERIFICATION,
@@ -79,12 +86,12 @@ const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID } =
     src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GOOGLE_ANALYTICS_ID}`}
   ></script>
   <script type="text/partytown" define:vars={{ PUBLIC_GOOGLE_ANALYTICS_ID }}>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
 
-    gtag('config', PUBLIC_GOOGLE_ANALYTICS_ID);
+  gtag('config', PUBLIC_GOOGLE_ANALYTICS_ID);
   </script>
-</head>
+</InternalHead>

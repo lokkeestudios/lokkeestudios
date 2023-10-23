@@ -70,7 +70,7 @@ const socials = [
     icon: Icons.Behance,
   },
   {
-    label: 'Join Discord server',
+    label: 'Join Discord community',
     href: siteConfig.links.discord,
     icon: Icons.Discord,
   },
