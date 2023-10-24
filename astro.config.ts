@@ -26,7 +26,7 @@ if (!PUBLIC_SANITY_PROJECT_ID || !PUBLIC_SANITY_DATASET)
 const { name, backgroundColor, themeColor, url } = siteConfig;
 
 // https://astro.build/config
-export default defineConfig({
+const config = defineConfig({
   site: url,
   output: 'hybrid',
   adapter: vercel({
@@ -74,3 +74,5 @@ export default defineConfig({
     }),
   ],
 });
+
+export default config;
