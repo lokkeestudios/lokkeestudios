@@ -211,7 +211,7 @@ devDependencies:
     specifier: ^4.6.0
     version: 4.6.0(eslint@8.51.0)
   husky:
-    specifier: ^8.0.3
+    specifier: ^8.0.0
     version: 8.0.3
   postcss-import:
     specifier: ^15.1.0

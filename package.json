@@ -4,8 +4,6 @@
     "name": "LOKKEE STUDIOS",
     "url": "https://lokkeestudios.com"
   },
-  "description": "Web Programming and Design Studio from the Future",
-  "homepage": "https://lokkeestudios.com",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,7 +11,9 @@
     "build": "astro check && tsc --noEmit && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "email": "email dev --dir src/emails"
+    "email": "email dev --dir src/emails",
+    "commitlint": "commitlint --edit",
+    "prepare": "husky install"
   },
   "packageManager": "^pnpm@8.9.2",
   "dependencies": {
@@ -88,7 +88,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "postcss-import": "^15.1.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
