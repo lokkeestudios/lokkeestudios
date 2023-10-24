@@ -8,28 +8,17 @@
   }
 
   .mask-radial-faded {
-    mask-image: radial-gradient(
-      circle at center center,
-      black,
-      transparent 75%
-    );
+    mask-image: radial-gradient(circle at center center, black, transparent 75%);
   }
 
   .mask-inline-faded {
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 25%,
-      black 75%,
-      transparent
-    );
+    mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
   }
 
   .bg-shiny-frame {
     background:
       linear-gradient(rgb(6, 9, 24), rgb(6, 9, 24)) padding-box padding-box,
-      linear-gradient(42deg, rgb(6, 9, 24) 45%, rgba(255, 254, 249, 0.9))
-        border-box border-box;
+      linear-gradient(42deg, rgb(6, 9, 24) 45%, rgba(255, 254, 249, 0.9)) border-box border-box;
   }
 
   .play-state-paused {
@@ -55,8 +44,8 @@
 
 code[class*='language-'],
 pre[class*='language-'] {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
   font-size: 0.875rem;
   line-height: 1.4;
   direction: ltr;
@@ -178,7 +167,7 @@ pre > code.highlight {
 
 .refractor-marker {
   background: rgba(105, 25, 255, 0.2);
-  border-left: 2px solid #6919ff;
+  border-inline-start: 2px solid #6919ff;
   width: calc(100% + 1.5rem);
   position: relative;
   left: -0.75rem;

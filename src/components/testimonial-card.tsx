@@ -7,13 +7,13 @@ interface TestimonialCardProps {
 
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
-    <li className="relative mr-8 h-full w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 md:p-8">
+    <li className="relative me-8 h-full w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 md:p-8">
       <article className="flex h-full flex-col justify-between gap-y-2">
-        <blockquote className="max-w-prose leading-relaxed text-neutrals-200 max-lg:text-sm">
+        <blockquote className="max-w-prose text-sm/relaxed text-neutrals-200 lg:text-base/relaxed">
           &quot;{testimonial.quote}&quot;
         </blockquote>
         <div className="mt-6 flex items-center">
-          <div className="mr-3 flex">
+          <div className="me-3 flex">
             <div className="bg-shiny-frame h-10 w-10 overflow-hidden rounded-full border border-transparent">
               <SanityImage
                 image={testimonial.logo ?? testimonial.avatar}
@@ -25,7 +25,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
               />
             </div>
             {testimonial.logo && (
-              <div className="bg-shiny-frame -ml-3 h-10 w-10 overflow-hidden rounded-full border border-transparent">
+              <div className="bg-shiny-frame -ms-3 h-10 w-10 overflow-hidden rounded-full border border-transparent">
                 <SanityImage
                   image={testimonial.avatar}
                   sizes="160px"

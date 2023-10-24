@@ -58,7 +58,7 @@ function Header() {
             </div>
             <nav
               aria-label="Primary"
-              className="ml-4 hidden items-center gap-x-6 lg:flex"
+              className="ms-4 hidden items-center gap-x-6 lg:flex"
             >
               {links.map((link) => (
                 <a

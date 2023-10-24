@@ -31,7 +31,7 @@ function Image({ _key, _type, asset, alt }: ImageProps) {
       <Dialog.Portal>
         <Dialog.Overlay className="pointer-events-auto fixed inset-0 z-20 cursor-zoom-out bg-neutrals-900/60 backdrop-blur-sm data-[state='closed']:animate-dialog-overlay-hide data-[state='open']:animate-dialog-overlay-show supports-[backdrop-filter]:bg-neutrals-900/20" />
         <Dialog.Content>
-          <div className="pointer-events-none fixed left-1/2 top-1/2 z-20 w-[80vmin] -translate-x-1/2 -translate-y-1/2">
+          <div className="pointer-events-none fixed start-1/2 top-1/2 z-20 w-[80vmin] -translate-x-1/2 -translate-y-1/2">
             <motion.div
               layoutId={image.asset._id}
               className="overflow-hidden rounded-md border-0.5 border-neutrals-50/40"

@@ -165,7 +165,7 @@ function ServicesGrid() {
           xmlns="http://www.w3.org/2000/svg"
           strokeWidth={0.05}
           aria-hidden
-          className="pointer-events-none absolute right-0 top-1/2 h-64 w-64 -translate-y-1/2 max-md:left-1/2 max-md:-translate-x-1/2 max-md:opacity-80 md:h-72 md:w-72"
+          className="pointer-events-none absolute end-0 top-1/2 h-64 w-64 -translate-y-1/2 max-md:start-1/2 max-md:-translate-x-1/2 max-md:opacity-80 md:h-72 md:w-72"
         >
           <defs>
             <filter id="glow">

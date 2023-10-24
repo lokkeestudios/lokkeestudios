@@ -18,24 +18,22 @@ const blogPosts = await getBlogPosts();
   <Container>
     <div class="mx-auto max-w-5xl">
       <div
-        class="relative sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]"
+        class="relative sm:ms-[calc(2rem+1px)] md:ms-[calc(3.5rem+1px)] lg:ms-[max(calc(14.5rem+1px),calc(100%-48rem))]"
       >
         <Caption id="blog-heading">Blog</Caption>
-        <h1
-          class="mb-4 text-3xl font-bold leading-tight text-neutrals-50 md:text-5xl md:leading-tight"
-        >
+        <h1 class="mb-4 text-3xl/tight font-bold text-neutrals-50 md:text-5xl/tight">
           Join our creative voyage
         </h1>
-        <p class="mb-11 max-w-prose leading-relaxed text-neutrals-300 lg:mb-14">
+        <p class="mb-11 max-w-prose text-base/relaxed text-neutrals-300 lg:mb-14">
           Ride along for the <span class="text-neutrals-100">latest updates</span> and an exclusive
           look at what&apos;s brewing at LOKKEE STUDIOS lab.
         </p>
       </div>
       <div
-        class="relative sm:ml-[calc(2rem+1px)] md:ml-[calc(3.5rem+1px)] lg:ml-[max(calc(14.5rem+1px),calc(100%-48rem))]"
+        class="relative sm:ms-[calc(2rem+1px)] md:ms-[calc(3.5rem+1px)] lg:ms-[max(calc(14.5rem+1px),calc(100%-48rem))]"
       >
         <div
-          class="absolute bottom-0 right-full top-3 mr-7 hidden w-[0.5px] bg-neutrals-700 sm:block md:mr-[3.25rem]"
+          class="absolute bottom-0 end-full top-3 me-7 hidden w-[0.5px] bg-neutrals-700 sm:block md:me-[3.25rem]"
         >
         </div>
         <div class="flex flex-col gap-y-12">
@@ -49,7 +47,7 @@ const blogPosts = await getBlogPosts();
                 >
                   <div
                     class={cn(
-                      'pointer-events-none absolute right-full top-2 mr-6 h-[calc(100%-0.5rem)] md:mr-12',
+                      'pointer-events-none absolute end-full top-2 me-6 h-[calc(100%-0.5rem)] md:me-12',
                       i === blogPosts.length - 1 &&
                         'via-neutrals-transparent bg-gradient-to-t from-neutrals-900 via-transparent to-transparent',
                     )}
@@ -64,16 +62,16 @@ const blogPosts = await getBlogPosts();
                         className="w-full"
                       />
                     </div>
-                    <h2 class="mb-4 text-xl font-bold leading-tight text-neutrals-50 md:text-3xl md:leading-tight">
+                    <h2 class="mb-4 text-xl/tight font-bold text-neutrals-50 md:text-3xl/tight">
                       {blogPost.title}
                     </h2>
-                    <p class="leading-relaxed text-neutrals-300 max-md:text-sm">
+                    <p class="text-sm/relaxed text-neutrals-300 md:text-base/relaxed">
                       {blogPost.excerpt}
                     </p>
-                    <p class="pointer-events-none absolute left-0 top-0 h-full lg:left-auto lg:right-full lg:mr-[calc(6.5rem+1px)]">
+                    <p class="pointer-events-none absolute top-0 h-full max-lg:start-0 lg:end-full lg:me-[calc(6.5rem+1px)]">
                       <time
                         datetime="2023-08-07T10:30:00.000Z"
-                        class="pointer-events-auto whitespace-nowrap text-sm leading-6 text-neutrals-300 lg:sticky lg:top-24"
+                        class="pointer-events-auto whitespace-nowrap text-sm/none text-neutrals-300 lg:sticky lg:top-24"
                       >
                         {formatDateWithDay(blogPost.date)}
                       </time>

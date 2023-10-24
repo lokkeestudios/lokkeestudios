@@ -61,7 +61,7 @@ function ContactForm() {
             <p className="mt-2 flex items-center text-sm text-error">
               <Icons.Warning
                 aria-hidden
-                className="mr-2 inline h-5 w-5"
+                className="me-2 inline h-5 w-5"
               />
               {errors.name.message}
             </p>
@@ -79,7 +79,7 @@ function ContactForm() {
             <p className="mt-2 flex items-center text-sm text-error">
               <Icons.Warning
                 aria-hidden
-                className="mr-2 inline h-5 w-5"
+                className="me-2 inline h-5 w-5"
               />
               {errors.email.message}
             </p>
@@ -96,7 +96,7 @@ function ContactForm() {
             <p className="mt-2 flex items-center text-sm text-error">
               <Icons.Warning
                 aria-hidden
-                className="mr-2 inline h-5 w-5"
+                className="me-2 inline h-5 w-5"
               />
               {errors.message.message}
             </p>
@@ -110,7 +110,7 @@ function ContactForm() {
           >
             <Icons.Envelope
               aria-hidden="true"
-              className="mr-2 inline h-5 w-5"
+              className="me-2 inline h-5 w-5"
             />
             {siteConfig.email}
           </a>
@@ -121,7 +121,7 @@ function ContactForm() {
             Hit me up
             <div
               aria-hidden
-              className="ml-2 inline opacity-70 group-enabled:hidden"
+              className="ms-2 inline opacity-70 group-enabled:hidden"
             >
               <Ring
                 size={20}
@@ -132,7 +132,7 @@ function ContactForm() {
             </div>
             <Icons.Rocket
               aria-hidden
-              className="ml-2 inline h-5 w-5 group-disabled:hidden"
+              className="ms-2 inline h-5 w-5 group-disabled:hidden"
             />
           </Button>
         </div>
@@ -140,7 +140,7 @@ function ContactForm() {
           <p className="mt-2 flex items-center text-sm text-error">
             <Icons.Warning
               aria-hidden
-              className="mr-2 inline h-5 w-5"
+              className="me-2 inline h-5 w-5"
             />
             {errors.root.message}
           </p>

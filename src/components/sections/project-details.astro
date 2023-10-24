@@ -27,11 +27,11 @@ const { project } = Astro.props;
     <div class="relative z-10 flex h-full flex-col justify-end">
       <a
         href="/#work"
-        class="group absolute left-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
+        class="group absolute start-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
       >
         <Icons.ArrowLongLeft
           aria-hidden
-          className="mr-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
+          className="me-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
         /> Back to projects
       </a>
       <time
@@ -46,7 +46,7 @@ const { project } = Astro.props;
       >
         {project.name}
       </h1>
-      <p class="mb-8 max-w-prose leading-relaxed text-neutrals-50/90 max-md:text-sm">
+      <p class="mb-8 max-w-prose text-sm/relaxed text-neutrals-50/90 md:text-base/relaxed">
         {project.description}
       </p>
       {
@@ -67,7 +67,7 @@ const { project } = Astro.props;
             >
               <Icons.Eye
                 aria-hidden
-                className="h-5 w-5 mr-2"
+                className="h-5 w-5 me-2"
               />{' '}
               View Project
             </Button>
@@ -85,7 +85,7 @@ const { project } = Astro.props;
             >
               <Icons.GitHub
                 aria-hidden
-                className="h-5 w-5 mr-2"
+                className="h-5 w-5 me-2"
               />{' '}
               View Source Code
             </Button>

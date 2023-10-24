@@ -13,7 +13,7 @@ const Label = forwardRef<LabelHTMLElement, LabelProps>(
       ref={ref}
       htmlFor={htmlFor}
       className={cn(
-        'mb-2 block text-sm uppercase leading-none text-neutrals-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
+        'mb-2 block text-sm/none uppercase text-neutrals-300 peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
         className,
       )}
       {...props}
