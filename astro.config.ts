@@ -37,6 +37,9 @@ const config = defineConfig({
       enabled: true,
     },
   }),
+  experimental: {
+    devOverlay: true,
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false,

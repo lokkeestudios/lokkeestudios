@@ -11,7 +11,7 @@ const config = {
     {
       files: ['**/*.astro'],
       options: {
-        parser: 'astro',
+        parser: 'apstro',
       },
     },
   ],

@@ -18,7 +18,8 @@ const projects = await getProjects();
 
 const otherSimilarProjects = shuffleArray(projects)
   .filter((currentProject) => currentProject._id !== project._id)
-  .filter((currentProject) => currentProject.tags?.some((tag) => project.tags?.includes(tag)));
+  .filter((currentProject) => currentProject.tags?.some((tag) => project.tags?.includes(tag)))
+  .slice(0, 2);
 ---
 
 <Section
@@ -32,9 +33,9 @@ const otherSimilarProjects = shuffleArray(projects)
       <Heading>Discover new worlds</Heading>
       <div class="mt-4 flex gap-4 max-md:flex-col">
         {
-          otherSimilarProjects
-            .slice(0, 2)
-            .map((otherSimilarProject) => <ProjectCard project={otherSimilarProject} />)
+          otherSimilarProjects.map((otherSimilarProject) => (
+            <ProjectCard project={otherSimilarProject} />
+          ))
         }
       </div>
       <a
