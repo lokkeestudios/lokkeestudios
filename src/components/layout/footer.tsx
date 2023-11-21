@@ -89,6 +89,7 @@ function Footer() {
           <a
             href="/"
             title="Navigate home"
+            data-astro-prefetch
           >
             <Image
               metadata={lokkeestudiosLogoImage}
@@ -106,6 +107,7 @@ function Footer() {
             <a
               key={link.href}
               href={link.href}
+              data-astro-prefetch
               className="text-sm uppercase text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
             >
               {link.label}
@@ -123,6 +125,7 @@ function Footer() {
                 key={link.href}
                 className="text-xs uppercase text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
                 href={link.href}
+                data-astro-prefetch
               >
                 {link.label}
               </a>

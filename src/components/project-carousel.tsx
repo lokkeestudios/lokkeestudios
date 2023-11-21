@@ -86,6 +86,7 @@ function ProjectSlide({
       <a
         href={`/project/${project.slug.current}`}
         aria-label={isDisabled ? undefined : `Show ${project.name} project details`}
+        data-astro-prefetch
         aria-disabled={isDisabled}
         tabIndex={isDisabled ? -1 : 0}
         className={cx(

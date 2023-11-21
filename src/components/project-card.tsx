@@ -10,6 +10,8 @@ function ProjectCard({ project }: ProjectCardProps) {
   return (
     <a
       href={`/project/${project.slug.current}`}
+      aria-label={`Show ${project.name} project details`}
+      data-astro-prefetch
       className="relative flex-1 flex-grow rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 transition-[transform,filter] duration-300 focus-visible:-translate-y-2 focus-visible:scale-[1.01] focus-visible:drop-shadow-lg md:p-8 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:drop-shadow-lg"
     >
       <SanityImage

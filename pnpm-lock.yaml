@@ -4,9 +4,6 @@ dependencies:
   '@astrojs/partytown':
     specifier: ^2.0.2
     version: 2.0.2
-  '@astrojs/prefetch':
-    specifier: ^0.4.1
-    version: 0.4.1
   '@astrojs/react':
     specifier: ^3.0.5
     version: 3.0.5(@types/react-dom@18.2.16)(@types/react@18.2.38)(react-dom@18.2.0)(react@18.2.0)(vite@5.0.0)
@@ -357,12 +354,6 @@ packages:
     dependencies:
       '@builder.io/partytown': 0.8.1
       mrmime: 1.0.1
-    dev: false
-
-  /@astrojs/prefetch@0.4.1:
-    resolution: {integrity: sha512-bpC875BqeIuWVgqhi4X814ftzzbKocaLkiZczaj8k5J2SRpueIGkww3XmD+yY/Ekkm9j30aS3neVO6wSm4IJNA==}
-    dependencies:
-      throttles: 1.0.1
     dev: false
 
   /@astrojs/prism@3.0.0:
@@ -12802,11 +12793,6 @@ packages:
     resolution: {integrity: sha512-RVZSIV5IG10Hk3enotrhvz0T9em6cyHBLkH/YAZuKqd8hRkKhSfCGIcP2KUY0EPxndzANBmNllzWPwak+bheSw==}
     dependencies:
       any-promise: 1.3.0
-    dev: false
-
-  /throttles@1.0.1:
-    resolution: {integrity: sha512-fab7Xg+zELr9KOv4fkaBoe/b3L0GMGLd0IBSCn16GoE/Qx6/OfCr1eGNyEcDU2pUA79qQfZ8kPQWlRuok4YwTw==}
-    engines: {node: '>=6'}
     dev: false
 
   /through2@2.0.5:

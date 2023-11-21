@@ -64,6 +64,7 @@ function Header() {
                 <a
                   key={link.href}
                   href={link.href}
+                  data-astro-prefetch
                   className="relative flex h-full items-center p-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-[12.25%] after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-100 focus-visible:after:-scale-x-100"
                 >
                   {link.label}
@@ -74,6 +75,7 @@ function Header() {
               <a
                 href="/"
                 title="Navigate home"
+                data-astro-prefetch
                 className="hover:animate-jiggle"
               >
                 <Image

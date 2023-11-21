@@ -1,5 +1,4 @@
 import partytown from '@astrojs/partytown';
-import prefetch from '@astrojs/prefetch';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -37,6 +36,7 @@ const config = defineConfig({
       enabled: true,
     },
   }),
+  prefetch: true,
   experimental: {
     devOverlay: true,
   },
@@ -56,7 +56,6 @@ const config = defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
-    prefetch({ intentSelector: 'a[href^="/"]' }),
     serviceWorker(),
     sitemap(),
     robotsTxt(),
