@@ -1,16 +1,13 @@
 import siteConfig from '@/config/site';
 import ContactSubmissionConfirmationEmail from '@/emails/contact-submission-confirmation';
+import resend from '@/lib/resend';
 import contactSubmissionSchema from '@/lib/validations/contact-submission';
-import { env } from '@/t3-env';
 import type { APIRoute } from 'astro';
-import { Resend } from 'resend';
 
 export const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
 const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
-
-const resend = new Resend(env.RESEND_API_KEY);
 
 const POST: APIRoute = async ({ request }) => {
   const data = await request.json();
