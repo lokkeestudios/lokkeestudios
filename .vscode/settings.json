@@ -3,10 +3,6 @@
   "editor.formatOnType": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.tslint": true,
-    "source.organizeImports": true
-  },
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
