@@ -1,10 +1,8 @@
 ---
 import siteConfig from '@/config/site';
 import '@/styles/globals.css';
-import '@fontsource/inter/400.css';
-import '@fontsource/inter/500.css';
-import '@fontsource/inter/700.css';
 import { SEO } from 'astro-seo';
+import { AstroFont } from 'astro-font';
 import { ViewTransitions } from 'astro:transitions';
 import { Head as InternalHead } from 'astro-capo';
 import { env } from '@/t3-env';
@@ -32,6 +30,19 @@ const cannonical = `${siteUrl}${pathname}`;
 ---
 
 <InternalHead>
+  <AstroFont
+    config={[
+      {
+        src: [],
+        name: 'Inter',
+        preload: false,
+        display: 'swap',
+        fallback: 'sans-serif',
+        cssVariable: 'font-inter',
+        googleFontsURL: '//fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap',
+      },
+    ]}
+  />
   <SEO
     charset="UTF-8"
     title={title!}
