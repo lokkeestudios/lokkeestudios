@@ -29,12 +29,26 @@
     scrollbar-width: none;
 
     &::-webkit-scrollbar {
-      display: none;
+      @apply hidden;
     }
   }
 
-  .scrollbar-thin {
-    scrollbar-width: thin;
+  .scrollbar-stylized {
+    &::-webkit-scrollbar {
+      @apply w-1.5;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      @apply rounded-full bg-neutrals-50/[0.15];
+    }
+
+    &::-webkit-scrollbar-track {
+      @apply bg-inherit;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      @apply bg-neutrals-50/20;
+    }
   }
 }
 
