@@ -38,7 +38,7 @@ const config = defineConfig({
   }),
   prefetch: true,
   experimental: {
-    devOverlay: true,
+    clientPrerender: true,
   },
   integrations: [
     tailwind({
