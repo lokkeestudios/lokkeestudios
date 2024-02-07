@@ -184,7 +184,7 @@ function MobileNavigationToggle({
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden
-        className="md:6-4 h-6 w-6 divide-y-0.5 divide-neutrals-800 md:h-7"
+        className="md:6-4 size-6 divide-y-0.5 divide-neutrals-800 md:h-7"
       >
         <motion.path
           fillRule="evenodd"

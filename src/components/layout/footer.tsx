@@ -142,7 +142,7 @@ function Footer() {
                 >
                   <Icon
                     aria-hidden
-                    className="h-7 w-7"
+                    className="size-7"
                   />
                 </a>
               </li>

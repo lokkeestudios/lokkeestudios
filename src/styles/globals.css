@@ -39,7 +39,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      @apply rounded-full bg-neutrals-50/[0.15];
+      @apply rounded-full bg-neutrals-50/15;
     }
 
     &::-webkit-scrollbar-track {

@@ -176,7 +176,7 @@ function ProjectFiltersSelect({ selectedFiltersState }: ProjectFiltersSelectProp
               .join(', ')}
             <Icons.ChevronDown
               aria-hidden
-              className="h-4 w-4 transition-transform duration-200 group-data-[headlessui-state='open']:-scale-y-100"
+              className="size-4 transition-transform duration-200 group-data-[headlessui-state='open']:-scale-y-100"
             />
           </Listbox.Button>
           <AnimatePresence>
@@ -332,8 +332,8 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
   );
 
   const filteredProjects = projects.filter((project) => {
-    const isAnyProjectTagFiltered = selectedFilters.some(
-      (selectedFilter) => project.tags?.includes(selectedFilter),
+    const isAnyProjectTagFiltered = selectedFilters.some((selectedFilter) =>
+      project.tags?.includes(selectedFilter),
     );
     if (isAnyProjectTagFiltered) return true;
 
@@ -366,7 +366,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
             disabled={currentSlide === 0}
             className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-md backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
           >
-            <Icons.ChevronLeft className="h-5 w-5" />
+            <Icons.ChevronLeft className="size-5" />
           </button>
           <button
             type="button"
@@ -376,7 +376,7 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
             disabled={currentSlide === projects.length - 1}
             className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-md backdrop-blur-md disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/50"
           >
-            <Icons.ChevronRight className="h-5 w-5" />
+            <Icons.ChevronRight className="size-5" />
           </button>
         </div>
         <div className="h-[calc(clamp(18rem,42vmin,26rem)*3/2)] touch-none select-none overflow-hidden">

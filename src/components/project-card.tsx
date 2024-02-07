@@ -29,7 +29,9 @@ function ProjectCard({ project }: ProjectCardProps) {
         {project.tags && (
           <p className="mb-2 text-xs text-neutrals-300">{project.tags.join(', ')}</p>
         )}
-        <p className="max-w-prose text-base/relaxed text-neutrals-200">{project.description}</p>
+        <p className="max-w-prose text-pretty text-base/relaxed text-neutrals-200">
+          {project.description}
+        </p>
       </article>
     </a>
   );

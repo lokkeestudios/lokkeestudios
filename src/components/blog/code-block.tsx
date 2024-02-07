@@ -67,7 +67,7 @@ function CodeBlock({ filename, language, code, highlightedLines }: CodeBlockProp
     <div className="not-prose overflow-hidden rounded-md border-0.5 border-neutrals-600 bg-neutrals-900">
       <div className="flex items-center justify-between border-b-0.5 border-neutrals-600 p-3">
         <p className="flex items-center gap-x-2 text-neutrals-200">
-          <FileTypeIcon className="h-5 w-5" />
+          <FileTypeIcon className="size-5" />
           <span className="text-sm">{filename}</span>
         </p>
         <CopyToClipboard
@@ -76,19 +76,19 @@ function CodeBlock({ filename, language, code, highlightedLines }: CodeBlockProp
         >
           <button
             type="button"
-            className="relative h-5 w-5 text-neutrals-200 transition-colors duration-300 hover:text-neutrals-100 focus-visible:text-neutrals-100"
+            className="relative size-5 text-neutrals-200 transition-colors duration-300 hover:text-neutrals-100 focus-visible:text-neutrals-100"
           >
             <motion.div
               animate={clipboardControls}
               className="absolute inset-0"
             >
-              <Icons.ClipboardDocument className="h-5 w-5" />
+              <Icons.ClipboardDocument className="size-5" />
             </motion.div>
             <motion.div
               animate={clipboardCheckControls}
               className="scale-0.5 absolute inset-0 text-success opacity-0"
             >
-              <Icons.ClipboardDocumentCheck className="h-5 w-5" />
+              <Icons.ClipboardDocumentCheck className="size-5" />
             </motion.div>
           </button>
         </CopyToClipboard>

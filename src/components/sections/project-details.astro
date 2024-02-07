@@ -31,7 +31,7 @@ const { project } = Astro.props;
       >
         <Icons.ArrowLongLeft
           aria-hidden
-          className="me-2 h-6 w-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
+          className="me-2 size-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
         /> Back to projects
       </a>
       <time
@@ -42,11 +42,13 @@ const { project } = Astro.props;
       </time>
       <h1
         id="project-details-heading"
-        class="mb-4 text-4xl font-bold lg:text-6xl"
+        class="mb-4 text-balance text-4xl font-bold lg:text-6xl"
       >
         {project.name}
       </h1>
-      <p class="mb-8 max-w-prose text-sm/relaxed text-neutrals-50/90 md:text-base/relaxed">
+      <p
+        class="mb-8 max-w-prose text-pretty text-sm/relaxed text-neutrals-50/90 md:text-base/relaxed"
+      >
         {project.description}
       </p>
       {
@@ -67,7 +69,7 @@ const { project } = Astro.props;
             >
               <Icons.Eye
                 aria-hidden
-                className="h-5 w-5 me-2"
+                className="size-5 me-2"
               />{' '}
               View Project
             </Button>
@@ -85,7 +87,7 @@ const { project } = Astro.props;
             >
               <Icons.GitHub
                 aria-hidden
-                className="h-5 w-5 me-2"
+                className="size-5 me-2"
               />{' '}
               View Source Code
             </Button>
@@ -99,7 +101,7 @@ const { project } = Astro.props;
           href="#project-gallery"
           class="absolute inset-x-0 bottom-[3vh] z-10 mx-auto w-fit animate-bounce"
         >
-          <Icons.ArrowDownCircle className="h-9 w-9" />
+          <Icons.ArrowDownCircle className="size-9" />
         </a>
       )
     }

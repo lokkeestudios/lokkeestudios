@@ -65,7 +65,7 @@ interface ComponentWithChildrenProps {
 }
 
 function Title({ children }: ComponentWithChildrenProps) {
-  return <h3 className="mb-2 font-medium text-primary md:text-lg">{children}</h3>;
+  return <h3 className="mb-2 text-balance font-medium text-primary md:text-lg">{children}</h3>;
 }
 ServiceCard.Title = Title;
 
@@ -75,7 +75,7 @@ function Price({ children }: ComponentWithChildrenProps) {
 ServiceCard.Price = Price;
 
 function Description({ children }: ComponentWithChildrenProps) {
-  return <p className="mb-8 max-w-prose text-sm text-neutrals-300">{children}</p>;
+  return <p className="mb-8 max-w-prose text-pretty text-sm text-neutrals-300">{children}</p>;
 }
 ServiceCard.Description = Description;
 
@@ -97,7 +97,7 @@ function BenefitListItem({ children }: ComponentWithChildrenProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        className="h-5 w-5 text-neutrals-50"
+        className="size-5 text-neutrals-50"
       >
         <path
           d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"
@@ -122,7 +122,7 @@ function AddonListItem({ children }: ComponentWithChildrenProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        className="h-5 w-5 text-neutrals-50"
+        className="size-5 text-neutrals-50"
       >
         <path
           d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"
@@ -143,7 +143,7 @@ function CallToAction() {
   return (
     <p className="flex items-center justify-end">
       Secure your package now{' '}
-      <Icons.ArrowLongRight className="ms-2 h-5 w-5 transition duration-300 group-hover/card:translate-x-1/4 group-focus-visible/card:translate-x-1/4" />
+      <Icons.ArrowLongRight className="ms-2 size-5 transition duration-300 group-hover/card:translate-x-1/4 group-focus-visible/card:translate-x-1/4" />
     </p>
   );
 }
