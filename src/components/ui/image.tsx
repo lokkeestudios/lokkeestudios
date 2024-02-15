@@ -6,7 +6,7 @@ type ImageHTMLElement = ElementRef<'img'>;
 interface ImageProps extends HTMLAttributes<ImageHTMLElement> {
   metadata: ImageMetadata;
   alt: string;
-  isAboveTheFold?: 'lazy' | 'eager' | undefined;
+  isAboveTheFold?: boolean | undefined;
 }
 
 const Image = forwardRef<ImageHTMLElement, ImageProps>(

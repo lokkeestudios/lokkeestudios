@@ -39,7 +39,7 @@
     "@types/react": "^18.2.54",
     "@types/react-dom": "^18.2.18",
     "@uiball/loaders": "^1.3.1",
-    "astro": "^4.3.2",
+    "astro": "^4.4.0",
     "astro-capo": "^0.0.1",
     "astro-portabletext": "^0.9.6",
     "astro-robots-txt": "^1.0.0",

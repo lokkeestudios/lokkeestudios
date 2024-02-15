@@ -136,6 +136,7 @@ function Footer() {
                 <a
                   href={href}
                   title={label}
+                  aria-label={label}
                   rel="noreferrer"
                   target="_blank"
                   className="text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"

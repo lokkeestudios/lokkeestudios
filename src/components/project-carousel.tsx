@@ -88,7 +88,6 @@ function ProjectSlide({
         aria-label={isDisabled ? undefined : `Show ${project.name} project details`}
         data-astro-prefetch
         aria-disabled={isDisabled}
-        tabIndex={isDisabled ? -1 : 0}
         className={cx(
           'group block h-full w-full rounded-md border border-neutrals-50/30',
           (isDisabled || isDragging) && 'pointer-events-none',

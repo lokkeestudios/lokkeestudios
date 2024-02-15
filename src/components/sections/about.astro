@@ -1,8 +1,8 @@
 ---
 import lokkeeImage from '@/assets/images/lokkee.webp';
 import TypingHeading from '@/components/typing-heading';
-import Image from '@/components/ui/image';
 import { Caption, Paragraph } from '@/components/ui/typography';
+import { Image } from 'astro:assets';
 
 const headings = [
   'Developer',
@@ -23,9 +23,9 @@ const headings = [
     class="flex min-h-screen w-full items-center max-lg:flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,min(91.666667%/2,40rem))_minmax(0,min(91.666667%/2,40rem))_minmax(0,1fr)] xl:grid-cols-[minmax(0,1fr)_minmax(0,min(80%/2,40rem))_minmax(0,min(80%/2,40rem))_minmax(0,1fr)]"
   >
     <Image
-      metadata={lokkeeImage}
+      src={lokkeeImage}
       alt="Myself, Kilian, at the harbour, with a view of the sea and a vision in mind"
-      className="h-full max-h-screen bg-neutrals-800 object-cover object-center lg:col-start-1 lg:col-end-3"
+      class="h-full max-h-screen bg-neutrals-800 object-cover object-center lg:col-start-1 lg:col-end-3"
     />
     <div class="w-full py-28 max-lg:mx-auto max-lg:w-11/12 max-lg:max-w-7xl lg:ps-10 xl:ps-20">
       <Caption id="about-heading">About</Caption>

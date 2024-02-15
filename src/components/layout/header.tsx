@@ -76,6 +76,7 @@ function Header() {
               >
                 <Image
                   metadata={lokkeestudiosWordmarkLogoImage}
+                  isAboveTheFold
                   alt="LOKKEE STUDIOS"
                   className="h-3.5 md:h-4"
                 />

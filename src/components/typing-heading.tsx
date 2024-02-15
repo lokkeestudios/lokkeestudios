@@ -81,7 +81,7 @@ function TypingHeading({ headings }: TypingHeadingProps) {
     <div className="mb-4 text-4xl font-bold text-neutrals-50 md:text-5xl">
       <h2 className="sr-only">{currentHeading}</h2>
       <AnimatePresence mode="wait">
-        <motion.h2
+        <motion.p
           aria-hidden
           key={currentHeading}
           variants={headingVariants}
@@ -98,7 +98,7 @@ function TypingHeading({ headings }: TypingHeadingProps) {
               {char}
             </motion.span>
           ))}
-        </motion.h2>
+        </motion.p>
       </AnimatePresence>
     </div>
   );
