@@ -63,6 +63,7 @@
     "resend": "^3.1.0",
     "sanity": "^3.27.1",
     "sanity-plugin-vercel-deploy": "^3.3.4",
+    "sharp": "^0.33.2",
     "slugify": "^1.6.6",
     "styled-components": "^6.1.8",
     "tailwind-merge": "^2.2.1",
