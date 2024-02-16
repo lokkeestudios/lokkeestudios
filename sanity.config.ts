@@ -2,9 +2,10 @@ import { codeInput } from '@sanity/code-input';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
-import { deskTool } from 'sanity/desk';
+import { structureTool } from 'sanity/structure';
 import { sanityClient } from 'sanity:client';
-import { schemaTypes } from './schemas';
+import { Logo } from './desk/logo';
+import { schemas } from './schemas';
 import { myTheme } from './theme';
 
 const { projectId, dataset } = sanityClient.config();
@@ -19,9 +20,16 @@ const config = defineConfig({
   title: 'LOKKEE STUDIOS',
   projectId,
   dataset,
-  plugins: [deskTool(), visionTool(), vercelDeployTool(), codeInput()],
+  icon: Logo,
+  plugins: [structureTool(), vercelDeployTool(), visionTool(), codeInput()],
+  tools: (prev) => {
+    if (import.meta.env.DEV) {
+      return prev;
+    }
+    return prev.filter((tool) => tool.name !== 'vision');
+  },
   schema: {
-    types: schemaTypes,
+    types: schemas,
   },
   theme: myTheme,
 });

@@ -2,6 +2,6 @@ import blogPost from './blog-post';
 import project from './project';
 import testimonial from './testimonial';
 
-const schemaTypes = [project, blogPost, testimonial];
+const schemas = [project, blogPost, testimonial];
 
-export { schemaTypes };
+export { schemas };

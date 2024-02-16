@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import vercel from '@astrojs/vercel/serverless';
-import sanity from '@sanity/astro';
+import { sanityIntegration } from '@sanity/astro';
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
@@ -45,7 +45,7 @@ const config = defineConfig({
       applyBaseStyles: false,
     }),
     react(),
-    sanity({
+    sanityIntegration({
       projectId: PUBLIC_SANITY_PROJECT_ID,
       dataset: PUBLIC_SANITY_DATASET,
       useCdn: false,

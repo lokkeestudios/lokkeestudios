@@ -86,8 +86,7 @@ function generateImageSizeProps({
 
   const { width: originalWidth, aspectRatio } = image.asset.metadata.dimensions;
 
-  const computedMaxWidth =
-    maxWidth && maxWidth <= originalWidth ? maxWidth : originalWidth;
+  const computedMaxWidth = maxWidth && maxWidth <= originalWidth ? maxWidth : originalWidth;
 
   const retinaSizes = Array.from(
     new Set([
@@ -107,19 +106,14 @@ function generateImageSizeProps({
       const nextSize = unfilteredSizes[index + 1];
       if (!nextSize) return true;
 
-      const isSizeDifferenceSufficient =
-        nextSize / size > MIN_WIDTH_STEP_PERCENTAGE + 1;
+      const isSizeDifferenceSufficient = nextSize / size > MIN_WIDTH_STEP_PERCENTAGE + 1;
       return isSizeDifferenceSufficient;
     });
 
   return {
     src: builder.width(computedMaxWidth).url(),
-    srcSet: retinaSizes
-      .map((size) => `${builder.width(size).url()} ${size}w`)
-      .join(', '),
-    sizes:
-      sizes ??
-      `(max-width: ${computedMaxWidth}px) 100vw, ${computedMaxWidth}px`,
+    srcSet: retinaSizes.map((size) => `${builder.width(size).url()} ${size}w`).join(', '),
+    sizes: sizes ?? `(max-width: ${computedMaxWidth}px) 100vw, ${computedMaxWidth}px`,
     width: width ?? computedMaxWidth,
     height: height ?? computedMaxWidth / aspectRatio,
   };
