@@ -2,9 +2,10 @@
 import Button from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import Icons from '@/components/ui/icons';
-import SanityImage from '@/components/ui/sanity-image';
 import type { Project } from '@/lib/sanity/get-projects';
+import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { formatDate } from '@/lib/utils';
+import { Image } from 'astro:assets';
 
 export interface Props {
   project: Project;
@@ -17,16 +18,24 @@ const { project } = Astro.props;
   aria-labelledby="project-details-heading"
   class="relative flex min-h-screen w-full bg-neutrals-900 py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-t after:from-neutrals-900 after:to-neutrals-900/60"
 >
-  <SanityImage
-    image={project.poster}
-    isAboveTheFold
-    sizes="(max-width: 1024px) 200vw, 100vw"
-    className="absolute inset-0 h-full w-full object-cover object-center"
+  <Image
+    alt={project.poster.alt}
+    loading="eager"
+    decoding="sync"
+    class="absolute inset-0 h-full w-full object-cover object-center"
+    style={{
+      backgroundColor: project.poster.asset.metadata.palette.dominant.background,
+    }}
+    {...generateImageSizeProps({
+      image: project.poster,
+      sizes: '(max-width: 1024px) 200vw, 100vw',
+    })}
   />
   <Container>
     <div class="relative z-10 flex h-full flex-col justify-end">
       <a
         href="/#work"
+        data-astro-prefetch
         class="group absolute start-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
       >
         <Icons.ArrowLongLeft
@@ -99,6 +108,8 @@ const { project } = Astro.props;
       project.images.length > 0 && (
         <a
           href="#project-gallery"
+          title="See project breakdown"
+          aria-label="See project breakdown"
           class="absolute inset-x-0 bottom-[3vh] z-10 mx-auto w-fit animate-bounce"
         >
           <Icons.ArrowDownCircle className="size-9" />
@@ -116,10 +127,13 @@ const { project } = Astro.props;
     >
       <div class="mx-auto max-w-7xl">
         {project.images.map((image) => (
-          <SanityImage
-            image={image}
-            maxWidth={1280}
-            className="w-full"
+          <Image
+            alt={image.alt}
+            class="w-full"
+            style={{
+              backgroundColor: image.asset.metadata.palette.dominant.background,
+            }}
+            {...generateImageSizeProps({ image, maxWidth: 1280 })}
           />
         ))}
       </div>

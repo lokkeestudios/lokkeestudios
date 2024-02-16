@@ -30,6 +30,10 @@ const primaryLinks = [
     label: 'Source code',
     href: '/#source-code',
   },
+  {
+    label: 'Blog',
+    href: '/blog',
+  },
 ] as const;
 
 const secondaryLinks = [
