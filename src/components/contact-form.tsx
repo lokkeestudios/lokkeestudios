@@ -27,6 +27,7 @@ function ContactForm() {
   });
 
   async function onSubmit(contactData: FormData) {
+    console.log(contactData);
     await sendEmail(contactData);
   }
 
@@ -40,11 +41,7 @@ function ContactForm() {
       />
     </div>
   ) : (
-    <form
-      onSubmit={() => {
-        void handleSubmit(onSubmit);
-      }}
-    >
+    <form onSubmit={handleSubmit(onSubmit)}>
       <fieldset
         disabled={isSubmitting}
         className="group flex flex-col gap-y-6"
