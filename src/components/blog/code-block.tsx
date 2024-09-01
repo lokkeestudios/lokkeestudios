@@ -3,16 +3,16 @@ import type { TypedObject } from 'astro-portabletext/types';
 import { motion, useAnimationControls } from 'framer-motion';
 import { useCallback, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import Refractor from 'react-refractor';
+import { Refractor, registerLanguage, type Marker } from 'react-refractor';
 import css from 'refractor/lang/css';
 import json from 'refractor/lang/json';
 import tsx from 'refractor/lang/tsx';
 import ts from 'refractor/lang/typescript';
 
-Refractor.registerLanguage(ts);
-Refractor.registerLanguage(tsx);
-Refractor.registerLanguage(css);
-Refractor.registerLanguage(json);
+registerLanguage(ts);
+registerLanguage(tsx);
+registerLanguage(css);
+registerLanguage(json);
 
 type FileTypeIcons = {
   [fileTypeKey: string]: ({ ...props }: IconProps) => JSX.Element;
@@ -29,7 +29,7 @@ interface CodeBlockProps extends TypedObject {
   filename: string;
   language: string;
   code: string;
-  highlightedLines: (number | Refractor.Marker)[];
+  highlightedLines: (number | Marker)[];
 }
 
 function CodeBlock({ filename, language, code, highlightedLines }: CodeBlockProps) {

@@ -79,10 +79,11 @@ const cannonical = `${siteUrl}${pathname}`;
   <ViewTransitions />
   <script
     type="text/partytown"
+    is:inline
     async
     src={`https://www.googletagmanager.com/gtag/js?id=${PUBLIC_GOOGLE_ANALYTICS_ID}`}
   ></script>
-  <script type="text/partytown" define:vars={{ PUBLIC_GOOGLE_ANALYTICS_ID }}>
+  <script type="text/partytown" is:inline define:vars={{ PUBLIC_GOOGLE_ANALYTICS_ID }}>
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
