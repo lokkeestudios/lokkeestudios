@@ -10,7 +10,7 @@ interface ContainerProps extends HTMLAttributes<ContainerHTMLElement> {
 const Container = forwardRef<ContainerHTMLElement, ContainerProps>(
   ({ children, className, ...props }, ref) => (
     <div
-      className={cn('mx-auto w-11/12 max-w-7xl 2xl:w-4/5', className)}
+      className={cn('mx-auto w-11/12 max-w-screen-2xl 2xl:w-4/5', className)}
       ref={ref}
       {...props}
     >
