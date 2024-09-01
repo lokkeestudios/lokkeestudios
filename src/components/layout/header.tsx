@@ -40,7 +40,7 @@ function Header() {
           className={cn(
             'mt-4 rounded-full border-0.5 p-2 transition-colors duration-500',
             isBackgroundShown
-              ? 'border-neutrals-600 bg-neutrals-900/90 backdrop-blur-md supports-[backdrop-filter]:bg-neutrals-900/50'
+              ? 'border-neutrals-600 bg-neutrals-900/90 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm supports-[backdrop-filter]:bg-neutrals-900/60'
               : 'border-transparent bg-transparent',
           )}
         >
