@@ -96,14 +96,14 @@ function ProjectSlide({
       >
         <article
           className={cn(
-            'absolute inset-0 flex flex-col items-center justify-center gap-y-2 bg-neutrals-900/50 p-4 text-center opacity-0 backdrop-blur-sm transition-opacity duration-300',
+            'absolute inset-0 flex flex-col items-center justify-center gap-y-2 bg-neutrals-900/60 p-4 text-center transition-opacity duration-300 md:opacity-0 md:backdrop-blur-sm',
             !isDisabled && 'group-hover:opacity-100 group-focus-visible:opacity-100',
           )}
         >
           <div className="overflow-hidden">
             <time
               dateTime={project.date}
-              className="block translate-y-full text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0"
+              className="block text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 md:translate-y-full"
             >
               {formatDate(project.date)}
             </time>
@@ -111,14 +111,14 @@ function ProjectSlide({
           <div className="overflow-hidden">
             <h3
               id={`project-item-${project._id}-heading`}
-              className="translate-y-full text-2xl font-bold transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 lg:text-4xl"
+              className="text-2xl font-bold transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 md:translate-y-full lg:text-4xl"
             >
               {project.name}
             </h3>
           </div>
           {project.tags && (
             <div className="overflow-hidden">
-              <p className="translate-y-full text-xs text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 lg:text-sm">
+              <p className="text-xs text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 md:translate-y-full lg:text-sm">
                 {project.tags.join(', ')}
               </p>
             </div>
