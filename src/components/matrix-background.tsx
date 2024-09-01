@@ -1,9 +1,10 @@
+import siteConfig from '@/config/site';
 import { useReducedMotion } from 'framer-motion';
 import { useCallback, useEffect, useRef, type ElementRef } from 'react';
 
-const TEXT_COLOR = '#6919FF';
-const BACKGROUND_COLOR = '#060918';
-const ALPHA_BACKGROUND_COLOR = '#06091818';
+const TEXT_COLOR = siteConfig.themeColor;
+const BACKGROUND_COLOR = siteConfig.backgroundColor;
+const ALPHA_BACKGROUND_COLOR = `${siteConfig.backgroundColor}20`;
 const FONT = '15pt monospace';
 const TEXT_COLUMN_WIDTH = 20;
 const FPS = 20;
