@@ -10,11 +10,8 @@ const siteConfig = {
   links: {
     sourcecode: 'https://sourcecode.lokkeestudios.com',
     github: 'https://github.lokkeestudios.com',
-    discord: 'https://discord.lokkeestudios.com',
     instagram: 'https://instagram.lokkeestudios.com',
     linkedin: 'https://linkedin.lokkeestudios.com',
-    dribbble: 'https://dribbble.lokkeestudios.com',
-    behance: 'https://behance.lokkeestudios.com',
   },
 } as const;
 

@@ -59,21 +59,6 @@ const socials = [
     href: siteConfig.links.linkedin,
     icon: Icons.LinkedIn,
   },
-  {
-    label: 'View Dribbble profile',
-    href: siteConfig.links.dribbble,
-    icon: Icons.Dribbble,
-  },
-  {
-    label: 'View Behance profile',
-    href: siteConfig.links.behance,
-    icon: Icons.Behance,
-  },
-  {
-    label: 'Join Discord community',
-    href: siteConfig.links.discord,
-    icon: Icons.Discord,
-  },
 ] as const;
 
 function Footer() {
@@ -82,7 +67,7 @@ function Footer() {
   return (
     <footer
       aria-label="Primary"
-      className="relative z-10 w-full border-t-0.5 border-neutrals-600  bg-neutrals-900 py-3"
+      className="relative z-10 w-full border-t-0.5 border-neutrals-600 bg-neutrals-900 py-3"
     >
       <Container>
         <div className="flex justify-center py-12">
