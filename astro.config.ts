@@ -9,7 +9,7 @@ import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
 import serviceWorker from 'astrojs-service-worker';
 import { loadEnv } from 'vite';
-import siteConfig from './src/config/site';
+import { siteConfig } from './src/config/site';
 
 const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
   import.meta.env.MODE,
