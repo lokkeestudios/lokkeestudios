@@ -1,4 +1,4 @@
-import Icons, { type IconProps } from '@/components/ui/icons';
+import { Icons, type IconProps } from '@/components/ui/icons';
 import type { TypedObject } from 'astro-portabletext/types';
 import { motion, useAnimationControls } from 'framer-motion';
 import { useCallback, useState } from 'react';
@@ -110,5 +110,4 @@ function CodeBlock({ filename, language, code, highlightedLines }: CodeBlockProp
   );
 }
 
-export default CodeBlock;
-export { type CodeBlockProps };
+export { CodeBlock, type CodeBlockProps };

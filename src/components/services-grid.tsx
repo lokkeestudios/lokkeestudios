@@ -1,4 +1,4 @@
-import ServiceCard from '@/components/service-card';
+import { ServiceCard } from '@/components/service-card';
 import { motion, useMotionValue } from 'framer-motion';
 import type { MouseEvent } from 'react';
 
@@ -238,4 +238,4 @@ function ServicesGrid() {
   );
 }
 
-export default ServicesGrid;
+export { ServicesGrid };

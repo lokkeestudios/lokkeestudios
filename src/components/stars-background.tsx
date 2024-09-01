@@ -64,4 +64,4 @@ function StarsBackground() {
   );
 }
 
-export default StarsBackground;
+export { StarsBackground };

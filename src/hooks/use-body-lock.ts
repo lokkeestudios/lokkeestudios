@@ -11,4 +11,4 @@ function useLockBody(isLocked: boolean) {
   }, [isLocked]);
 }
 
-export default useLockBody;
+export { useLockBody };

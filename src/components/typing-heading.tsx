@@ -1,4 +1,4 @@
-import usePreviousState from '@/hooks/use-previous-state';
+import { usePreviousState } from '@/hooks/use-previous-state';
 import { AnimatePresence, motion, type Variants } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -104,4 +104,4 @@ function TypingHeading({ headings }: TypingHeadingProps) {
   );
 }
 
-export default TypingHeading;
+export { TypingHeading };

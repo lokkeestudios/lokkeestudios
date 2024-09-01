@@ -1,8 +1,8 @@
 ---
-import Container from '@/components/ui/container';
-import SanityImage from '@/components/ui/sanity-image';
+import { Container } from '@/components/ui/container';
+import { SanityImage } from '@/components/ui/sanity-image';
 import { Caption } from '@/components/ui/typography';
-import getBlogPosts from '@/lib/sanity/get-blog-posts';
+import { getBlogPosts } from '@/lib/sanity/get-blog-posts';
 import { cn, formatDateWithDay } from '@/lib/utils';
 
 const blogPosts = await getBlogPosts();

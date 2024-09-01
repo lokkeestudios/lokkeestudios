@@ -1,4 +1,4 @@
-import SanityImage from '@/components/ui/sanity-image';
+import { SanityImage } from '@/components/ui/sanity-image';
 import type { Image as ImageType } from '@/lib/sanity/sanity-image';
 import * as Dialog from '@radix-ui/react-dialog';
 import type { TypedObject } from 'astro-portabletext/types';
@@ -48,5 +48,4 @@ function Image({ _key, _type, asset, alt }: ImageProps) {
   );
 }
 
-export default Image;
-export { type ImageProps };
+export { Image, type ImageProps };

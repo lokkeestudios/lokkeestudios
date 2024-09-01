@@ -14,4 +14,4 @@ function ScrollProgress() {
   );
 }
 
-export default ScrollProgress;
+export { ScrollProgress };

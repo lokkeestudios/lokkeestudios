@@ -1,5 +1,5 @@
-import Container from '@/components/ui/container';
-import useLockBody from '@/hooks/use-body-lock';
+import { Container } from '@/components/ui/container';
+import { useLockBody } from '@/hooks/use-body-lock';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion, useAnimate } from 'framer-motion';
 import { useEffect } from 'react';
@@ -210,4 +210,4 @@ function MobileNavigationToggle({
 }
 MobileNavigation.Toggle = MobileNavigationToggle;
 
-export default MobileNavigation;
+export { MobileNavigation };

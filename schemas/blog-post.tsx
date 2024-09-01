@@ -151,4 +151,4 @@ const blogPostSchema = defineType({
   ],
 });
 
-export default blogPostSchema;
+export { blogPostSchema };

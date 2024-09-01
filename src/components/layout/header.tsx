@@ -1,9 +1,9 @@
 import lokkeestudiosWordmarkLogoImage from '@/assets/images/logos/lokkeestudios-wordmark.svg';
-import MobileNavigation from '@/components/layout/mobile-navigation';
-import Button from '@/components/ui/button';
-import Container from '@/components/ui/container';
-import Image from '@/components/ui/image';
-import useScrollThreshold from '@/hooks/use-scroll-threshold';
+import { MobileNavigation } from '@/components/layout/mobile-navigation';
+import { Button } from '@/components/ui/button';
+import { Container } from '@/components/ui/container';
+import { Image } from '@/components/ui/image';
+import { useScrollThreshold } from '@/hooks/use-scroll-threshold';
 import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
@@ -109,4 +109,4 @@ function Header() {
   );
 }
 
-export default Header;
+export { Header };

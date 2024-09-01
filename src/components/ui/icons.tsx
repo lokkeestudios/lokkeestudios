@@ -189,5 +189,4 @@ const Icons = {
   ),
 } as const;
 
-export default Icons;
-export { type IconProps };
+export { Icons, type IconProps };

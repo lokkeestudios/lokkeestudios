@@ -1,4 +1,4 @@
-import Icons from '@/components/ui/icons';
+import { Icons } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';
 import {
   MotionValue,
@@ -40,7 +40,7 @@ function ServiceCard({
       href="/#contact"
       aria-label="Secure your package now"
       className={cn(
-        'group/card relative overflow-hidden rounded-md bg-gradient-to-r  from-neutrals-300/30 via-neutrals-300/80 via-15% to-neutrals-300/30 to-35% p-[0.5px] drop-shadow-lg',
+        'group/card relative overflow-hidden rounded-md bg-gradient-to-r from-neutrals-300/30 via-neutrals-300/80 via-15% to-neutrals-300/30 to-35% p-[0.5px] drop-shadow-lg',
         'before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(600px_circle_at_var(--mouse-position-x)_var(--mouse-position-y),rgba(255,254,249,0.06),transparent_60%)] before:opacity-0 before:transition before:duration-500 lg:hover:before:opacity-100',
         'after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:bg-[radial-gradient(400px_circle_at_var(--mouse-position-x)_var(--mouse-position-y),rgba(255,254,249,0.6),transparent_60%)] after:opacity-0 after:transition after:duration-500 lg:group-hover:after:opacity-100',
         className,
@@ -149,4 +149,4 @@ function CallToAction() {
 }
 ServiceCard.CallToAction = CallToAction;
 
-export default ServiceCard;
+export { ServiceCard };

@@ -20,4 +20,4 @@ const Container = forwardRef<ContainerHTMLElement, ContainerProps>(
 );
 Container.displayName = 'Container';
 
-export default Container;
+export { Container };

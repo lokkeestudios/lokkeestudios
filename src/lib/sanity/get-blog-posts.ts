@@ -35,5 +35,4 @@ function getBlogPosts() {
   return sanityClient.fetch<BlogPost[]>(query);
 }
 
-export default getBlogPosts;
-export type { BlogPost };
+export { getBlogPosts, type BlogPost };

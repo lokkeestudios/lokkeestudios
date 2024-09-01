@@ -1,7 +1,7 @@
-import siteConfig from '@/config/site';
-import ContactSubmissionConfirmationEmail from '@/emails/contact-submission-confirmation';
-import resend from '@/lib/resend';
-import contactSubmissionSchema from '@/lib/validations/contact-submission';
+import { siteConfig } from '@/config/site';
+import { ContactSubmissionConfirmationEmail } from '@/emails/contact-submission-confirmation';
+import { resend } from '@/lib/resend';
+import { contactSubmissionSchema } from '@/lib/validations/contact-submission';
 import type { APIRoute } from 'astro';
 
 export const prerender = false;

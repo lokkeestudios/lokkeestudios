@@ -40,4 +40,4 @@ const SanityImage = forwardRef<SanityImageHTMLElement, SanityImageProps>(
 );
 SanityImage.displayName = 'SanityImage';
 
-export default SanityImage;
+export { SanityImage };

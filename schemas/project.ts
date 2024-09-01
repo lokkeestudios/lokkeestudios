@@ -113,4 +113,4 @@ const projectSchema = defineType({
   ],
 });
 
-export default projectSchema;
+export { projectSchema };

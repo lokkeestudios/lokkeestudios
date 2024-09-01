@@ -1,10 +1,10 @@
 ---
-import MatrixBackground from '@/components/matrix-background';
-import Button from '@/components/ui/button';
-import Container from '@/components/ui/container';
+import { MatrixBackground } from '@/components/matrix-background';
+import { Button } from '@/components/ui/button';
+import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
-import siteConfig from '@/config/site';
+import { siteConfig } from '@/config/site';
 ---
 
 <Section
@@ -18,8 +18,8 @@ import siteConfig from '@/config/site';
       <Caption id="sourcecode-heading">Source code</Caption>
       <Heading>Behind the simulation</Heading>
       <Paragraph>
-        You take the <span class="text-neutrals-100">blue pill</span> - you keep scrolling, you
-        leave this site and believe whatever you want to believe. You take the <span
+        You take the <span class="text-neutrals-100">blue pill</span> - you keep scrolling, you leave
+        this site and believe whatever you want to believe. You take the <span
           class="text-neutrals-100">red pill</span
         > - you stay in wonderland, and I show you how deep the rabbit hole goes.
       </Paragraph>

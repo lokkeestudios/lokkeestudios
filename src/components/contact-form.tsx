@@ -1,14 +1,14 @@
 import contactSuccessImage from '@/assets/images/contact-success.svg';
-import Button from '@/components/ui/button';
-import Icons from '@/components/ui/icons';
-import Image from '@/components/ui/image';
-import Input from '@/components/ui/input';
-import Label from '@/components/ui/label';
-import Textarea from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
+import { Icons } from '@/components/ui/icons';
+import { Image } from '@/components/ui/image';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { Caption, Heading } from '@/components/ui/typography';
-import siteConfig from '@/config/site';
-import sendEmail from '@/lib/send-email';
-import contactSubmissionSchema from '@/lib/validations/contact-submission';
+import { siteConfig } from '@/config/site';
+import { sendEmail } from '@/lib/send-email';
+import { contactSubmissionSchema } from '@/lib/validations/contact-submission';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Ring } from '@uiball/loaders';
 import { useForm } from 'react-hook-form';
@@ -150,4 +150,4 @@ function ContactForm() {
   );
 }
 
-export default ContactForm;
+export { ContactForm };

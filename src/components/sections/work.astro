@@ -1,9 +1,9 @@
 ---
-import ProjectCarousel from '@/components/project-carousel';
-import Container from '@/components/ui/container';
+import { ProjectCarousel } from '@/components/project-carousel';
+import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading } from '@/components/ui/typography';
-import getProjects from '@/lib/sanity/get-projects';
+import { getProjects } from '@/lib/sanity/get-projects';
 
 const projects = await getProjects();
 ---

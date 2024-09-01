@@ -12,4 +12,4 @@ function usePreviousState<S>(initialState: S, state: S) {
   return previousState;
 }
 
-export default usePreviousState;
+export { usePreviousState };

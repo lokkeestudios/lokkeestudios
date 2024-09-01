@@ -62,4 +62,4 @@ const testimonialSchema = defineType({
   },
 });
 
-export default testimonialSchema;
+export { testimonialSchema };

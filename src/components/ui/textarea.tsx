@@ -17,4 +17,4 @@ const Textarea = forwardRef<TextareaHTMLElement, TextareaProps>(({ className, ..
 ));
 Textarea.displayName = 'Textarea';
 
-export default Textarea;
+export { Textarea };

@@ -1,7 +1,7 @@
-import blogPost from './blog-post';
-import project from './project';
-import testimonial from './testimonial';
+import { blogPostSchema } from './blog-post';
+import { projectSchema } from './project';
+import { testimonialSchema } from './testimonial';
 
-const schemas = [project, blogPost, testimonial];
+const schemas = [projectSchema, blogPostSchema, testimonialSchema];
 
 export { schemas };

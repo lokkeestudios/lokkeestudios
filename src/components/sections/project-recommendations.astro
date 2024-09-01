@@ -1,11 +1,10 @@
 ---
 import ProjectCard from '@/components/project-card.astro';
-import Container from '@/components/ui/container';
-import Icons from '@/components/ui/icons';
+import { Container } from '@/components/ui/container';
+import { Icons } from '@/components/ui/icons';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading } from '@/components/ui/typography';
-import type { Project } from '@/lib/sanity/get-projects';
-import getProjects from '@/lib/sanity/get-projects';
+import { type Project, getProjects } from '@/lib/sanity/get-projects';
 import { shuffleArray } from '@/lib/utils';
 
 export interface Props {

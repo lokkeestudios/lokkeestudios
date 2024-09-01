@@ -15,4 +15,4 @@ const siteConfig = {
   },
 } as const;
 
-export default siteConfig;
+export { siteConfig };

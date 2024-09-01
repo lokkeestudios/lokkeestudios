@@ -1,4 +1,4 @@
-import siteConfig from '@/config/site';
+import { siteConfig } from '@/config/site';
 import { useReducedMotion } from 'framer-motion';
 import { useCallback, useEffect, useRef, type ElementRef } from 'react';
 
@@ -97,4 +97,4 @@ function MatrixBackground() {
   );
 }
 
-export default MatrixBackground;
+export { MatrixBackground };

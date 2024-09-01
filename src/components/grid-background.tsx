@@ -50,4 +50,4 @@ function GridBackground() {
   );
 }
 
-export default GridBackground;
+export { GridBackground };

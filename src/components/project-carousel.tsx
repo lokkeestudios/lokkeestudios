@@ -1,5 +1,5 @@
-import Container from '@/components/ui/container';
-import Icons from '@/components/ui/icons';
+import { Container } from '@/components/ui/container';
+import { Icons } from '@/components/ui/icons';
 import type { Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { clamp, cn, formatDate } from '@/lib/utils';
@@ -426,4 +426,4 @@ function ProjectCarousel({ projects }: ProjectCarouselProps) {
   );
 }
 
-export default ProjectCarousel;
+export { ProjectCarousel };

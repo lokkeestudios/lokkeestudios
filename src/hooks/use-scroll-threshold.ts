@@ -22,4 +22,4 @@ function useScrollThreshold({ threshold = 10 }) {
   return { isScrollThresholdPassed };
 }
 
-export default useScrollThreshold;
+export { useScrollThreshold };

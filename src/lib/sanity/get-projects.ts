@@ -31,5 +31,4 @@ function getProjects() {
   return sanityClient.fetch<Project[]>(query);
 }
 
-export default getProjects;
-export type { Project };
+export { getProjects, type Project };

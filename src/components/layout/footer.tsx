@@ -1,9 +1,9 @@
 import lokkeestudiosLogoImage from '@/assets/images/logos/lokkeestudios.svg';
-import Container from '@/components/ui/container';
-import Icons from '@/components/ui/icons';
-import Image from '@/components/ui/image';
+import { Container } from '@/components/ui/container';
+import { Icons } from '@/components/ui/icons';
+import { Image } from '@/components/ui/image';
 import { useState } from 'react';
-import siteConfig from 'src/config/site';
+import { siteConfig } from 'src/config/site';
 
 const primaryLinks = [
   {
@@ -147,4 +147,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export { Footer };

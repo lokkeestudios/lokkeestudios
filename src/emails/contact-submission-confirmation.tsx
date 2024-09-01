@@ -1,4 +1,4 @@
-import type contactSubmissionSchema from '@/lib/validations/contact-submission';
+import { type contactSubmissionSchema } from '@/lib/validations/contact-submission';
 import {
   Body,
   Container,
@@ -138,4 +138,4 @@ function ContactSubmissionConfirmationEmail({
   );
 }
 
-export default ContactSubmissionConfirmationEmail;
+export { ContactSubmissionConfirmationEmail };

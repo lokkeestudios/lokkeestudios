@@ -18,4 +18,4 @@ const Input = forwardRef<InputHTMLElement, InputProps>(({ className, type, ...pr
 ));
 Input.displayName = 'Input';
 
-export default Input;
+export { Input };
