@@ -90,7 +90,7 @@ function Header() {
                 isGhost
                 className="rounded-full"
               >
-                Hit me up
+                Hit us up
               </Button>
             </div>
           </div>

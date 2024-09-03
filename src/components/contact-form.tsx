@@ -34,7 +34,7 @@ function ContactForm() {
   return isSubmitSuccessful ? (
     <div>
       <Caption>Successful</Caption>
-      <Heading>I will be in touch with you</Heading>
+      <Heading>We will be in touch with you</Heading>
       <Image
         metadata={contactSuccessImage}
         alt="A flying paper plane"
@@ -103,7 +103,7 @@ function ContactForm() {
           <a
             className="inline-flex items-center text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
             href={`mailto:${siteConfig.email}`}
-            title="Hit me up"
+            title="Hit us up"
           >
             <Icons.Envelope
               aria-hidden="true"
@@ -115,7 +115,7 @@ function ContactForm() {
             type="submit"
             className="disabled:cursor-progress max-sm:w-full"
           >
-            Hit me up
+            Hit us up
             <div
               aria-hidden
               className="ms-2 inline opacity-70 group-enabled:hidden"

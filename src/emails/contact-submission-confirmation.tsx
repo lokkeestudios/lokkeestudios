@@ -99,7 +99,7 @@ function ContactSubmissionConfirmationEmail({
               </Heading>
               <Text className="text-[14px]/[24px] text-neutrals-50">Hi{name && <> {name}</>},</Text>
               <Text className="text-[14px]/[24px] text-neutrals-50">
-                I will get back to you
+                We will get back to you
                 {email && (
                   <>
                     {' '}

@@ -25,7 +25,7 @@ function ServicesGrid() {
           <ServiceCard.Title>Web application</ServiceCard.Title>
           <ServiceCard.Price>Individual price</ServiceCard.Price>
           <ServiceCard.Description>
-            Whether you want a web app, paired with a marketing website, or a cross-platform app, I
+            Whether you want a web app, paired with a marketing website, or a cross-platform app, we
             got you covered.
             <br />
             Let&apos;s get together and discuss a high quality quote based on the scale of your
@@ -223,8 +223,8 @@ function ServicesGrid() {
           <ServiceCard.Title>Custom</ServiceCard.Title>
           <ServiceCard.Price>Individual price</ServiceCard.Price>
           <ServiceCard.Description>
-            Do you have a problem that does not fit into one of the packages? Don&apos;t hesitate to
-            ask ― I am your problem solver.
+            Do you have a problem that does not fit into one of our packages? Don&apos;t hesitate to
+            ask ― We are your problem solvers.
             <br />
             Let&apos;s get in touch and work out a personalized solution.
             <br />
