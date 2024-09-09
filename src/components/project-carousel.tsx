@@ -145,9 +145,9 @@ function ProjectSlide({
   );
 }
 
-const projectTagFilters = ['Website', 'Graphic design', 'Archive'] as const;
+const projectTagFilters = ['Website'] as const;
 type ProjectTagFilter = (typeof projectTagFilters)[number];
-const wildcardFilter: ProjectTagFilter = 'Archive';
+const wildcardFilter: ProjectTagFilter = 'Website';
 
 interface ProjectFiltersSelectProps {
   selectedFiltersState: [ProjectTagFilter[], Dispatch<SetStateAction<ProjectTagFilter[]>>];
@@ -157,62 +157,64 @@ function ProjectFiltersSelect({ selectedFiltersState }: ProjectFiltersSelectProp
   const [selectedFilters, setSelectedFilters] = selectedFiltersState;
 
   return (
-    <Listbox
-      as="div"
-      value={selectedFilters}
-      onChange={(newSelectedFilters) => {
-        if (newSelectedFilters.length !== 0) setSelectedFilters(newSelectedFilters);
-      }}
-      multiple
-      className="group relative min-w-[20rem]"
-    >
-      {({ open }) => (
-        <>
-          <ListboxButton className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-radial-highlight px-4 py-2 text-sm text-neutrals-100">
-            {selectedFilters
-              .sort((a, b) => projectTagFilters.indexOf(a) - projectTagFilters.indexOf(b))
-              .map((selectedFilter) => selectedFilter)
-              .join(', ')}
-            <Icons.ChevronDown
-              aria-hidden
-              className="size-4 transition-transform duration-200 group-data-[headlessui-state='open']:-scale-y-100"
-            />
-          </ListboxButton>
-          <AnimatePresence>
-            {open && (
-              <ListboxOptions
-                static
-                as={Fragment}
-              >
-                <motion.ul
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 px-2 py-2 drop-shadow-lg backdrop-blur-sm focus:outline-none supports-[backdrop-filter]:bg-neutrals-900/60"
+    projectTagFilters.length > 1 && (
+      <Listbox
+        as="div"
+        value={selectedFilters}
+        onChange={(newSelectedFilters) => {
+          if (newSelectedFilters.length !== 0) setSelectedFilters(newSelectedFilters);
+        }}
+        multiple
+        className="group relative min-w-[20rem]"
+      >
+        {({ open }) => (
+          <>
+            <ListboxButton className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-radial-highlight px-4 py-2 text-sm text-neutrals-100">
+              {selectedFilters
+                .sort((a, b) => projectTagFilters.indexOf(a) - projectTagFilters.indexOf(b))
+                .map((selectedFilter) => selectedFilter)
+                .join(', ')}
+              <Icons.ChevronDown
+                aria-hidden
+                className="size-4 transition-transform duration-200 group-data-[headlessui-state='open']:-scale-y-100"
+              />
+            </ListboxButton>
+            <AnimatePresence>
+              {open && (
+                <ListboxOptions
+                  static
+                  as={Fragment}
                 >
-                  {projectTagFilters.map((projectTagFilter) => (
-                    <ListboxOption
-                      key={projectTagFilter}
-                      as={Fragment}
-                      value={projectTagFilter}
-                    >
-                      <li
-                        className={cx(
-                          'cursor-pointer rounded-sm p-2 text-sm text-neutrals-300 transition-all data-[focus]:bg-primary data-[focus=false]:data-[selected]:text-neutrals-50 data-[focus]:text-neutrals-50',
-                        )}
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 px-2 py-2 drop-shadow-lg backdrop-blur-sm focus:outline-none supports-[backdrop-filter]:bg-neutrals-900/60"
+                  >
+                    {projectTagFilters.map((projectTagFilter) => (
+                      <ListboxOption
+                        key={projectTagFilter}
+                        as={Fragment}
+                        value={projectTagFilter}
                       >
-                        {projectTagFilter}
-                      </li>
-                    </ListboxOption>
-                  ))}
-                </motion.ul>
-              </ListboxOptions>
-            )}
-          </AnimatePresence>
-        </>
-      )}
-    </Listbox>
+                        <li
+                          className={cx(
+                            'cursor-pointer rounded-sm p-2 text-sm text-neutrals-300 transition-all data-[focus]:bg-primary data-[focus=false]:data-[selected]:text-neutrals-50 data-[focus]:text-neutrals-50',
+                          )}
+                        >
+                          {projectTagFilter}
+                        </li>
+                      </ListboxOption>
+                    ))}
+                  </motion.ul>
+                </ListboxOptions>
+              )}
+            </AnimatePresence>
+          </>
+        )}
+      </Listbox>
+    )
   );
 }
 
