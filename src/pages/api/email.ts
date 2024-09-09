@@ -25,7 +25,7 @@ const POST: APIRoute = async ({ request }) => {
     .send({
       from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
       to: SENDER_EMAIL,
-      reply_to: email,
+      replyTo: email,
       subject: `${name} ― LOKKEE STUDIOS Inquiry`,
       text: message,
     })
