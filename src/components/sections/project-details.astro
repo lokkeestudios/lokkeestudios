@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/container';
 import { Icons } from '@/components/ui/icons';
 import type { Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
-import { formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 import { Image } from 'astro:assets';
 
 export interface Props {
@@ -126,10 +126,14 @@ const { project } = Astro.props;
       class="bg-neutrals-900"
     >
       <div class="mx-auto max-w-7xl">
-        {project.images.map((image) => (
+        {project.images.map((image, index) => (
           <Image
             alt={image.alt}
-            class="w-full"
+            class={cn(
+              'w-full',
+              index === 0 && 'rounded-t-lg',
+              index === project.images.length - 1 && 'rounded-b-lg',
+            )}
             style={{
               backgroundColor: image.asset.metadata.palette.dominant.background,
             }}
