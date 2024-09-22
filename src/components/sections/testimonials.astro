@@ -7,6 +7,7 @@ import { Caption, Heading, Paragraph } from '@/components/ui/typography';
 import { getTestimonials } from '@/lib/sanity/get-testimonials';
 
 const testimonials = await getTestimonials();
+const reversedTestimonials = [...testimonials].reverse();
 ---
 
 <Section
@@ -42,21 +43,13 @@ const testimonials = await getTestimonials();
       aria-hidden="true"
       class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee [animation-direction:reverse]"
     >
-      {
-        testimonials
-          .toReversed()
-          .map((testimonial) => <TestimonialCard testimonial={testimonial} />)
-      }
+      {reversedTestimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>
     <ul
       aria-hidden="true"
       class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee [animation-direction:reverse]"
     >
-      {
-        testimonials
-          .toReversed()
-          .map((testimonial) => <TestimonialCard testimonial={testimonial} />)
-      }
+      {reversedTestimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>
   </div>
 </Section>
