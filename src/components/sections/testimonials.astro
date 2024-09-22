@@ -26,7 +26,7 @@ const testimonials = await getTestimonials();
       </Paragraph>
     </div>
   </Container>
-  <div class="mask-inline-faded group flex w-full overflow-x-hidden">
+  <div class="mask-inline-faded group mb-6 flex w-full overflow-x-hidden">
     <ul class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee">
       {testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>
@@ -35,6 +35,28 @@ const testimonials = await getTestimonials();
       class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee"
     >
       {testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
+    </ul>
+  </div>
+  <div class="mask-inline-faded group flex w-full overflow-x-hidden">
+    <ul
+      aria-hidden="true"
+      class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee [animation-direction:reverse]"
+    >
+      {
+        testimonials
+          .toReversed()
+          .map((testimonial) => <TestimonialCard testimonial={testimonial} />)
+      }
+    </ul>
+    <ul
+      aria-hidden="true"
+      class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee [animation-direction:reverse]"
+    >
+      {
+        testimonials
+          .toReversed()
+          .map((testimonial) => <TestimonialCard testimonial={testimonial} />)
+      }
     </ul>
   </div>
 </Section>

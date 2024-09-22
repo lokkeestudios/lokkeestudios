@@ -11,10 +11,10 @@ const { testimonial } = Astro.props;
 ---
 
 <li
-  class="relative me-8 h-full w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-4 md:p-8"
+  class="relative me-6 h-full w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border border-neutrals-200/20 bg-radial-highlight p-6"
 >
   <article class="flex h-full flex-col justify-between gap-y-2">
-    <blockquote class="max-w-prose text-sm/relaxed text-neutrals-200 lg:text-base/relaxed">
+    <blockquote class="max-w-prose text-sm/relaxed text-neutrals-200">
       &quot;{testimonial.quote}&quot;
     </blockquote>
     <div class="mt-6 flex items-center">
@@ -61,7 +61,7 @@ const { testimonial } = Astro.props;
       </div>
       <div>
         <cite>
-          <h3 class="lg:text-md mb-0.5 not-italic">{testimonial.name}</h3>
+          <h3 class="mb-0.5 not-italic leading-tight max-lg:text-sm">{testimonial.name}</h3>
         </cite>
         <p class="text-xs text-neutrals-200 lg:text-sm">{testimonial.title}</p>
       </div>

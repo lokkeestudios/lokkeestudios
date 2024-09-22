@@ -146,7 +146,7 @@ const config = {
       animation: {
         'glitch-1': 'glitch 4s linear infinite alternate-reverse',
         'glitch-2': 'glitch 2s linear infinite alternate-reverse',
-        marquee: 'marquee 35s linear infinite',
+        marquee: 'marquee 40s linear infinite',
         'dialog-overlay-show': 'dialog-overlay-show 0.5s',
         'dialog-overlay-hide': 'dialog-overlay-hide 0.5s',
         'shiny-badge-slide': 'shiny-badge-slide 6s infinite',
