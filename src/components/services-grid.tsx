@@ -23,20 +23,17 @@ function ServicesGrid() {
       >
         <div>
           <ServiceCard.Title>Web application</ServiceCard.Title>
-          <ServiceCard.Price>Individual price</ServiceCard.Price>
+          <ServiceCard.Price>Custom quote</ServiceCard.Price>
           <ServiceCard.Description>
-            Whether you want a web app, paired with a marketing website, or a cross-platform app, we
-            got you covered.
-            <br />
-            Let&apos;s get together and discuss a high quality quote based on the scale of your
-            vision!
+            Tailored web apps, paired with a marketing website, or cross-platform solutions.
+            Let&apos;s get together and discuss your vision to provide a custom quote.
           </ServiceCard.Description>
           <ServiceCard.List>
             <ServiceCard.List.BenefitListItem>
-              Unique, modern, customized design
+              Modern, custom design
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Responsive, accessible development
+              Responsive & accessible
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
               Optimized performance
@@ -44,15 +41,11 @@ function ServicesGrid() {
             <ServiceCard.List.BenefitListItem>
               Animations & interactions
             </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>Intuitive user flow</ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Adaptive, scalable backend solutions
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Catch-up meetings & close communication
+              Scalable backend solutions or bring your own backend
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.AddonListItem>
-              Multi-platform support <span className="text-neutrals-400">|</span> Individual price
+              Multi-platform support <span className="text-neutrals-400">|</span> Custom quote
             </ServiceCard.List.AddonListItem>
           </ServiceCard.List>
         </div>
@@ -73,40 +66,34 @@ function ServicesGrid() {
           </ServiceCard.Description>
           <ServiceCard.List>
             <ServiceCard.List.BenefitListItem>
-              Unique, modern, customized design
+              Modern, custom design
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Responsive, accessible development
+              Responsive & accessible
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
               Animations & interactions
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Enduring, memorable user experience
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
               SEO & page speed optimization
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Catch-up meetings & close communication
+              Engaging user experience
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.AddonListItem>
-              Hosting (including domain) setup <span className="text-neutrals-400">|</span>{' '}
-              Individual price
+              CMS (self-customizability) implementation <span className="text-neutrals-400">|</span>{' '}
+              Custom quote
             </ServiceCard.List.AddonListItem>
             <ServiceCard.List.AddonListItem>
-              CMS implementation <span className="text-neutrals-400">|</span> Individual price
+              Multilingual support <span className="text-neutrals-400">|</span> Custom quote
             </ServiceCard.List.AddonListItem>
             <ServiceCard.List.AddonListItem>
-              Multilingual support <span className="text-neutrals-400">|</span> Individual price
-            </ServiceCard.List.AddonListItem>
-            <ServiceCard.List.AddonListItem>
-              Analytics <span className="text-neutrals-400">|</span> Individual price
+              Analytics <span className="text-neutrals-400">|</span> Custom quote
             </ServiceCard.List.AddonListItem>
           </ServiceCard.List>
         </div>
         <ServiceCard.Notice>
-          * entry level price, may vary depending on the project scope
+          * Starting price, varies with project scope and additional requirements
         </ServiceCard.Notice>
         <ServiceCard.CallToAction />
       </ServiceCard>
@@ -121,44 +108,34 @@ function ServicesGrid() {
             €6.400<span className="text-xl font-normal text-neutrals-400">*</span>
           </ServiceCard.Price>
           <ServiceCard.Description>
-            Level up your Shopify store&apos;s web presence with a custom-made theme, adapted to
-            your products.
+            Level up your Shopify store with a custom theme, tailored to your products and customer
+            audience.
           </ServiceCard.Description>
           <ServiceCard.List>
             <ServiceCard.List.BenefitListItem>
-              Unique, modern, customized design
+              Modern, custom design
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Responsive, accessible development
+              Responsive & accessible
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Seamless integration with Shopify & your store
+              Seamless store integration with Shopify
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Effortless, completely self-customizable content
+              Self-customizable content
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.BenefitListItem>
-              Adapted to products & customer audience
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Boosted conversion rates
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Catch-up meetings & close communication
+              Conversion rate optimization
             </ServiceCard.List.BenefitListItem>
             <ServiceCard.List.AddonListItem>
-              Content self-customization briefing <span className="text-neutrals-400">|</span>{' '}
-              Individual price
+              Multilingual support <span className="text-neutrals-400">|</span> Custom quote
             </ServiceCard.List.AddonListItem>
             <ServiceCard.List.AddonListItem>
-              Multilingual support <span className="text-neutrals-400">|</span> Individual price
-            </ServiceCard.List.AddonListItem>
-            <ServiceCard.List.AddonListItem>
-              Analytics <span className="text-neutrals-400">|</span> Individual price
+              Analytics <span className="text-neutrals-400">|</span> Custom quote
             </ServiceCard.List.AddonListItem>
           </ServiceCard.List>
           <ServiceCard.Notice>
-            * entry level price, may vary depending on the project scope
+            * Starting price, varies with project scope and additional requirements
           </ServiceCard.Notice>
         </div>
         <ServiceCard.CallToAction />
@@ -169,16 +146,13 @@ function ServicesGrid() {
         className="lg:col-span-2"
       >
         <div>
-          <ServiceCard.Title>Custom</ServiceCard.Title>
-          <ServiceCard.Price>Individual price</ServiceCard.Price>
+          <ServiceCard.Title>Custom solution</ServiceCard.Title>
+          <ServiceCard.Price>Custom quote</ServiceCard.Price>
           <ServiceCard.Description>
-            Do you have a problem that does not fit into one of our packages? Don&apos;t hesitate to
-            ask ― We are your problem solvers.
-            <br />
-            Let&apos;s get in touch and work out a personalized solution.
-            <br />
-            <br />
-            <span className="text-neutrals-100">Inquire for an individual offer!</span>
+            Need a unique solution? Don&apos;t hesitate to ask ― We are your problem solvers.{' '}
+            <span className="text-neutrals-100">
+              Let&apos;s discuss your requirements and create a tailored package.
+            </span>
           </ServiceCard.Description>
         </div>
         <ServiceCard.CallToAction />
