@@ -2,7 +2,7 @@
 import { Image as ImageInternal, type ImageProps } from '@/components/blog/image';
 import { type Props as $ } from 'astro-portabletext/types';
 
-export type Props = $<ImageProps>;
+type Props = $<ImageProps>;
 
 const { node: props } = Astro.props;
 ---

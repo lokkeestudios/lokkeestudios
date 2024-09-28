@@ -9,7 +9,7 @@ import { ViewTransitions } from 'astro:transitions';
 import { Head as InternalHead } from 'astro-capo';
 import { env } from '@/t3-env';
 
-export type Props = {
+type Props = {
   title?: string | undefined;
   description?: string | undefined;
   openGraphImage?: { src: string; alt: string } | undefined;

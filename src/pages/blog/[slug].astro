@@ -2,8 +2,9 @@
 import { ScrollProgress } from '@/components/scroll-progress';
 import BlogPostSection from '@/components/sections/blog-post.astro';
 import Layout from '@/layouts/layout.astro';
-import { getBlogPosts, type BlogPost } from '@/lib/sanity/get-blog-posts';
+import { getBlogPosts } from '@/lib/sanity/get-blog-posts';
 import { imageUrlFor } from '@/lib/sanity/sanity-image';
+import { type InferGetStaticPropsType } from 'astro';
 
 export async function getStaticPaths() {
   const blogPosts = await getBlogPosts();
@@ -14,9 +15,7 @@ export async function getStaticPaths() {
   }));
 }
 
-export type Props = {
-  blogPost: BlogPost;
-};
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { blogPost } = Astro.props;
 
