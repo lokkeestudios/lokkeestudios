@@ -35,7 +35,6 @@
     "@sanity/icons": "^3.4.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.58.0",
-    "@sanity/visual-editing": "^2.1.10",
     "@t3-oss/env-core": "^0.11.1",
     "@tailwindcss/typography": "^0.5.15",
     "@types/react": "^18.3.10",
