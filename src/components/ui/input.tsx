@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { type ElementRef, type InputHTMLAttributes, type RefCallback } from 'react';
+import { type ElementRef, type InputHTMLAttributes, type Ref } from 'react';
 
 type InputHTMLElement = ElementRef<'input'>;
 
@@ -9,7 +9,7 @@ function Input({
   ref,
   ...props
 }: {
-  ref?: RefCallback<InputHTMLElement>;
+  ref?: Ref<InputHTMLElement>;
 } & InputHTMLAttributes<InputHTMLElement>) {
   return (
     <input

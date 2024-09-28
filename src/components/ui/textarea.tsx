@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { type ElementRef, type RefCallback, type TextareaHTMLAttributes } from 'react';
+import { type ElementRef, type Ref, type TextareaHTMLAttributes } from 'react';
 
 type TextareaHTMLElement = ElementRef<'textarea'>;
 
@@ -8,7 +8,7 @@ function Textarea({
   ref,
   ...props
 }: {
-  ref?: RefCallback<TextareaHTMLElement>;
+  ref?: Ref<TextareaHTMLElement>;
 } & TextareaHTMLAttributes<TextareaHTMLElement>) {
   return (
     <textarea
