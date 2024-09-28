@@ -1,11 +1,9 @@
 ---
 import { type Props as $, type Mark } from 'astro-portabletext/types';
 
-type Props = $<Mark<{ href: string }>>;
+export type Props = $<Mark<{ href: string }>>;
 
 const { node } = Astro.props;
-
-export { type Props };
 ---
 
 <a

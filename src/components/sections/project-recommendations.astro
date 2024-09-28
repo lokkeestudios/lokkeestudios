@@ -7,7 +7,7 @@ import { Caption, Heading } from '@/components/ui/typography';
 import { type Project, getProjects } from '@/lib/sanity/get-projects';
 import { shuffleArray } from '@/lib/utils';
 
-type Props = {
+export type Props = {
   project: Project;
 };
 
@@ -19,8 +19,6 @@ const otherSimilarProjects = shuffleArray(projects)
   .filter((currentProject) => currentProject._id !== project._id)
   .filter((currentProject) => currentProject.tags?.some((tag) => project.tags?.includes(tag)))
   .slice(0, 2);
-
-export { type Props };
 ---
 
 <Section

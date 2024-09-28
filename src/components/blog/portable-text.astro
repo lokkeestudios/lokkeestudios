@@ -8,14 +8,12 @@ import { cn } from '@/lib/utils';
 import { PortableText as PortableTextInternal } from 'astro-portabletext';
 import { type ClassValue } from 'clsx';
 
-type Props = {
+export type Props = {
   content: BlogPost['content'];
   className?: ClassValue;
 };
 
 const { content, className } = Astro.props;
-
-export { type Props };
 ---
 
 <div

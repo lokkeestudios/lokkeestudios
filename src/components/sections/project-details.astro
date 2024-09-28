@@ -7,13 +7,11 @@ import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { cn, formatDate } from '@/lib/utils';
 import { Image } from 'astro:assets';
 
-type Props = {
+export type Props = {
   project: Project;
 };
 
 const { project } = Astro.props;
-
-export { type Props };
 ---
 
 <section

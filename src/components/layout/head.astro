@@ -9,7 +9,7 @@ import { ViewTransitions } from 'astro:transitions';
 import { Head as InternalHead } from 'astro-capo';
 import { env } from '@/t3-env';
 
-type Props = {
+export type Props = {
   title?: string | undefined;
   description?: string | undefined;
   openGraphImage?: { src: string; alt: string } | undefined;
@@ -29,8 +29,6 @@ const {
 } = siteConfig;
 
 const cannonical = `${siteUrl}${pathname}`;
-
-export { type Props };
 ---
 
 <InternalHead>

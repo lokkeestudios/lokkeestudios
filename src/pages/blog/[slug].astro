@@ -5,7 +5,7 @@ import Layout from '@/layouts/layout.astro';
 import { getBlogPosts, type BlogPost } from '@/lib/sanity/get-blog-posts';
 import { imageUrlFor } from '@/lib/sanity/sanity-image';
 
-async function getStaticPaths() {
+export async function getStaticPaths() {
   const blogPosts = await getBlogPosts();
 
   return blogPosts.map((blogPost) => ({
@@ -14,7 +14,7 @@ async function getStaticPaths() {
   }));
 }
 
-type Props = {
+export type Props = {
   blogPost: BlogPost;
 };
 
@@ -24,8 +24,6 @@ const openGraphImage = {
   src: imageUrlFor(blogPost.poster).format('png').width(1200).height(630).fit('crop').url(),
   alt: blogPost.poster.alt,
 };
-
-export { getStaticPaths, type Props };
 ---
 
 <Layout

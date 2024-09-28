@@ -7,13 +7,11 @@ import { Paragraph } from '@/components/ui/typography';
 import { type BlogPost } from '@/lib/sanity/get-blog-posts';
 import { formatDateWithDay } from '@/lib/utils';
 
-type Props = {
+export type Props = {
   blogPost: BlogPost;
 };
 
 const { blogPost } = Astro.props;
-
-export { type Props };
 ---
 
 <section
