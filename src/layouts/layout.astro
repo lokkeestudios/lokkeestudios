@@ -4,13 +4,15 @@ import Head from '@/components/layout/head.astro';
 import { Header } from '@/components/layout/header';
 import { LoadingScreen } from '@/components/layout/loading-screen';
 
-export interface Props {
+type Props = {
   title?: string;
   description?: string;
   openGraphImage?: { src: string; alt: string };
-}
+};
 
 const { title, description, openGraphImage } = Astro.props;
+
+export { type Props };
 ---
 
 <!doctype html>

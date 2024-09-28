@@ -1,6 +1,6 @@
 import { Container } from '@/components/ui/container';
 import { Icons } from '@/components/ui/icons';
-import type { Project } from '@/lib/sanity/get-projects';
+import { type Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { clamp, cn, formatDate } from '@/lib/utils';
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
@@ -26,16 +26,6 @@ import {
   type UIEvent,
 } from 'react';
 
-interface ProjectSlideProps {
-  project: Project;
-  index: number;
-  currentIndex: number;
-  isDisabled: boolean;
-  isDragging: boolean;
-  carouselWidth: number;
-  scrollPosition: MotionValue<number>;
-}
-
 function ProjectSlide({
   project,
   index,
@@ -44,7 +34,15 @@ function ProjectSlide({
   isDragging,
   carouselWidth,
   scrollPosition,
-}: ProjectSlideProps) {
+}: {
+  project: Project;
+  index: number;
+  currentIndex: number;
+  isDisabled: boolean;
+  isDragging: boolean;
+  carouselWidth: number;
+  scrollPosition: MotionValue<number>;
+}) {
   const slideRef = useRef<ElementRef<'li'>>(null);
   const [slideOffsetLeft, setSlideOffsetLeft] = useState(0);
   const [slideWidth, setSlideWidth] = useState(0);
@@ -149,11 +147,11 @@ const projectTagFilters = ['Website'] as const;
 type ProjectTagFilter = (typeof projectTagFilters)[number];
 const wildcardFilter: ProjectTagFilter = 'Website';
 
-interface ProjectFiltersSelectProps {
+function ProjectFiltersSelect({
+  selectedFiltersState,
+}: {
   selectedFiltersState: [ProjectTagFilter[], Dispatch<SetStateAction<ProjectTagFilter[]>>];
-}
-
-function ProjectFiltersSelect({ selectedFiltersState }: ProjectFiltersSelectProps) {
+}) {
   const [selectedFilters, setSelectedFilters] = selectedFiltersState;
 
   return (
@@ -220,11 +218,7 @@ function ProjectFiltersSelect({ selectedFiltersState }: ProjectFiltersSelectProp
 
 const CAROUSEL_SLIDES_GAP = 24;
 
-interface ProjectCarouselProps {
-  projects: Project[];
-}
-
-function ProjectCarousel({ projects }: ProjectCarouselProps) {
+function ProjectCarousel({ projects }: { projects: Project[] }) {
   const carouselWrapperRef = useRef<ElementRef<'div'>>(null);
   const carouselRef = useRef<ElementRef<'ul'>>(null);
   const [carouselWidth, setCarouselWidth] = useState(0);

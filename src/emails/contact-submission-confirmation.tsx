@@ -14,7 +14,7 @@ import {
   Tailwind,
   Text,
 } from '@react-email/components';
-import type { z } from 'zod';
+import { type z } from 'zod';
 
 type FormData = z.infer<typeof contactSubmissionSchema>;
 

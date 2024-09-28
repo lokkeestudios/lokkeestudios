@@ -12,7 +12,7 @@ import { contactSubmissionSchema } from '@/lib/validations/contact-submission';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Ring } from '@uiball/loaders';
 import { useForm } from 'react-hook-form';
-import type { z } from 'zod';
+import { type z } from 'zod';
 
 type FormData = z.infer<typeof contactSubmissionSchema>;
 

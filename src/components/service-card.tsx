@@ -10,19 +10,17 @@ import {
 } from 'framer-motion';
 import { useRef, type ElementRef, type ReactNode } from 'react';
 
-interface ServiceCardProps extends HTMLMotionProps<'a'> {
-  parentMousePositionX: MotionValue<number>;
-  parentMousePositionY: MotionValue<number>;
-  children: ReactNode;
-}
-
 function ServiceCard({
   parentMousePositionX,
   parentMousePositionY,
   children,
   className,
   ...props
-}: ServiceCardProps) {
+}: {
+  parentMousePositionX: MotionValue<number>;
+  parentMousePositionY: MotionValue<number>;
+  children: ReactNode;
+} & HTMLMotionProps<'a'>) {
   const ref = useRef<ElementRef<'a'>>(null);
 
   const mousePositionX = useTransform(
@@ -64,32 +62,27 @@ interface ComponentWithChildrenProps {
   children: ReactNode;
 }
 
-function Title({ children }: ComponentWithChildrenProps) {
+function ServiceCardTitle({ children }: ComponentWithChildrenProps) {
   return <h3 className="mb-2 text-balance font-medium text-primary md:text-lg">{children}</h3>;
 }
-ServiceCard.Title = Title;
 
-function Price({ children }: ComponentWithChildrenProps) {
+function ServiceCardPrice({ children }: ComponentWithChildrenProps) {
   return <p className="mb-2 flex text-3xl font-bold md:text-4xl">{children}</p>;
 }
-ServiceCard.Price = Price;
 
-function Description({ children }: ComponentWithChildrenProps) {
+function ServiceCardDescription({ children }: ComponentWithChildrenProps) {
   return <p className="mb-8 max-w-prose text-pretty text-sm text-neutrals-300">{children}</p>;
 }
-ServiceCard.Description = Description;
 
-function Notice({ children }: ComponentWithChildrenProps) {
+function ServiceCardNotice({ children }: ComponentWithChildrenProps) {
   return <p className="mb-8 text-xs text-neutrals-400">{children}</p>;
 }
-ServiceCard.Notice = Notice;
 
-function List({ children }: ComponentWithChildrenProps) {
+function ServiceCardList({ children }: ComponentWithChildrenProps) {
   return <ul className="mb-8 flex flex-col gap-y-4 text-neutrals-300">{children}</ul>;
 }
-ServiceCard.List = List;
 
-function BenefitListItem({ children }: ComponentWithChildrenProps) {
+function ServiceCardBenefitListItem({ children }: ComponentWithChildrenProps) {
   return (
     <li className="flex items-center gap-x-2 text-sm/tight xl:text-base/tight">
       <svg
@@ -112,9 +105,8 @@ function BenefitListItem({ children }: ComponentWithChildrenProps) {
     </li>
   );
 }
-List.BenefitListItem = BenefitListItem;
 
-function AddonListItem({ children }: ComponentWithChildrenProps) {
+function ServiceCardAddonListItem({ children }: ComponentWithChildrenProps) {
   return (
     <li className="flex items-center gap-x-2 text-sm/tight xl:text-base/tight">
       <svg
@@ -137,9 +129,8 @@ function AddonListItem({ children }: ComponentWithChildrenProps) {
     </li>
   );
 }
-List.AddonListItem = AddonListItem;
 
-function CallToAction() {
+function ServiceCardCallToAction() {
   return (
     <p className="flex items-center justify-end">
       Secure your package now{' '}
@@ -147,6 +138,15 @@ function CallToAction() {
     </p>
   );
 }
-ServiceCard.CallToAction = CallToAction;
 
-export { ServiceCard };
+export {
+  ServiceCard,
+  ServiceCardAddonListItem,
+  ServiceCardBenefitListItem,
+  ServiceCardCallToAction,
+  ServiceCardDescription,
+  ServiceCardList,
+  ServiceCardNotice,
+  ServiceCardPrice,
+  ServiceCardTitle,
+};

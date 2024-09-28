@@ -2,7 +2,9 @@
 import NotFoundSection from '@/components/sections/not-found.astro';
 import Layout from '@/layouts/layout.astro';
 
-export const prerender = false;
+const prerender = false;
+
+export { prerender };
 ---
 
 <Layout title="Page not found">

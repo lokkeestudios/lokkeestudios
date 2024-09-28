@@ -6,7 +6,7 @@ import Layout from '@/layouts/layout.astro';
 import { getProjects, type Project } from '@/lib/sanity/get-projects';
 import { imageUrlFor } from '@/lib/sanity/sanity-image';
 
-export async function getStaticPaths() {
+async function getStaticPaths() {
   const projects = await getProjects();
 
   return projects.map((project) => ({
@@ -14,9 +14,10 @@ export async function getStaticPaths() {
     props: { project },
   }));
 }
-export interface Props {
+
+type Props = {
   project: Project;
-}
+};
 
 const { project } = Astro.props;
 
@@ -24,6 +25,8 @@ const openGraphImage = {
   src: imageUrlFor(project.poster).format('png').width(1200).height(630).fit('crop').url(),
   alt: project.poster.alt,
 };
+
+export { getStaticPaths, type Props };
 ---
 
 <Layout

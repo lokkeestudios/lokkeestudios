@@ -1,16 +1,21 @@
-import type { ImageMetadata } from 'astro';
-import { forwardRef, type ElementRef, type HTMLAttributes } from 'react';
+import { type ImageMetadata } from 'astro';
+import { type ElementRef, type HTMLAttributes, type RefObject } from 'react';
 
 type ImageHTMLElement = ElementRef<'img'>;
 
-interface ImageProps extends HTMLAttributes<ImageHTMLElement> {
+function Image({
+  metadata,
+  alt,
+  isAboveTheFold = false,
+  ref,
+  ...props
+}: {
   metadata: ImageMetadata;
   alt: string;
   isAboveTheFold?: boolean | undefined;
-}
-
-const Image = forwardRef<ImageHTMLElement, ImageProps>(
-  ({ metadata, alt, isAboveTheFold = false, ...props }, ref) => (
+  ref?: RefObject<ImageHTMLElement>;
+} & HTMLAttributes<ImageHTMLElement>) {
+  return (
     <img
       src={metadata.src}
       width={metadata.width}
@@ -21,8 +26,7 @@ const Image = forwardRef<ImageHTMLElement, ImageProps>(
       ref={ref}
       {...props}
     />
-  ),
-);
-Image.displayName = 'Image';
+  );
+}
 
 export { Image };

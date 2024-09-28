@@ -1,9 +1,9 @@
 ---
 import { Icons } from '@/components/ui/icons';
-import type { Props as $, Block } from 'astro-portabletext/types';
+import { type Props as $, type Block } from 'astro-portabletext/types';
 import slugify from 'slugify';
 
-export type Props = $<Block>;
+type Props = $<Block>;
 
 const { node } = Astro.props;
 
@@ -17,6 +17,8 @@ const headingSlug = slugify(safeHeadingText, {
   strict: true,
   locale: 'en',
 });
+
+export { type Props };
 ---
 
 <HeadingTag

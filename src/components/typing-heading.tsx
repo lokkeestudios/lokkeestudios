@@ -40,11 +40,7 @@ const letterVariants: Variants = {
 
 type TypingMode = 'typing' | 'deleting';
 
-interface TypingHeadingProps {
-  headings: string[];
-}
-
-function TypingHeading({ headings }: TypingHeadingProps) {
+function TypingHeading({ headings }: { headings: string[] }) {
   const [typingMode, setTypingMode] = useState<TypingMode>('typing');
   const [headingIndex, setHeadingIndex] = useState(0);
   const previousHeadingIndex = usePreviousState(0, headingIndex);

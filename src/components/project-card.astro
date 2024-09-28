@@ -1,14 +1,16 @@
 ---
-import type { Project } from '@/lib/sanity/get-projects';
+import { type Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { formatDate } from '@/lib/utils';
 import { Image } from 'astro:assets';
 
-export interface Props {
+type Props = {
   project: Project;
-}
+};
 
 const { project } = Astro.props;
+
+export { type Props };
 ---
 
 <a

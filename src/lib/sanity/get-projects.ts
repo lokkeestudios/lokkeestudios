@@ -1,8 +1,8 @@
-import type { Image } from '@/lib/sanity/sanity-image';
+import { type Image } from '@/lib/sanity/sanity-image';
 import groq from 'groq';
 import { sanityClient } from 'sanity:client';
 
-interface Project {
+type Project = {
   _id: string;
   _type: 'project';
   _createdAt: string;
@@ -17,7 +17,7 @@ interface Project {
   tags?: string[];
   githuburl?: string;
   projecturl?: string;
-}
+};
 
 function getProjects() {
   const query = groq`

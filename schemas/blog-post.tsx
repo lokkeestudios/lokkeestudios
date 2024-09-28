@@ -4,11 +4,7 @@ import { type ReactNode } from 'react';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { themeProps } from '../theme';
 
-interface CodeDecoratorProps {
-  children: ReactNode;
-}
-
-function CodeDecorator({ children }: CodeDecoratorProps) {
+function CodeDecorator({ children }: { children: ReactNode }) {
   return (
     <span
       style={{

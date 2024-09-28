@@ -1,13 +1,15 @@
 ---
 import { cn } from '@/lib/utils';
-import type { HTMLAttributes } from 'astro/types';
+import { type HTMLAttributes } from 'astro/types';
 
-export interface Props extends HTMLAttributes<'section'> {
+type Props = {
   hasBorderTop?: boolean;
   hasGlowEffect?: boolean;
-}
+} & HTMLAttributes<'section'>;
 
 const { hasBorderTop, hasGlowEffect, class: className, ...props } = Astro.props;
+
+export { type Props };
 ---
 
 <section

@@ -1,16 +1,16 @@
 import imageUrlBuilder from '@sanity/image-url';
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { type SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { sanityClient } from 'sanity:client';
 
-interface ImageAssetMetadataPaletteColor {
+type ImageAssetMetadataPaletteColor = {
   _type: 'sanity.imagePaletteSwatch';
   background: string;
   foreground: string;
   population: number;
   title: string;
-}
+};
 
-interface ImageAssetMetadata {
+type ImageAssetMetadata = {
   _type: 'sanity.imageMetadata';
   blurHash: string;
   dimensions: {
@@ -32,9 +32,9 @@ interface ImageAssetMetadata {
     muted: ImageAssetMetadataPaletteColor;
     vibrant: ImageAssetMetadataPaletteColor;
   };
-}
+};
 
-interface ImageAsset {
+type ImageAsset = {
   _id: string;
   _type: 'sanity.imageAsset';
   _rev: string;
@@ -50,14 +50,14 @@ interface ImageAsset {
   size: number;
   uploadId: string;
   url: string;
-}
+};
 
-interface Image {
+type Image = {
   _key: string;
   _type: 'image';
   alt: string;
   asset: ImageAsset;
-}
+};
 
 const imageBuilder = imageUrlBuilder(sanityClient);
 

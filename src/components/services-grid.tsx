@@ -1,6 +1,16 @@
-import { ServiceCard } from '@/components/service-card';
+import {
+  ServiceCard,
+  ServiceCardAddonListItem,
+  ServiceCardBenefitListItem,
+  ServiceCardCallToAction,
+  ServiceCardDescription,
+  ServiceCardList,
+  ServiceCardNotice,
+  ServiceCardPrice,
+  ServiceCardTitle,
+} from '@/components/service-card';
 import { useMotionValue } from 'framer-motion';
-import type { MouseEvent } from 'react';
+import { type MouseEvent } from 'react';
 
 function ServicesGrid() {
   const mousePositionX = useMotionValue(0);
@@ -22,34 +32,26 @@ function ServicesGrid() {
         className="lg:col-span-2"
       >
         <div>
-          <ServiceCard.Title>Web application</ServiceCard.Title>
-          <ServiceCard.Price>Custom quote</ServiceCard.Price>
-          <ServiceCard.Description>
+          <ServiceCardTitle>Web application</ServiceCardTitle>
+          <ServiceCardPrice>Custom quote</ServiceCardPrice>
+          <ServiceCardDescription>
             Tailored web apps, paired with a marketing website, or cross-platform solutions.
             Let&apos;s get together and discuss your vision to provide a custom quote.
-          </ServiceCard.Description>
-          <ServiceCard.List>
-            <ServiceCard.List.BenefitListItem>
-              Modern, custom design
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Responsive & accessible
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Optimized performance
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Animations & interactions
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
+          </ServiceCardDescription>
+          <ServiceCardList>
+            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Optimized performance</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Animations & interactions</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>
               Scalable backend solutions or bring your own backend
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.AddonListItem>
+            </ServiceCardBenefitListItem>
+            <ServiceCardAddonListItem>
               Multi-platform support <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCard.List.AddonListItem>
-          </ServiceCard.List>
+            </ServiceCardAddonListItem>
+          </ServiceCardList>
         </div>
-        <ServiceCard.CallToAction />
+        <ServiceCardCallToAction />
       </ServiceCard>
       <ServiceCard
         parentMousePositionX={mousePositionX}
@@ -57,45 +59,35 @@ function ServicesGrid() {
         className="lg:col-span-3"
       >
         <div>
-          <ServiceCard.Title>Website</ServiceCard.Title>
-          <ServiceCard.Price>
+          <ServiceCardTitle>Website</ServiceCardTitle>
+          <ServiceCardPrice>
             €4.800<span className="text-xl font-normal text-neutrals-400">*</span>
-          </ServiceCard.Price>
-          <ServiceCard.Description>
+          </ServiceCardPrice>
+          <ServiceCardDescription>
             There are no limits to your website vision ― Let&apos;s make it happen!
-          </ServiceCard.Description>
-          <ServiceCard.List>
-            <ServiceCard.List.BenefitListItem>
-              Modern, custom design
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Responsive & accessible
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Animations & interactions
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              SEO & page speed optimization
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Engaging user experience
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.AddonListItem>
+          </ServiceCardDescription>
+          <ServiceCardList>
+            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Animations & interactions</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>SEO & page speed optimization</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Engaging user experience</ServiceCardBenefitListItem>
+            <ServiceCardAddonListItem>
               CMS (self-customizability) implementation <span className="text-neutrals-400">|</span>{' '}
               Custom quote
-            </ServiceCard.List.AddonListItem>
-            <ServiceCard.List.AddonListItem>
+            </ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>
               Multilingual support <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCard.List.AddonListItem>
-            <ServiceCard.List.AddonListItem>
+            </ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>
               Analytics <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCard.List.AddonListItem>
-          </ServiceCard.List>
+            </ServiceCardAddonListItem>
+          </ServiceCardList>
         </div>
-        <ServiceCard.Notice>
+        <ServiceCardNotice>
           * Starting price, varies with project scope and additional requirements
-        </ServiceCard.Notice>
-        <ServiceCard.CallToAction />
+        </ServiceCardNotice>
+        <ServiceCardCallToAction />
       </ServiceCard>
       <ServiceCard
         parentMousePositionX={mousePositionX}
@@ -103,42 +95,34 @@ function ServicesGrid() {
         className="lg:col-span-3"
       >
         <div>
-          <ServiceCard.Title>E-Commerce (Shopify)</ServiceCard.Title>
-          <ServiceCard.Price>
+          <ServiceCardTitle>E-Commerce (Shopify)</ServiceCardTitle>
+          <ServiceCardPrice>
             €6.400<span className="text-xl font-normal text-neutrals-400">*</span>
-          </ServiceCard.Price>
-          <ServiceCard.Description>
+          </ServiceCardPrice>
+          <ServiceCardDescription>
             Level up your Shopify store with a custom theme, tailored to your products and customer
             audience.
-          </ServiceCard.Description>
-          <ServiceCard.List>
-            <ServiceCard.List.BenefitListItem>
-              Modern, custom design
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Responsive & accessible
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
+          </ServiceCardDescription>
+          <ServiceCardList>
+            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>
               Seamless store integration with Shopify
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Self-customizable content
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.BenefitListItem>
-              Conversion rate optimization
-            </ServiceCard.List.BenefitListItem>
-            <ServiceCard.List.AddonListItem>
+            </ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Self-customizable content</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Conversion rate optimization</ServiceCardBenefitListItem>
+            <ServiceCardAddonListItem>
               Multilingual support <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCard.List.AddonListItem>
-            <ServiceCard.List.AddonListItem>
+            </ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>
               Analytics <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCard.List.AddonListItem>
-          </ServiceCard.List>
-          <ServiceCard.Notice>
+            </ServiceCardAddonListItem>
+          </ServiceCardList>
+          <ServiceCardNotice>
             * Starting price, varies with project scope and additional requirements
-          </ServiceCard.Notice>
+          </ServiceCardNotice>
         </div>
-        <ServiceCard.CallToAction />
+        <ServiceCardCallToAction />
       </ServiceCard>
       <ServiceCard
         parentMousePositionX={mousePositionX}
@@ -146,16 +130,16 @@ function ServicesGrid() {
         className="lg:col-span-2"
       >
         <div>
-          <ServiceCard.Title>Custom solution</ServiceCard.Title>
-          <ServiceCard.Price>Custom quote</ServiceCard.Price>
-          <ServiceCard.Description>
+          <ServiceCardTitle>Custom solution</ServiceCardTitle>
+          <ServiceCardPrice>Custom quote</ServiceCardPrice>
+          <ServiceCardDescription>
             Need a unique solution? Don&apos;t hesitate to ask ― We are your problem solvers.{' '}
             <span className="text-neutrals-100">
               Let&apos;s discuss your requirements and create a tailored package.
             </span>
-          </ServiceCard.Description>
+          </ServiceCardDescription>
         </div>
-        <ServiceCard.CallToAction />
+        <ServiceCardCallToAction />
       </ServiceCard>
     </div>
   );

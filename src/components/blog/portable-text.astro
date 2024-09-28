@@ -3,17 +3,19 @@ import CodeBlock from '@/components/blog/code-block.astro';
 import ExternalLink from '@/components/blog/external-link.astro';
 import Heading from '@/components/blog/heading.astro';
 import Image from '@/components/blog/image.astro';
-import type { BlogPost } from '@/lib/sanity/get-blog-posts';
+import { type BlogPost } from '@/lib/sanity/get-blog-posts';
 import { cn } from '@/lib/utils';
 import { PortableText as PortableTextInternal } from 'astro-portabletext';
-import type { ClassValue } from 'clsx';
+import { type ClassValue } from 'clsx';
 
-export interface Props {
+type Props = {
   content: BlogPost['content'];
   className?: ClassValue;
-}
+};
 
 const { content, className } = Astro.props;
+
+export { type Props };
 ---
 
 <div

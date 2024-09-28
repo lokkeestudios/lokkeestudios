@@ -1,30 +1,27 @@
 import { generateImageSizeProps, type Image } from '@/lib/sanity/sanity-image';
-import { forwardRef, type ElementRef, type HTMLAttributes } from 'react';
+import { type ElementRef, type HTMLAttributes, type RefObject } from 'react';
 
 type SanityImageHTMLElement = ElementRef<'img'>;
 
-interface SanityImageProps extends HTMLAttributes<SanityImageHTMLElement> {
+function SanityImage({
+  image,
+  sizes = undefined,
+  maxWidth = undefined,
+  width = undefined,
+  height = undefined,
+  isAboveTheFold = false,
+  ref,
+  ...props
+}: {
   image: Image;
   sizes?: string | undefined;
   maxWidth?: number | undefined;
   width?: number | undefined;
   height?: number | undefined;
   isAboveTheFold?: boolean | undefined;
-}
-
-const SanityImage = forwardRef<SanityImageHTMLElement, SanityImageProps>(
-  (
-    {
-      image,
-      sizes = undefined,
-      maxWidth = undefined,
-      width = undefined,
-      height = undefined,
-      isAboveTheFold = false,
-      ...props
-    },
-    ref,
-  ) => (
+  ref?: RefObject<SanityImageHTMLElement>;
+} & HTMLAttributes<SanityImageHTMLElement>) {
+  return (
     <img
       style={{
         backgroundColor: image.asset.metadata.palette.dominant.background,
@@ -36,8 +33,7 @@ const SanityImage = forwardRef<SanityImageHTMLElement, SanityImageProps>(
       ref={ref}
       {...props}
     />
-  ),
-);
-SanityImage.displayName = 'SanityImage';
+  );
+}
 
 export { SanityImage };

@@ -1,9 +1,9 @@
-import type { Image } from '@/lib/sanity/sanity-image';
-import type { TypedObject } from 'astro-portabletext/types';
+import { type Image } from '@/lib/sanity/sanity-image';
+import { type TypedObject } from 'astro-portabletext/types';
 import groq from 'groq';
 import { sanityClient } from 'sanity:client';
 
-interface BlogPost {
+type BlogPost = {
   _id: string;
   _type: 'blogPost';
   _createdAt: string;
@@ -15,7 +15,7 @@ interface BlogPost {
   poster: Image;
   excerpt: string;
   content: TypedObject;
-}
+};
 
 function getBlogPosts() {
   const query = groq`

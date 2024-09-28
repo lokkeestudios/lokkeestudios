@@ -1,13 +1,15 @@
 ---
-import type { Testimonial } from '@/lib/sanity/get-testimonials';
+import { type Testimonial } from '@/lib/sanity/get-testimonials';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { Image } from 'astro:assets';
 
-export interface Props {
+type Props = {
   testimonial: Testimonial;
-}
+};
 
 const { testimonial } = Astro.props;
+
+export { type Props };
 ---
 
 <li

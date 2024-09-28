@@ -1,11 +1,7 @@
 import { cn } from '@/lib/utils';
-import type { ElementRef, HTMLAttributes, ReactNode } from 'react';
+import { type ElementRef, type HTMLAttributes } from 'react';
 
-interface HeadingProps extends HTMLAttributes<ElementRef<'h2'>> {
-  children: ReactNode;
-}
-
-function Heading({ children, className, ...props }: HeadingProps) {
+function Heading({ children, className, ...props }: HTMLAttributes<ElementRef<'h2'>>) {
   return (
     <h2
       className={cn(
@@ -19,11 +15,7 @@ function Heading({ children, className, ...props }: HeadingProps) {
   );
 }
 
-interface CaptionProps extends HTMLAttributes<ElementRef<'p'>> {
-  children: ReactNode;
-}
-
-function Caption({ children, className, ...props }: CaptionProps) {
+function Caption({ children, className, ...props }: HTMLAttributes<ElementRef<'p'>>) {
   return (
     <p
       className={cn(
@@ -37,11 +29,7 @@ function Caption({ children, className, ...props }: CaptionProps) {
   );
 }
 
-interface ParagraphProps extends HTMLAttributes<ElementRef<'p'>> {
-  children: ReactNode;
-}
-
-function Paragraph({ children, className, ...props }: ParagraphProps) {
+function Paragraph({ children, className, ...props }: HTMLAttributes<ElementRef<'p'>>) {
   return (
     <p
       className={cn('max-w-prose text-base/relaxed text-neutrals-300', className)}

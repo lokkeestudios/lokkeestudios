@@ -2,9 +2,9 @@ import { siteConfig } from '@/config/site';
 import { ContactSubmissionConfirmationEmail } from '@/emails/contact-submission-confirmation';
 import { resend } from '@/lib/resend';
 import { contactSubmissionSchema } from '@/lib/validations/contact-submission';
-import type { APIRoute } from 'astro';
+import { type APIRoute } from 'astro';
 
-export const prerender = false;
+const prerender = false;
 
 const SENDER_EMAIL = siteConfig.email;
 const NOREPLY_EMAIL = 'noreply@lokkeestudios.com';
@@ -54,4 +54,4 @@ const POST: APIRoute = async ({ request }) => {
     );
 };
 
-export { POST };
+export { POST, prerender };

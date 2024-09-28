@@ -1,5 +1,5 @@
 import { Icons, type IconProps } from '@/components/ui/icons';
-import type { TypedObject } from 'astro-portabletext/types';
+import { type TypedObject } from 'astro-portabletext/types';
 import { motion, useAnimationControls } from 'framer-motion';
 import { useCallback, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -25,12 +25,12 @@ const fileTypeIcons: FileTypeIcons = {
   json: Icons.JsonFile,
 };
 
-interface CodeBlockProps extends TypedObject {
+type CodeBlockProps = {
   filename: string;
   language: string;
   code: string;
   highlightedLines: (number | Marker)[];
-}
+} & TypedObject;
 
 function CodeBlock({ filename, language, code, highlightedLines }: CodeBlockProps) {
   const [copiedStatus, setCopiedStatus] = useState<string>();

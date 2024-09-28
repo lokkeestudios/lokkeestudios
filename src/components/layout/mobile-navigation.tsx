@@ -4,18 +4,18 @@ import { cn } from '@/lib/utils';
 import { AnimatePresence, motion, useAnimate } from 'framer-motion';
 import { useEffect } from 'react';
 
-interface Link {
-  readonly label: string;
-  readonly href: string;
-}
-
-interface MobileNavigationProps {
+function MobileNavigation({
+  isOpen,
+  onClose,
+  links,
+}: {
   isOpen: boolean;
   onClose: () => void;
-  links: readonly Link[];
-}
-
-function MobileNavigation({ isOpen, onClose, links }: MobileNavigationProps) {
+  links: readonly {
+    readonly label: string;
+    readonly href: string;
+  }[];
+}) {
   useLockBody(isOpen);
 
   useEffect(() => {
@@ -81,12 +81,7 @@ function MobileNavigation({ isOpen, onClose, links }: MobileNavigationProps) {
   );
 }
 
-interface MobileNavigationOverlayProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-function MobileNavigationOverlay({ isOpen, onClose }: MobileNavigationOverlayProps) {
+function MobileNavigationOverlay({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -103,19 +98,16 @@ function MobileNavigationOverlay({ isOpen, onClose }: MobileNavigationOverlayPro
     </AnimatePresence>
   );
 }
-MobileNavigation.Overlay = MobileNavigationOverlay;
-
-interface MobileNavigationToggleProps {
-  isOpen: boolean;
-  onIsOpenChange: (isOpen: boolean) => void;
-  isBackgroundShown: boolean;
-}
 
 function MobileNavigationToggle({
   isOpen,
   onIsOpenChange,
   isBackgroundShown,
-}: MobileNavigationToggleProps) {
+}: {
+  isOpen: boolean;
+  onIsOpenChange: (isOpen: boolean) => void;
+  isBackgroundShown: boolean;
+}) {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -208,6 +200,5 @@ function MobileNavigationToggle({
     </button>
   );
 }
-MobileNavigation.Toggle = MobileNavigationToggle;
 
-export { MobileNavigation };
+export { MobileNavigation, MobileNavigationOverlay, MobileNavigationToggle };

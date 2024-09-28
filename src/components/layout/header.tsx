@@ -1,5 +1,9 @@
 import lokkeestudiosWordmarkLogoImage from '@/assets/images/logos/lokkeestudios-wordmark.svg';
-import { MobileNavigation } from '@/components/layout/mobile-navigation';
+import {
+  MobileNavigation,
+  MobileNavigationOverlay,
+  MobileNavigationToggle,
+} from '@/components/layout/mobile-navigation';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { Image } from '@/components/ui/image';
@@ -46,7 +50,7 @@ function Header() {
         >
           <div className="grid grid-cols-3">
             <div className="flex items-center lg:hidden">
-              <MobileNavigation.Toggle
+              <MobileNavigationToggle
                 isOpen={isMobileMenuOpen}
                 onIsOpenChange={setIsMobileMenuOpen}
                 isBackgroundShown={isBackgroundShown}
@@ -101,7 +105,7 @@ function Header() {
         onClose={() => setIsMobileMenuOpen(false)}
         links={links}
       />
-      <MobileNavigation.Overlay
+      <MobileNavigationOverlay
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
       />

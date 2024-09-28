@@ -1,7 +1,7 @@
 import { SanityImage } from '@/components/ui/sanity-image';
-import type { Image as ImageType } from '@/lib/sanity/sanity-image';
+import { type Image as ImageType } from '@/lib/sanity/sanity-image';
 import * as Dialog from '@radix-ui/react-dialog';
-import type { TypedObject } from 'astro-portabletext/types';
+import { type TypedObject } from 'astro-portabletext/types';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 

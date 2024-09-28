@@ -4,9 +4,8 @@ import {
   type AnchorHTMLAttributes,
   type ButtonHTMLAttributes,
   type ElementRef,
-  type LegacyRef,
   type ReactNode,
-  type Ref,
+  type RefObject,
 } from 'react';
 
 const buttonVariants = cva(
@@ -100,12 +99,12 @@ type ButtonProps = (
   | (ButtonHTMLAttributes<ButtonHTMLElement> & {
       as?: 'button';
       type: 'button' | 'submit' | 'reset';
-      ref?: Ref<ButtonHTMLElement>;
+      ref?: RefObject<ButtonHTMLElement>;
     })
   | (AnchorHTMLAttributes<AnchorHTMLElement> & {
       as: 'a';
       href: string;
-      ref?: LegacyRef<AnchorHTMLElement>;
+      ref?: RefObject<AnchorHTMLElement>;
     })
 ) & { children: ReactNode } & VariantProps<typeof buttonVariants>;
 
