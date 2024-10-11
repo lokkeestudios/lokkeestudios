@@ -29,7 +29,7 @@ function ServicesGrid() {
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="lg:col-span-2"
+        className="rounded-ss-xl max-lg:rounded-t-xl lg:col-span-2"
       >
         <div>
           <ServiceCardTitle>Web application</ServiceCardTitle>
@@ -56,7 +56,7 @@ function ServicesGrid() {
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="lg:col-span-3"
+        className="lg:col-span-3 lg:rounded-se-xl"
       >
         <div>
           <ServiceCardTitle>Website</ServiceCardTitle>
@@ -92,7 +92,7 @@ function ServicesGrid() {
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="lg:col-span-3"
+        className="lg:col-span-3 lg:rounded-es-xl"
       >
         <div>
           <ServiceCardTitle>E-Commerce (Shopify)</ServiceCardTitle>
@@ -127,7 +127,7 @@ function ServicesGrid() {
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="lg:col-span-2"
+        className="rounded-ee-xl max-lg:rounded-b-xl lg:col-span-2"
       >
         <div>
           <ServiceCardTitle>Custom solution</ServiceCardTitle>
