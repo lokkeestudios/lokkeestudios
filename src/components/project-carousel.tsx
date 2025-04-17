@@ -2,7 +2,7 @@ import { Container } from '@/components/ui/container';
 import { Icons } from '@/components/ui/icons';
 import { type Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
-import { clamp, cn, formatDate } from '@/lib/utils';
+import { clamp, cn } from '@/lib/utils';
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/react';
 import { cx } from 'class-variance-authority';
 import {
@@ -98,14 +98,6 @@ function ProjectSlide({
             !isDisabled && 'group-hover:opacity-100 group-focus-visible:opacity-100',
           )}
         >
-          <div className="overflow-hidden">
-            <time
-              dateTime={project.date}
-              className="block text-xs uppercase text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 md:translate-y-full"
-            >
-              {formatDate(project.date)}
-            </time>
-          </div>
           <div className="overflow-hidden">
             <h3
               id={`project-item-${project._id}-heading`}

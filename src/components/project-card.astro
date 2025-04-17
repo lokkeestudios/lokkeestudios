@@ -1,7 +1,6 @@
 ---
 import { type Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
-import { formatDate } from '@/lib/utils';
 import { Image } from 'astro:assets';
 
 type Props = {
@@ -26,12 +25,6 @@ const { project } = Astro.props;
     {...generateImageSizeProps({ image: project.poster })}
   />
   <article class="mt-4 flex flex-col items-center gap-y-2 text-center">
-    <time
-      datetime={project.date}
-      class="text-xs uppercase text-neutrals-200"
-    >
-      {formatDate(project.date)}
-    </time>
     <h3 class="text-2xl font-bold md:text-3xl">{project.name}</h3>
     {project.tags && <p class="mb-2 text-xs text-neutrals-300">{project.tags.join(', ')}</p>}
     <p class="max-w-prose text-pretty text-base/relaxed text-neutrals-200">

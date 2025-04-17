@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/container';
 import { Icons } from '@/components/ui/icons';
 import { type Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
-import { cn, formatDate } from '@/lib/utils';
+import { cn } from '@/lib/utils';
 import { Image } from 'astro:assets';
 
 type Props = {
@@ -43,12 +43,6 @@ const { project } = Astro.props;
           className="me-2 size-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
         /> Back to projects
       </a>
-      <time
-        datetime={project.date}
-        class="mb-4 text-xs uppercase text-neutrals-50/90 lg:text-sm"
-      >
-        {formatDate(project.date)}
-      </time>
       <h1
         id="project-details-heading"
         class="mb-4 text-balance text-4xl font-bold lg:text-6xl"
