@@ -31,9 +31,6 @@ const config = defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    speedInsights: {
-      enabled: true,
-    },
   }),
   prefetch: true,
   experimental: {
