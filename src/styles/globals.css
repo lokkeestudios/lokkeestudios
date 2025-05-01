@@ -1,188 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
 
-@layer utilities {
-  .color-scheme-dark {
-    color-scheme: dark;
-  }
+@utility mask-radial-faded {
+  mask-image: radial-gradient(circle at center center, black, transparent 75%);
+}
 
-  .mask-radial-faded {
-    mask-image: radial-gradient(circle at center center, black, transparent 75%);
-  }
+@utility mask-inline-faded {
+  mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
+}
 
-  .mask-inline-faded {
-    mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
-  }
+@utility bg-shiny-frame {
+  background:
+    linear-gradient(rgb(6, 9, 24), rgb(6, 9, 24)) padding-box padding-box,
+    linear-gradient(42deg, rgb(6, 9, 24) 45%, rgba(255, 254, 249, 0.9)) border-box border-box;
+}
 
-  .bg-shiny-frame {
-    background:
-      linear-gradient(rgb(6, 9, 24), rgb(6, 9, 24)) padding-box padding-box,
-      linear-gradient(42deg, rgb(6, 9, 24) 45%, rgba(255, 254, 249, 0.9)) border-box border-box;
-  }
+@utility play-state-paused {
+  animation-play-state: paused;
+}
 
-  .play-state-paused {
-    animation-play-state: paused;
-  }
+@utility scrollbar-none {
+  scrollbar-width: none;
 
-  .scrollbar-none {
-    scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      @apply hidden;
-    }
-  }
-
-  .scrollbar-stylized {
-    &::-webkit-scrollbar {
-      @apply w-1.5;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      @apply rounded-full bg-neutrals-50/15;
-    }
-
-    &::-webkit-scrollbar-track {
-      @apply bg-inherit;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-      @apply bg-neutrals-50/20;
-    }
+  &::-webkit-scrollbar {
+    @apply hidden;
   }
 }
 
-.refractor {
-  background: rgba(22 26 44 / 0.4);
-}
+@utility scrollbar-stylized {
+  &::-webkit-scrollbar {
+    @apply w-1.5;
+  }
 
-code[class*='language-'],
-pre[class*='language-'] {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-    'Courier New', monospace;
-  font-size: 0.875rem;
-  line-height: 1.4;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  tab-size: 4;
-  hyphens: none;
-  color: #fffef9;
-}
+  &::-webkit-scrollbar-thumb {
+    @apply bg-neutrals-50/15 rounded-full;
+  }
 
-pre > code[class*='language-'] {
-  font-size: 1em;
-}
+  &::-webkit-scrollbar-track {
+    @apply bg-inherit;
+  }
 
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection,
-code[class*='language-']::selection,
-code[class*='language-'] ::selection {
-  text-shadow: none;
-  background: #6919ff;
-}
-
-pre[class*='language-'] {
-  padding: 0.75rem;
-  overflow: auto;
-}
-
-:not(pre) > code[class*='language-'] {
-  padding: 0.1em;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #6f7a9b;
-}
-
-.token.namespace {
-  opacity: 0.7;
-}
-
-.token.property,
-.token.function {
-  color: #38bdf8;
-}
-
-.token.tag-id,
-.token.selector,
-.token.atrule-id,
-.token.punctuation {
-  color: #fffef9;
-}
-
-code.language-javascript,
-.token.attr-name {
-  color: #38bdf8;
-}
-
-.token.tag,
-.token.string,
-.language-css .token.string,
-.language-scss .token.string,
-.style .token.string {
-  color: #00f090;
-}
-
-code.language-css,
-code.language-scss,
-.token.boolean,
-.token.entity,
-.token.url,
-.token.attr-value,
-.token.keyword,
-.token.control,
-.token.directive,
-.token.unit,
-.token.statement,
-.token.regex,
-.token.atrule,
-.token.placeholder,
-.token.variable,
-.token.operator {
-  color: #ff2e5b;
-}
-
-.token.deleted {
-  text-decoration: line-through;
-}
-
-.token.inserted {
-  border-bottom: 1px dotted #fffef9;
-  text-decoration: none;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-.token.important,
-.token.bold {
-  font-weight: bold;
-}
-
-.token.important {
-  color: #38bdf8;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-pre > code.highlight {
-  outline: 0.4rem solid #38bdf8;
-  outline-offset: 0.4rem;
-}
-
-.refractor-marker {
-  background: rgba(105, 25, 255, 0.2);
-  border-inline-start: 2px solid #6919ff;
-  width: calc(100% + 1.5rem);
-  position: relative;
-  left: -0.75rem;
+  &::-webkit-scrollbar-thumb:hover {
+    @apply bg-neutrals-50/20;
+  }
 }

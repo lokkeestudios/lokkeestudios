@@ -17,7 +17,7 @@ const { title, description, openGraphImage } = Astro.props;
 <!-- This site was developed by LOKKEE STUDIOS (https://lokkeestudios.com) -->
 <html
   lang="en"
-  class="color-scheme-dark scroll-smooth"
+  class="scroll-smooth scheme-dark"
 >
   <Head
     title={title}
@@ -25,7 +25,7 @@ const { title, description, openGraphImage } = Astro.props;
     openGraphImage={openGraphImage}
   />
   <body
-    class="scrollbar-stylized bg-neutrals-900 text-neutrals-50 antialiased selection:bg-primary selection:text-neutrals-50"
+    class="scrollbar-stylized bg-neutrals-900 text-neutrals-50 selection:bg-primary selection:text-neutrals-50 antialiased"
   >
     <a
       href="#main"
@@ -34,14 +34,8 @@ const { title, description, openGraphImage } = Astro.props;
       Skip to main content
     </a>
     <LoadingScreen client:load />
-    <Header
-      client:idle
-      transition:persist
-    />
+    <Header client:idle />
     <slot />
-    <Footer
-      client:visible
-      transition:persist
-    />
+    <Footer client:visible />
   </body>
 </html>

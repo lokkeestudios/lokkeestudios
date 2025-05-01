@@ -30,10 +30,6 @@ const primaryLinks = [
     label: 'Source code',
     href: '/#source-code',
   },
-  {
-    label: 'Blog',
-    href: '/blog',
-  },
 ] as const;
 
 const secondaryLinks = [
@@ -67,7 +63,7 @@ function Footer() {
   return (
     <footer
       aria-label="Primary"
-      className="relative z-10 w-full border-t-0.5 border-neutrals-600 bg-neutrals-900 py-3"
+      className="border-t-0.5 border-neutrals-600 bg-neutrals-900 relative z-10 w-full py-3"
     >
       <Container>
         <div className="flex justify-center py-12">
@@ -83,7 +79,7 @@ function Footer() {
             />
           </a>
         </div>
-        <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent" />
+        <hr className="via-neutrals-600 h-px border-0 bg-linear-to-r from-transparent to-transparent" />
         <nav
           aria-label="Primary"
           className="flex flex-wrap justify-center gap-6 py-12"
@@ -93,13 +89,13 @@ function Footer() {
               key={link.href}
               href={link.href}
               data-astro-prefetch
-              className="text-sm uppercase text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
+              className="text-neutrals-300 hover:text-neutrals-50 focus-visible:text-neutrals-50 text-sm uppercase transition-colors"
             >
               {link.label}
             </a>
           ))}
         </nav>
-        <hr className="h-px border-0 bg-gradient-to-r from-transparent via-neutrals-600 to-transparent" />
+        <hr className="via-neutrals-600 h-px border-0 bg-linear-to-r from-transparent to-transparent" />
         <div className="grid grid-cols-1 items-center justify-center gap-6 py-12 lg:grid-cols-3">
           <nav
             aria-label="Secondary"
@@ -108,7 +104,7 @@ function Footer() {
             {secondaryLinks.map((link) => (
               <a
                 key={link.href}
-                className="text-xs uppercase text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
+                className="text-neutrals-300 hover:text-neutrals-50 focus-visible:text-neutrals-50 text-xs uppercase transition-colors"
                 href={link.href}
                 data-astro-prefetch
               >
@@ -128,7 +124,7 @@ function Footer() {
                   aria-label={label}
                   rel="noreferrer"
                   target="_blank"
-                  className="text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
+                  className="text-neutrals-300 hover:text-neutrals-50 focus-visible:text-neutrals-50 transition-colors"
                 >
                   <Icon
                     aria-hidden
@@ -139,7 +135,7 @@ function Footer() {
             ))}
           </ul>
           <div className="flex justify-center lg:order-first lg:justify-start">
-            <small className="text-xs text-neutrals-300">&copy; {currentYear} LOKKEE STUDIOS</small>
+            <small className="text-neutrals-300 text-xs">&copy; {currentYear} LOKKEE STUDIOS</small>
           </div>
         </div>
       </Container>

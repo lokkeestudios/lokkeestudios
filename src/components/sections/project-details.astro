@@ -16,7 +16,7 @@ const { project } = Astro.props;
 
 <section
   aria-labelledby="project-details-heading"
-  class="relative flex min-h-screen w-full bg-neutrals-900 py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-gradient-to-t after:from-neutrals-900 after:to-neutrals-900/60"
+  class="bg-neutrals-900 after:from-neutrals-900 after:to-neutrals-900/60 relative flex min-h-screen w-full py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-linear-to-t"
 >
   <Image
     alt={project.poster.alt}
@@ -45,21 +45,21 @@ const { project } = Astro.props;
       </a>
       <h1
         id="project-details-heading"
-        class="mb-4 text-balance text-4xl font-bold lg:text-6xl"
+        class="mb-4 text-4xl font-bold text-balance lg:text-6xl"
       >
         {project.name}
       </h1>
       <p
-        class="mb-8 max-w-prose text-pretty text-sm/relaxed text-neutrals-50/90 md:text-base/relaxed"
+        class="text-neutrals-50/90 mb-8 max-w-prose text-sm/relaxed text-pretty md:text-base/relaxed"
       >
         {project.description}
       </p>
       {
         project.tags && (
-          <p class="text-xs text-neutrals-50/90 lg:text-sm">{project.tags.join(', ')}</p>
+          <p class="text-neutrals-50/90 text-xs lg:text-sm">{project.tags.join(', ')}</p>
         )
       }
-      <hr class="mb-8 mt-4 h-px border-0 bg-gradient-to-r from-neutrals-50/40 to-transparent" />
+      <hr class="from-neutrals-50/40 mt-4 mb-8 h-px border-0 bg-linear-to-r to-transparent" />
       <div class="flex gap-x-4">
         {
           project.projecturl && (

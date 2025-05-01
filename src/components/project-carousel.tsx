@@ -79,7 +79,7 @@ function ProjectSlide({
       data-item-index={index}
       aria-current={currentIndex === index}
       aria-hidden={isDisabled}
-      className="relative aspect-[2/3] w-[clamp(18rem,42vmin,26rem)] overflow-hidden rounded-md"
+      className="relative aspect-2/3 w-[clamp(18rem,42vmin,26rem)] overflow-hidden rounded-md"
     >
       <a
         href={`/project/${project.slug.current}`}
@@ -87,14 +87,14 @@ function ProjectSlide({
         data-astro-prefetch
         aria-disabled={isDisabled}
         className={cx(
-          'group block h-full w-full rounded-md border border-neutrals-50/30',
+          'group border-neutrals-50/30 block h-full w-full rounded-md border',
           (isDisabled || isDragging) && 'pointer-events-none',
         )}
         draggable={false}
       >
         <article
           className={cn(
-            'absolute inset-0 flex flex-col items-center justify-center gap-y-2 bg-neutrals-900/60 p-4 text-center transition-opacity duration-300 md:opacity-0 md:backdrop-blur-sm',
+            'bg-neutrals-900/60 absolute inset-0 flex flex-col items-center justify-center gap-y-2 p-4 text-center transition-opacity duration-300 md:opacity-0 md:backdrop-blur-sm',
             !isDisabled && 'group-hover:opacity-100 group-focus-visible:opacity-100',
           )}
         >
@@ -108,7 +108,7 @@ function ProjectSlide({
           </div>
           {project.tags && (
             <div className="overflow-hidden">
-              <p className="text-xs text-neutrals-50/90 transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 md:translate-y-full lg:text-sm">
+              <p className="text-neutrals-50/90 text-xs transition-transform duration-300 group-hover:translate-y-0 group-focus-visible:translate-y-0 md:translate-y-full lg:text-sm">
                 {project.tags.join(', ')}
               </p>
             </div>
@@ -120,7 +120,7 @@ function ProjectSlide({
           decoding="async"
           {...generateImageSizeProps({ image: project.poster })}
           className={cn(
-            'pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-[transform,opacity,filter] duration-700',
+            'pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700',
             isDisabled
               ? 'opacity-20 grayscale'
               : 'group-hover:scale-105 group-focus-visible:scale-105',
@@ -159,7 +159,7 @@ function ProjectFiltersSelect({
       >
         {({ open }) => (
           <>
-            <ListboxButton className="flex w-full items-center justify-between rounded-sm border border-neutrals-600 bg-radial-highlight px-4 py-2 text-sm text-neutrals-100">
+            <ListboxButton className="border-neutrals-600 bg-radial-highlight text-neutrals-100 flex w-full items-center justify-between rounded-sm border px-4 py-2 text-sm">
               {selectedFilters
                 .sort((a, b) => projectTagFilters.indexOf(a) - projectTagFilters.indexOf(b))
                 .map((selectedFilter) => selectedFilter)
@@ -180,7 +180,7 @@ function ProjectFiltersSelect({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute z-10 mt-2 w-full rounded-sm border border-neutrals-600 bg-neutrals-900/90 px-2 py-2 drop-shadow-lg backdrop-blur-sm focus:outline-none supports-[backdrop-filter]:bg-neutrals-900/60"
+                    className="border-neutrals-600 bg-neutrals-900/90 supports-backdrop-filter:bg-neutrals-900/60 absolute z-10 mt-2 w-full rounded-sm border px-2 py-2 drop-shadow-lg backdrop-blur-sm focus:outline-none"
                   >
                     {projectTagFilters.map((projectTagFilter) => (
                       <ListboxOption
@@ -190,7 +190,7 @@ function ProjectFiltersSelect({
                       >
                         <li
                           className={cx(
-                            'cursor-pointer rounded-sm p-2 text-sm text-neutrals-300 transition-all data-[focus]:bg-primary data-[focus=false]:data-[selected]:text-neutrals-50 data-[focus]:text-neutrals-50',
+                            'text-neutrals-300 data-focus:bg-primary data-[focus=false]:data-selected:text-neutrals-50 data-focus:text-neutrals-50 cursor-pointer rounded-sm p-2 text-sm transition-all',
                           )}
                         >
                           {projectTagFilter}
@@ -350,7 +350,7 @@ function ProjectCarousel({ projects }: { projects: Project[] }) {
             title="Previous project slide"
             aria-controls="project-carousel"
             disabled={currentSlide === 0}
-            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-md backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/60"
+            className="border-neutrals-600 bg-neutrals-900/90 text-neutrals-100 supports-backdrop-filter:bg-neutrals-900/60 pointer-events-auto aspect-square h-fit rounded-full border p-4 drop-shadow-md backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Icons.ChevronLeft className="size-5" />
           </button>
@@ -360,12 +360,12 @@ function ProjectCarousel({ projects }: { projects: Project[] }) {
             title="Next project slide"
             aria-controls="project-carousel"
             disabled={currentSlide === projects.length - 1}
-            className="pointer-events-auto aspect-square h-fit rounded-full border border-neutrals-600 bg-neutrals-900/90 p-4 text-neutrals-100 drop-shadow-md backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-50 supports-[backdrop-filter]:bg-neutrals-900/60"
+            className="border-neutrals-600 bg-neutrals-900/90 text-neutrals-100 supports-backdrop-filter:bg-neutrals-900/60 pointer-events-auto aspect-square h-fit rounded-full border p-4 drop-shadow-md backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Icons.ChevronRight className="size-5" />
           </button>
         </div>
-        <div className="h-[calc(clamp(18rem,42vmin,26rem)*3/2)] touch-none select-none overflow-hidden">
+        <div className="h-[calc(clamp(18rem,42vmin,26rem)*3/2)] touch-none overflow-hidden select-none">
           <ul
             ref={carouselRef}
             id="project-carousel"
@@ -375,7 +375,7 @@ function ProjectCarousel({ projects }: { projects: Project[] }) {
             onMouseUpCapture={handleMouseUp}
             onMouseMoveCapture={handleMouseMove}
             className={cn(
-              'grid auto-cols-min grid-flow-col gap-x-6 overflow-x-auto pe-[calc(50vw-(clamp(18rem,42vmin,26rem)+1.5rem)/2)] ps-[calc(50vw-clamp(18rem,42vmin,26rem)/2-7px)]',
+              'grid auto-cols-min grid-flow-col gap-x-6 overflow-x-auto ps-[calc(50vw-clamp(18rem,42vmin,26rem)/2-7px)] pe-[calc(50vw-(clamp(18rem,42vmin,26rem)+1.5rem)/2)]',
               isDragging && 'cursor-grabbing',
             )}
           >
@@ -403,10 +403,10 @@ function ProjectCarousel({ projects }: { projects: Project[] }) {
         </p>
       </div>
       <Container>
-        <div className="h-px w-full bg-gradient-to-r from-neutrals-600/60 via-neutrals-600 to-neutrals-600/60">
+        <div className="from-neutrals-600/60 via-neutrals-600 to-neutrals-600/60 h-px w-full bg-linear-to-r">
           <motion.div
             style={{ width: scrollProgress }}
-            className="h-full bg-gradient-to-r from-neutrals-100/30 via-neutrals-100 to-neutrals-100/30"
+            className="from-neutrals-100/30 via-neutrals-100 to-neutrals-100/30 h-full bg-linear-to-r"
           />
         </div>
       </Container>

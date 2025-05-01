@@ -13,7 +13,7 @@ function Container({
 } & HTMLAttributes<ContainerHTMLElement>) {
   return (
     <div
-      className={cn('mx-auto w-11/12 max-w-screen-2xl 2xl:w-4/5', className)}
+      className={cn('mx-auto w-11/12 max-w-(--breakpoint-2xl) 2xl:w-4/5', className)}
       ref={ref}
       {...props}
     >

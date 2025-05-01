@@ -44,7 +44,7 @@ function Header() {
           className={cn(
             'mt-4 rounded-full border-0.5 p-2 transition-colors duration-500',
             isBackgroundShown
-              ? 'border-neutrals-600 bg-neutrals-900/90 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm supports-[backdrop-filter]:bg-neutrals-900/60'
+              ? 'border-neutrals-600 bg-neutrals-900/90 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm supports-backdrop-filter:bg-neutrals-900/60'
               : 'border-transparent bg-transparent',
           )}
         >
@@ -65,7 +65,7 @@ function Header() {
                   key={link.href}
                   href={link.href}
                   data-astro-prefetch
-                  className="relative flex h-full items-center p-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-[12.25%] after:h-px after:scale-x-0 after:bg-gradient-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-100 focus-visible:after:-scale-x-100"
+                  className="relative flex h-full items-center p-1 text-sm uppercase text-neutrals-50 after:absolute after:inset-x-0 after:bottom-[12.25%] after:h-px after:scale-x-0 after:bg-linear-to-r after:from-transparent after:via-neutrals-200 after:to-transparent after:transition-transform hover:after:-scale-x-100 focus-visible:after:-scale-x-100"
                 >
                   {link.label}
                 </a>

@@ -1,9 +1,9 @@
 import partytown from '@astrojs/partytown';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-import vercel from '@astrojs/vercel/serverless';
+import vercel from '@astrojs/vercel';
 import sanity from '@sanity/astro';
+import tailwindcss from '@tailwindcss/vite';
 import robotsTxt from 'astro-robots-txt';
 import webmanifest from 'astro-webmanifest';
 import { defineConfig } from 'astro/config';
@@ -27,7 +27,6 @@ const { name, backgroundColor, themeColor, url } = siteConfig;
 // https://astro.build/config
 const config = defineConfig({
   site: url,
-  output: 'hybrid',
   adapter: vercel({
     webAnalytics: {
       enabled: true,
@@ -40,10 +39,10 @@ const config = defineConfig({
   experimental: {
     clientPrerender: true,
   },
+  vite: {
+    plugins: [tailwindcss()],
+  },
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
     sanity({
       projectId: PUBLIC_SANITY_PROJECT_ID,
       dataset: PUBLIC_SANITY_DATASET,

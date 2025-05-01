@@ -29,18 +29,6 @@ const config = {
       borderWidth: {
         0.5: '0.5px',
       },
-      minHeight: {
-        /* @ts-ignore - required fallback for incremental adoption */
-        screen: ['100vh', '100svh'],
-      },
-      maxHeight: {
-        /* @ts-ignore - required fallback for incremental adoption */
-        screen: ['100vh', '100svh'],
-      },
-      height: {
-        /* @ts-ignore - required fallback for incremental adoption */
-        screen: ['100vh', '100svh'],
-      },
       backgroundImage: {
         'radial-highlight':
           'radial-gradient(circle at 50% 100%, rgba(46, 54, 79, 0.5) 1%, rgba(6, 9, 24, 1) 100%)',
