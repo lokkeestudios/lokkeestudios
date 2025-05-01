@@ -45,7 +45,7 @@
     "astrojs-service-worker": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.9.4",
+    "framer-motion": "^11.18.2",
     "groq": "^3.87.0",
     "ky": "^1.8.1",
     "moment": "^2.30.1",
