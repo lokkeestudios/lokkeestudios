@@ -1,6 +1,5 @@
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
-import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
 import { structureTool } from 'sanity/structure';
 import { sanityClient } from 'sanity:client';
 import { Logo } from './desk/logo';
@@ -20,7 +19,7 @@ const config = defineConfig({
   projectId,
   dataset,
   icon: Logo,
-  plugins: [structureTool(), vercelDeployTool(), visionTool()],
+  plugins: [structureTool(), visionTool()],
   tools: (prev) => {
     if (import.meta.env.DEV) {
       return prev;

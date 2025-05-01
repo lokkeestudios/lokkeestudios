@@ -57,7 +57,6 @@
     "react-particles": "^2.12.2",
     "resend": "^4.4.1",
     "sanity": "^3.87.0",
-    "sanity-plugin-vercel-deploy": "^3.3.4",
     "sharp": "^0.34.1",
     "slugify": "^1.6.6",
     "styled-components": "^6.1.17",
