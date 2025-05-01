@@ -1,4 +1,3 @@
-import { codeInput } from '@sanity/code-input';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy';
@@ -21,7 +20,7 @@ const config = defineConfig({
   projectId,
   dataset,
   icon: Logo,
-  plugins: [structureTool(), vercelDeployTool(), visionTool(), codeInput()],
+  plugins: [structureTool(), vercelDeployTool(), visionTool()],
   tools: (prev) => {
     if (import.meta.env.DEV) {
       return prev;
