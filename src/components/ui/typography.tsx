@@ -1,11 +1,11 @@
 import { cn } from '@/lib/utils';
-import { type ElementRef, type HTMLAttributes } from 'react';
+import { type ComponentProps } from 'react';
 
-function Heading({ children, className, ...props }: HTMLAttributes<ElementRef<'h2'>>) {
+function Heading({ children, className, ...props }: ComponentProps<'h2'>) {
   return (
     <h2
       className={cn(
-        'mb-4 text-balance text-3xl/tight font-bold text-neutrals-50 md:text-5xl/tight',
+        'text-neutrals-50 mb-4 text-3xl/tight font-bold text-balance md:text-5xl/tight',
         className,
       )}
       {...props}
@@ -15,11 +15,11 @@ function Heading({ children, className, ...props }: HTMLAttributes<ElementRef<'h
   );
 }
 
-function Caption({ children, className, ...props }: HTMLAttributes<ElementRef<'p'>>) {
+function Caption({ children, className, ...props }: ComponentProps<'p'>) {
   return (
     <p
       className={cn(
-        'relative mb-4 inline-block overflow-hidden text-pretty rounded-full border-0.5 border-primary/30 bg-primary/10 px-4 py-1 font-medium uppercase text-primary backdrop-blur-sm after:absolute after:inset-0 after:animate-shiny-badge-slide after:bg-primary/10 max-md:text-sm',
+        'border-0.5 border-primary/30 bg-primary/10 text-primary after:animate-shiny-badge-slide after:bg-primary/10 relative mb-4 inline-block overflow-hidden rounded-full px-4 py-1 font-medium text-pretty uppercase backdrop-blur-sm after:absolute after:inset-0 max-md:text-sm',
         className,
       )}
       {...props}
@@ -29,10 +29,10 @@ function Caption({ children, className, ...props }: HTMLAttributes<ElementRef<'p
   );
 }
 
-function Paragraph({ children, className, ...props }: HTMLAttributes<ElementRef<'p'>>) {
+function Paragraph({ children, className, ...props }: ComponentProps<'p'>) {
   return (
     <p
-      className={cn('max-w-prose text-base/relaxed text-neutrals-300', className)}
+      className={cn('text-neutrals-300 max-w-prose text-base/relaxed', className)}
       {...props}
     >
       {children}

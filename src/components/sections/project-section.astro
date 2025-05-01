@@ -1,0 +1,60 @@
+---
+import TestimonialCard from '@/components/testimonial-card.astro';
+import Section from '@/components/ui/section.astro';
+import { Paragraph } from '@/components/ui/typography';
+import { type ProjectSection } from '@/lib/sanity/get-projects';
+import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
+import { cn } from '@/lib/utils';
+import Image from 'astro/components/Image.astro';
+
+type Props = {
+  section: ProjectSection;
+};
+
+const { section } = Astro.props as any;
+---
+
+<Section>
+  {
+    () => {
+      switch (section._type) {
+        case 'textSection':
+          return <Paragraph>{section.text}</Paragraph>;
+        case 'imageTextSection':
+          return (
+            <div
+              class={cn(
+                'flex gap-x-8',
+                section.imagePosition === 'right' && 'flex flex-row-reverse',
+              )}
+            >
+              <Image
+                alt={section.image.alt}
+                class="w-full"
+                style={{
+                  backgroundColor: section.image.asset.metadata.palette.dominant.background,
+                }}
+                {...generateImageSizeProps({ image: section.image, maxWidth: 1280 })}
+              />
+              <Paragraph>{section.text}</Paragraph>
+            </div>
+          );
+        case 'image':
+          return (
+            <Image
+              alt={section.alt}
+              class="w-full"
+              style={{
+                backgroundColor: section.asset.metadata.palette.dominant.background,
+              }}
+              {...generateImageSizeProps({ image: section, maxWidth: 1280 })}
+            />
+          );
+        case 'testimonial':
+          return <TestimonialCard testimonial={section} />;
+        default:
+          return null;
+      }
+    }
+  }
+</Section>

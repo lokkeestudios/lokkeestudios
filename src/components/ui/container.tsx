@@ -1,20 +1,10 @@
 import { cn } from '@/lib/utils';
-import { type ElementRef, type HTMLAttributes, type RefObject } from 'react';
+import { type ComponentProps } from 'react';
 
-type ContainerHTMLElement = ElementRef<'div'>;
-
-function Container({
-  children,
-  className,
-  ref,
-  ...props
-}: {
-  ref?: RefObject<ContainerHTMLElement>;
-} & HTMLAttributes<ContainerHTMLElement>) {
+function Container({ children, className, ...props }: ComponentProps<'div'>) {
   return (
     <div
       className={cn('mx-auto w-11/12 max-w-(--breakpoint-2xl) 2xl:w-4/5', className)}
-      ref={ref}
       {...props}
     >
       {children}

@@ -1,21 +1,11 @@
 import { cn } from '@/lib/utils';
-import { type ElementRef, type InputHTMLAttributes, type Ref } from 'react';
+import { type ComponentProps } from 'react';
 
-type InputHTMLElement = ElementRef<'input'>;
-
-function Input({
-  type,
-  className,
-  ref,
-  ...props
-}: {
-  ref?: Ref<InputHTMLElement>;
-} & InputHTMLAttributes<InputHTMLElement>) {
+function Input({ type, className, ...props }: ComponentProps<'input'>) {
   return (
     <input
-      ref={ref}
       className={cn(
-        'peer block w-full appearance-none rounded-sm border border-neutrals-600 bg-neutrals-800 p-3 caret-primary shadow-[0_0_10px,inset_0_0_10px] shadow-transparent transition-colors focus:border-primary focus:shadow-primary/70 focus:outline-none disabled:cursor-not-allowed disabled:opacity-70',
+        'peer border-neutrals-600 bg-neutrals-800 caret-primary focus:border-primary focus:shadow-primary/70 block w-full appearance-none rounded-sm border p-3 shadow-[0_0_10px,inset_0_0_10px] shadow-transparent transition-colors focus:outline-none disabled:cursor-not-allowed disabled:opacity-70',
         className,
       )}
       {...props}

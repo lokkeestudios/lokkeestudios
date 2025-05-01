@@ -1,4 +1,4 @@
-import { CaseIcon } from '@sanity/icons';
+import { CaseIcon, DashboardIcon, ImageIcon, TextIcon } from '@sanity/icons';
 import moment from 'moment';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
@@ -55,6 +55,7 @@ const projectSchema = defineType({
           title: 'Alternative text',
           description: 'Crucial for SEO and accessiblity',
           type: 'string',
+          validation: (Rule) => Rule.required(),
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -72,8 +73,124 @@ const projectSchema = defineType({
               title: 'Alternative text',
               description: 'Crucial for SEO and accessiblity',
               type: 'string',
+              validation: (Rule) => Rule.required(),
             },
           ],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'sections',
+      title: 'Sections',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          title: 'Image',
+          type: 'image',
+          icon: ImageIcon,
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alternative text',
+              description: 'Crucial for SEO and accessiblity',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+          preview: {
+            select: {
+              media: 'asset',
+              title: 'alt',
+            },
+            prepare({ media, title }) {
+              return {
+                title: title ?? 'Image',
+                media: media,
+              };
+            },
+          },
+        }),
+        defineArrayMember({
+          title: 'Text',
+          name: 'textSection',
+          type: 'object',
+          icon: TextIcon,
+          fields: [
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+          preview: {
+            select: {
+              text: 'text',
+            },
+            prepare({ text }) {
+              return {
+                title: text ?? 'Text section',
+                subtitle: 'Text content',
+              };
+            },
+          },
+          validation: (Rule) => Rule.required(),
+        }),
+        defineArrayMember({
+          title: 'Image and Text',
+          name: 'imageTextSection',
+          type: 'object',
+          icon: DashboardIcon,
+          fields: [
+            {
+              name: 'image',
+              title: 'Image',
+              type: 'image',
+              fields: [
+                {
+                  name: 'alt',
+                  title: 'Alternative text',
+                  description: 'Crucial for SEO and accessiblity',
+                  type: 'string',
+                  validation: (Rule) => Rule.required(),
+                },
+              ],
+            },
+            {
+              name: 'text',
+              title: 'Text',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'imagePosition',
+              title: 'Image Position',
+              type: 'string',
+              options: {
+                list: ['left', 'right'],
+              },
+              initialValue: 'left',
+            },
+          ],
+          preview: {
+            select: {
+              media: 'image',
+              text: 'text',
+            },
+            prepare({ media, text }) {
+              return {
+                title: text ?? 'Image and Text section',
+                subtitle: 'Image with text content',
+                media: media,
+              };
+            },
+          },
+        }),
+        defineArrayMember({
+          title: 'Testimonial',
+          name: 'testimonialSection',
+          type: 'reference',
+          to: [{ type: 'testimonial' }],
         }),
       ],
     }),

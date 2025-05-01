@@ -1,6 +1,6 @@
 import { siteConfig } from '@/config/site';
 import { useReducedMotion } from 'framer-motion';
-import { useCallback, useEffect, useRef, type ElementRef } from 'react';
+import { useCallback, useEffect, useRef, type ComponentRef } from 'react';
 
 const TEXT_COLOR = siteConfig.themeColor;
 const BACKGROUND_COLOR = siteConfig.backgroundColor;
@@ -15,7 +15,7 @@ function getPseudoRandomInRange(min: number, max: number) {
 
 function MatrixBackground() {
   const shouldReduceMotion = useReducedMotion();
-  const matrixCanvasRef = useRef<ElementRef<'canvas'>>(null);
+  const matrixCanvasRef = useRef<ComponentRef<'canvas'>>(null);
 
   const initializeMatrixCanvas = useCallback(() => {
     if (!matrixCanvasRef.current) return undefined;

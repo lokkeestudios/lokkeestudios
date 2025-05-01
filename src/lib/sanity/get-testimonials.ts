@@ -27,4 +27,4 @@ function getTestimonials() {
   return sanityClient.fetch<Testimonial[]>(query);
 }
 
-export { getTestimonials, type Image, type Testimonial };
+export { getTestimonials, type Testimonial };

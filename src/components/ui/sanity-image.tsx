@@ -1,7 +1,5 @@
 import { generateImageSizeProps, type Image } from '@/lib/sanity/sanity-image';
-import { type ElementRef, type HTMLAttributes, type RefObject } from 'react';
-
-type SanityImageHTMLElement = ElementRef<'img'>;
+import { type ComponentProps } from 'react';
 
 function SanityImage({
   image,
@@ -19,8 +17,7 @@ function SanityImage({
   width?: number | undefined;
   height?: number | undefined;
   isAboveTheFold?: boolean | undefined;
-  ref?: RefObject<SanityImageHTMLElement>;
-} & HTMLAttributes<SanityImageHTMLElement>) {
+} & ComponentProps<'img'>) {
   return (
     <img
       style={{

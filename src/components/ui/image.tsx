@@ -1,20 +1,16 @@
 import { type ImageMetadata } from 'astro';
-import { type ElementRef, type HTMLAttributes, type RefObject } from 'react';
-
-type ImageHTMLElement = ElementRef<'img'>;
+import { type ComponentProps } from 'react';
 
 function Image({
   metadata,
   alt,
   isAboveTheFold = false,
-  ref,
   ...props
 }: {
   metadata: ImageMetadata;
   alt: string;
   isAboveTheFold?: boolean | undefined;
-  ref?: RefObject<ImageHTMLElement>;
-} & HTMLAttributes<ImageHTMLElement>) {
+} & ComponentProps<'img'>) {
   return (
     <img
       src={metadata.src}
@@ -23,7 +19,6 @@ function Image({
       alt={alt}
       loading={isAboveTheFold ? 'eager' : 'lazy'}
       decoding="async"
-      ref={ref}
       {...props}
     />
   );

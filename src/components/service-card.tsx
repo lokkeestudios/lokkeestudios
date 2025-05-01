@@ -8,7 +8,7 @@ import {
   type HTMLMotionProps,
   type MotionStyle,
 } from 'framer-motion';
-import { useRef, type ElementRef, type ReactNode } from 'react';
+import { useRef, type ComponentRef, type ReactNode } from 'react';
 
 function ServiceCard({
   parentMousePositionX,
@@ -21,7 +21,7 @@ function ServiceCard({
   parentMousePositionY: MotionValue<number>;
   children: ReactNode;
 } & HTMLMotionProps<'a'>) {
-  const ref = useRef<ElementRef<'a'>>(null);
+  const ref = useRef<ComponentRef<'a'>>(null);
 
   const mousePositionX = useTransform(
     parentMousePositionX,
@@ -38,7 +38,7 @@ function ServiceCard({
       href="/#contact"
       aria-label="Secure your package now"
       className={cn(
-        'group/card relative overflow-hidden rounded-md bg-linear-to-r from-neutrals-300/30 via-neutrals-300/80 via-15% to-neutrals-300/30 to-35% p-[0.5px] drop-shadow-lg',
+        'group/card from-neutrals-300/30 via-neutrals-300/80 to-neutrals-300/30 relative overflow-hidden rounded-md bg-linear-to-r via-15% to-35% p-[0.5px] drop-shadow-lg',
         'before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(600px_circle_at_var(--mouse-position-x)_var(--mouse-position-y),rgba(255,254,249,0.06),transparent_60%)] before:opacity-0 before:transition before:duration-500 lg:hover:before:opacity-100',
         'after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:bg-[radial-gradient(400px_circle_at_var(--mouse-position-x)_var(--mouse-position-y),rgba(255,254,249,0.6),transparent_60%)] after:opacity-0 after:transition after:duration-500 lg:group-hover:after:opacity-100',
         className,
@@ -63,7 +63,7 @@ interface ComponentWithChildrenProps {
 }
 
 function ServiceCardTitle({ children }: ComponentWithChildrenProps) {
-  return <h3 className="mb-2 text-balance font-medium text-primary md:text-lg">{children}</h3>;
+  return <h3 className="text-primary mb-2 font-medium text-balance md:text-lg">{children}</h3>;
 }
 
 function ServiceCardPrice({ children }: ComponentWithChildrenProps) {
@@ -71,15 +71,15 @@ function ServiceCardPrice({ children }: ComponentWithChildrenProps) {
 }
 
 function ServiceCardDescription({ children }: ComponentWithChildrenProps) {
-  return <p className="mb-8 max-w-prose text-pretty text-sm text-neutrals-300">{children}</p>;
+  return <p className="text-neutrals-300 mb-8 max-w-prose text-sm text-pretty">{children}</p>;
 }
 
 function ServiceCardNotice({ children }: ComponentWithChildrenProps) {
-  return <p className="mb-8 text-xs text-neutrals-400">{children}</p>;
+  return <p className="text-neutrals-400 mb-8 text-xs">{children}</p>;
 }
 
 function ServiceCardList({ children }: ComponentWithChildrenProps) {
-  return <ul className="mb-8 flex flex-col gap-y-4 text-neutrals-300">{children}</ul>;
+  return <ul className="text-neutrals-300 mb-8 flex flex-col gap-y-4">{children}</ul>;
 }
 
 function ServiceCardBenefitListItem({ children }: ComponentWithChildrenProps) {
@@ -90,7 +90,7 @@ function ServiceCardBenefitListItem({ children }: ComponentWithChildrenProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        className="size-5 text-neutrals-50"
+        className="text-neutrals-50 size-5"
       >
         <path
           d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"
@@ -98,7 +98,7 @@ function ServiceCardBenefitListItem({ children }: ComponentWithChildrenProps) {
         />
         <path
           d="M8 11.8571L10.5 14.3572L15.8572 9"
-          className="fill-none stroke-neutrals-900"
+          className="stroke-neutrals-900 fill-none"
         />
       </svg>
       {children}
@@ -114,7 +114,7 @@ function ServiceCardAddonListItem({ children }: ComponentWithChildrenProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={1.5}
-        className="size-5 text-neutrals-50"
+        className="text-neutrals-50 size-5"
       >
         <path
           d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"
@@ -122,7 +122,7 @@ function ServiceCardAddonListItem({ children }: ComponentWithChildrenProps) {
         />
         <path
           d="M12,7.645L12,16.355M16.355,12L7.645,12"
-          className="fill-none stroke-neutrals-100"
+          className="stroke-neutrals-100 fill-none"
         />
       </svg>
       {children}

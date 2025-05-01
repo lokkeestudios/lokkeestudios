@@ -19,8 +19,8 @@ import {
   useEffect,
   useRef,
   useState,
+  type ComponentRef,
   type Dispatch,
-  type ElementRef,
   type MouseEvent,
   type SetStateAction,
   type UIEvent,
@@ -43,7 +43,7 @@ function ProjectSlide({
   carouselWidth: number;
   scrollPosition: MotionValue<number>;
 }) {
-  const slideRef = useRef<ElementRef<'li'>>(null);
+  const slideRef = useRef<ComponentRef<'li'>>(null);
   const [slideOffsetLeft, setSlideOffsetLeft] = useState(0);
   const [slideWidth, setSlideWidth] = useState(0);
   const imagePosition = useTransform(
@@ -211,8 +211,8 @@ function ProjectFiltersSelect({
 const CAROUSEL_SLIDES_GAP = 24;
 
 function ProjectCarousel({ projects }: { projects: Project[] }) {
-  const carouselWrapperRef = useRef<ElementRef<'div'>>(null);
-  const carouselRef = useRef<ElementRef<'ul'>>(null);
+  const carouselWrapperRef = useRef<ComponentRef<'div'>>(null);
+  const carouselRef = useRef<ComponentRef<'ul'>>(null);
   const [carouselWidth, setCarouselWidth] = useState(0);
   const [carouselSlideWidth, setCarouselSlideWidth] = useState(0);
   const [maxScrollWidth, setMaxScrollWidth] = useState(0);
@@ -235,7 +235,9 @@ function ProjectCarousel({ projects }: { projects: Project[] }) {
       return;
 
     setCarouselWidth(carouselWrapperRef.current.offsetWidth);
-    setCarouselSlideWidth((carouselRef.current.firstElementChild as ElementRef<'li'>).offsetWidth);
+    setCarouselSlideWidth(
+      (carouselRef.current.firstElementChild as ComponentRef<'li'>).offsetWidth,
+    );
     setMaxScrollWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
   }, []);
 
@@ -281,7 +283,7 @@ function ProjectCarousel({ projects }: { projects: Project[] }) {
   }
 
   const handleScroll = useCallback(
-    (event: UIEvent<ElementRef<'ul'>>) => {
+    (event: UIEvent<ComponentRef<'ul'>>) => {
       scrollPosition.set(event.currentTarget.scrollLeft);
     },
     [scrollPosition],
