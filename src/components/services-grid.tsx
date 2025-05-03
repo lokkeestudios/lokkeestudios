@@ -46,47 +46,9 @@ function ServicesGrid() {
             <ServiceCardBenefitListItem>
               Scalable backend solutions or bring your own backend
             </ServiceCardBenefitListItem>
-            <ServiceCardAddonListItem>
-              Multi-platform support <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>Multi-platform support</ServiceCardAddonListItem>
           </ServiceCardList>
         </div>
-        <ServiceCardCallToAction />
-      </ServiceCard>
-      <ServiceCard
-        parentMousePositionX={mousePositionX}
-        parentMousePositionY={mousePositionY}
-        className="lg:col-span-3 lg:rounded-se-xl"
-      >
-        <div>
-          <ServiceCardTitle>Website</ServiceCardTitle>
-          <ServiceCardPrice>
-            €4.800<span className="text-xl font-normal text-neutrals-400">*</span>
-          </ServiceCardPrice>
-          <ServiceCardDescription>
-            There are no limits to your website vision ― Let&apos;s make it happen!
-          </ServiceCardDescription>
-          <ServiceCardList>
-            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Animations & interactions</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>SEO & page speed optimization</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Engaging user experience</ServiceCardBenefitListItem>
-            <ServiceCardAddonListItem>
-              CMS (self-customizability) implementation <span className="text-neutrals-400">|</span>{' '}
-              Custom quote
-            </ServiceCardAddonListItem>
-            <ServiceCardAddonListItem>
-              Multilingual support <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCardAddonListItem>
-            <ServiceCardAddonListItem>
-              Analytics <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCardAddonListItem>
-          </ServiceCardList>
-        </div>
-        <ServiceCardNotice>
-          * Starting price, varies with project scope and additional requirements
-        </ServiceCardNotice>
         <ServiceCardCallToAction />
       </ServiceCard>
       <ServiceCard
@@ -97,7 +59,7 @@ function ServicesGrid() {
         <div>
           <ServiceCardTitle>E-Commerce (Shopify)</ServiceCardTitle>
           <ServiceCardPrice>
-            €6.400<span className="text-xl font-normal text-neutrals-400">*</span>
+            €6.400<span className="text-neutrals-400 text-xl font-normal">*</span>
           </ServiceCardPrice>
           <ServiceCardDescription>
             Level up your Shopify store with a custom theme, tailored to your products and customer
@@ -111,12 +73,8 @@ function ServicesGrid() {
             </ServiceCardBenefitListItem>
             <ServiceCardBenefitListItem>Self-customizable content</ServiceCardBenefitListItem>
             <ServiceCardBenefitListItem>Conversion rate optimization</ServiceCardBenefitListItem>
-            <ServiceCardAddonListItem>
-              Multilingual support <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCardAddonListItem>
-            <ServiceCardAddonListItem>
-              Analytics <span className="text-neutrals-400">|</span> Custom quote
-            </ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>Multilingual support</ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>Analytics</ServiceCardAddonListItem>
           </ServiceCardList>
           <ServiceCardNotice>
             * Starting price, varies with project scope and additional requirements
@@ -124,6 +82,38 @@ function ServicesGrid() {
         </div>
         <ServiceCardCallToAction />
       </ServiceCard>
+      <ServiceCard
+        parentMousePositionX={mousePositionX}
+        parentMousePositionY={mousePositionY}
+        className="lg:col-span-3 lg:rounded-se-xl"
+      >
+        <div>
+          <ServiceCardTitle>Website</ServiceCardTitle>
+          <ServiceCardPrice>
+            €4.800<span className="text-neutrals-400 text-xl font-normal">*</span>
+          </ServiceCardPrice>
+          <ServiceCardDescription>
+            There are no limits to your website vision ― Let&apos;s make it happen!
+          </ServiceCardDescription>
+          <ServiceCardList>
+            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Animations & interactions</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>SEO & page speed optimization</ServiceCardBenefitListItem>
+            <ServiceCardBenefitListItem>Engaging user experience</ServiceCardBenefitListItem>
+            <ServiceCardAddonListItem>
+              CMS (self-customizability) implementation
+            </ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>Multilingual support</ServiceCardAddonListItem>
+            <ServiceCardAddonListItem>Analytics</ServiceCardAddonListItem>
+          </ServiceCardList>
+        </div>
+        <ServiceCardNotice>
+          * Starting price, varies with project scope and additional requirements
+        </ServiceCardNotice>
+        <ServiceCardCallToAction />
+      </ServiceCard>
+
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}

@@ -29,6 +29,9 @@ const config = {
       borderWidth: {
         0.5: '0.5px',
       },
+      width: {
+        '8xl': '6rem',
+      },
       backgroundImage: {
         'radial-highlight':
           'radial-gradient(circle at 50% 100%, rgba(46, 54, 79, 0.5) 1%, rgba(6, 9, 24, 1) 100%)',

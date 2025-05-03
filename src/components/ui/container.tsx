@@ -4,7 +4,7 @@ import { type ComponentProps } from 'react';
 function Container({ children, className, ...props }: ComponentProps<'div'>) {
   return (
     <div
-      className={cn('mx-auto w-11/12 max-w-(--breakpoint-2xl) 2xl:w-4/5', className)}
+      className={cn('mx-auto w-11/12 max-w-[96rem] 2xl:w-4/5', className)}
       {...props}
     >
       {children}
