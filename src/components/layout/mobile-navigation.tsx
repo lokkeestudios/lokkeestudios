@@ -58,7 +58,7 @@ function MobileNavigation({
                 y: -10,
                 rotateX: 25,
               }}
-              className="flex flex-col justify-center divide-y-0.5 divide-neutrals-600"
+              className="divide-y-0.5 divide-neutrals-600 flex flex-col justify-center"
             >
               {links.map((link, index) => (
                 <a
@@ -66,8 +66,8 @@ function MobileNavigation({
                   href={link.href}
                   onClick={onClose}
                   className={cn(
-                    'py-4 ps-2 uppercase text-neutrals-200 transition-[letter-spacing,color]',
-                    'hover:tracking-wider hover:text-neutrals-50 focus-visible:tracking-wider focus-visible:text-neutrals-50',
+                    'text-neutrals-200 py-4 ps-2 uppercase transition-[letter-spacing,color]',
+                    'hover:text-neutrals-50 focus-visible:text-neutrals-50 hover:tracking-wider focus-visible:tracking-wider',
                   )}
                 >
                   {link.label}
@@ -92,7 +92,7 @@ function MobileNavigationOverlay({ isOpen, onClose }: { isOpen: boolean; onClose
           transition={{ duration: 0.5 }}
           aria-hidden
           onClick={onClose}
-          className="fixed inset-0 -z-10 bg-neutrals-900/90 backdrop-blur-sm lg:hidden"
+          className="bg-neutrals-900/90 fixed inset-0 -z-10 backdrop-blur-sm lg:hidden"
         />
       )}
     </AnimatePresence>
@@ -102,11 +102,9 @@ function MobileNavigationOverlay({ isOpen, onClose }: { isOpen: boolean; onClose
 function MobileNavigationToggle({
   isOpen,
   onIsOpenChange,
-  isBackgroundShown,
 }: {
   isOpen: boolean;
   onIsOpenChange: (isOpen: boolean) => void;
-  isBackgroundShown: boolean;
 }) {
   const [scope, animate] = useAnimate();
 
@@ -164,10 +162,7 @@ function MobileNavigationToggle({
       aria-expanded={isOpen}
       onClick={() => onIsOpenChange(!isOpen)}
       aria-label="Toggle navigation menu"
-      className={cn(
-        'rounded-full px-3 py-1.5 transition-colors duration-500 md:px-4 md:py-2',
-        isBackgroundShown && 'bg-neutrals-900/40',
-      )}
+      className="bg-neutrals-900/40 rounded-full px-3 py-1.5 transition-colors duration-500 md:px-4 md:py-2 [@container_not_scroll-state(scrollable:top)]:bg-transparent"
     >
       <span className="sr-only">Menu</span>
       <motion.svg
@@ -176,7 +171,7 @@ function MobileNavigationToggle({
         viewBox="0 0 24 24"
         fill="currentColor"
         aria-hidden
-        className="md:6-4 size-6 divide-y-0.5 divide-neutrals-800 md:h-7"
+        className="md:6-4 divide-y-0.5 divide-neutrals-800 size-6 md:h-7"
       >
         <motion.path
           fillRule="evenodd"
