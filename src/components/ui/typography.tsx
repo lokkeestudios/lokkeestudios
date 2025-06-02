@@ -19,7 +19,7 @@ function Caption({ children, className, ...props }: ComponentProps<'p'>) {
   return (
     <p
       className={cn(
-        'border-0.5 border-primary/30 bg-primary/10 text-primary after:animate-shiny-badge-slide after:bg-primary/10 relative mb-4 inline-block overflow-hidden rounded-full px-4 py-1 font-medium text-pretty uppercase backdrop-blur-sm after:absolute after:inset-0 max-md:text-sm',
+        'border-primary/30 bg-primary/10 text-primary after:animate-shiny-badge-slide after:bg-primary/10 relative mb-4 inline-block overflow-hidden rounded-full border-[0.5px] px-4 py-1 font-medium text-pretty uppercase backdrop-blur-sm text-shadow-lg after:absolute after:inset-0 max-md:text-sm',
         className,
       )}
       {...props}

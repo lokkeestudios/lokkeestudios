@@ -27,27 +27,27 @@ const reversedTestimonials = [...testimonials].reverse();
       </Paragraph>
     </div>
   </Container>
-  <div class="mask-inline-faded group mb-6 flex w-full overflow-x-hidden">
-    <ul class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee">
+  <div class="group mb-6 flex w-full overflow-x-clip mask-x-from-80%">
+    <ul class="group-hover:paused motion-reduce:paused animate-marquee flex">
       {testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>
     <ul
       aria-hidden="true"
-      class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee"
+      class="group-hover:paused motion-reduce:paused animate-marquee flex"
     >
       {testimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>
   </div>
-  <div class="mask-inline-faded group flex w-full overflow-x-hidden">
+  <div class="group flex w-full overflow-x-clip mask-x-from-80%">
     <ul
       aria-hidden="true"
-      class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee [animation-direction:reverse]"
+      class="group-hover:paused motion-reduce:paused animate-marquee flex [animation-direction:reverse]"
     >
       {reversedTestimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>
     <ul
       aria-hidden="true"
-      class="group-hover:play-state-paused motion-reduce:play-state-paused flex animate-marquee [animation-direction:reverse]"
+      class="group-hover:paused motion-reduce:paused animate-marquee flex [animation-direction:reverse]"
     >
       {reversedTestimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>

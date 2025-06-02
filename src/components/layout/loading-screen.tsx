@@ -1,5 +1,5 @@
 import lokkeestudiosLogo from '@/assets/images/logos/lokkeestudios.svg';
-import { useLockBody } from '@/hooks/use-body-lock';
+import { useLockBody } from '@/hooks/use-lock-body';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
@@ -19,7 +19,7 @@ function LoadingScreen() {
           animate={{ y: '0%' }}
           exit={{ y: '-100%' }}
           transition={{ duration: 1, delay: 0.35 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-neutrals-900"
+          className="bg-neutrals-900 fixed inset-0 z-50 flex items-center justify-center"
         >
           <motion.img
             src={lokkeestudiosLogo.src}

@@ -1,46 +1,134 @@
 @import 'tailwindcss';
-@config '../../tailwind.config.ts';
 
-@utility mask-radial-faded {
-  mask-image: radial-gradient(circle at center center, black, transparent 75%);
+@theme inline {
+  --font-inter: 'Inter', var(--font-sans);
+
+  --color-primary: oklch(0.515 0.287 286);
+  --color-neutrals-900: oklch(0.146 0.0331 272);
+  --color-neutrals-800: oklch(0.223 0.0357 274);
+  --color-neutrals-700: oklch(0.276 0.0391 277);
+  --color-neutrals-600: oklch(0.337 0.0456 270);
+  --color-neutrals-500: oklch(0.46 0.0507 270);
+  --color-neutrals-400: oklch(0.583 0.0525 270);
+  --color-neutrals-300: oklch(0.711 0.047 270);
+  --color-neutrals-200: oklch(0.857 0.0308 267);
+  --color-neutrals-100: oklch(0.963 0.0162 279);
+  --color-neutrals-50: oklch(0.996 0.00666 97.3);
+  --color-success: oklch(0.84 0.204 156);
+  --color-warning: oklch(0.898 0.174 96.5);
+  --color-error: oklch(0.651 0.238 16.2);
+
+  --animate-glitch-1: glitch 4s linear infinite alternate-reverse;
+  --animate-glitch-2: glitch 2s linear infinite alternate-reverse;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-shiny-badge-slide: shiny-badge-slide 6s infinite;
+  --animate-jiggle: jiggle 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+
+  @keyframes glitch {
+    10.5263%: {
+      clip: rect(65px, 9999px, 200px, 0);
+    }
+    15.7895%: {
+      clip: rect(8px, 9999px, 200px, 0);
+    }
+    21.0526%: {
+      clip: rect(51px, 9999px, 159px, 0);
+    }
+    26.3158%: {
+      clip: rect(6px, 9999px, 82px, 0);
+    }
+    31.5789%: {
+      clip: rect(1px, 9999px, 106px, 0);
+    }
+    36.8421%: {
+      clip: rect(17px, 9999px, 69px, 0);
+    }
+    42.1053%: {
+      clip: rect(65px, 9999px, 144px, 0);
+    }
+    47.3684%: {
+      clip: rect(1px, 9999px, 91px, 0);
+    }
+    52.6316%: {
+      clip: rect(18px, 9999px, 209px, 0);
+    }
+    57.8947%: {
+      clip: rect(14px, 9999px, 175px, 0);
+    }
+    63.1579%: {
+      clip: rect(61px, 9999px, 107px, 0);
+    }
+    68.4211%: {
+      clip: rect(73px, 9999px, 178px, 0);
+    }
+    73.6842%: {
+      clip: rect(53px, 9999px, 207px, 0);
+    }
+    78.9474%: {
+      clip: rect(33px, 9999px, 199px, 0);
+    }
+    84.2105%: {
+      clip: rect(73px, 9999px, 144px, 0);
+    }
+    89.4737%: {
+      clip: rect(79px, 9999px, 163px, 0);
+    }
+    94.7369%: {
+      clip: rect(1px, 9999px, 76px, 0);
+    }
+    100%: {
+      clip: rect(64px, 9999px, 117px, 0);
+    }
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes shiny-badge-slide {
+    0% {
+      transform: translateX(-100%) skewX(-16deg);
+    }
+    15%,
+    100% {
+      transform: translateX(100%) skewX(-16deg);
+    }
+  }
+
+  @keyframes jiggle {
+    0,
+    100% {
+      transform: skewX(0deg) skewY(0deg);
+    }
+    50% {
+      transform: skewX(-6deg) skewY(-6deg);
+    }
+  }
 }
 
-@utility mask-inline-faded {
-  mask-image: linear-gradient(to right, transparent, black 25%, black 75%, transparent);
+@layer base {
+  button:not(:disabled),
+  [role='button']:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+@utility paused {
+  animation-play-state: paused;
+}
+
+@utility bg-radial-highlight {
+  background-image: radial-gradient(
+    circle at 50% 100%,
+    rgba(46, 54, 79, 0.6) 1%,
+    rgba(6, 9, 24, 1) 100%
+  );
 }
 
 @utility bg-shiny-frame {
   background:
     linear-gradient(rgb(6, 9, 24), rgb(6, 9, 24)) padding-box padding-box,
     linear-gradient(42deg, rgb(6, 9, 24) 45%, rgba(255, 254, 249, 0.9)) border-box border-box;
-}
-
-@utility play-state-paused {
-  animation-play-state: paused;
-}
-
-@utility scrollbar-none {
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    @apply hidden;
-  }
-}
-
-@utility scrollbar-stylized {
-  &::-webkit-scrollbar {
-    @apply w-1.5;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    @apply bg-neutrals-50/15 rounded-full;
-  }
-
-  &::-webkit-scrollbar-track {
-    @apply bg-inherit;
-  }
-
-  &::-webkit-scrollbar-thumb:hover {
-    @apply bg-neutrals-50/20;
-  }
 }

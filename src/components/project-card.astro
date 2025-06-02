@@ -13,7 +13,6 @@ const { project } = Astro.props;
 <a
   href={`/project/${project.slug.current}`}
   aria-label={`Show ${project.name} project details`}
-  data-astro-prefetch
   class="border-neutrals-200/20 bg-radial-highlight relative flex-1 grow rounded-lg border p-4 transition-transform duration-300 focus-visible:-translate-y-2 focus-visible:scale-[1.01] focus-visible:drop-shadow-lg md:p-8 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:drop-shadow-lg"
 >
   <Image

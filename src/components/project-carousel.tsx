@@ -84,7 +84,6 @@ function ProjectSlide({
       <a
         href={`/project/${project.slug.current}`}
         aria-label={isDisabled ? undefined : `Show ${project.name} project details`}
-        data-astro-prefetch
         aria-disabled={isDisabled}
         className={cx(
           'group border-neutrals-50/30 block h-full w-full rounded-md border',
@@ -348,21 +347,21 @@ function ProjectCarousel({ projects }: { projects: Project[] }) {
         >
           <button
             type="button"
-            onClick={scrollToPreviousSlide}
+            onPointerDown={scrollToPreviousSlide}
             title="Previous project slide"
             aria-controls="project-carousel"
             disabled={currentSlide === 0}
-            className="border-neutrals-600 bg-neutrals-900/90 text-neutrals-100 supports-backdrop-filter:bg-neutrals-900/60 pointer-events-auto aspect-square h-fit rounded-full border p-4 drop-shadow-md backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-50"
+            className="border-neutrals-600 bg-neutrals-900/90 text-neutrals-100 supports-backdrop-filter:bg-neutrals-900/60 pointer-events-auto aspect-square h-fit rounded-full border p-4 drop-shadow-md backdrop-blur-sm transition-transform not-disabled:active:scale-90 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Icons.ChevronLeft className="size-5" />
           </button>
           <button
             type="button"
-            onClick={scrollToNextSlide}
+            onPointerDown={scrollToNextSlide}
             title="Next project slide"
             aria-controls="project-carousel"
             disabled={currentSlide === projects.length - 1}
-            className="border-neutrals-600 bg-neutrals-900/90 text-neutrals-100 supports-backdrop-filter:bg-neutrals-900/60 pointer-events-auto aspect-square h-fit rounded-full border p-4 drop-shadow-md backdrop-blur-sm disabled:cursor-not-allowed disabled:opacity-50"
+            className="border-neutrals-600 bg-neutrals-900/90 text-neutrals-100 supports-backdrop-filter:bg-neutrals-900/60 pointer-events-auto aspect-square h-fit rounded-full border p-4 drop-shadow-md backdrop-blur-sm transition-transform not-disabled:active:scale-90 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <Icons.ChevronRight className="size-5" />
           </button>
