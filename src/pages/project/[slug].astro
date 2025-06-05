@@ -1,5 +1,6 @@
 ---
 import { ScrollProgress } from '@/components/scroll-progress';
+import Contact from '@/components/sections/contact.astro';
 import ProjectDetailsSection from '@/components/sections/project-details.astro';
 import ProjectRecommendationsSection from '@/components/sections/project-recommendations.astro';
 import Layout from '@/layouts/layout.astro';
@@ -34,6 +35,7 @@ const openGraphImage = {
   <ScrollProgress client:idle />
   <main id="main">
     <ProjectDetailsSection project={project} />
+    <Contact />
     <ProjectRecommendationsSection project={project} />
   </main>
 </Layout>
