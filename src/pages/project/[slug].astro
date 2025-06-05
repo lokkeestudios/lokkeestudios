@@ -3,21 +3,20 @@ import { ScrollProgress } from '@/components/scroll-progress';
 import ProjectDetailsSection from '@/components/sections/project-details.astro';
 import ProjectRecommendationsSection from '@/components/sections/project-recommendations.astro';
 import Layout from '@/layouts/layout.astro';
-import { getProjects, type Project } from '@/lib/sanity/get-projects';
+import { getProjects } from '@/lib/sanity/get-projects';
 import { imageUrlFor } from '@/lib/sanity/sanity-image';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const projects = await getProjects();
 
   return projects.map((project) => ({
     params: { slug: project.slug.current },
     props: { project },
   }));
-}
+}) satisfies GetStaticPaths;
 
-type Props = {
-  project: Project;
-};
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { project } = Astro.props;
 
