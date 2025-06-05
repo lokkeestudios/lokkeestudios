@@ -28,7 +28,7 @@ const config = {
     },
     {
       files: ['*.ts'],
-      plugins: ['react', '@typescript-eslint'],
+      plugins: ['react', '@typescript-eslint', 'react-hooks', 'react-compiler'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,
@@ -55,7 +55,7 @@ const config = {
     },
     {
       files: ['*.tsx'],
-      plugins: ['react', '@typescript-eslint'],
+      plugins: ['react', '@typescript-eslint', 'react-hooks', 'react-compiler'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         tsconfigRootDir: __dirname,
@@ -82,6 +82,7 @@ const config = {
           { argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
         ],
         '@typescript-eslint/no-non-null-assertion': 'off',
+        'react-compiler/react-compiler': 'warn',
       },
     },
     {
