@@ -1,17 +1,16 @@
 import { cn } from '@/lib/utils';
+import { Label as LabelPrimitive } from 'radix-ui';
 import { type ComponentProps } from 'react';
 
-function Label({ children, className, ...props }: ComponentProps<'label'>) {
+function Label({ className, ...props }: ComponentProps<'label'>) {
   return (
-    <label
+    <LabelPrimitive.Root
       className={cn(
         'text-neutrals-300 mb-2 block text-sm/none uppercase peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
         className,
       )}
       {...props}
-    >
-      {children}
-    </label>
+    />
   );
 }
 
