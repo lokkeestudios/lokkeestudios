@@ -82,7 +82,7 @@ function generateImageSizeProps({
   width?: number | undefined;
   height?: number | undefined;
 }) {
-  const builder = imageUrlFor(image).fit('max').auto('format');
+  const builder = imageUrlFor(image).fit('max').auto('format').dpr(2);
 
   const { width: originalWidth, aspectRatio } = image.asset.metadata.dimensions;
 
