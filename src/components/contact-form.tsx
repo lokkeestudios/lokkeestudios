@@ -6,11 +6,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Caption, Heading } from '@/components/ui/typography';
-import { siteConfig } from '@/config/site';
+import { siteConfig } from '@/lib/config/site';
 import { sendEmail } from '@/lib/send-email';
 import { contactSubmissionSchema } from '@/lib/validations/contact-submission';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Ring } from '@uiball/loaders';
 import { useForm } from 'react-hook-form';
 import { type z } from 'zod';
 
@@ -46,6 +45,24 @@ function ContactForm() {
         className="group flex flex-col gap-y-6"
       >
         <div>
+          <Label htmlFor="contact-form-company">Company</Label>
+          <Input
+            id="contact-form-company"
+            type="text"
+            className={errors.company ? 'border-error' : ''}
+            {...register('company', { required: true })}
+          />
+          {errors.company && (
+            <p className="text-error mt-2 flex items-center text-sm">
+              <Icons.Warning
+                aria-hidden
+                className="me-2 inline size-5"
+              />
+              {errors.company.message}
+            </p>
+          )}
+        </div>
+        <div>
           <Label htmlFor="contact-form-name">Name</Label>
           <Input
             id="contact-form-name"
@@ -54,7 +71,7 @@ function ContactForm() {
             {...register('name', { required: true })}
           />
           {errors.name && (
-            <p className="mt-2 flex items-center text-sm text-error">
+            <p className="text-error mt-2 flex items-center text-sm">
               <Icons.Warning
                 aria-hidden
                 className="me-2 inline size-5"
@@ -72,7 +89,7 @@ function ContactForm() {
             {...register('email', { required: true })}
           />
           {errors.email && (
-            <p className="mt-2 flex items-center text-sm text-error">
+            <p className="text-error mt-2 flex items-center text-sm">
               <Icons.Warning
                 aria-hidden
                 className="me-2 inline size-5"
@@ -82,14 +99,20 @@ function ContactForm() {
           )}
         </div>
         <div>
-          <Label htmlFor="contact-form-message">Message</Label>
+          <Label
+            htmlFor="contact-form-message"
+            className="flex items-center justify-between"
+          >
+            <span>How can we help you?</span>
+            <span className="text-neutrals-500 capitalize">Max 1800 characters</span>
+          </Label>
           <Textarea
             id="contact-form-message"
             className={errors.message ? 'border-error' : ''}
             {...register('message', { required: true })}
           />
           {errors.message && (
-            <p className="mt-2 flex items-center text-sm text-error">
+            <p className="text-error mt-2 flex items-center text-sm">
               <Icons.Warning
                 aria-hidden
                 className="me-2 inline size-5"
@@ -100,7 +123,7 @@ function ContactForm() {
         </div>
         <div className="flex max-sm:flex-col-reverse max-sm:gap-y-6 sm:items-center sm:justify-between">
           <a
-            className="inline-flex items-center text-neutrals-300 transition-colors hover:text-neutrals-50 focus-visible:text-neutrals-50"
+            className="text-neutrals-300 hover:text-neutrals-50 focus-visible:text-neutrals-50 inline-flex items-center transition-colors"
             href={`mailto:${siteConfig.email}`}
             title="Hit us up"
           >
@@ -115,17 +138,10 @@ function ContactForm() {
             className="disabled:cursor-progress max-sm:w-full"
           >
             Hit us up
-            <div
+            <Icons.Spinner
               aria-hidden
-              className="ms-2 inline opacity-70 group-enabled:hidden"
-            >
-              <Ring
-                size={20}
-                lineWeight={5}
-                speed={2}
-                color="currentColor"
-              />
-            </div>
+              className="ms-2 inline size-5 opacity-70 group-enabled:hidden"
+            />
             <Icons.Rocket
               aria-hidden
               className="ms-2 inline size-5 group-disabled:hidden"
@@ -133,7 +149,7 @@ function ContactForm() {
           </Button>
         </div>
         {errors.root && (
-          <p className="mt-2 flex items-center text-sm text-error">
+          <p className="text-error mt-2 flex items-center text-sm">
             <Icons.Warning
               aria-hidden
               className="me-2 inline size-5"

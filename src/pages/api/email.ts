@@ -19,14 +19,14 @@ const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify(issues), { status: 400 });
   }
 
-  const { name, email, message } = parsedData.data;
+  const { company, name, email, message } = parsedData.data;
 
   return resend.emails
     .send({
       from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
       to: SENDER_EMAIL,
       replyTo: email,
-      subject: `${name} ― LOKKEE STUDIOS Inquiry`,
+      subject: `${name} from ${company} ― LOKKEE STUDIOS Inquiry`,
       text: message,
     })
     .then(async () => {
@@ -34,7 +34,7 @@ const POST: APIRoute = async ({ request }) => {
         from: `Noreply LOKKEE STUDIOS <${NOREPLY_EMAIL}>`,
         to: email,
         subject: `Thanks for getting in touch ${name}!`,
-        react: ContactSubmissionConfirmationEmail({ name, email, message }),
+        react: ContactSubmissionConfirmationEmail({ company, name, email, message }),
       });
 
       return new Response(

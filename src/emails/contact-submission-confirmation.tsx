@@ -77,8 +77,8 @@ function ContactSubmissionConfirmationEmail({
           },
         }}
       >
-        <Body className="mx-auto my-auto bg-neutrals-900 font-sans">
-          <Container className="my-[48px] w-[512px] rounded-md border-[0.5px] border-solid border-neutrals-200/20 p-[48px] shadow-lg">
+        <Body className="bg-neutrals-900 mx-auto my-auto font-sans">
+          <Container className="border-neutrals-200/20 my-[48px] w-[512px] rounded-md border-[0.5px] border-solid p-[48px] shadow-lg">
             <Section>
               <Img
                 src="https://lokkeestudios.com/icons/icon-512x512.png"
@@ -87,7 +87,7 @@ function ContactSubmissionConfirmationEmail({
                 height={64}
                 className="mx-auto"
               />
-              <Heading className="my-[32px] text-center text-[24px] font-normal text-neutrals-50">
+              <Heading className="text-neutrals-50 my-[32px] text-center text-[24px] font-normal">
                 Thanks for getting in touch
                 {name && (
                   <>
@@ -97,8 +97,8 @@ function ContactSubmissionConfirmationEmail({
                 )}
                 !
               </Heading>
-              <Text className="text-[14px]/[24px] text-neutrals-50">Hi{name && <> {name}</>},</Text>
-              <Text className="text-[14px]/[24px] text-neutrals-50">
+              <Text className="text-neutrals-50 text-[14px]/[24px]">Hi{name && <> {name}</>},</Text>
+              <Text className="text-neutrals-50 text-[14px]/[24px]">
                 We will get back to you
                 {email && (
                   <>
@@ -116,10 +116,10 @@ function ContactSubmissionConfirmationEmail({
                 )}{' '}
                 as soon as possible.
               </Text>
-              <Text className="mb-0 text-[14px]/[24px] text-neutrals-50">Have a good one!</Text>
-              <Text className="mt-0 text-[14px]/[24px] text-neutrals-50">Kilian</Text>
-              <Hr className="my-[24px] border-[0.5px] border-solid border-neutrals-200/20" />
-              <Text className="my-0 text-[12px]/[24px] text-neutrals-300">
+              <Text className="text-neutrals-50 mb-0 text-[14px]/[24px]">Have a good one!</Text>
+              <Text className="text-neutrals-50 mt-0 text-[14px]/[24px]">Kilian</Text>
+              <Hr className="border-neutrals-200/20 my-[24px] border-[0.5px] border-solid" />
+              <Text className="text-neutrals-300 my-0 text-[12px]/[24px]">
                 You are receiving this email because you have recently submitted an inquiry via the
                 contact form on{' '}
                 <a

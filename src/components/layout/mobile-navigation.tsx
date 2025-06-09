@@ -1,5 +1,5 @@
 import { Container } from '@/components/ui/container';
-import { useLockBody } from '@/hooks/use-body-lock';
+import { useLockBody } from '@/hooks/use-lock-body';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion, useAnimate } from 'framer-motion';
 import { useEffect } from 'react';
