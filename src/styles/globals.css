@@ -3,20 +3,20 @@
 @theme inline {
   --font-inter: 'Inter', var(--font-sans);
 
-  --color-primary: oklch(0.515 0.287 286);
-  --color-neutrals-900: oklch(0.146 0.0331 272);
-  --color-neutrals-800: oklch(0.223 0.0357 274);
-  --color-neutrals-700: oklch(0.276 0.0391 277);
-  --color-neutrals-600: oklch(0.337 0.0456 270);
-  --color-neutrals-500: oklch(0.46 0.0507 270);
-  --color-neutrals-400: oklch(0.583 0.0525 270);
-  --color-neutrals-300: oklch(0.711 0.047 270);
-  --color-neutrals-200: oklch(0.857 0.0308 267);
-  --color-neutrals-100: oklch(0.963 0.0162 279);
-  --color-neutrals-50: oklch(0.996 0.00666 97.3);
-  --color-success: oklch(0.84 0.204 156);
-  --color-warning: oklch(0.898 0.174 96.5);
-  --color-error: oklch(0.651 0.238 16.2);
+  --color-primary: #6919ff;
+  --color-neutrals-900: #060918;
+  --color-neutrals-800: #161a2c;
+  --color-neutrals-700: #23263b;
+  --color-neutrals-600: #2e364f;
+  --color-neutrals-500: #4d5775;
+  --color-neutrals-400: #6f7a9b;
+  --color-neutrals-300: #96a1c0;
+  --color-neutrals-200: #c7d0e5;
+  --color-neutrals-100: #f0f2fe;
+  --color-neutrals-50: #fffef9;
+  --color-success: #00f090;
+  --color-warning: #ffdc30;
+  --color-error: #ff2e5b;
 
   --animate-glitch-1: glitch 4s linear infinite alternate-reverse;
   --animate-glitch-2: glitch 2s linear infinite alternate-reverse;
