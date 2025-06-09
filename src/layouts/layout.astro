@@ -1,5 +1,5 @@
 ---
-import { Footer } from '@/components/layout/footer';
+import Footer from '@/components/layout/footer.astro';
 import Head from '@/components/layout/head.astro';
 import { Header } from '@/components/layout/header';
 import { LoadingScreen } from '@/components/layout/loading-screen';
@@ -36,6 +36,6 @@ const { title, description, openGraphImage } = Astro.props;
     <LoadingScreen client:load />
     <Header client:idle />
     <slot />
-    <Footer client:visible />
+    <Footer />
   </body>
 </html>

@@ -61,25 +61,6 @@ const projectSchema = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'images',
-      title: 'Images',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'image',
-          fields: [
-            {
-              name: 'alt',
-              title: 'Alternative text',
-              description: 'Crucial for SEO and accessiblity',
-              type: 'string',
-              validation: (Rule) => Rule.required(),
-            },
-          ],
-        }),
-      ],
-    }),
-    defineField({
       name: 'sections',
       title: 'Sections',
       type: 'array',
@@ -112,7 +93,7 @@ const projectSchema = defineType({
         }),
         defineArrayMember({
           title: 'Text',
-          name: 'textSection',
+          name: 'textblock',
           type: 'object',
           icon: TextIcon,
           fields: [
@@ -137,8 +118,8 @@ const projectSchema = defineType({
           validation: (Rule) => Rule.required(),
         }),
         defineArrayMember({
-          title: 'Image and Text',
-          name: 'imageTextSection',
+          title: 'Image with Text',
+          name: 'imageWithText',
           type: 'object',
           icon: DashboardIcon,
           fields: [
@@ -179,8 +160,8 @@ const projectSchema = defineType({
             },
             prepare({ media, text }) {
               return {
-                title: text ?? 'Image and Text section',
-                subtitle: 'Image with text content',
+                title: text ?? 'Image with Text',
+                subtitle: 'Image with text',
                 media: media,
               };
             },
@@ -188,7 +169,7 @@ const projectSchema = defineType({
         }),
         defineArrayMember({
           title: 'Testimonial',
-          name: 'testimonialSection',
+          name: 'testimonial',
           type: 'reference',
           to: [{ type: 'testimonial' }],
         }),

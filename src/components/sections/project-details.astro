@@ -5,7 +5,6 @@ import { Container } from '@/components/ui/container';
 import { Icons } from '@/components/ui/icons';
 import { type Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
-import { cn } from '@/lib/utils';
 import { Image } from 'astro:assets';
 
 type Props = {
@@ -36,7 +35,6 @@ const { project } = Astro.props;
     <div class="relative z-10 flex h-full flex-col justify-end">
       <a
         href="/#work"
-        data-astro-prefetch
         class="group absolute start-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
       >
         <Icons.ArrowLongLeft
@@ -100,7 +98,7 @@ const { project } = Astro.props;
       </div>
     </div>
     {
-      project.images && project.images.length > 0 && (
+      project.sections && project.sections.length > 0 && (
         <a
           href="#project-gallery"
           title="See project breakdown"
@@ -113,30 +111,19 @@ const { project } = Astro.props;
     }
   </Container>
 </section>
-{project.sections && project.sections.map((section) => <ProjectSection section={section} />)}
 {
-  project.images && project.images.length > 0 && (
-    <section
+  project.sections && (
+    <div
       id="project-gallery"
       aria-label="Project Gallery"
-      class="bg-neutrals-900"
     >
-      <div class="mx-auto max-w-[96rem]">
-        {project.images.map((image, index) => (
-          <Image
-            alt={image.alt}
-            class={cn(
-              'w-full',
-              index === 0 && 'rounded-t-lg',
-              index === project.images.length - 1 && 'rounded-b-lg',
-            )}
-            style={{
-              backgroundColor: image.asset.metadata.palette.dominant.background,
-            }}
-            {...generateImageSizeProps({ image, maxWidth: 1536 })}
-          />
-        ))}
-      </div>
-    </section>
+      {project.sections.map((section, index) => (
+        <ProjectSection
+          section={section}
+          previousSectionType={project.sections[index - 1]?._type}
+          nextSectionType={project.sections[index + 1]?._type}
+        />
+      ))}
+    </div>
   )
 }

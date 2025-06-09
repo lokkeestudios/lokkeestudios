@@ -2,7 +2,7 @@
 import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Heading, Paragraph } from '@/components/ui/typography';
-import { siteConfig } from '@/config/site';
+import { siteConfig } from '@/lib/config/site';
 ---
 
 <Section aria-labelledby="imprint-heading">
@@ -10,7 +10,7 @@ import { siteConfig } from '@/config/site';
     <div class="max-w-prose md:mx-auto">
       <h1
         id="imprint-heading"
-        class="mb-8 text-balance text-5xl/tight font-bold md:text-7xl/tight"
+        class="mb-8 text-5xl/tight font-bold text-balance md:text-7xl/tight"
       >
         Imprint
       </h1>
@@ -31,7 +31,7 @@ import { siteConfig } from '@/config/site';
             <a
               href={`mailto:${siteConfig.email}`}
               title="Hit us up"
-              class="border-b border-current text-neutrals-100 transition-colors hover:text-primary"
+              class="text-neutrals-100 hover:text-primary border-b border-current transition-colors"
             >
               {siteConfig.email}</a
             ><br />Phone number is given out on request.

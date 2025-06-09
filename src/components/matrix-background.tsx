@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config/site';
+import { siteConfig } from '@/lib/config/site';
 import { useReducedMotion } from 'framer-motion';
 import { useCallback, useEffect, useRef, type ComponentRef } from 'react';
 

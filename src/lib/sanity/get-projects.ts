@@ -6,12 +6,12 @@ import { sanityClient } from 'sanity:client';
 type ImageSection = Image;
 
 type TextSection = {
-  _type: 'textSection';
+  _type: 'textblock';
   text: string;
 };
 
 type ImageTextSection = {
-  _type: 'imageTextSection';
+  _type: 'imageWithText';
   text: string;
   image: Image;
   imagePosition: 'left' | 'right';
@@ -20,7 +20,7 @@ type ImageTextSection = {
 type TestimonialSection = Testimonial;
 
 type ProjectSection = {
-  _type: 'textSection' | 'imageTextSection' | 'testimonial' | 'image';
+  _type: 'textblock' | 'imageWithText' | 'testimonial' | 'image';
 } & (TextSection | ImageTextSection | TestimonialSection | ImageSection);
 
 type Project = {
@@ -35,7 +35,6 @@ type Project = {
   description: string;
   poster: Image;
   sections: ProjectSection[];
-  images: Image[];
   tags?: string[];
   githuburl?: string;
   projecturl?: string;
@@ -46,17 +45,16 @@ function getProjects() {
     *[_type == "project"] | order(date desc) { 
       ...,
       "poster": poster { ..., asset-> },
-      "images": images[] { ..., asset-> },
       "sections": sections[] {
         _key,
         _type,
         ...select(
-          _type == "textSection" => { text },
-          _type == "imageTextSection" => {
-            text,
+          _type == "textblock" => { text },
+          _type == "imageWithText" => {
+            ...,
             "image": image { ..., asset-> }
           },
-          _type == "testimonialSection" => {
+          _type == "testimonial" => {
             ...@-> {
               ...,
               "logo": logo { ..., asset-> },
