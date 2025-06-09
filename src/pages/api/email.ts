@@ -1,5 +1,5 @@
-import { siteConfig } from '@/config/site';
 import { ContactSubmissionConfirmationEmail } from '@/emails/contact-submission-confirmation';
+import { siteConfig } from '@/lib/config/site';
 import { resend } from '@/lib/resend';
 import { contactSubmissionSchema } from '@/lib/validations/contact-submission';
 import { type APIRoute } from 'astro';
