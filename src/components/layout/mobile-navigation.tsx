@@ -102,9 +102,11 @@ function MobileNavigationOverlay({ isOpen, onClose }: { isOpen: boolean; onClose
 function MobileNavigationToggle({
   isOpen,
   onIsOpenChange,
+  isBackgroundShown,
 }: {
   isOpen: boolean;
   onIsOpenChange: (isOpen: boolean) => void;
+  isBackgroundShown: boolean;
 }) {
   const [scope, animate] = useAnimate();
 
@@ -162,7 +164,10 @@ function MobileNavigationToggle({
       aria-expanded={isOpen}
       onClick={() => onIsOpenChange(!isOpen)}
       aria-label="Toggle navigation menu"
-      className="bg-neutrals-900/40 rounded-full px-3 py-1.5 transition-colors duration-500 md:px-4 md:py-2 [@container_not_scroll-state(scrollable:top)]:bg-transparent"
+      className={cn(
+        'rounded-full px-3 py-1.5 transition-colors duration-500 md:px-4 md:py-2',
+        isBackgroundShown && 'bg-neutrals-900/40',
+      )}
     >
       <span className="sr-only">Menu</span>
       <motion.svg

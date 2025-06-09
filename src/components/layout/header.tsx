@@ -7,6 +7,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { Image } from '@/components/ui/image';
+import { useScrollThreshold } from '@/hooks/use-scroll-threshold';
+import { cn } from '@/lib/utils';
 import { useState } from 'react';
 
 const links = [
@@ -24,8 +26,13 @@ const links = [
   },
 ] as const;
 
+const GRACE_THRESHOLD = 12;
+
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isScrollThresholdPassed } = useScrollThreshold({ threshold: GRACE_THRESHOLD });
+
+  const isBackgroundShown = isScrollThresholdPassed || isMobileMenuOpen;
 
   return (
     <header
@@ -33,12 +40,20 @@ function Header() {
       className="fixed top-0 z-40 w-full"
     >
       <Container>
-        <div className="border-neutrals-600 bg-neutrals-900/60 mt-4 rounded-full border-[0.5px] p-2 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm transition-colors duration-500 [@container_not_scroll-state(scrollable:top)]:border-transparent [@container_not_scroll-state(scrollable:top)]:bg-transparent [@container_not_scroll-state(scrollable:top)]:shadow-transparent [@container_not_scroll-state(scrollable:top)]:backdrop-blur-none">
+        <div
+          className={cn(
+            'border-0.5 mt-4 rounded-full p-2 transition-colors duration-500',
+            isBackgroundShown
+              ? 'border-neutrals-600 bg-neutrals-900/90 supports-backdrop-filter:bg-neutrals-900/60 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm'
+              : 'border-transparent bg-transparent',
+          )}
+        >
           <div className="grid grid-cols-3">
             <div className="flex items-center lg:hidden">
               <MobileNavigationToggle
                 isOpen={isMobileMenuOpen}
                 onIsOpenChange={setIsMobileMenuOpen}
+                isBackgroundShown={isBackgroundShown}
               />
             </div>
             <nav
