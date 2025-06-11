@@ -1,15 +1,10 @@
 import lokkeestudiosWordmarkLogoImage from '@/assets/images/logos/lokkeestudios-wordmark.svg';
-import {
-  MobileNavigation,
-  MobileNavigationOverlay,
-  MobileNavigationToggle,
-} from '@/components/layout/mobile-navigation';
+import { MobileNavigation } from '@/components/layout/mobile-navigation';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { Image } from '@/components/ui/image';
 import { useScrollThreshold } from '@/hooks/use-scroll-threshold';
 import { cn } from '@/lib/utils';
-import { useState } from 'react';
 
 const links = [
   {
@@ -26,13 +21,10 @@ const links = [
   },
 ] as const;
 
-const GRACE_THRESHOLD = 12;
-
 function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isScrollThresholdPassed } = useScrollThreshold({ threshold: GRACE_THRESHOLD });
+  const { isScrollThresholdPassed } = useScrollThreshold();
 
-  const isBackgroundShown = isScrollThresholdPassed || isMobileMenuOpen;
+  const isBackgroundShown = isScrollThresholdPassed;
 
   return (
     <header
@@ -42,18 +34,17 @@ function Header() {
       <Container>
         <div
           className={cn(
-            'border-0.5 mt-4 rounded-full p-2 transition-colors duration-500',
+            'mt-4 rounded-full border-[0.5px] p-2 transition-colors duration-500',
             isBackgroundShown
-              ? 'border-neutrals-600 bg-neutrals-900/90 supports-backdrop-filter:bg-neutrals-900/60 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm'
+              ? 'border-neutrals-50/20 bg-neutrals-900/60 shadow-[inset_0_1px_1px_0_rgb(255_254_249/0.3)] backdrop-blur-sm'
               : 'border-transparent bg-transparent',
           )}
         >
           <div className="grid grid-cols-3">
             <div className="flex items-center lg:hidden">
-              <MobileNavigationToggle
-                isOpen={isMobileMenuOpen}
-                onIsOpenChange={setIsMobileMenuOpen}
-                isBackgroundShown={isBackgroundShown}
+              <MobileNavigation
+                links={links}
+                className="lg:hidden"
               />
             </div>
             <nav
@@ -100,15 +91,6 @@ function Header() {
           </div>
         </div>
       </Container>
-      <MobileNavigation
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-        links={links}
-      />
-      <MobileNavigationOverlay
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-      />
     </header>
   );
 }

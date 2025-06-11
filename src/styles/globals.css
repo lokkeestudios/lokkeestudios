@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'tw-animate-css';
 
 @theme inline {
   --font-inter: 'Inter', var(--font-sans);
@@ -113,10 +114,6 @@
   [role='button']:not(:disabled) {
     cursor: pointer;
   }
-}
-
-@utility paused {
-  animation-play-state: paused;
 }
 
 @utility bg-radial-highlight {
