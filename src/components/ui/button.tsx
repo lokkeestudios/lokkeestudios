@@ -132,6 +132,7 @@ function Button(props: ButtonProps) {
           className,
         }),
       )}
+      data-slot="button"
       ref={ref}
       {...restProps}
     >
