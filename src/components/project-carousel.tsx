@@ -7,11 +7,11 @@ import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headless
 import { cx } from 'class-variance-authority';
 import {
   AnimatePresence,
-  MotionValue,
   motion,
   useMotionValue,
   useMotionValueEvent,
   useTransform,
+  type MotionValue,
 } from 'framer-motion';
 import {
   Fragment,
@@ -93,7 +93,7 @@ function ProjectSlide({
       >
         <article
           className={cn(
-            'bg-neutrals-900/60 absolute inset-0 flex flex-col items-center justify-center gap-y-2 p-4 text-center transition-opacity duration-300 md:opacity-0 md:backdrop-blur-sm',
+            'bg-neutrals-900/60 border-neutrals-50/30 absolute inset-0 flex flex-col items-center justify-center gap-y-2 rounded-md border p-4 text-center transition-opacity duration-300 md:opacity-0 md:backdrop-blur-sm',
             !isDisabled && 'group-hover:opacity-100 group-focus-visible:opacity-100',
           )}
         >

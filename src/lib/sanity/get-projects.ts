@@ -1,7 +1,10 @@
 import type { Testimonial } from '@/lib/sanity/get-testimonials';
 import { type Image } from '@/lib/sanity/sanity-image';
+import type { Locale } from '@/lib/sanity/types';
 import groq from 'groq';
 import { sanityClient } from 'sanity:client';
+
+export type { Locale } from '@/lib/sanity/types';
 
 type ImageSection = Image;
 
@@ -40,34 +43,69 @@ type Project = {
   projecturl?: string;
 };
 
-function getProjects() {
-  const query = groq`
-    *[_type == "project"] | order(date desc) { 
+const projectQuery = groq`
+  *[_type == "project"] | order(date desc) {
+    _id, _type, _createdAt, _updatedAt, _rev,
+    name,
+    "description": coalesce(description[$locale], description.en),
+    slug, date,
+    tags,
+    projecturl, githuburl,
+    "poster": poster {
       ...,
-      "poster": poster { ..., asset-> },
-      "sections": sections[] {
-        _key,
-        _type,
-        ...select(
-          _type == "textblock" => { text },
-          _type == "imageWithText" => {
+      "alt": coalesce(alt[$locale], alt.en),
+      asset->
+    },
+    "sections": sections[] {
+      _key,
+      _type,
+      ...select(
+        _type == "textblock" => {
+          "text": coalesce(text[$locale], text.en)
+        },
+        _type == "imageWithText" => {
+          "text": coalesce(text[$locale], text.en),
+          imagePosition,
+          "image": image {
             ...,
-            "image": image { ..., asset-> }
-          },
-          _type == "testimonial" => {
-            ...@-> {
+            "alt": coalesce(alt[$locale], alt.en),
+            asset->
+          }
+        },
+        _type == "testimonial" => {
+          ...@-> {
+            _id, _type, _createdAt, _updatedAt, _rev,
+            name,
+            "title": coalesce(title[$locale], title.en),
+            "quote": coalesce(quote[$locale], quote.en),
+            "logo": logo {
               ...,
-              "logo": logo { ..., asset-> },
-              "avatar": avatar { ..., asset-> }
+              "alt": coalesce(alt[$locale], alt.en),
+              asset->
+            },
+            "avatar": avatar {
+              ...,
+              "alt": coalesce(alt[$locale], alt.en),
+              asset->
             }
-          },
-          _type == "image" => { ..., asset-> }
-        )
-      }
+          }
+        },
+        _type == "image" => {
+          ...,
+          "alt": coalesce(alt[$locale], alt.en),
+          asset->
+        }
+      )
     }
-  `;
+  }
+`;
 
-  return sanityClient.fetch<Project[]>(query);
+/**
+ * Fetch all projects with content resolved for the given locale.
+ * Falls back to en then de if a translation is missing.
+ */
+function getProjects(locale: Locale = 'en') {
+  return sanityClient.fetch<Project[]>(projectQuery, { locale });
 }
 
 export { getProjects, type Project, type ProjectSection };

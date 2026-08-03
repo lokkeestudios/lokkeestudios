@@ -13,7 +13,7 @@ const { project } = Astro.props;
 <a
   href={`/project/${project.slug.current}`}
   aria-label={`Show ${project.name} project details`}
-  class="border-neutrals-200/20 bg-radial-highlight relative flex-1 grow rounded-lg border p-4 transition-transform duration-300 focus-visible:-translate-y-2 focus-visible:scale-[1.01] focus-visible:drop-shadow-lg md:p-8 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:drop-shadow-lg"
+  class="border-neutrals-200/20 bg-radial-highlight relative max-w-3xl flex-1 grow rounded-lg border p-4 transition-transform duration-300 focus-visible:-translate-y-2 focus-visible:scale-[1.01] focus-visible:drop-shadow-lg md:p-8 md:hover:-translate-y-2 md:hover:scale-[1.01] md:hover:drop-shadow-lg"
 >
   <Image
     alt={project.poster.alt}
@@ -26,7 +26,7 @@ const { project } = Astro.props;
   <article class="mt-8 flex flex-col items-center gap-y-2 text-center">
     <h3 class="text-2xl font-bold md:text-3xl">{project.name}</h3>
     {project.tags && <p class="text-neutrals-300 mb-2 text-sm">{project.tags.join(', ')}</p>}
-    <p class="text-neutrals-200 max-w-prose text-base/relaxed text-pretty">
+    <p class="text-neutrals-200 line-clamp-3 max-w-prose text-base/relaxed text-pretty">
       {project.description}
     </p>
   </article>

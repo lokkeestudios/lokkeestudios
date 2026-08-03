@@ -4,26 +4,31 @@ import TestimonialCard from '@/components/testimonial-card.astro';
 import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
+import { defaultLocale, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
 import { getTestimonials } from '@/lib/sanity/get-testimonials';
 
-const testimonials = await getTestimonials();
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
+const testimonials = await getTestimonials(locale);
 const reversedTestimonials = [...testimonials].reverse();
 ---
 
 <Section
-  id="stories"
-  aria-labelledby="stories-heading"
+  id="testimonials"
+  aria-labelledby="testimonials-heading"
   hasBorderTop
   hasGlowEffect
 >
   <StarsBackground client:visible />
   <Container>
     <div class="mb-16 flex flex-col items-center text-center">
-      <Caption id="stories-heading">Customer Stories</Caption>
-      <Heading> Trusted by the kindest clients </Heading>
+      <Caption id="testimonials-heading">{t.testimonials.caption}</Caption>
+      <Heading>{t.testimonials.heading}</Heading>
       <Paragraph>
-        Here&apos;s a glimpse into the heartfelt experiences of our incredible clients.<br />Your
-        trust fuels our passion.
+        {t.testimonials.body1}
+        <br />
+        {t.testimonials.body2}
       </Paragraph>
     </div>
   </Container>
@@ -41,13 +46,13 @@ const reversedTestimonials = [...testimonials].reverse();
   <div class="group flex w-full overflow-x-clip mask-x-from-80%">
     <ul
       aria-hidden="true"
-      class="group-hover:paused motion-reduce:paused animate-marquee flex [animation-direction:reverse]"
+      class="group-hover:paused motion-reduce:paused animate-marquee direction-reverse flex"
     >
       {reversedTestimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>
     <ul
       aria-hidden="true"
-      class="group-hover:paused motion-reduce:paused animate-marquee flex [animation-direction:reverse]"
+      class="group-hover:paused motion-reduce:paused animate-marquee direction-reverse flex"
     >
       {reversedTestimonials.map((testimonial) => <TestimonialCard testimonial={testimonial} />)}
     </ul>

@@ -5,6 +5,11 @@ import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
 import { siteConfig } from '@/lib/config/site';
+import { defaultLocale, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
 ---
 
 <Section
@@ -15,13 +20,10 @@ import { siteConfig } from '@/lib/config/site';
   <MatrixBackground client:visible />
   <Container>
     <div class="flex h-full flex-col items-center justify-center text-center">
-      <Caption id="sourcecode-heading">Source code</Caption>
-      <Heading>Behind the simulation</Heading>
+      <Caption id="sourcecode-heading">{t.sourceCode.caption}</Caption>
+      <Heading>{t.sourceCode.heading}</Heading>
       <Paragraph>
-        You take the <span class="text-neutrals-100">blue pill</span> - you keep scrolling, you leave
-        this website and believe whatever you want to believe. You take the <span
-          class="text-neutrals-100">red pill</span
-        > - you stay in wonderland, and we show you how deep the rabbit hole goes.
+        {t.sourceCode.body}
       </Paragraph>
       <Button
         as="a"
@@ -31,7 +33,7 @@ import { siteConfig } from '@/lib/config/site';
         foreground="error"
         className="mt-8"
       >
-        Show me
+        {t.sourceCode.cta}
       </Button>
     </div>
   </Container>

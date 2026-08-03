@@ -1,50 +1,48 @@
 ---
 import kilianPetersImage from '@/assets/images/kilian-peters.jpg';
 import { TypingHeading } from '@/components/typing-heading';
+import { Button } from '@/components/ui/button';
 import { Caption, Paragraph } from '@/components/ui/typography';
+import { defaultLocale, getLocaleBasePath, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
 import { Image } from 'astro:assets';
 
-const headings = [
-  'Problem Solvers',
-  'Visionaries',
-  'Developers',
-  'Shopify Partners',
-  'Free Thinkers',
-  'Coffeeholics',
-  'Digital Strategists',
-  'Perfectionists',
-  'Framer Partners',
-  'Creative Minds',
-  'Passionists',
-];
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
+const base = getLocaleBasePath(locale);
+const root = base ? `${base}/` : '/';
 ---
 
 <section
   id="about"
   aria-labelledby="about-heading"
-  class="bg-neutrals-900 relative z-10 w-full"
+  class="bg-neutrals-900 before:via-neutrals-600 relative z-10 w-full before:absolute before:inset-x-0 before:top-0 before:-z-10 before:mx-auto before:h-px before:w-4/5 before:max-w-7xl before:bg-linear-to-r before:from-transparent before:to-transparent"
 >
   <div
     class="flex w-full items-center max-lg:flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,min(11/12*100%/2,48rem))_minmax(0,min(11/12*100%/2,48rem))_minmax(0,1fr)] 2xl:grid-cols-[minmax(0,1fr)_minmax(0,min(80%/2,48rem))_minmax(0,min(80%/2,48rem))_minmax(0,1fr)]"
   >
     <Image
       src={kilianPetersImage}
-      alt="Kilian Peters, founder and visionary behind LOKKEE STUDIOS"
+      alt={t.about.imageAlt}
       class="bg-neutrals-800 h-full max-h-svh object-cover object-center grayscale transition-[filter] duration-500 hover:grayscale-0 lg:col-start-1 lg:col-end-3"
     />
     <div class="w-full py-28 max-lg:mx-auto max-lg:w-11/12 max-lg:max-w-7xl lg:ps-10 xl:ps-20">
-      <Caption id="about-heading">About</Caption>
+      <Caption id="about-heading">{t.about.caption}</Caption>
       <TypingHeading
         client:visible
-        headings={headings}
+        headings={t.about.headings}
       />
       <Paragraph>
-        We at LOKKEE STUDIOS are problem solvers at heart, fueled by a shared passion for <span
-          class="text-neutrals-100">exceptional web development and design from the future</span
-        >. Founder and visionary behind LOKKEE STUDIOS is Kilian Peters, an expert in transforming
-        ideas into future-ready digital realities, with his roots in Hamburg, Germany. Go big or go
-        home!
+        {t.about.body}
       </Paragraph>
+      <Button
+        className="mt-8 size-fit"
+        as="a"
+        href={`${root}#contact`}
+        foreground="primary"
+      >
+        {t.about.ctaAbout}
+      </Button>
     </div>
   </div>
 </section>

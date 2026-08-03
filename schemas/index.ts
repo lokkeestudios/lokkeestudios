@@ -1,6 +1,7 @@
+import { localeStringType } from './localeString';
 import { projectSchema } from './project';
 import { testimonialSchema } from './testimonial';
 
-const schemas = [projectSchema, testimonialSchema];
+const schemas = [localeStringType, projectSchema, testimonialSchema];
 
 export { schemas };

@@ -21,27 +21,31 @@ const { section, previousSectionType, nextSectionType } = Astro.props as any;
     switch (section._type) {
       case 'textblock':
         return (
-          <Section
-            class="min-h-auto"
-            hasBorderTop
-          >
+          <Section class="min-h-auto">
             <Container className="flex items-center justify-center">
-              <Paragraph className="text-center">{section.text}</Paragraph>
+              <Paragraph>{section.text}</Paragraph>
             </Container>
           </Section>
         );
       case 'imageWithText':
         return (
-          <Container className="flex items-center gap-10 max-lg:flex-col">
+          <Container
+            className={cn(
+              'flex items-center gap-8 max-lg:flex-col lg:gap-16',
+              previousSectionType === 'image' && 'mt-32',
+              nextSectionType === 'image' && 'mb-32',
+              nextSectionType === 'imageWithText' && 'mb-32',
+            )}
+          >
             <Image
               alt={section.image.alt}
-              class={cn('rounded-lg lg:w-1/2', section.imagePosition === 'right' && 'order-1')}
+              class={cn('rounded-lg lg:w-1/2', section.imagePosition === 'right' && 'lg:order-1')}
               style={{
                 backgroundColor: section.image.asset.metadata.palette.dominant.background,
               }}
               {...generateImageSizeProps({ image: section.image, maxWidth: 1536 / 2 })}
             />
-            <div class={cn('lg:w-1/2', section.imagePosition === 'right' && 'lg:text-right')}>
+            <div class="lg:w-1/2">
               <Paragraph>{section.text}</Paragraph>
             </div>
           </Container>
@@ -53,7 +57,7 @@ const { section, previousSectionType, nextSectionType } = Astro.props as any;
             <Image
               alt={image.alt}
               class={cn(
-                'w-full rounded-lg',
+                'w-full sm:rounded-lg',
                 previousSectionType === 'image' && 'rounded-t-none',
                 nextSectionType === 'image' && 'rounded-b-none',
               )}

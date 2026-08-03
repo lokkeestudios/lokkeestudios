@@ -27,7 +27,7 @@ const projectSchema = defineType({
     defineField({
       name: 'description',
       title: 'Description',
-      type: 'text',
+      type: 'localeString',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -54,7 +54,7 @@ const projectSchema = defineType({
           name: 'alt',
           title: 'Alternative text',
           description: 'Crucial for SEO and accessiblity',
-          type: 'string',
+          type: 'localeString',
           validation: (Rule) => Rule.required(),
         },
       ],
@@ -74,14 +74,14 @@ const projectSchema = defineType({
               name: 'alt',
               title: 'Alternative text',
               description: 'Crucial for SEO and accessiblity',
-              type: 'string',
+              type: 'localeString',
               validation: (Rule) => Rule.required(),
             },
           ],
           preview: {
             select: {
               media: 'asset',
-              title: 'alt',
+              title: 'alt.en',
             },
             prepare({ media, title }) {
               return {
@@ -100,13 +100,13 @@ const projectSchema = defineType({
             {
               name: 'text',
               title: 'Text',
-              type: 'text',
+              type: 'localeString',
               validation: (Rule) => Rule.required(),
             },
           ],
           preview: {
             select: {
-              text: 'text',
+              text: 'text.en',
             },
             prepare({ text }) {
               return {
@@ -132,7 +132,7 @@ const projectSchema = defineType({
                   name: 'alt',
                   title: 'Alternative text',
                   description: 'Crucial for SEO and accessiblity',
-                  type: 'string',
+                  type: 'localeString',
                   validation: (Rule) => Rule.required(),
                 },
               ],
@@ -140,7 +140,7 @@ const projectSchema = defineType({
             {
               name: 'text',
               title: 'Text',
-              type: 'text',
+              type: 'localeString',
               validation: (Rule) => Rule.required(),
             },
             {
@@ -156,7 +156,7 @@ const projectSchema = defineType({
           preview: {
             select: {
               media: 'image',
-              text: 'text',
+              text: 'text.en',
             },
             prepare({ media, text }) {
               return {

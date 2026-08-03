@@ -1,0 +1,13 @@
+---
+import ImprintSection from '@/components/sections/imprint.astro';
+import Layout from '@/layouts/layout.astro';
+import { getTranslations } from '@/i18n';
+
+const t = getTranslations('de');
+---
+
+<Layout title={t.imprint.pageTitle}>
+  <main id="main">
+    <ImprintSection />
+  </main>
+</Layout>

@@ -11,7 +11,7 @@ const { testimonial } = Astro.props;
 ---
 
 <li
-  class="border-neutrals-200/20 bg-radial-highlight relative me-6 h-full w-[32rem] max-w-[80vw] flex-[0_0_auto] rounded-lg border p-6"
+  class="border-neutrals-200/20 bg-radial-highlight relative me-6 h-full w-lg max-w-[80vw] flex-[0_0_auto] rounded-lg border p-6"
 >
   <article class="flex h-full flex-col justify-between gap-y-2">
     <blockquote class="text-neutrals-200 max-w-prose text-sm/relaxed">
@@ -32,8 +32,8 @@ const { testimonial } = Astro.props;
             {...generateImageSizeProps({
               image: testimonial.logo ?? testimonial.avatar,
               sizes: '160px',
-              width: 40,
-              height: 40,
+              width: 160,
+              height: 160,
               maxWidth: 160,
             })}
           />
@@ -50,8 +50,8 @@ const { testimonial } = Astro.props;
                 {...generateImageSizeProps({
                   image: testimonial.avatar,
                   sizes: '160px',
-                  width: 40,
-                  height: 40,
+                  width: 160,
+                  height: 160,
                   maxWidth: 160,
                 })}
               />

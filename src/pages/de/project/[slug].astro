@@ -1,0 +1,41 @@
+---
+import { ScrollProgress } from '@/components/scroll-progress';
+import Contact from '@/components/sections/contact.astro';
+import ProjectDetailsSection from '@/components/sections/project-details.astro';
+import ProjectRecommendationsSection from '@/components/sections/project-recommendations.astro';
+import Layout from '@/layouts/layout.astro';
+import { getProjects } from '@/lib/sanity/get-projects';
+import { imageUrlFor } from '@/lib/sanity/sanity-image';
+import { getTranslations } from '@/i18n';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const projects = await getProjects('de');
+
+  return projects.map((project) => ({
+    params: { slug: project.slug.current },
+    props: { project },
+  }));
+}) satisfies GetStaticPaths;
+
+const { project } = Astro.props;
+const t = getTranslations('de');
+
+const openGraphImage = {
+  src: imageUrlFor(project.poster).format('png').width(1200).height(630).fit('crop').url(),
+  alt: project.poster.alt,
+};
+---
+
+<Layout
+  title={`${project.name} ― ${t.project.pageTitleSuffix}`}
+  description={project.description}
+  openGraphImage={openGraphImage}
+>
+  <ScrollProgress client:idle />
+  <main id="main">
+    <ProjectDetailsSection project={project} />
+    <Contact />
+    <ProjectRecommendationsSection project={project} locale="de" />
+  </main>
+</Layout>

@@ -1,12 +1,11 @@
-import { Icons } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';
 import {
-  MotionValue,
   motion,
   useMotionTemplate,
   useTransform,
   type HTMLMotionProps,
   type MotionStyle,
+  type MotionValue,
 } from 'framer-motion';
 import { useRef, type ComponentRef, type ReactNode } from 'react';
 
@@ -15,13 +14,15 @@ function ServiceCard({
   parentMousePositionY,
   children,
   className,
+  'aria-label': ariaLabel,
   ...props
 }: {
   parentMousePositionX: MotionValue<number>;
   parentMousePositionY: MotionValue<number>;
   children: ReactNode;
-} & HTMLMotionProps<'a'>) {
-  const ref = useRef<ComponentRef<'a'>>(null);
+  'aria-label'?: string;
+} & HTMLMotionProps<'div'>) {
+  const ref = useRef<ComponentRef<'div'>>(null);
 
   const mousePositionX = useTransform(
     parentMousePositionX,
@@ -33,10 +34,9 @@ function ServiceCard({
   );
 
   return (
-    <motion.a
+    <motion.div
       ref={ref}
-      href="/#contact"
-      aria-label="Secure your package now"
+      aria-label={ariaLabel}
       className={cn(
         'group/card from-neutrals-300/30 via-neutrals-300/80 to-neutrals-300/30 relative overflow-hidden rounded-md bg-linear-to-r via-15% to-35% p-[0.5px] drop-shadow-lg',
         'before:pointer-events-none before:absolute before:inset-0 before:bg-[radial-gradient(600px_circle_at_var(--mouse-position-x)_var(--mouse-position-y),rgba(255,254,249,0.06),transparent_60%)] before:opacity-0 before:transition before:duration-500 lg:hover:before:opacity-100',
@@ -54,7 +54,7 @@ function ServiceCard({
       <div className="flex h-full w-full flex-col justify-between rounded-[inherit] bg-[#0C1021] p-8">
         {children}
       </div>
-    </motion.a>
+    </motion.div>
   );
 }
 
@@ -63,19 +63,21 @@ interface ComponentWithChildrenProps {
 }
 
 function ServiceCardTitle({ children }: ComponentWithChildrenProps) {
-  return <h3 className="text-primary mb-2 font-medium text-balance md:text-lg">{children}</h3>;
+  return <h3 className="text-primary mb-2 font-medium md:text-lg">{children}</h3>;
 }
 
 function ServiceCardPrice({ children }: ComponentWithChildrenProps) {
-  return <p className="mb-2 flex text-3xl font-bold md:text-4xl">{children}</p>;
+  return <p className="mb-2 flex text-3xl font-bold text-balance md:text-4xl">{children}</p>;
 }
 
 function ServiceCardDescription({ children }: ComponentWithChildrenProps) {
-  return <p className="text-neutrals-300 mb-8 max-w-prose text-sm text-pretty">{children}</p>;
+  return (
+    <p className="text-neutrals-300 max-w-prose text-sm text-pretty not-last:mb-8">{children}</p>
+  );
 }
 
 function ServiceCardNotice({ children }: ComponentWithChildrenProps) {
-  return <p className="text-neutrals-400 mb-8 text-xs">{children}</p>;
+  return <p className="text-neutrals-400 text-xs">{children}</p>;
 }
 
 function ServiceCardList({ children }: ComponentWithChildrenProps) {
@@ -130,20 +132,10 @@ function ServiceCardAddonListItem({ children }: ComponentWithChildrenProps) {
   );
 }
 
-function ServiceCardCallToAction() {
-  return (
-    <p className="flex items-center justify-end">
-      Secure your package now{' '}
-      <Icons.ArrowLongRight className="ms-2 size-5 transition duration-300 group-hover/card:translate-x-1/4 group-focus-visible/card:translate-x-1/4" />
-    </p>
-  );
-}
-
 export {
   ServiceCard,
   ServiceCardAddonListItem,
   ServiceCardBenefitListItem,
-  ServiceCardCallToAction,
   ServiceCardDescription,
   ServiceCardList,
   ServiceCardNotice,

@@ -2,19 +2,54 @@ import {
   ServiceCard,
   ServiceCardAddonListItem,
   ServiceCardBenefitListItem,
-  ServiceCardCallToAction,
   ServiceCardDescription,
   ServiceCardList,
   ServiceCardNotice,
   ServiceCardPrice,
   ServiceCardTitle,
 } from '@/components/service-card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useI18n } from '@/hooks/use-i18n';
 import { useMotionValue } from 'framer-motion';
 import { type MouseEvent } from 'react';
 
-function ServicesGrid() {
+function ServicesBreakdown() {
+  const { t } = useI18n();
+  const testMousePosition = useMotionValue(0);
+  const { tabs, cards, serviceCardAriaLabel } = t.services;
+
+  return (
+    <Tabs defaultValue="business">
+      <TabsList className="mx-auto">
+        <TabsTrigger value="business">{tabs.business}</TabsTrigger>
+        <TabsTrigger value="agency">{tabs.agency}</TabsTrigger>
+      </TabsList>
+      <TabsContent value="business">
+        <ServicesGrid ariaLabel={serviceCardAriaLabel} />
+      </TabsContent>
+      <TabsContent value="agency">
+        <ServiceCard
+          parentMousePositionX={testMousePosition}
+          parentMousePositionY={testMousePosition}
+          className="mx-auto max-w-2xl rounded-2xl"
+          aria-label={serviceCardAriaLabel}
+        >
+          <div>
+            <ServiceCardTitle>{cards.agency.title}</ServiceCardTitle>
+            <ServiceCardPrice>{cards.agency.price}</ServiceCardPrice>
+            <ServiceCardDescription>{cards.agency.description}</ServiceCardDescription>
+          </div>
+        </ServiceCard>
+      </TabsContent>
+    </Tabs>
+  );
+}
+
+function ServicesGrid({ ariaLabel }: { ariaLabel: string }) {
+  const { t } = useI18n();
   const mousePositionX = useMotionValue(0);
   const mousePositionY = useMotionValue(0);
+  const { cards, priceNotice } = t.services;
 
   function handleMouseMove({ clientX, clientY }: MouseEvent) {
     mousePositionX.set(clientX);
@@ -29,110 +64,93 @@ function ServicesGrid() {
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="rounded-ss-xl max-lg:rounded-t-xl lg:col-span-2"
+        className="rounded-ss-2xl max-lg:rounded-t-2xl lg:col-span-2"
+        aria-label={ariaLabel}
       >
         <div>
-          <ServiceCardTitle>Web application</ServiceCardTitle>
-          <ServiceCardPrice>Custom quote</ServiceCardPrice>
-          <ServiceCardDescription>
-            Tailored web apps, paired with a marketing website, or cross-platform solutions.
-            Let&apos;s get together and discuss your vision to provide a custom quote.
-          </ServiceCardDescription>
+          <ServiceCardTitle>{cards.webApp.title}</ServiceCardTitle>
+          <ServiceCardPrice>{cards.webApp.price}</ServiceCardPrice>
+          <ServiceCardDescription>{cards.webApp.description}</ServiceCardDescription>
           <ServiceCardList>
-            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Optimized performance</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Animations & interactions</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>
-              Scalable backend solutions or bring your own backend
-            </ServiceCardBenefitListItem>
-            <ServiceCardAddonListItem>Multi-platform support</ServiceCardAddonListItem>
+            {cards.webApp.benefits.map((item) => (
+              <ServiceCardBenefitListItem key={item}>{item}</ServiceCardBenefitListItem>
+            ))}
+            {cards.webApp.addons.map((item) => (
+              <ServiceCardAddonListItem key={item}>{item}</ServiceCardAddonListItem>
+            ))}
           </ServiceCardList>
         </div>
-        <ServiceCardCallToAction />
       </ServiceCard>
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="lg:col-span-3 lg:rounded-es-xl"
+        className="lg:col-span-3 lg:rounded-se-2xl"
+        aria-label={ariaLabel}
       >
         <div>
-          <ServiceCardTitle>E-Commerce (Shopify)</ServiceCardTitle>
+          <ServiceCardTitle>{cards.website.title}</ServiceCardTitle>
           <ServiceCardPrice>
-            €6.400<span className="text-neutrals-400 text-xl font-normal">*</span>
+            {cards.website.price}
+            <span className="text-neutrals-400 text-xl font-normal">*</span>
           </ServiceCardPrice>
-          <ServiceCardDescription>
-            Level up your Shopify store with a custom theme, tailored to your products and customer
-            audience.
-          </ServiceCardDescription>
+          <ServiceCardDescription>{cards.website.description}</ServiceCardDescription>
           <ServiceCardList>
-            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>
-              Seamless store integration with Shopify
-            </ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Self-customizable content</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Conversion rate optimization</ServiceCardBenefitListItem>
-            <ServiceCardAddonListItem>Multilingual support</ServiceCardAddonListItem>
-            <ServiceCardAddonListItem>Analytics</ServiceCardAddonListItem>
+            {cards.website.benefits.map((item) => (
+              <ServiceCardBenefitListItem key={item}>{item}</ServiceCardBenefitListItem>
+            ))}
+            {cards.website.addons.map((item) => (
+              <ServiceCardAddonListItem key={item}>{item}</ServiceCardAddonListItem>
+            ))}
           </ServiceCardList>
-          <ServiceCardNotice>
-            * Starting price, varies with project scope and additional requirements
-          </ServiceCardNotice>
+          <ServiceCardNotice>{priceNotice}</ServiceCardNotice>
         </div>
-        <ServiceCardCallToAction />
       </ServiceCard>
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="lg:col-span-3 lg:rounded-se-xl"
+        className="lg:col-span-3 lg:rounded-es-2xl"
+        aria-label={ariaLabel}
       >
         <div>
-          <ServiceCardTitle>Website</ServiceCardTitle>
+          <ServiceCardTitle>{cards.commerce.title}</ServiceCardTitle>
           <ServiceCardPrice>
-            €4.800<span className="text-neutrals-400 text-xl font-normal">*</span>
+            {cards.commerce.price}
+            <span className="text-neutrals-400 text-xl font-normal">*</span>
           </ServiceCardPrice>
-          <ServiceCardDescription>
-            There are no limits to your website vision ― Let&apos;s make it happen!
-          </ServiceCardDescription>
+          <ServiceCardDescription>{cards.commerce.description}</ServiceCardDescription>
           <ServiceCardList>
-            <ServiceCardBenefitListItem>Modern, custom design</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Responsive & accessible</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Animations & interactions</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>SEO & page speed optimization</ServiceCardBenefitListItem>
-            <ServiceCardBenefitListItem>Engaging user experience</ServiceCardBenefitListItem>
-            <ServiceCardAddonListItem>
-              CMS (self-customizability) implementation
-            </ServiceCardAddonListItem>
-            <ServiceCardAddonListItem>Multilingual support</ServiceCardAddonListItem>
-            <ServiceCardAddonListItem>Analytics</ServiceCardAddonListItem>
+            {cards.commerce.benefits.map((item) => (
+              <ServiceCardBenefitListItem key={item}>{item}</ServiceCardBenefitListItem>
+            ))}
+            {cards.commerce.addons.map((item) => (
+              <ServiceCardAddonListItem key={item}>{item}</ServiceCardAddonListItem>
+            ))}
           </ServiceCardList>
+          <ServiceCardNotice>{priceNotice}</ServiceCardNotice>
         </div>
-        <ServiceCardNotice>
-          * Starting price, varies with project scope and additional requirements
-        </ServiceCardNotice>
-        <ServiceCardCallToAction />
       </ServiceCard>
-
       <ServiceCard
         parentMousePositionX={mousePositionX}
         parentMousePositionY={mousePositionY}
-        className="rounded-ee-xl max-lg:rounded-b-xl lg:col-span-2"
+        className="rounded-ee-2xl max-lg:rounded-b-2xl lg:col-span-2"
+        aria-label={ariaLabel}
       >
         <div>
-          <ServiceCardTitle>Custom solution</ServiceCardTitle>
-          <ServiceCardPrice>Custom quote</ServiceCardPrice>
-          <ServiceCardDescription>
-            Need a unique solution? Don&apos;t hesitate to ask ― We are your problem solvers.{' '}
-            <span className="text-neutrals-100">
-              Let&apos;s discuss your requirements and create a tailored package.
-            </span>
-          </ServiceCardDescription>
+          <ServiceCardTitle>{cards.ai.title}</ServiceCardTitle>
+          <ServiceCardPrice>{cards.ai.price}</ServiceCardPrice>
+          <ServiceCardDescription>{cards.ai.description}</ServiceCardDescription>
+          <ServiceCardList>
+            {cards.ai.benefits.map((item) => (
+              <ServiceCardBenefitListItem key={item}>{item}</ServiceCardBenefitListItem>
+            ))}
+            {cards.ai.addons.map((item) => (
+              <ServiceCardAddonListItem key={item}>{item}</ServiceCardAddonListItem>
+            ))}
+          </ServiceCardList>
         </div>
-        <ServiceCardCallToAction />
       </ServiceCard>
     </div>
   );
 }
 
-export { ServicesGrid };
+export { ServicesBreakdown };

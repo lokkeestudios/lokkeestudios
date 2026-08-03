@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 
-function useScrollThreshold({ threshold = 10 }: { threshold?: number } = {}) {
+function useScrollThreshold() {
   const [isScrollThresholdPassed, setIsScrollThresholdPassed] = useState(false);
 
   useEffect(() => {
     function updateScrollState() {
-      setIsScrollThresholdPassed(window.scrollY > threshold);
+      setIsScrollThresholdPassed(window.scrollY > window.innerHeight);
     }
 
     updateScrollState();

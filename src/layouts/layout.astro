@@ -3,6 +3,15 @@ import Footer from '@/components/layout/footer.astro';
 import Head from '@/components/layout/head.astro';
 import { Header } from '@/components/layout/header';
 import { LoadingScreen } from '@/components/layout/loading-screen';
+import { siteConfig } from '@/lib/config/site';
+import {
+  defaultLocale,
+  getLocaleBasePath,
+  getLocalizedPathname,
+  getSectionHref,
+  getTranslations,
+  type Locale,
+} from '@/i18n';
 
 type Props = {
   title?: string;
@@ -11,31 +20,115 @@ type Props = {
 };
 
 const { title, description, openGraphImage } = Astro.props;
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
+const base = getLocaleBasePath(locale);
+const rootUrl = base ? `${base}/` : '/';
+const sectionHref = getSectionHref(base);
+const otherLocale: Locale = locale === defaultLocale ? 'de' : 'en';
+const otherLocalePath = getLocalizedPathname(otherLocale, Astro.url.pathname);
+const otherLocaleUrl =
+  otherLocale === 'en'
+    ? `${otherLocalePath}${otherLocalePath.includes('?') ? '&' : '?'}locale=en`
+    : otherLocalePath;
+
+const i18nPayload = { locale, t, rootUrl, otherLocale, otherLocaleUrl };
+
+const alternateLocaleUrls = {
+  en: `${siteConfig.url}${getLocalizedPathname('en', Astro.url.pathname)}`,
+  de: `${siteConfig.url}${getLocalizedPathname('de', Astro.url.pathname)}`,
+};
 ---
 
 <!doctype html>
 <!-- This site was developed by LOKKEE STUDIOS (https://lokkeestudios.com) -->
 <html
-  lang="en"
-  class="font-inter [container-type:scroll-state] scroll-smooth scheme-dark"
+  lang={locale}
+  class="font-inter @container-[scroll-state] scroll-smooth scheme-dark"
 >
   <Head
     title={title}
     description={description}
     openGraphImage={openGraphImage}
+    locale={locale}
+    alternateLocaleUrls={alternateLocaleUrls}
   />
   <body
     class="bg-neutrals-900 text-neutrals-50 selection:bg-primary selection:text-neutrals-50 antialiased"
   >
+    <script is:inline>
+      (function () {
+        var pathname = window.location.pathname;
+        var onGerman = pathname.indexOf('/de') === 0;
+        var match = document.cookie.match(/\blocale=(\w+)/);
+        var cookie = match ? match[1] : null;
+        var cookieOpts = 'path=/;max-age=31536000;SameSite=Lax';
+        if (onGerman) {
+          document.cookie = 'locale=de;' + cookieOpts;
+        } else {
+          var preferEn =
+            typeof URLSearchParams !== 'undefined' &&
+            new URLSearchParams(window.location.search).get('locale') === 'en';
+          if (preferEn && window.location.search) {
+            window.history.replaceState('', '', pathname + (window.location.hash || ''));
+          }
+          var dePath = pathname === '/' ? '/de/' : '/de' + pathname;
+          if (cookie === 'de' && !preferEn) {
+            window.location.replace(dePath + window.location.hash);
+            return;
+          }
+          if (
+            !cookie &&
+            navigator.language &&
+            navigator.language.toLowerCase().indexOf('de') === 0
+          ) {
+            document.cookie = 'locale=de;' + cookieOpts;
+            window.location.replace(dePath + window.location.hash);
+            return;
+          }
+          if (preferEn || !cookie) {
+            document.cookie = 'locale=en;' + cookieOpts;
+          }
+        }
+      })();
+    </script>
+    <script is:inline define:vars={{ i18nPayload }}>
+      window.__I18N__ = i18nPayload;
+    </script>
     <a
       href="#main"
       class="sr-only"
     >
-      Skip to main content
+      {t.skipToContent}
     </a>
     <LoadingScreen client:load />
-    <Header client:idle />
+    <Header
+      client:idle
+      i18n={i18nPayload}
+    />
     <slot />
-    <Footer />
+    <Footer
+      primaryLinks={[
+        // { label: t.nav.intro, href: sectionHref('intro') },
+        { label: t.nav.projects, href: sectionHref('projects') },
+        { label: t.nav.testimonials, href: sectionHref('testimonials') },
+        { label: t.nav.services, href: sectionHref('services') },
+        { label: t.nav.about, href: sectionHref('about') },
+        { label: t.nav.contact, href: sectionHref('contact') },
+        { label: t.nav.sourceCode, href: sectionHref('source-code') },
+      ]}
+      secondaryLinks={[{ label: t.nav.imprint, href: base ? `${base}/imprint` : '/imprint' }]}
+      socials={[
+        { label: t.nav.viewGitHub, href: siteConfig.links.github, icon: 'github' },
+        { label: t.nav.viewInstagram, href: siteConfig.links.instagram, icon: 'instagram' },
+        { label: t.nav.viewLinkedIn, href: siteConfig.links.linkedin, icon: 'linkedin' },
+      ]}
+      ariaPrimary={t.footer.ariaPrimary}
+      ariaSecondary={t.footer.ariaSecondary}
+      ariaSocials={t.footer.ariaSocials}
+      navigateHomeTitle={t.navigateHome}
+      homeUrl={rootUrl}
+    />
   </body>
 </html>

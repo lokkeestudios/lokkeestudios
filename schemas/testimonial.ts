@@ -16,13 +16,13 @@ const testimonialSchema = defineType({
     defineField({
       name: 'title',
       title: 'Title',
-      type: 'string',
+      type: 'localeString',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'quote',
       title: 'Quote',
-      type: 'text',
+      type: 'localeString',
       validation: (Rule) => Rule.required(),
     }),
     defineField({
@@ -34,7 +34,8 @@ const testimonialSchema = defineType({
           name: 'alt',
           title: 'Alternative text',
           description: 'Crucial for SEO and accessiblity',
-          type: 'string',
+          type: 'localeString',
+          validation: (Rule) => Rule.required(),
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -48,7 +49,8 @@ const testimonialSchema = defineType({
           name: 'alt',
           title: 'Alternative text',
           description: 'Crucial for SEO and accessiblity',
-          type: 'string',
+          type: 'localeString',
+          validation: (Rule) => Rule.required(),
         },
       ],
     }),
@@ -56,8 +58,11 @@ const testimonialSchema = defineType({
   preview: {
     select: {
       title: 'name',
-      subtitle: 'title',
+      subtitle: 'title.en',
       media: 'avatar',
+    },
+    prepare({ title, subtitle, media }) {
+      return { title, subtitle, media };
     },
   },
 });

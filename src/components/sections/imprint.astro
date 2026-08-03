@@ -2,7 +2,12 @@
 import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Heading, Paragraph } from '@/components/ui/typography';
+import { defaultLocale, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
 import { siteConfig } from '@/lib/config/site';
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
 ---
 
 <Section aria-labelledby="imprint-heading">
@@ -12,29 +17,29 @@ import { siteConfig } from '@/lib/config/site';
         id="imprint-heading"
         class="mb-8 text-5xl/tight font-bold text-balance md:text-7xl/tight"
       >
-        Imprint
+        {t.imprint.heading}
       </h1>
       <address class="grid gap-y-16 not-italic">
         <div>
-          <Heading>Details</Heading>
+          <Heading>{t.imprint.detailsHeading}</Heading>
           <Paragraph>
             <span class="text-neutrals-100">LOKKEE STUDIOS OÜ</span><br />
             Lõõtsa 2a<br />
             11415 Tallinn, Estonia<br /><br />
-            CEO: Kilian Peters
+            {t.imprint.ceoLabel}: Kilian Peters
           </Paragraph>
         </div>
         <div>
-          <Heading>Contact</Heading>
+          <Heading>{t.imprint.contactHeading}</Heading>
           <Paragraph>
-            E-Mail:
+            {t.imprint.emailLabel}:
             <a
               href={`mailto:${siteConfig.email}`}
-              title="Hit us up"
+              title={t.imprint.emailLinkTitle}
               class="text-neutrals-100 hover:text-primary border-b border-current transition-colors"
             >
               {siteConfig.email}</a
-            ><br />Phone number is given out on request.
+            ><br />{t.imprint.phoneNote}
           </Paragraph>
         </div>
       </address>

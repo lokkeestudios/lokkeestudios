@@ -1,28 +1,54 @@
 ---
-import { ServicesGrid } from '@/components/services-grid';
+import { ServicesBreakdown } from '@/components/services-grid';
+import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
 import { Caption, Heading, Paragraph } from '@/components/ui/typography';
+import { defaultLocale, getLocaleBasePath, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
+const base = getLocaleBasePath(locale);
+const root = base ? `${base}/` : '/';
 ---
 
 <Section
   id="services"
   aria-labelledby="services-heading"
   hasBorderTop
-  hasGlowEffect
 >
   <Container>
     <div class="mb-16 flex flex-col items-center text-center">
-      <Caption id="services-heading">Services</Caption>
+      <Caption id="services-heading">{t.services.caption}</Caption>
       <Heading>
-        Launching visions, <br class="lg:hidden" />building websites
+        {t.services.heading.split(', ')[0]},
+        <br class="lg:hidden" />
+        {t.services.heading.split(', ')[1]}
       </Heading>
-      <Paragraph>
-        Secure your seat, fasten your seatbelt, and join us on an interstellar journey to <span
-          class="text-neutrals-100">turn your web vision into a next level reality</span
-        >.
-      </Paragraph>
+      <div class="flex flex-col items-center gap-2">
+        <Paragraph>
+          {t.services.paragraph1}
+        </Paragraph>
+        <Paragraph className="text-balance">
+          {t.services.paragraph2}
+        </Paragraph>
+      </div>
     </div>
-    <ServicesGrid client:visible />
+    <ServicesBreakdown client:visible />
+    <div class="mt-8 flex flex-col items-center text-center">
+      <Paragraph>
+        {t.services.footerText}
+        <br />
+        <span class="text-neutrals-100 group">{t.services.footerHighlight}</span>
+      </Paragraph>
+      <Button
+        className="mt-8"
+        as="a"
+        href={`${root}#contact`}
+      >
+        {t.services.cta}
+      </Button>
+    </div>
   </Container>
 </Section>

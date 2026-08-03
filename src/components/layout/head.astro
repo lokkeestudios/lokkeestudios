@@ -1,5 +1,7 @@
 ---
 import { siteConfig } from '@/lib/config/site';
+import { defaultLocale, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
 import '@/styles/globals.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
@@ -12,22 +14,35 @@ type Props = {
   title?: string | undefined;
   description?: string | undefined;
   openGraphImage?: { src: string; alt: string } | undefined;
+  // Current locale for og:locale; if set, alternateLocaleUrls should also be set for hreflang
+  locale?: string;
+  // Full URLs for the same page in each locale (for hreflang and x-default)
+  alternateLocaleUrls?: { en: string; de: string };
 };
 
-const { title, description, openGraphImage } = Astro.props;
+const {
+  title,
+  description,
+  openGraphImage,
+  locale: currentLocale,
+  alternateLocaleUrls,
+} = Astro.props;
 
 const { pathname } = Astro.url;
 
 const { PUBLIC_GOOGLE_SITE_VERIFICATION, PUBLIC_GOOGLE_ANALYTICS_ID, DEV: isDevMode } = env;
 
-const {
-  name: siteName,
-  slogan: siteSlogan,
-  description: siteDescription,
-  url: siteUrl,
-} = siteConfig;
+const { name: siteName, url: siteUrl } = siteConfig;
 
-const cannonical = `${siteUrl}${pathname}`;
+const locale = (currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
+const siteSlogan = t.site.slogan;
+const siteDescription = t.site.description;
+
+const canonical = `${siteUrl}${pathname}`;
+
+const ogLocale = currentLocale === 'de' ? 'de_DE' : 'en_US';
+const ogLocaleAlternate = currentLocale === 'de' ? 'en_US' : 'de_DE';
 ---
 
 <InternalHead>
@@ -37,12 +52,12 @@ const cannonical = `${siteUrl}${pathname}`;
     titleTemplate={`%s | ${siteName}`}
     titleDefault={`${siteName} | ${siteSlogan}`}
     description={description ?? siteDescription}
-    canonical={cannonical}
+    canonical={canonical}
     openGraph={{
       basic: {
         title: title ?? siteSlogan,
         type: 'website',
-        url: cannonical,
+        url: canonical,
         image: openGraphImage?.src ?? '/banner-1200x630.png',
       },
       optional: {
@@ -63,6 +78,14 @@ const cannonical = `${siteUrl}${pathname}`;
         // Makes sure a favicon is also shown in dev mode, before its generation. Ensures there is no duplicate link in the production build
         ...(isDevMode ? [{ rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }] : []),
         { rel: 'sitemap', href: '/sitemap-index.xml' },
+        // Alternate language versions (same page in en/de) for SEO
+        ...(alternateLocaleUrls
+          ? [
+              { rel: 'alternate', hreflang: 'en', href: alternateLocaleUrls.en },
+              { rel: 'alternate', hreflang: 'de', href: alternateLocaleUrls.de },
+              { rel: 'alternate', hreflang: 'x-default', href: alternateLocaleUrls.en },
+            ]
+          : []),
       ],
       meta: [
         { name: 'viewport', content: 'width=device-width' },
@@ -72,6 +95,12 @@ const cannonical = `${siteUrl}${pathname}`;
           name: 'google-site-verification',
           content: PUBLIC_GOOGLE_SITE_VERIFICATION,
         },
+        ...(currentLocale
+          ? [
+              { property: 'og:locale', content: ogLocale },
+              { property: 'og:locale:alternate', content: ogLocaleAlternate },
+            ]
+          : []),
       ],
     }}
   />

@@ -6,10 +6,12 @@ import ProjectRecommendationsSection from '@/components/sections/project-recomme
 import Layout from '@/layouts/layout.astro';
 import { getProjects } from '@/lib/sanity/get-projects';
 import { imageUrlFor } from '@/lib/sanity/sanity-image';
-import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { defaultLocale, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
+import type { GetStaticPaths } from 'astro';
 
 export const getStaticPaths = (async () => {
-  const projects = await getProjects();
+  const projects = await getProjects('en');
 
   return projects.map((project) => ({
     params: { slug: project.slug.current },
@@ -17,9 +19,8 @@ export const getStaticPaths = (async () => {
   }));
 }) satisfies GetStaticPaths;
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>;
-
 const { project } = Astro.props;
+const t = getTranslations((Astro.currentLocale ?? defaultLocale) as Locale);
 
 const openGraphImage = {
   src: imageUrlFor(project.poster).format('png').width(1200).height(630).fit('crop').url(),
@@ -28,7 +29,7 @@ const openGraphImage = {
 ---
 
 <Layout
-  title={`${project.name} ― Projects`}
+  title={`${project.name} ― ${t.project.pageTitleSuffix}`}
   description={project.description}
   openGraphImage={openGraphImage}
 >
@@ -36,6 +37,6 @@ const openGraphImage = {
   <main id="main">
     <ProjectDetailsSection project={project} />
     <Contact />
-    <ProjectRecommendationsSection project={project} />
+    <ProjectRecommendationsSection project={project} locale={(Astro.currentLocale ?? defaultLocale) as Locale} />
   </main>
 </Layout>

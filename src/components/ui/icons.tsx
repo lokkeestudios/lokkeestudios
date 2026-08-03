@@ -9,6 +9,7 @@ import {
   ClipboardDocumentIcon,
   EnvelopeIcon,
   EyeIcon,
+  GlobeAltIcon,
   LinkIcon,
   RocketLaunchIcon,
 } from '@heroicons/react/24/solid';
@@ -28,6 +29,7 @@ const Icons = {
   Link: LinkIcon,
   ClipboardDocument: ClipboardDocumentIcon,
   ClipboardDocumentCheck: ClipboardDocumentCheckIcon,
+  Globe: GlobeAltIcon,
   Spinner: ({ ...props }: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"

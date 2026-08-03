@@ -3,6 +3,8 @@ import ProjectSection from '@/components/sections/project-section.astro';
 import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import { Icons } from '@/components/ui/icons';
+import { defaultLocale, getLocaleBasePath, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
 import { type Project } from '@/lib/sanity/get-projects';
 import { generateImageSizeProps } from '@/lib/sanity/sanity-image';
 import { Image } from 'astro:assets';
@@ -12,11 +14,15 @@ type Props = {
 };
 
 const { project } = Astro.props;
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
+const base = getLocaleBasePath(locale);
+const root = base ? `${base}/` : '/';
 ---
 
 <section
   aria-labelledby="project-details-heading"
-  class="bg-neutrals-900 after:from-neutrals-900 after:to-neutrals-900/60 relative flex min-h-screen w-full py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-linear-to-t"
+  class="bg-neutrals-900 after:from-neutrals-900 after:to-neutrals-900/20 after:via-neutrals-900/80 relative flex min-h-svh w-full py-[14vh] after:absolute after:inset-0 after:h-full after:w-full after:bg-linear-to-t"
 >
   <Image
     alt={project.poster.alt}
@@ -34,13 +40,14 @@ const { project } = Astro.props;
   <Container>
     <div class="relative z-10 flex h-full flex-col justify-end">
       <a
-        href="/#work"
+        href={`${root}#projects`}
         class="group absolute start-0 top-0 flex items-center justify-center transition-opacity hover:opacity-80 focus-visible:opacity-80"
       >
         <Icons.ArrowLongLeft
           aria-hidden
           className="me-2 size-6 transition-transform duration-300 group-hover:-translate-x-1 group-focus-visible:-translate-x-1 lg:h-7 lg:w-7"
-        /> Back to projects
+        />{' '}
+        {t.project.backToProjects}
       </a>
       <h1
         id="project-details-heading"
@@ -55,7 +62,7 @@ const { project } = Astro.props;
       </p>
       {
         project.tags && (
-          <p class="text-neutrals-50/90 text-xs lg:text-sm">{project.tags.join(', ')}</p>
+          <p class="text-neutrals-50/90 text-sm lg:text-sm">{project.tags.join(', ')}</p>
         )
       }
       <hr class="from-neutrals-50/40 mt-4 mb-8 h-px border-0 bg-linear-to-r to-transparent" />
@@ -73,7 +80,7 @@ const { project } = Astro.props;
                 aria-hidden
                 className="size-5 me-2"
               />{' '}
-              View project
+              {t.project.viewProject}
             </Button>
           )
         }
@@ -91,7 +98,7 @@ const { project } = Astro.props;
                 aria-hidden
                 className="size-5 me-2"
               />{' '}
-              View source code
+              {t.project.viewSourceCode}
             </Button>
           )
         }
@@ -101,8 +108,8 @@ const { project } = Astro.props;
       project.sections && project.sections.length > 0 && (
         <a
           href="#project-gallery"
-          title="See project breakdown"
-          aria-label="See project breakdown"
+          title={t.project.seeBreakdown}
+          aria-label={t.project.seeBreakdown}
           class="absolute inset-x-0 bottom-[3vh] z-10 mx-auto w-fit animate-bounce"
         >
           <Icons.ArrowDownCircle className="size-9" />
@@ -115,7 +122,7 @@ const { project } = Astro.props;
   project.sections && (
     <div
       id="project-gallery"
-      aria-label="Project Gallery"
+      aria-label={t.project.galleryLabel}
     >
       {project.sections.map((section, index) => (
         <ProjectSection

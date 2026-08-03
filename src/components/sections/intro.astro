@@ -1,12 +1,39 @@
 ---
+import GridBackground from '@/components/test-background';
+import { Button } from '@/components/ui/button';
 import { Container } from '@/components/ui/container';
 import Section from '@/components/ui/section.astro';
-import { Caption, Heading } from '@/components/ui/typography';
+import { Caption, Heading, Paragraph } from '@/components/ui/typography';
+import { defaultLocale, getLocaleBasePath, getTranslations } from '@/i18n';
+import type { Locale } from '@/i18n/translations';
+
+const locale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const t = getTranslations(locale);
+const base = getLocaleBasePath(locale);
+const root = base ? `${base}/` : '/';
 ---
 
-<Section>
-  <Container>
-    <Caption id="services-heading">Intro</Caption>
-    <Heading> Einleitung / Leistungen: "Was bietet Lokkee Studios mir als Unternehmen?" </Heading>
+<Section
+  id="intro"
+  aria-labelledby="intro-heading"
+>
+  <GridBackground client:visible />
+  <Container className="flex flex-col items-center justify-center text-center">
+    <Caption id="intro-heading">{t.intro.caption}</Caption>
+    <Heading>{t.intro.heading}</Heading>
+    <Paragraph>
+      {t.intro.body1}
+    </Paragraph>
+    <Paragraph className="mt-4">
+      {t.intro.body2}
+    </Paragraph>
+    <Button
+      className="mt-8"
+      as="a"
+      href={`${root}#about`}
+      foreground="primary"
+    >
+      {t.intro.cta}
+    </Button>
   </Container>
 </Section>

@@ -27,6 +27,13 @@ const { name, backgroundColor, themeColor, url } = siteConfig;
 // https://astro.build/config
 const config = defineConfig({
   site: url,
+  i18n: {
+    locales: ['en', 'de'],
+    defaultLocale: 'en',
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   adapter: vercel({
     webAnalytics: {
       enabled: true,
@@ -58,7 +65,15 @@ const config = defineConfig({
       },
     }),
     serviceWorker(),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: {
+          en: 'en',
+          de: 'de',
+        },
+      },
+    }),
     robotsTxt(),
     webmanifest({
       name,
