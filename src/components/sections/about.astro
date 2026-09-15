@@ -24,9 +24,11 @@ const root = base ? `${base}/` : '/';
     <Image
       src={kilianPetersImage}
       alt={t.about.imageAlt}
-      class="bg-neutrals-800 h-full max-h-svh object-cover object-center grayscale transition-[filter] duration-500 hover:grayscale-0 lg:col-start-1 lg:col-end-3"
+      class="bg-neutrals-800 h-full max-h-svh object-cover object-top contrast-105 grayscale transition-[filter] duration-500 hover:grayscale-0 lg:col-start-1 lg:col-end-3"
     />
-    <div class="w-full py-28 max-lg:mx-auto max-lg:w-11/12 max-lg:max-w-7xl lg:ps-10 xl:ps-20">
+    <div
+      class="w-full pt-14 pb-28 max-lg:mx-auto max-lg:w-11/12 max-lg:max-w-7xl lg:py-28 lg:ps-10 xl:ps-20"
+    >
       <Caption id="about-heading">{t.about.caption}</Caption>
       <TypingHeading
         client:visible
