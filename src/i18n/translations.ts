@@ -151,6 +151,7 @@ export type Translations = {
     backToProjects: string;
     viewProject: string;
     viewSourceCode: string;
+    viewCollaborator: string;
     relatedCaption: string;
     relatedHeading: string;
   };
@@ -390,6 +391,7 @@ export const en: Translations = {
     backToProjects: 'Back to projects',
     viewProject: 'View project',
     viewSourceCode: 'View source code',
+    viewCollaborator: 'View collaborator',
     relatedCaption: 'Similar projects',
     relatedHeading: 'Discover new worlds',
   },
@@ -617,6 +619,7 @@ export const de: Translations = {
     backToProjects: 'Zurück zu den Projekten',
     viewProject: 'Projekt ansehen',
     viewSourceCode: 'Quellcode ansehen',
+    viewCollaborator: 'Collaborator ansehen',
     relatedCaption: 'Ähnliche Projekte',
     relatedHeading: 'Entdecke neue Welten',
   },

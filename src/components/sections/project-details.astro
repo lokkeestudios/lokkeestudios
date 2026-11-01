@@ -102,6 +102,24 @@ const root = base ? `${base}/` : '/';
             </Button>
           )
         }
+        {
+          project.collaboratorurl && (
+            <Button
+              as="a"
+              href={project.collaboratorurl}
+              rel="noreferrer"
+              target="_blank"
+              size="small"
+              isGhost
+            >
+              <Icons.User
+                aria-hidden
+                className="me-2 size-5"
+              />{' '}
+              {t.project.viewCollaborator}
+            </Button>
+          )
+        }
       </div>
     </div>
     {

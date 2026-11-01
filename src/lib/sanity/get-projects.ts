@@ -41,6 +41,7 @@ type Project = {
   tags?: string[];
   githuburl?: string;
   projecturl?: string;
+  collaboratorurl?: string;
 };
 
 const projectQuery = groq`
@@ -50,7 +51,7 @@ const projectQuery = groq`
     "description": coalesce(description[$locale], description.en),
     slug, date,
     tags,
-    projecturl, githuburl,
+    projecturl, githuburl, collaboratorurl,
     "poster": poster {
       ...,
       "alt": coalesce(alt[$locale], alt.en),

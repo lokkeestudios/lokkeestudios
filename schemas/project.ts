@@ -185,6 +185,11 @@ const projectSchema = defineType({
       title: 'GitHub url',
       type: 'url',
     }),
+    defineField({
+      name: 'collaboratorurl',
+      title: 'Collaborator url',
+      type: 'url',
+    }),
   ],
   preview: {
     select: {

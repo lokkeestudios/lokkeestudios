@@ -58,8 +58,8 @@ const { section, previousSectionType, nextSectionType } = Astro.props as any;
               alt={image.alt}
               class={cn(
                 'w-full sm:rounded-lg',
-                previousSectionType === 'image' && 'rounded-t-none',
-                nextSectionType === 'image' && 'rounded-b-none',
+                previousSectionType === 'image' && 'rounded-t-none!',
+                nextSectionType === 'image' && 'rounded-b-none!',
               )}
               style={{
                 backgroundColor: image.asset.metadata.palette.dominant.background,
